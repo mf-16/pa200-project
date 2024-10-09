@@ -1,0 +1,16 @@
+﻿				
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{CBA4FD54-AFB9-428E-8FEA-DC57696AD06A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBA4FD54-AFB9-428E-8FEA-DC57696AD06A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBA4FD54-AFB9-428E-8FEA-DC57696AD06A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBA4FD54-AFB9-428E-8FEA-DC57696AD06A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBA4FD54-AFB9-428E-8FEA-DC57696AD06A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
