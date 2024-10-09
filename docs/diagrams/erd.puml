@@ -1,0 +1,125 @@
+@startuml
+
+entity "User" as U {
+    *Id : INT <<PK>>
+    --
+    Name : VARCHAR 
+    UserName : VARCHAR
+    PhoneNumber : VARCHAR
+    Email : VARCHAR
+    PasswordHash : VARCHAR
+    Role : Role <<ENUM>>
+}
+
+entity "Book" as B {
+    *Id : INT <<PK>>
+    --
+    Title : VARCHAR
+    Genre : Genre <<ENUM>>
+    Price : DECIMAL
+    ImagePath: VARCHAR
+    AuthorId : INT <<FK>>   
+    PublisherId : INT <<FK>>
+}
+
+entity "Publisher" as P {
+    *Id : INT <<PK>>
+    --
+    Name : VARCHAR
+    Bio: TEXT
+}
+
+entity "Author" as A {
+    *Id : INT <<PK>>
+    --
+    Name : VARCHAR
+    Bio : TEXT
+}
+
+entity "WishlistItem" as W {
+    *Id : INT <<PK>>
+    --
+    UserId : INT <<FK>>
+    BookId : INT <<FK>>
+}
+
+entity "Review" as R {
+    *Id : INT <<PK>>
+    --
+    UserId : INT <<FK>>
+    BookId : INT <<FK>>
+    Rating : INT
+    Comment : TEXT
+}
+
+entity "Cart" as C {
+    *Id : INT <<PK>>
+    --
+    UserId : INT <<FK>>
+    OrderDate : DATE
+    OrderStatus : OrderStatus <<ENUM>>
+}
+
+entity "Order" as O {
+    *Id : INT <<PK>>                        
+    --
+    UserId : INT <<FK>>                     
+    OrderDate : DATETIME                    
+    TotalAmount : DECIMAL                   
+    CustomerName : VARCHAR             
+    ShippingAddress : VARCHAR          
+    BillingAddress : VARCHAR                          
+    Email : VARCHAR                    
+}
+
+entity "CartItem" as CI {
+    *Id : INT <<PK>>
+    --
+    CartId : INT <<FK>>               
+    BookId : INT <<FK>>               
+    Quantity : INT                    
+}
+
+entity "OrderItem" as OI {
+    *Id : INT <<PK>>                   
+    --
+    OrderId : INT <<FK>>               
+    BookId : INT <<FK>>                
+    Quantity : INT                     
+    Price : DECIMAL                    
+}
+
+enum Role {
+    Admin
+    Customer  
+}
+
+enum Genre {
+  Fiction
+  Mystery
+  ScienceFiction
+  Fantasy
+  Biography
+  Romance
+  Thriller
+  Horror
+  Historical
+}
+
+U ||--o{ W 
+U ||--o{ R
+
+U ||--|| C 
+C ||--o{ CI 
+B ||--o{ CI 
+
+O ||--o{ OI 
+B ||--o{ OI
+
+B ||--o{ W 
+B ||--o{ R 
+U |o--o{ O
+A ||--o{ B
+P ||--o{ B 
+
+@enduml
