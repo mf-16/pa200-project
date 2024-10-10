@@ -1,0 +1,28 @@
+default:
+  image: mcr.microsoft.com/dotnet/sdk:8.0
+  tags:
+    - shared-fi
+
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+
+stages:
+  - lint
+  - build
+
+lint:
+  stage: lint
+  script:    
+    - echo "Restoring dotnet tools..."
+    - dotnet tool restore 
+    - echo "Running CSharpier to check formatting..."
+    - dotnet csharpier --check .
+
+build:
+  stage: build
+  script:
+    - echo "Restoring dependencies and building the project..."
+    - dotnet restore
+    - dotnet build --configuration Release
