@@ -4,7 +4,6 @@ namespace DataAccessLayer.Data;
 
 public class BookHubDbContext : DbContext
 {
-    public BookHubDbContext(DbContextOptions options) : base(options)
-    {
-    }
+    public BookHubDbContext(DbContextOptions options)
+        : base(options) { }
 }

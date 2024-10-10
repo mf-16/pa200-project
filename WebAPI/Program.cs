@@ -11,10 +11,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-
 builder.Services.AddDbContext<BookHubDbContext>(options =>
-    options.UseNpgsql(builder.Configuration["CONN_STRING"]));
-
+    options.UseNpgsql(builder.Configuration["CONN_STRING"])
+);
 
 var app = builder.Build();
 
