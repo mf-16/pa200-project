@@ -14,7 +14,9 @@ stages:
 
 lint:
   stage: lint
-  script:
+  script:    
+    - echo "Restoring dotnet tools..."
+    - dotnet tool restore 
     - echo "Running CSharpier to check formatting..."
     - dotnet csharpier --check .
 
