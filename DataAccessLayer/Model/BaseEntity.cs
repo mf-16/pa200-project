@@ -23,6 +23,5 @@ namespace DataAccessLayer.Model
         {
             UpdatedDate = DateTime.UtcNow;
         }
-
     }
 }
