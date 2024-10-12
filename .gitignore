@@ -36,5 +36,4 @@ msbuild.wrn
 # Visual Studio 2015
 .vs/
 
-WebAPI/appsettings.json
-WebAPI/appsettings.Development.json
+.env
