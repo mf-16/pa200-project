@@ -1,4 +1,6 @@
 using DataAccessLayer.Data;
+using DataAccessLayer.Model;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,8 +14,12 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BookHubDbContext>(options =>
-    options.UseNpgsql(builder.Configuration["CONN_STRING"])
+    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
+
+builder.Services.AddIdentity<User, UserRole>()
+    .AddEntityFrameworkStores<BookHubDbContext>()
+    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 
