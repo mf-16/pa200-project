@@ -17,7 +17,8 @@ builder.Services.AddDbContext<BookHubDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
 );
 
-builder.Services.AddIdentity<User, UserRole>()
+builder
+    .Services.AddIdentity<User, UserRole>()
     .AddEntityFrameworkStores<BookHubDbContext>()
     .AddDefaultTokenProviders();
 

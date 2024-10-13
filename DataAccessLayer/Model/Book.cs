@@ -1,6 +1,3 @@
 namespace DataAccessLayer.Model;
 
-public class Book : BaseEntity
-{
-    
-}
+public class Book : BaseEntity { }

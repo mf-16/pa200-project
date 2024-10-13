@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.Data;
 
-public class BookHubDbContext : IdentityDbContext<User,UserRole,int>
+public class BookHubDbContext : IdentityDbContext<User, UserRole, int>
 {
     DbSet<Author> Authors { get; set; }
     DbSet<Book> Books { get; set; }

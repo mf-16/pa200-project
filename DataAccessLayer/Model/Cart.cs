@@ -1,6 +1,3 @@
 namespace DataAccessLayer.Model;
 
-public class Cart: BaseEntity
-{
-    
-}
+public class Cart : BaseEntity { }

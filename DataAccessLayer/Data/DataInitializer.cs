@@ -1,6 +1,6 @@
-using Microsoft.EntityFrameworkCore;
 using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataAccessLayer.Data
 {
@@ -10,27 +10,25 @@ namespace DataAccessLayer.Data
         {
             // Seed users
             var users = PrepairUserModels();
-            modelBuilder.Entity<User>()
-                .HasData(users);
+            modelBuilder.Entity<User>().HasData(users);
 
             // Seed roles
             var roles = PrepareUserRoleModels();
-            modelBuilder.Entity<UserRole>()
-                .HasData(roles);
-            
+            modelBuilder.Entity<UserRole>().HasData(roles);
+
             // Give roles to users
-            modelBuilder.Entity<IdentityUserRole<int>>().HasData(
-                new IdentityUserRole<int> { UserId = 1, RoleId = 1 }, 
-                new IdentityUserRole<int> { UserId = 2, RoleId = 2 } 
-            );
-            
-            
+            modelBuilder
+                .Entity<IdentityUserRole<int>>()
+                .HasData(
+                    new IdentityUserRole<int> { UserId = 1, RoleId = 1 },
+                    new IdentityUserRole<int> { UserId = 2, RoleId = 2 }
+                );
         }
 
         private static List<User> PrepairUserModels()
         {
             var passwordHasher = new PasswordHasher<User>();
-            
+
             return new List<User>()
             {
                 new User()
@@ -43,9 +41,7 @@ namespace DataAccessLayer.Data
                     PasswordHash = passwordHasher.HashPassword(null, "admin"),
                     SecurityStamp = Guid.NewGuid().ToString(),
                     PhoneNumber = "0123456987",
-                    
                 },
-
                 new User()
                 {
                     Id = 2,
@@ -59,15 +55,24 @@ namespace DataAccessLayer.Data
                 },
             };
         }
+
         private static List<UserRole> PrepareUserRoleModels()
         {
             return new List<UserRole>()
             {
-                new UserRole { Id = 1, Name = "Admin", NormalizedName = "ADMIN" },
-                new UserRole { Id = 2, Name = "User", NormalizedName = "USER" },
+                new UserRole
+                {
+                    Id = 1,
+                    Name = "Admin",
+                    NormalizedName = "ADMIN",
+                },
+                new UserRole
+                {
+                    Id = 2,
+                    Name = "User",
+                    NormalizedName = "USER",
+                },
             };
         }
-
     }
-    
 }

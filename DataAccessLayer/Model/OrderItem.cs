@@ -1,6 +1,3 @@
 namespace DataAccessLayer.Model;
 
-public class OrderItem: BaseEntity
-{
-    
-}
+public class OrderItem : BaseEntity { }
