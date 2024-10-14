@@ -8,7 +8,6 @@ public class BookHubDbContext : IdentityDbContext<User, UserRole, int>
 {
     DbSet<Author> Authors { get; set; }
     DbSet<Book> Books { get; set; }
-    DbSet<BookGenre> BookGenres { get; set; }
     DbSet<Cart> Carts { get; set; }
     DbSet<CartItem> CartItems { get; set; }
     DbSet<Order> Orders { get; set; }

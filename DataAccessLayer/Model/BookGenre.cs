@@ -1,6 +1,14 @@
 namespace DataAccessLayer.Model;
 
-public class BookGenre : BaseEntity
+public enum BookGenre
 {
-    public string Name { get; set; }
+    Fiction,
+    Mystery,
+    ScienceFiction,
+    Fantasy,
+    Biography,
+    Romance,
+    Thriller,
+    Horror,
+    Historical,
 }
