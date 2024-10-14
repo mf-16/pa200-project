@@ -9,7 +9,7 @@ namespace DataAccessLayer.Data
         public static void Seed(this ModelBuilder modelBuilder)
         {
             // Seed users
-            var users = PrepairUserModels();
+            var users = PrepareUserModels();
             modelBuilder.Entity<User>().HasData(users);
 
             // Seed roles
@@ -23,9 +23,80 @@ namespace DataAccessLayer.Data
                     new IdentityUserRole<int> { UserId = 1, RoleId = 1 },
                     new IdentityUserRole<int> { UserId = 2, RoleId = 2 }
                 );
+            //Seed books
+            var books = PrepareBooks();
+            modelBuilder.Entity<Book>().HasData(books);
+
+            //Seed orders
+            var orders = PrepareOrders(users[1]);
+            modelBuilder.Entity<Order>().HasData(orders);
+
+            //Seed order items
+            var orderItems = PrepareOrderItems(orders);
+            modelBuilder.Entity<OrderItem>().HasData(orderItems);
         }
 
-        private static List<User> PrepairUserModels()
+        private static List<Book> PrepareBooks()
+        {
+            var books = new List<Book>();
+            for (int i = 1; i < 20; i++)
+            {
+                books.Add(new Book() { Id = i });
+            }
+            return books;
+        }
+
+        private static List<OrderItem> PrepareOrderItems(List<Order> orders)
+        {
+            var random = new Random();
+            var orderItems = new List<OrderItem>();
+
+            foreach (var order in orders)
+            {
+                for (int j = 1; j <= 5; j++)
+                {
+                    var orderItem = new OrderItem()
+                    {
+                        Id = (order.Id - 1) * 5 + j,
+                        OrderId = order.Id,
+                        BookId = random.Next(1, 21),
+                        Quantity = random.Next(1, 4),
+                        Price = random.Next(50, 100),
+                    };
+
+                    orderItems.Add(orderItem);
+                    order.TotalAmount += orderItem.Quantity * orderItem.Price;
+                }
+            }
+
+            return orderItems;
+        }
+
+        private static List<Order> PrepareOrders(User user, int numberOfOrders = 3)
+        {
+            var random = new Random();
+            var orders = new List<Order>();
+
+            for (int i = 1; i <= numberOfOrders; i++)
+            {
+                var order = new Order
+                {
+                    Id = i,
+                    UserId = user.Id,
+                    CustomerName = user.Name,
+                    CustomerEmail = user.Email ?? "user@email.com",
+                    ShippingAddress = "123 Main St, City, Country",
+                    BillingAddress = "123 Main St, City, Country",
+                    TotalAmount = 0,
+                };
+
+                orders.Add(order);
+            }
+
+            return orders;
+        }
+
+        private static List<User> PrepareUserModels()
         {
             var passwordHasher = new PasswordHasher<User>();
 
@@ -36,6 +107,7 @@ namespace DataAccessLayer.Data
                     Id = 1,
                     UserName = "admin",
                     NormalizedUserName = "ADMIN",
+                    Name = "Admin",
                     Email = "admin@admin.com",
                     EmailConfirmed = true,
                     PasswordHash = passwordHasher.HashPassword(null, "admin"),
@@ -47,6 +119,7 @@ namespace DataAccessLayer.Data
                     Id = 2,
                     UserName = "user",
                     NormalizedUserName = "USER",
+                    Name = "Jonh Doe",
                     Email = "user@user.com",
                     EmailConfirmed = true,
                     PasswordHash = passwordHasher.HashPassword(null, "user"),
