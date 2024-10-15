@@ -1,3 +1,10 @@
-namespace DataAccessLayer.Model;
+namespace DataAccessLayer.Model
+{
+    public class Author : BaseEntity
+    {
+        public required string Name { get; set; }
+        public string Bio { get; set; }
 
-public class Author : BaseEntity { }
+        public ICollection<Book> Books { get; set; }
+    }
+}
