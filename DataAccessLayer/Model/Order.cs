@@ -3,7 +3,7 @@ namespace DataAccessLayer.Model;
 public class Order : BaseEntity
 {
     public int UserId { get; set; }
-    public User User { get; set; }
+    public virtual User User { get; set; }
     public decimal TotalAmount { get; set; }
     public string CustomerName { get; set; }
     public string CustomerEmail { get; set; }
