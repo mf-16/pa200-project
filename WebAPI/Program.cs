@@ -1,5 +1,6 @@
 using DataAccessLayer.Data;
 using DataAccessLayer.Model;
+using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,8 +15,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<BookHubDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"))
+    options
+        .UseNpgsql(
+            builder.Configuration.GetConnectionString("DefaultConnection"),
+            b => b.MigrationsAssembly("DAL.PostgreSQL.Migrations")
+        )
+        .UseLazyLoadingProxies()
 );
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder
     .Services.AddIdentity<User, UserRole>()
