@@ -1,5 +1,6 @@
 using DataAccessLayer.Data;
 using DataAccessLayer.Model;
+using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,7 @@ builder.Services.AddDbContext<BookHubDbContext>(options =>
         )
         .UseLazyLoadingProxies()
 );
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder
     .Services.AddIdentity<User, UserRole>()

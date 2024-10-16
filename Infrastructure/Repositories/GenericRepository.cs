@@ -1,8 +1,7 @@
-using BusinessLayer.Repositories;
 using DataAccessLayer.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace DataAccessLayer.Repositories;
+namespace Infrastructure.Repositories;
 
 public class GenericRepository<T> : IRepository<T>
     where T : class

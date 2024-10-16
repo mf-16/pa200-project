@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL.PostgreSQL.Migrations", "DAL.PostgreSQL.Migrations\DAL.PostgreSQL.Migrations.csproj", "{4283F9E5-8FBA-4A48-A52A-A129BFB373C0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Infrastructure\Infrastructure.csproj", "{C390DCF5-AC41-4C93-BAE2-E34FA54B013C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{4283F9E5-8FBA-4A48-A52A-A129BFB373C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4283F9E5-8FBA-4A48-A52A-A129BFB373C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4283F9E5-8FBA-4A48-A52A-A129BFB373C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C390DCF5-AC41-4C93-BAE2-E34FA54B013C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C390DCF5-AC41-4C93-BAE2-E34FA54B013C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C390DCF5-AC41-4C93-BAE2-E34FA54B013C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C390DCF5-AC41-4C93-BAE2-E34FA54B013C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

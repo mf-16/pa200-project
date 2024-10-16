@@ -1,10 +1,8 @@
-using BusinessLayer.Repositories;
-using BusinessLayer.UnitOfWork;
 using DataAccessLayer.Data;
 using DataAccessLayer.Model;
-using DataAccessLayer.Repositories;
+using Infrastructure.Repositories;
 
-namespace DataAccessLayer.UnitOfWork;
+namespace Infrastructure.UnitOfWork;
 
 public class UnitOfWork : IUnitOfWork
 {
