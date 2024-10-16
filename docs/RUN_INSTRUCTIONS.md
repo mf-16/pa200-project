@@ -59,7 +59,7 @@ docker compose up
 To ensure that the database you created is correctly configured for the application to run, you need to migrate the database using the following command:
 
 ```
-dotnet ef database update --project ./DataAccessLayer/DataAccessLayer.csproj --startup-project ./WebAPI/WebAPI.csproj -- --environment <YOUR_ENV>
+dotnet ef database update --project ./DAL.PostgreSQL.Migrations/DAL.PostgreSQL.Migrations.csproj --startup-project ./WebAPI/WebAPI.csproj -- --environment <YOUR_ENV>
 ```
 
 
