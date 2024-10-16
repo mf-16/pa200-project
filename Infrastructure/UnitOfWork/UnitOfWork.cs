@@ -21,16 +21,16 @@ public class UnitOfWork : IUnitOfWork
     public UnitOfWork(BookHubDbContext context)
     {
         _context = context;
-        BookRepository = new GenericRepository<Book>(_context);
-        UserRepository = new GenericRepository<User>(_context);
-        AuthorRepository = new GenericRepository<Author>(_context);
-        PublisherRepository = new GenericRepository<Publisher>(_context);
-        OrderRepository = new GenericRepository<Order>(_context);
-        OrderItemRepository = new GenericRepository<OrderItem>(_context);
-        WishlistItemRepository = new GenericRepository<WishlistItem>(_context);
-        ReviewRepository = new GenericRepository<Review>(_context);
-        CartRepository = new GenericRepository<Cart>(_context);
-        CartItemRepository = new GenericRepository<CartItem>(_context);
+        BookRepository = new Repository<Book>(_context);
+        UserRepository = new Repository<User>(_context);
+        AuthorRepository = new Repository<Author>(_context);
+        PublisherRepository = new Repository<Publisher>(_context);
+        OrderRepository = new Repository<Order>(_context);
+        OrderItemRepository = new Repository<OrderItem>(_context);
+        WishlistItemRepository = new Repository<WishlistItem>(_context);
+        ReviewRepository = new Repository<Review>(_context);
+        CartRepository = new Repository<Cart>(_context);
+        CartItemRepository = new Repository<CartItem>(_context);
     }
 
     public async void Commit()

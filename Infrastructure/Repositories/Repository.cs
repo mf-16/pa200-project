@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
 
-public class GenericRepository<T> : IRepository<T>
+public class Repository<T> : IRepository<T>
     where T : class
 {
     private readonly DbSet<T> _entities;
 
-    public GenericRepository(BookHubDbContext context)
+    public Repository(BookHubDbContext context)
     {
         _entities = context.Set<T>();
     }
