@@ -33,7 +33,8 @@ public class OrderService : IOrderService
     public async Task<ResponseOrderDto> GetOrderByIdAsync(int id)
     {
         var order = await _unitOfWork.OrderRepository.GetByIdAsync(id);
-        if (order is null) throw new NotFoundException("Order", id);
+        if (order is null)
+            throw new NotFoundException("Order", id);
         return _mapper.Map<ResponseOrderDto>(order);
     }
 

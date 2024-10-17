@@ -35,7 +35,7 @@ public class CartItemService : ICartItemService
     public async Task<ResponseCartItemDto> GetCartItemAsync(int id)
     {
         var cartItem = await _unitOfWork.CartItemRepository.GetByIdAsync(id);
-        
+
         if (cartItem == null)
         {
             throw new NotFoundException("CartItem", id);
