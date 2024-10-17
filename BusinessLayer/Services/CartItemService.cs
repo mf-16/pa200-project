@@ -22,7 +22,7 @@ public class CartItemService : ICartItemService
     {
         if (await _unitOfWork.BookRepository.GetByIdAsync(addCartItemDto.BookId) == null)
         {
-            throw new BookNotFoundException(addCartItemDto.BookId);
+            throw new NotFoundException("Book", addCartItemDto.BookId);
         }
 
         var cartItem = _mapper.Map<CartItem>(addCartItemDto);
@@ -39,7 +39,7 @@ public class CartItemService : ICartItemService
         );
         if (response == null)
         {
-            throw new CartItemNotFoundException(id);
+            throw new NotFoundException("CartItem", id);
         }
         return response;
     }
@@ -49,7 +49,7 @@ public class CartItemService : ICartItemService
         var carItem = await _unitOfWork.CartItemRepository.GetByIdAsync(id);
         if (carItem == null)
         {
-            throw new CartItemNotFoundException(id);
+            throw new NotFoundException("CartItem", id);
         }
         _unitOfWork.CartItemRepository.Delete(carItem);
         await _unitOfWork.CommitAsync();
@@ -63,7 +63,7 @@ public class CartItemService : ICartItemService
 
         if (cartItem == null)
         {
-            throw new CartItemNotFoundException(updateCartItemDto.CartItemId);
+            throw new NotFoundException("CartItem", updateCartItemDto.CartItemId);
         }
 
         cartItem.Quantity = updateCartItemDto.Quantity;

@@ -22,7 +22,7 @@ public class OrderService : IOrderService
     {
         var cart = await _unitOfWork.CartRepository.GetByIdAsync(addOrderDto.CartId);
         if (cart is null)
-            throw new CartNotFoundException(addOrderDto.CartId);
+            throw new NotFoundException("Cart", addOrderDto.CartId);
         var order = MapAddOrderDtoToOrder(addOrderDto, cart);
         await _unitOfWork.OrderRepository.AddAsync(order);
         _unitOfWork.CartItemRepository.DeleteRange(cart.CartItems);
