@@ -33,7 +33,7 @@ public class UnitOfWork : IUnitOfWork
         CartItemRepository = new Repository<CartItem>(_context);
     }
 
-    public async void Commit()
+    public async Task CommitAsync()
     {
         await _context.SaveChangesAsync();
     }

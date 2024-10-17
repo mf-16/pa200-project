@@ -15,5 +15,5 @@ public interface IUnitOfWork
     IRepository<Review> ReviewRepository { get; }
     IRepository<Cart> CartRepository { get; }
     IRepository<CartItem> CartItemRepository { get; }
-    void Commit();
+    Task CommitAsync();
 }
