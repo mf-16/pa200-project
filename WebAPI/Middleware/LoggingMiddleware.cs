@@ -13,10 +13,9 @@ public class LoggingMiddleware
 
     public async Task InvokeAsync(HttpContext context)
     {
-        
-        _logger.LogInformation($"Received request: {context.Request.Method} {context.Request.Path}");
+        _logger.LogInformation(
+            $"Received request: {context.Request.Method} {context.Request.Path}"
+        );
         await _next(context);
-        
-        
     }
 }
