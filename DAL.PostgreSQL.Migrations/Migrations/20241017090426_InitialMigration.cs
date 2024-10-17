@@ -414,10 +414,9 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                             "Npgsql:ValueGenerationStrategy",
                             NpgsqlValueGenerationStrategy.IdentityByDefaultColumn
                         ),
-                    OrderId = table.Column<int>(type: "integer", nullable: false),
+                    CartId = table.Column<int>(type: "integer", nullable: false),
                     BookId = table.Column<int>(type: "integer", nullable: false),
                     Quantity = table.Column<int>(type: "integer", nullable: false),
-                    CartId = table.Column<int>(type: "integer", nullable: true),
                     CreatedDate = table.Column<DateTime>(
                         type: "timestamp with time zone",
                         nullable: false
@@ -442,12 +441,6 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         name: "FK_CartItems_Carts_CartId",
                         column: x => x.CartId,
                         principalTable: "Carts",
-                        principalColumn: "Id"
-                    );
-                    table.ForeignKey(
-                        name: "FK_CartItems_Orders_OrderId",
-                        column: x => x.OrderId,
-                        principalTable: "Orders",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade
                     );
@@ -620,7 +613,7 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                     {
                         1,
                         0,
-                        "fd6fc7dc-bda2-438a-9dde-0f7f73b3b506",
+                        "497a9e42-e9b8-4e5e-a822-e66c288d24c2",
                         "admin@admin.com",
                         true,
                         false,
@@ -628,17 +621,17 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         "Admin",
                         null,
                         "ADMIN",
-                        "AQAAAAIAAYagAAAAEHFEGk5lSP7kyKlEldAV6jaydzK+lIKYD5E+f3ceSSywyMTFV2ijWHTD7YDwlDA+Yg==",
+                        "AQAAAAIAAYagAAAAEPD3CZvtC3tU+IO+QfcZwqj37a7eDD39GMiTQDb8UFphyyTwTR1B3mHXy8ROogAQZQ==",
                         "0123456987",
                         false,
-                        "540237e7-8f09-462f-ae5f-5a928652b092",
+                        "546ce559-6643-455b-90e8-c380be3dd6ef",
                         false,
                         "admin",
                     },
                     {
                         2,
                         0,
-                        "f8a31bd1-ff8b-44df-93eb-3153f6e1eb39",
+                        "a536b094-3446-48b8-bc4f-c08801dbdcf3",
                         "user@user.com",
                         true,
                         false,
@@ -646,10 +639,10 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         "Jonh Doe",
                         null,
                         "USER",
-                        "AQAAAAIAAYagAAAAEHmDCBnN6QJSXns50B6+zQialmNHiXrwW6w+pEE0567QbELZT+ivcUWh0wAvl0xNrw==",
+                        "AQAAAAIAAYagAAAAEK2E60c5e/+t+4ZJnojuxYY9BupfArERL4iKBLZ7LMxK/a0F2Vts3LvSsM+SQBAy7g==",
                         "0123456789",
                         false,
-                        "b29bf609-c0a3-4961-a254-95be4aba6e22",
+                        "30668007-221f-46d0-8d0d-8fd93bdd5365",
                         false,
                         "user",
                     },
@@ -663,102 +656,82 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                 {
                     {
                         1,
-                        "Aliquid eligendi deserunt quia molestiae expedita eveniet odio impedit. Inventore ipsa animi quo. Aut aut vel et autem ut iste optio. Dolores velit similique. Harum eaque aut ea eveniet. Blanditiis asperiores et aliquid in deleniti qui dolor sint.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(
-                            3846
-                        ),
+                        "Sunt nulla dignissimos optio expedita necessitatibus explicabo nesciunt. Quod enim sit est vel et est recusandae dolorum consequatur. Accusamus illo accusantium omnis est. Itaque in et expedita dolor.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 807, DateTimeKind.Utc).AddTicks(7021),
                         false,
-                        "Kendall Moore",
+                        "Guiseppe Bernhard",
                         null,
                     },
                     {
                         2,
-                        "Debitis dignissimos id similique ut totam soluta accusamus. Deserunt nihil ut placeat laudantium reiciendis quis repellendus. Eos officiis consequuntur eligendi. Cumque blanditiis voluptatem eos.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(
-                            4550
-                        ),
+                        "Quo vel et eum. Dolore ea explicabo totam quos omnis non autem possimus. Est sunt eligendi porro molestiae inventore earum. In qui aspernatur maiores labore tempora ex hic. Quisquam aut quam sed ut libero qui.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 807, DateTimeKind.Utc).AddTicks(7908),
                         false,
-                        "Henry Adams",
+                        "Justen Kunde",
                         null,
                     },
                     {
                         3,
-                        "Sit voluptas nesciunt id rerum. Perferendis non ipsum quibusdam ea provident ut provident temporibus nihil. At rerum vero aut vel impedit vitae magnam voluptatem expedita. Accusamus dolores nobis nemo. Sed praesentium repellendus.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(
-                            4694
-                        ),
+                        "Nulla excepturi cupiditate ratione. Recusandae et necessitatibus fugiat dolores quia praesentium necessitatibus. Tempora recusandae rem nisi magnam dolor debitis placeat est. Aut autem fuga saepe quaerat aut esse.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 807, DateTimeKind.Utc).AddTicks(8199),
                         false,
-                        "Leda Cruickshank",
+                        "Raleigh Schulist",
                         null,
                     },
                     {
                         4,
-                        "Quod velit iusto culpa corporis ducimus et dolores. Sint et ipsum. Possimus nulla illum totam natus et cumque.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(
-                            4953
-                        ),
+                        "Eveniet qui corporis dolorem reiciendis sit. Fugit in earum. Quibusdam vitae officiis pariatur ut quia autem repellendus eos.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 807, DateTimeKind.Utc).AddTicks(8628),
                         false,
-                        "Eunice Kshlerin",
+                        "Forrest Walker",
                         null,
                     },
                     {
                         5,
-                        "Accusantium et nulla sint aspernatur reiciendis repudiandae ratione. Officiis deserunt molestiae reprehenderit autem dolore. Temporibus voluptatum sunt eveniet corporis ducimus. Possimus et saepe voluptatem eaque iure. Consectetur molestiae modi.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(
-                            5050
-                        ),
+                        "Suscipit blanditiis et. Incidunt facilis qui molestiae vitae incidunt repellendus. Officia iusto ratione enim alias animi rerum.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(663),
                         false,
-                        "Amara Schimmel",
+                        "Hobart Braun",
                         null,
                     },
                     {
                         6,
-                        "Dignissimos a ratione et consectetur maxime incidunt. Dignissimos velit eos. Vero in accusamus optio debitis et inventore asperiores exercitationem et. Voluptatem est sapiente non. Distinctio consequatur asperiores laudantium. Ullam est accusamus rerum in beatae iste sunt iste nihil.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(
-                            5143
-                        ),
+                        "Fuga corporis expedita odio voluptatem. Veritatis totam officia accusantium vitae mollitia dolores. Delectus et aperiam veniam adipisci deserunt laudantium.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(742),
                         false,
-                        "Luz Goodwin",
+                        "Conor Runolfsson",
                         null,
                     },
                     {
                         7,
-                        "Atque corporis impedit consequatur rem voluptatibus error. Quo eos voluptatibus fugiat. Quia voluptatem a. Est et facilis odit distinctio. Delectus soluta doloremque quo nostrum necessitatibus quisquam placeat id dolor. Consequuntur quia non.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(
-                            5284
-                        ),
+                        "Modi minus magni fuga perferendis et. Sit est quis. Qui commodi praesentium est sequi voluptatem animi. Molestias et illum qui numquam rerum. Nesciunt sed praesentium facere doloremque.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(831),
                         false,
-                        "Elizabeth Schultz",
+                        "Zane Pollich",
                         null,
                     },
                     {
                         8,
-                        "Quia dignissimos natus et velit magni non minima et. Quaerat cum nisi. Reprehenderit tenetur illum sit provident autem et aliquam.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(
-                            5414
-                        ),
+                        "Veritatis nesciunt quo incidunt eveniet perspiciatis corporis ea alias minima. Deleniti sunt iusto ducimus nulla esse qui et autem. Dicta quidem voluptatum. Et totam sed.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(981),
                         false,
-                        "Cassie Greenholt",
+                        "Kenyatta Morar",
                         null,
                     },
                     {
                         9,
-                        "Ea consequatur earum repellendus quis dignissimos voluptatum consequatur reprehenderit. Voluptatibus sed accusantium quae et. Eum dolores et at minima quos quia vero corporis. Esse dicta ratione ipsa consequatur similique. Beatae perferendis est saepe occaecati reiciendis fugit.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(
-                            5481
-                        ),
+                        "Provident nisi libero provident et praesentium aut ipsam est. Voluptatum quidem facilis modi consequatur exercitationem tenetur. Et est deleniti incidunt culpa. Molestias velit et quod natus id ullam.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(1114),
                         false,
-                        "Prudence Harris",
+                        "Queenie Hilll",
                         null,
                     },
                     {
                         10,
-                        "Odit recusandae sit ipsum ipsum est cum doloremque illo soluta. Enim aliquam et molestiae et maxime. Quia est officia quia omnis aut qui et a repellendus. Non magni placeat quos aut est.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(
-                            5646
-                        ),
+                        "Illo maiores sint et eum rem aspernatur aliquid iure. Ea eos porro id ut. In omnis sapiente non voluptatem dolore quam nulla numquam. Dicta velit amet nemo nisi iusto rerum quaerat ipsum. Atque vel recusandae ut.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(1228),
                         false,
-                        "Garfield Wehner",
+                        "Layla Von",
                         null,
                     },
                 }
@@ -771,52 +744,42 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                 {
                     {
                         1,
-                        "Id culpa nemo nihil adipisci. Aliquid sed eos rerum autem aliquid hic eaque. Quidem natus tempore quia ut. Qui nobis non quisquam aperiam facilis omnis.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 166, DateTimeKind.Utc).AddTicks(
-                            5616
-                        ),
+                        "Beatae asperiores facere in alias occaecati quam. Laudantium porro cumque ipsum voluptatem autem aut. Minus omnis aliquid laborum.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 810, DateTimeKind.Utc).AddTicks(3186),
                         false,
-                        "Davis Group",
+                        "Walter - Schoen",
                         null,
                     },
                     {
                         2,
-                        "Beatae deleniti repudiandae blanditiis cum saepe iure. Labore et rem minima cum quia eum ipsa autem. Autem aliquid non ad. Laboriosam vitae labore perspiciatis quis voluptatem nam et eum.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 166, DateTimeKind.Utc).AddTicks(
-                            6487
-                        ),
+                        "Magnam veritatis voluptatibus ut aliquid quos dolores. Aperiam neque cupiditate aut et. Magni dolor facere voluptatum explicabo enim qui dolores ipsum.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 810, DateTimeKind.Utc).AddTicks(4024),
                         false,
-                        "O'Connell, Runte and Beier",
+                        "Toy - Gutkowski",
                         null,
                     },
                     {
                         3,
-                        "Tempora qui consequuntur in. Veniam est aspernatur quibusdam. In quae itaque suscipit pariatur dolore sint.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 166, DateTimeKind.Utc).AddTicks(
-                            6824
-                        ),
+                        "Quasi facere laborum non provident sint fugiat natus. Sapiente dignissimos voluptatem quam pariatur. Est minus voluptatem debitis explicabo consequuntur.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 810, DateTimeKind.Utc).AddTicks(4267),
                         false,
-                        "Braun, DuBuque and Lehner",
+                        "Homenick - Bradtke",
                         null,
                     },
                     {
                         4,
-                        "Ut et iste ut est et nesciunt. Consequatur laboriosam velit voluptas dolores itaque nam quia eos perspiciatis. Nostrum exercitationem quia accusantium ad est mollitia. Quis ipsam mollitia ea. Alias debitis perferendis iusto et est facere similique accusamus sed.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 166, DateTimeKind.Utc).AddTicks(
-                            6987
-                        ),
+                        "Ea incidunt asperiores vel cumque est cupiditate. Iste aut et voluptates quis eum aut reiciendis. Quam similique reiciendis. Et nobis dolor qui et magni. Voluptatem animi sunt sed.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 810, DateTimeKind.Utc).AddTicks(4497),
                         false,
-                        "Kihn - Schiller",
+                        "Mohr, Rowe and Schaden",
                         null,
                     },
                     {
                         5,
-                        "Sunt porro est sequi accusamus aut ut cumque eveniet. Perferendis totam in iure provident facilis qui nobis. Blanditiis quas numquam ut. Nihil voluptas consequatur porro consequuntur accusamus. Sequi aut quia autem expedita.",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 166, DateTimeKind.Utc).AddTicks(
-                            7168
-                        ),
+                        "Aperiam laboriosam consectetur vitae nihil nam dolor. Quibusdam ut qui quibusdam voluptates in accusantium blanditiis eum ratione. Repudiandae quo harum esse ex voluptatem sed quasi. Sint voluptate esse dignissimos dolores non quia. Non nostrum porro in. Optio quia aut.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 810, DateTimeKind.Utc).AddTicks(4735),
                         false,
-                        "Brown and Sons",
+                        "Kunde LLC",
                         null,
                     },
                 }
@@ -851,283 +814,265 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                 {
                     {
                         1,
-                        8,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            3283
-                        ),
                         5,
-                        "https://picsum.photos/640/480/?image=805",
-                        false,
-                        17.01m,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 812, DateTimeKind.Utc).AddTicks(7354),
                         3,
-                        "Iusto qui distinctio.",
+                        "https://picsum.photos/640/480/?image=845",
+                        false,
+                        33.67m,
+                        2,
+                        "Cum perspiciatis sit.",
                         null,
                     },
                     {
                         2,
-                        2,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6127
-                        ),
-                        2,
-                        "https://picsum.photos/640/480/?image=117",
-                        false,
-                        97.00m,
-                        4,
-                        "Est culpa porro.",
-                        null,
-                    },
-                    {
-                        3,
                         7,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6294
-                        ),
-                        6,
-                        "https://picsum.photos/640/480/?image=547",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(328),
+                        1,
+                        "https://picsum.photos/640/480/?image=271",
                         false,
-                        84.61m,
+                        46.57m,
+                        1,
+                        "Vero hic repudiandae.",
+                        null,
+                    },
+                    {
+                        3,
+                        4,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(529),
                         2,
-                        "Facere aspernatur quas.",
+                        "https://picsum.photos/640/480/?image=936",
+                        false,
+                        64.35m,
+                        4,
+                        "Et delectus similique.",
                         null,
                     },
                     {
                         4,
                         3,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6335
-                        ),
-                        6,
-                        "https://picsum.photos/640/480/?image=141",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(572),
+                        4,
+                        "https://picsum.photos/640/480/?image=528",
                         false,
-                        97.14m,
+                        24.21m,
                         3,
-                        "Aliquid quis sunt.",
+                        "Consequuntur impedit qui.",
                         null,
                     },
                     {
                         5,
-                        2,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6366
-                        ),
-                        8,
-                        "https://picsum.photos/640/480/?image=754",
-                        false,
-                        32.77m,
                         3,
-                        "Voluptatibus quos voluptatibus.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(608),
+                        1,
+                        "https://picsum.photos/640/480/?image=278",
+                        false,
+                        50.17m,
+                        5,
+                        "Quos ipsam aperiam.",
                         null,
                     },
                     {
                         6,
-                        8,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6397
-                        ),
+                        7,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(640),
                         0,
-                        "https://picsum.photos/640/480/?image=30",
+                        "https://picsum.photos/640/480/?image=835",
                         false,
-                        23.35m,
+                        72.99m,
                         2,
-                        "In est quis.",
+                        "Ex qui quam.",
                         null,
                     },
                     {
                         7,
-                        3,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6423
-                        ),
-                        1,
-                        "https://picsum.photos/640/480/?image=85",
+                        4,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(731),
+                        7,
+                        "https://picsum.photos/640/480/?image=301",
                         false,
-                        78.64m,
-                        2,
-                        "Quia earum quia.",
+                        70.84m,
+                        1,
+                        "Iste porro eligendi.",
                         null,
                     },
                     {
                         8,
-                        10,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6510
-                        ),
-                        1,
-                        "https://picsum.photos/640/480/?image=631",
+                        8,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(759),
+                        2,
+                        "https://picsum.photos/640/480/?image=815",
                         false,
-                        55.94m,
-                        1,
-                        "Quia porro soluta.",
+                        82.02m,
+                        5,
+                        "Quia voluptate ab.",
                         null,
                     },
                     {
                         9,
-                        2,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6537
-                        ),
-                        6,
-                        "https://picsum.photos/640/480/?image=391",
-                        false,
-                        44.61m,
+                        7,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(791),
                         3,
-                        "Eveniet sunt hic.",
+                        "https://picsum.photos/640/480/?image=718",
+                        false,
+                        82.22m,
+                        4,
+                        "Id fugit sunt.",
                         null,
                     },
                     {
                         10,
-                        7,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6561
-                        ),
-                        7,
-                        "https://picsum.photos/640/480/?image=789",
-                        false,
-                        94.47m,
                         3,
-                        "Eos odio odio.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(829),
+                        6,
+                        "https://picsum.photos/640/480/?image=188",
+                        false,
+                        97.99m,
+                        5,
+                        "Molestias corrupti quia.",
                         null,
                     },
                     {
                         11,
-                        3,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6587
-                        ),
-                        0,
-                        "https://picsum.photos/640/480/?image=518",
+                        8,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(863),
+                        7,
+                        "https://picsum.photos/640/480/?image=944",
                         false,
-                        77.11m,
-                        1,
-                        "Enim ut dignissimos.",
+                        33.23m,
+                        2,
+                        "Nostrum est eligendi.",
                         null,
                     },
                     {
                         12,
+                        10,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(892),
                         2,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6614
-                        ),
-                        3,
-                        "https://picsum.photos/640/480/?image=636",
+                        "https://picsum.photos/640/480/?image=792",
                         false,
-                        22.70m,
-                        3,
-                        "Adipisci hic praesentium.",
+                        73.72m,
+                        2,
+                        "Et amet dolor.",
                         null,
                     },
                     {
                         13,
-                        8,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6638
-                        ),
+                        3,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(956),
                         6,
-                        "https://picsum.photos/640/480/?image=369",
+                        "https://picsum.photos/640/480/?image=499",
                         false,
-                        49.63m,
-                        4,
-                        "Aut qui explicabo.",
+                        18.23m,
+                        5,
+                        "Dolore dolor dolores.",
                         null,
                     },
                     {
                         14,
-                        9,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6698
-                        ),
-                        8,
-                        "https://picsum.photos/640/480/?image=316",
+                        3,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(984),
+                        5,
+                        "https://picsum.photos/640/480/?image=684",
                         false,
-                        31.51m,
+                        94.22m,
                         1,
-                        "Minima et rem.",
+                        "Consequatur repellat eos.",
                         null,
                     },
                     {
                         15,
-                        8,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6725
-                        ),
                         4,
-                        "https://picsum.photos/640/480/?image=879",
-                        false,
-                        77.79m,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1015),
                         1,
-                        "Ea consequatur quo.",
+                        "https://picsum.photos/640/480/?image=67",
+                        false,
+                        15.15m,
+                        5,
+                        "Fuga nihil cumque.",
                         null,
                     },
                     {
                         16,
-                        4,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6755
-                        ),
-                        0,
-                        "https://picsum.photos/640/480/?image=679",
+                        1,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1043),
+                        7,
+                        "https://picsum.photos/640/480/?image=151",
                         false,
-                        78.90m,
-                        3,
-                        "Voluptatum incidunt qui.",
+                        22.03m,
+                        4,
+                        "Aspernatur accusamus praesentium.",
                         null,
                     },
                     {
                         17,
-                        5,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6785
-                        ),
-                        1,
-                        "https://picsum.photos/640/480/?image=1040",
+                        8,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1075),
+                        4,
+                        "https://picsum.photos/640/480/?image=84",
                         false,
-                        27.82m,
-                        3,
-                        "Cum et recusandae.",
+                        14.84m,
+                        5,
+                        "Voluptatem est vero.",
                         null,
                     },
                     {
                         18,
+                        3,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1104),
                         6,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6814
-                        ),
-                        6,
-                        "https://picsum.photos/640/480/?image=1064",
+                        "https://picsum.photos/640/480/?image=736",
                         false,
-                        59.64m,
-                        2,
-                        "Debitis libero corrupti.",
+                        48.63m,
+                        5,
+                        "Blanditiis qui aspernatur.",
                         null,
                     },
                     {
                         19,
-                        2,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6845
-                        ),
-                        3,
-                        "https://picsum.photos/640/480/?image=785",
-                        false,
-                        46.81m,
                         1,
-                        "Autem soluta sit.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1164),
+                        8,
+                        "https://picsum.photos/640/480/?image=50",
+                        false,
+                        55.68m,
+                        1,
+                        "Ut itaque expedita.",
                         null,
                     },
                     {
                         20,
-                        6,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            6869
-                        ),
-                        7,
-                        "https://picsum.photos/640/480/?image=341",
-                        false,
-                        80.26m,
                         4,
-                        "Deserunt temporibus aspernatur.",
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1194),
+                        0,
+                        "https://picsum.photos/640/480/?image=197",
+                        false,
+                        75.08m,
+                        2,
+                        "Quidem dolorum voluptatem.",
                         null,
+                    },
+                }
+            );
+
+            migrationBuilder.InsertData(
+                table: "Carts",
+                columns: new[] { "Id", "CreatedDate", "IsDeleted", "UpdatedDate", "UserId" },
+                values: new object[,]
+                {
+                    {
+                        1,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1803),
+                        false,
+                        null,
+                        1,
+                    },
+                    {
+                        2,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1806),
+                        false,
+                        null,
+                        2,
                     },
                 }
             );
@@ -1152,42 +1097,36 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                     {
                         1,
                         "123 Main St, City, Country",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7246
-                        ),
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1566),
                         "user@user.com",
                         "Jonh Doe",
                         false,
                         "123 Main St, City, Country",
-                        822m,
+                        916m,
                         null,
                         2,
                     },
                     {
                         2,
                         "123 Main St, City, Country",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7260
-                        ),
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1579),
                         "user@user.com",
                         "Jonh Doe",
                         false,
                         "123 Main St, City, Country",
-                        622m,
+                        575m,
                         null,
                         2,
                     },
                     {
                         3,
                         "123 Main St, City, Country",
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7260
-                        ),
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1579),
                         "user@user.com",
                         "Jonh Doe",
                         false,
                         "123 Main St, City, Country",
-                        692m,
+                        993m,
                         null,
                         2,
                     },
@@ -1211,34 +1150,48 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                 {
                     {
                         1,
-                        8,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7309
-                        ),
+                        14,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1707),
                         false,
                         1,
-                        93m,
-                        1,
+                        83m,
+                        3,
                         null,
                     },
                     {
                         2,
                         5,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7318
-                        ),
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1714),
                         false,
                         1,
-                        57m,
-                        3,
+                        55m,
+                        2,
                         null,
                     },
                     {
                         3,
+                        20,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1715),
+                        false,
+                        1,
+                        93m,
+                        2,
+                        null,
+                    },
+                    {
+                        4,
                         15,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7319
-                        ),
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1716),
+                        false,
+                        1,
+                        64m,
+                        2,
+                        null,
+                    },
+                    {
+                        5,
+                        15,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1717),
                         false,
                         1,
                         81m,
@@ -1246,147 +1199,103 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         null,
                     },
                     {
-                        4,
-                        5,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7320
-                        ),
-                        false,
-                        1,
-                        84m,
-                        3,
-                        null,
-                    },
-                    {
-                        5,
-                        16,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7321
-                        ),
-                        false,
-                        1,
-                        63m,
-                        1,
-                        null,
-                    },
-                    {
                         6,
-                        1,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7323
-                        ),
+                        8,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1720),
                         false,
                         2,
-                        71m,
-                        3,
+                        57m,
+                        2,
                         null,
                     },
                     {
                         7,
-                        18,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7324
-                        ),
+                        13,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1721),
                         false,
                         2,
                         56m,
-                        1,
+                        2,
                         null,
                     },
                     {
                         8,
-                        11,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7325
-                        ),
+                        9,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1722),
                         false,
                         2,
-                        91m,
+                        72m,
                         1,
                         null,
                     },
                     {
                         9,
-                        4,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7325
-                        ),
+                        12,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1723),
                         false,
                         2,
-                        58m,
-                        3,
-                        null,
-                    },
-                    {
-                        10,
-                        13,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7327
-                        ),
-                        false,
-                        2,
-                        88m,
+                        89m,
                         1,
                         null,
                     },
                     {
+                        10,
+                        10,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1724),
+                        false,
+                        2,
+                        94m,
+                        2,
+                        null,
+                    },
+                    {
                         11,
-                        18,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7328
-                        ),
+                        3,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1725),
                         false,
                         3,
-                        67m,
-                        3,
+                        77m,
+                        2,
                         null,
                     },
                     {
                         12,
                         13,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7329
-                        ),
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1726),
                         false,
                         3,
-                        56m,
+                        94m,
                         2,
                         null,
                     },
                     {
                         13,
-                        4,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7329
-                        ),
+                        11,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1727),
                         false,
                         3,
-                        76m,
-                        2,
+                        83m,
+                        3,
                         null,
                     },
                     {
                         14,
-                        4,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7330
-                        ),
+                        19,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1728),
                         false,
                         3,
-                        66m,
-                        2,
+                        62m,
+                        3,
                         null,
                     },
                     {
                         15,
-                        2,
-                        new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(
-                            7331
-                        ),
+                        5,
+                        new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1729),
                         false,
                         3,
-                        95m,
-                        1,
+                        72m,
+                        3,
                         null,
                     },
                 }
@@ -1458,12 +1367,6 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                 name: "IX_CartItems_CartId",
                 table: "CartItems",
                 column: "CartId"
-            );
-
-            migrationBuilder.CreateIndex(
-                name: "IX_CartItems_OrderId",
-                table: "CartItems",
-                column: "OrderId"
             );
 
             migrationBuilder.CreateIndex(name: "IX_Carts_UserId", table: "Carts", column: "UserId");

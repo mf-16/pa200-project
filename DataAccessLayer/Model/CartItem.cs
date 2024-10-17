@@ -4,10 +4,10 @@ namespace DataAccessLayer.Model;
 
 public class CartItem : BaseEntity
 {
-    public int OrderId { get; set; }
+    public int CartId { get; set; }
 
-    [ForeignKey("OrderId")]
-    public virtual Order Order { get; set; }
+    [ForeignKey("CartId")]
+    public virtual Cart Cart { get; set; }
     public int BookId { get; set; }
 
     [ForeignKey("BookId")]

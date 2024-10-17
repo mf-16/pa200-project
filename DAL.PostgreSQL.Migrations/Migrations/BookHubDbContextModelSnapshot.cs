@@ -58,82 +58,82 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            Bio = "Aliquid eligendi deserunt quia molestiae expedita eveniet odio impedit. Inventore ipsa animi quo. Aut aut vel et autem ut iste optio. Dolores velit similique. Harum eaque aut ea eveniet. Blanditiis asperiores et aliquid in deleniti qui dolor sint.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(3846),
+                            Bio = "Sunt nulla dignissimos optio expedita necessitatibus explicabo nesciunt. Quod enim sit est vel et est recusandae dolorum consequatur. Accusamus illo accusantium omnis est. Itaque in et expedita dolor.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 807, DateTimeKind.Utc).AddTicks(7021),
                             IsDeleted = false,
-                            Name = "Kendall Moore"
+                            Name = "Guiseppe Bernhard"
                         },
                         new
                         {
                             Id = 2,
-                            Bio = "Debitis dignissimos id similique ut totam soluta accusamus. Deserunt nihil ut placeat laudantium reiciendis quis repellendus. Eos officiis consequuntur eligendi. Cumque blanditiis voluptatem eos.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(4550),
+                            Bio = "Quo vel et eum. Dolore ea explicabo totam quos omnis non autem possimus. Est sunt eligendi porro molestiae inventore earum. In qui aspernatur maiores labore tempora ex hic. Quisquam aut quam sed ut libero qui.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 807, DateTimeKind.Utc).AddTicks(7908),
                             IsDeleted = false,
-                            Name = "Henry Adams"
+                            Name = "Justen Kunde"
                         },
                         new
                         {
                             Id = 3,
-                            Bio = "Sit voluptas nesciunt id rerum. Perferendis non ipsum quibusdam ea provident ut provident temporibus nihil. At rerum vero aut vel impedit vitae magnam voluptatem expedita. Accusamus dolores nobis nemo. Sed praesentium repellendus.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(4694),
+                            Bio = "Nulla excepturi cupiditate ratione. Recusandae et necessitatibus fugiat dolores quia praesentium necessitatibus. Tempora recusandae rem nisi magnam dolor debitis placeat est. Aut autem fuga saepe quaerat aut esse.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 807, DateTimeKind.Utc).AddTicks(8199),
                             IsDeleted = false,
-                            Name = "Leda Cruickshank"
+                            Name = "Raleigh Schulist"
                         },
                         new
                         {
                             Id = 4,
-                            Bio = "Quod velit iusto culpa corporis ducimus et dolores. Sint et ipsum. Possimus nulla illum totam natus et cumque.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(4953),
+                            Bio = "Eveniet qui corporis dolorem reiciendis sit. Fugit in earum. Quibusdam vitae officiis pariatur ut quia autem repellendus eos.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 807, DateTimeKind.Utc).AddTicks(8628),
                             IsDeleted = false,
-                            Name = "Eunice Kshlerin"
+                            Name = "Forrest Walker"
                         },
                         new
                         {
                             Id = 5,
-                            Bio = "Accusantium et nulla sint aspernatur reiciendis repudiandae ratione. Officiis deserunt molestiae reprehenderit autem dolore. Temporibus voluptatum sunt eveniet corporis ducimus. Possimus et saepe voluptatem eaque iure. Consectetur molestiae modi.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(5050),
+                            Bio = "Suscipit blanditiis et. Incidunt facilis qui molestiae vitae incidunt repellendus. Officia iusto ratione enim alias animi rerum.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(663),
                             IsDeleted = false,
-                            Name = "Amara Schimmel"
+                            Name = "Hobart Braun"
                         },
                         new
                         {
                             Id = 6,
-                            Bio = "Dignissimos a ratione et consectetur maxime incidunt. Dignissimos velit eos. Vero in accusamus optio debitis et inventore asperiores exercitationem et. Voluptatem est sapiente non. Distinctio consequatur asperiores laudantium. Ullam est accusamus rerum in beatae iste sunt iste nihil.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(5143),
+                            Bio = "Fuga corporis expedita odio voluptatem. Veritatis totam officia accusantium vitae mollitia dolores. Delectus et aperiam veniam adipisci deserunt laudantium.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(742),
                             IsDeleted = false,
-                            Name = "Luz Goodwin"
+                            Name = "Conor Runolfsson"
                         },
                         new
                         {
                             Id = 7,
-                            Bio = "Atque corporis impedit consequatur rem voluptatibus error. Quo eos voluptatibus fugiat. Quia voluptatem a. Est et facilis odit distinctio. Delectus soluta doloremque quo nostrum necessitatibus quisquam placeat id dolor. Consequuntur quia non.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(5284),
+                            Bio = "Modi minus magni fuga perferendis et. Sit est quis. Qui commodi praesentium est sequi voluptatem animi. Molestias et illum qui numquam rerum. Nesciunt sed praesentium facere doloremque.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(831),
                             IsDeleted = false,
-                            Name = "Elizabeth Schultz"
+                            Name = "Zane Pollich"
                         },
                         new
                         {
                             Id = 8,
-                            Bio = "Quia dignissimos natus et velit magni non minima et. Quaerat cum nisi. Reprehenderit tenetur illum sit provident autem et aliquam.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(5414),
+                            Bio = "Veritatis nesciunt quo incidunt eveniet perspiciatis corporis ea alias minima. Deleniti sunt iusto ducimus nulla esse qui et autem. Dicta quidem voluptatum. Et totam sed.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(981),
                             IsDeleted = false,
-                            Name = "Cassie Greenholt"
+                            Name = "Kenyatta Morar"
                         },
                         new
                         {
                             Id = 9,
-                            Bio = "Ea consequatur earum repellendus quis dignissimos voluptatum consequatur reprehenderit. Voluptatibus sed accusantium quae et. Eum dolores et at minima quos quia vero corporis. Esse dicta ratione ipsa consequatur similique. Beatae perferendis est saepe occaecati reiciendis fugit.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(5481),
+                            Bio = "Provident nisi libero provident et praesentium aut ipsam est. Voluptatum quidem facilis modi consequatur exercitationem tenetur. Et est deleniti incidunt culpa. Molestias velit et quod natus id ullam.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(1114),
                             IsDeleted = false,
-                            Name = "Prudence Harris"
+                            Name = "Queenie Hilll"
                         },
                         new
                         {
                             Id = 10,
-                            Bio = "Odit recusandae sit ipsum ipsum est cum doloremque illo soluta. Enim aliquam et molestiae et maxime. Quia est officia quia omnis aut qui et a repellendus. Non magni placeat quos aut est.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 164, DateTimeKind.Utc).AddTicks(5646),
+                            Bio = "Illo maiores sint et eum rem aspernatur aliquid iure. Ea eos porro id ut. In omnis sapiente non voluptatem dolore quam nulla numquam. Dicta velit amet nemo nisi iusto rerum quaerat ipsum. Atque vel recusandae ut.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 808, DateTimeKind.Utc).AddTicks(1228),
                             IsDeleted = false,
-                            Name = "Garfield Wehner"
+                            Name = "Layla Von"
                         });
                 });
 
@@ -186,242 +186,242 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            AuthorId = 8,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(3283),
-                            Genre = 5,
-                            ImagePath = "https://picsum.photos/640/480/?image=805",
+                            AuthorId = 5,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 812, DateTimeKind.Utc).AddTicks(7354),
+                            Genre = 3,
+                            ImagePath = "https://picsum.photos/640/480/?image=845",
                             IsDeleted = false,
-                            Price = 17.01m,
-                            PublisherId = 3,
-                            Title = "Iusto qui distinctio."
+                            Price = 33.67m,
+                            PublisherId = 2,
+                            Title = "Cum perspiciatis sit."
                         },
                         new
                         {
                             Id = 2,
-                            AuthorId = 2,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6127),
-                            Genre = 2,
-                            ImagePath = "https://picsum.photos/640/480/?image=117",
+                            AuthorId = 7,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(328),
+                            Genre = 1,
+                            ImagePath = "https://picsum.photos/640/480/?image=271",
                             IsDeleted = false,
-                            Price = 97.00m,
-                            PublisherId = 4,
-                            Title = "Est culpa porro."
+                            Price = 46.57m,
+                            PublisherId = 1,
+                            Title = "Vero hic repudiandae."
                         },
                         new
                         {
                             Id = 3,
-                            AuthorId = 7,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6294),
-                            Genre = 6,
-                            ImagePath = "https://picsum.photos/640/480/?image=547",
+                            AuthorId = 4,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(529),
+                            Genre = 2,
+                            ImagePath = "https://picsum.photos/640/480/?image=936",
                             IsDeleted = false,
-                            Price = 84.61m,
-                            PublisherId = 2,
-                            Title = "Facere aspernatur quas."
+                            Price = 64.35m,
+                            PublisherId = 4,
+                            Title = "Et delectus similique."
                         },
                         new
                         {
                             Id = 4,
                             AuthorId = 3,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6335),
-                            Genre = 6,
-                            ImagePath = "https://picsum.photos/640/480/?image=141",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(572),
+                            Genre = 4,
+                            ImagePath = "https://picsum.photos/640/480/?image=528",
                             IsDeleted = false,
-                            Price = 97.14m,
+                            Price = 24.21m,
                             PublisherId = 3,
-                            Title = "Aliquid quis sunt."
+                            Title = "Consequuntur impedit qui."
                         },
                         new
                         {
                             Id = 5,
-                            AuthorId = 2,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6366),
-                            Genre = 8,
-                            ImagePath = "https://picsum.photos/640/480/?image=754",
+                            AuthorId = 3,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(608),
+                            Genre = 1,
+                            ImagePath = "https://picsum.photos/640/480/?image=278",
                             IsDeleted = false,
-                            Price = 32.77m,
-                            PublisherId = 3,
-                            Title = "Voluptatibus quos voluptatibus."
+                            Price = 50.17m,
+                            PublisherId = 5,
+                            Title = "Quos ipsam aperiam."
                         },
                         new
                         {
                             Id = 6,
-                            AuthorId = 8,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6397),
+                            AuthorId = 7,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(640),
                             Genre = 0,
-                            ImagePath = "https://picsum.photos/640/480/?image=30",
+                            ImagePath = "https://picsum.photos/640/480/?image=835",
                             IsDeleted = false,
-                            Price = 23.35m,
+                            Price = 72.99m,
                             PublisherId = 2,
-                            Title = "In est quis."
+                            Title = "Ex qui quam."
                         },
                         new
                         {
                             Id = 7,
-                            AuthorId = 3,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6423),
-                            Genre = 1,
-                            ImagePath = "https://picsum.photos/640/480/?image=85",
+                            AuthorId = 4,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(731),
+                            Genre = 7,
+                            ImagePath = "https://picsum.photos/640/480/?image=301",
                             IsDeleted = false,
-                            Price = 78.64m,
-                            PublisherId = 2,
-                            Title = "Quia earum quia."
+                            Price = 70.84m,
+                            PublisherId = 1,
+                            Title = "Iste porro eligendi."
                         },
                         new
                         {
                             Id = 8,
-                            AuthorId = 10,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6510),
-                            Genre = 1,
-                            ImagePath = "https://picsum.photos/640/480/?image=631",
+                            AuthorId = 8,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(759),
+                            Genre = 2,
+                            ImagePath = "https://picsum.photos/640/480/?image=815",
                             IsDeleted = false,
-                            Price = 55.94m,
-                            PublisherId = 1,
-                            Title = "Quia porro soluta."
+                            Price = 82.02m,
+                            PublisherId = 5,
+                            Title = "Quia voluptate ab."
                         },
                         new
                         {
                             Id = 9,
-                            AuthorId = 2,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6537),
-                            Genre = 6,
-                            ImagePath = "https://picsum.photos/640/480/?image=391",
+                            AuthorId = 7,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(791),
+                            Genre = 3,
+                            ImagePath = "https://picsum.photos/640/480/?image=718",
                             IsDeleted = false,
-                            Price = 44.61m,
-                            PublisherId = 3,
-                            Title = "Eveniet sunt hic."
+                            Price = 82.22m,
+                            PublisherId = 4,
+                            Title = "Id fugit sunt."
                         },
                         new
                         {
                             Id = 10,
-                            AuthorId = 7,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6561),
-                            Genre = 7,
-                            ImagePath = "https://picsum.photos/640/480/?image=789",
+                            AuthorId = 3,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(829),
+                            Genre = 6,
+                            ImagePath = "https://picsum.photos/640/480/?image=188",
                             IsDeleted = false,
-                            Price = 94.47m,
-                            PublisherId = 3,
-                            Title = "Eos odio odio."
+                            Price = 97.99m,
+                            PublisherId = 5,
+                            Title = "Molestias corrupti quia."
                         },
                         new
                         {
                             Id = 11,
-                            AuthorId = 3,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6587),
-                            Genre = 0,
-                            ImagePath = "https://picsum.photos/640/480/?image=518",
+                            AuthorId = 8,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(863),
+                            Genre = 7,
+                            ImagePath = "https://picsum.photos/640/480/?image=944",
                             IsDeleted = false,
-                            Price = 77.11m,
-                            PublisherId = 1,
-                            Title = "Enim ut dignissimos."
+                            Price = 33.23m,
+                            PublisherId = 2,
+                            Title = "Nostrum est eligendi."
                         },
                         new
                         {
                             Id = 12,
-                            AuthorId = 2,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6614),
-                            Genre = 3,
-                            ImagePath = "https://picsum.photos/640/480/?image=636",
+                            AuthorId = 10,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(892),
+                            Genre = 2,
+                            ImagePath = "https://picsum.photos/640/480/?image=792",
                             IsDeleted = false,
-                            Price = 22.70m,
-                            PublisherId = 3,
-                            Title = "Adipisci hic praesentium."
+                            Price = 73.72m,
+                            PublisherId = 2,
+                            Title = "Et amet dolor."
                         },
                         new
                         {
                             Id = 13,
-                            AuthorId = 8,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6638),
+                            AuthorId = 3,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(956),
                             Genre = 6,
-                            ImagePath = "https://picsum.photos/640/480/?image=369",
+                            ImagePath = "https://picsum.photos/640/480/?image=499",
                             IsDeleted = false,
-                            Price = 49.63m,
-                            PublisherId = 4,
-                            Title = "Aut qui explicabo."
+                            Price = 18.23m,
+                            PublisherId = 5,
+                            Title = "Dolore dolor dolores."
                         },
                         new
                         {
                             Id = 14,
-                            AuthorId = 9,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6698),
-                            Genre = 8,
-                            ImagePath = "https://picsum.photos/640/480/?image=316",
+                            AuthorId = 3,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(984),
+                            Genre = 5,
+                            ImagePath = "https://picsum.photos/640/480/?image=684",
                             IsDeleted = false,
-                            Price = 31.51m,
+                            Price = 94.22m,
                             PublisherId = 1,
-                            Title = "Minima et rem."
+                            Title = "Consequatur repellat eos."
                         },
                         new
                         {
                             Id = 15,
-                            AuthorId = 8,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6725),
-                            Genre = 4,
-                            ImagePath = "https://picsum.photos/640/480/?image=879",
+                            AuthorId = 4,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1015),
+                            Genre = 1,
+                            ImagePath = "https://picsum.photos/640/480/?image=67",
                             IsDeleted = false,
-                            Price = 77.79m,
-                            PublisherId = 1,
-                            Title = "Ea consequatur quo."
+                            Price = 15.15m,
+                            PublisherId = 5,
+                            Title = "Fuga nihil cumque."
                         },
                         new
                         {
                             Id = 16,
-                            AuthorId = 4,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6755),
-                            Genre = 0,
-                            ImagePath = "https://picsum.photos/640/480/?image=679",
+                            AuthorId = 1,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1043),
+                            Genre = 7,
+                            ImagePath = "https://picsum.photos/640/480/?image=151",
                             IsDeleted = false,
-                            Price = 78.90m,
-                            PublisherId = 3,
-                            Title = "Voluptatum incidunt qui."
+                            Price = 22.03m,
+                            PublisherId = 4,
+                            Title = "Aspernatur accusamus praesentium."
                         },
                         new
                         {
                             Id = 17,
-                            AuthorId = 5,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6785),
-                            Genre = 1,
-                            ImagePath = "https://picsum.photos/640/480/?image=1040",
+                            AuthorId = 8,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1075),
+                            Genre = 4,
+                            ImagePath = "https://picsum.photos/640/480/?image=84",
                             IsDeleted = false,
-                            Price = 27.82m,
-                            PublisherId = 3,
-                            Title = "Cum et recusandae."
+                            Price = 14.84m,
+                            PublisherId = 5,
+                            Title = "Voluptatem est vero."
                         },
                         new
                         {
                             Id = 18,
-                            AuthorId = 6,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6814),
+                            AuthorId = 3,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1104),
                             Genre = 6,
-                            ImagePath = "https://picsum.photos/640/480/?image=1064",
+                            ImagePath = "https://picsum.photos/640/480/?image=736",
                             IsDeleted = false,
-                            Price = 59.64m,
-                            PublisherId = 2,
-                            Title = "Debitis libero corrupti."
+                            Price = 48.63m,
+                            PublisherId = 5,
+                            Title = "Blanditiis qui aspernatur."
                         },
                         new
                         {
                             Id = 19,
-                            AuthorId = 2,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6845),
-                            Genre = 3,
-                            ImagePath = "https://picsum.photos/640/480/?image=785",
+                            AuthorId = 1,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1164),
+                            Genre = 8,
+                            ImagePath = "https://picsum.photos/640/480/?image=50",
                             IsDeleted = false,
-                            Price = 46.81m,
+                            Price = 55.68m,
                             PublisherId = 1,
-                            Title = "Autem soluta sit."
+                            Title = "Ut itaque expedita."
                         },
                         new
                         {
                             Id = 20,
-                            AuthorId = 6,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(6869),
-                            Genre = 7,
-                            ImagePath = "https://picsum.photos/640/480/?image=341",
+                            AuthorId = 4,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1194),
+                            Genre = 0,
+                            ImagePath = "https://picsum.photos/640/480/?image=197",
                             IsDeleted = false,
-                            Price = 80.26m,
-                            PublisherId = 4,
-                            Title = "Deserunt temporibus aspernatur."
+                            Price = 75.08m,
+                            PublisherId = 2,
+                            Title = "Quidem dolorum voluptatem."
                         });
                 });
 
@@ -450,6 +450,22 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("Carts");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1803),
+                            IsDeleted = false,
+                            UserId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1806),
+                            IsDeleted = false,
+                            UserId = 2
+                        });
                 });
 
             modelBuilder.Entity("DataAccessLayer.Model.CartItem", b =>
@@ -463,7 +479,7 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("integer");
 
-                    b.Property<int?>("CartId")
+                    b.Property<int>("CartId")
                         .HasColumnType("integer");
 
                     b.Property<DateTime>("CreatedDate")
@@ -471,9 +487,6 @@ namespace DAL.PostgreSQL.Migrations.Migrations
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("boolean");
-
-                    b.Property<int>("OrderId")
-                        .HasColumnType("integer");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("integer");
@@ -486,8 +499,6 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                     b.HasIndex("BookId");
 
                     b.HasIndex("CartId");
-
-                    b.HasIndex("OrderId");
 
                     b.ToTable("CartItems");
                 });
@@ -542,36 +553,36 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         {
                             Id = 1,
                             BillingAddress = "123 Main St, City, Country",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7246),
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1566),
                             CustomerEmail = "user@user.com",
                             CustomerName = "Jonh Doe",
                             IsDeleted = false,
                             ShippingAddress = "123 Main St, City, Country",
-                            TotalAmount = 822m,
+                            TotalAmount = 916m,
                             UserId = 2
                         },
                         new
                         {
                             Id = 2,
                             BillingAddress = "123 Main St, City, Country",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7260),
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1579),
                             CustomerEmail = "user@user.com",
                             CustomerName = "Jonh Doe",
                             IsDeleted = false,
                             ShippingAddress = "123 Main St, City, Country",
-                            TotalAmount = 622m,
+                            TotalAmount = 575m,
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
                             BillingAddress = "123 Main St, City, Country",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7260),
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1579),
                             CustomerEmail = "user@user.com",
                             CustomerName = "Jonh Doe",
                             IsDeleted = false,
                             ShippingAddress = "123 Main St, City, Country",
-                            TotalAmount = 692m,
+                            TotalAmount = 993m,
                             UserId = 2
                         });
                 });
@@ -617,28 +628,48 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            BookId = 8,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7309),
+                            BookId = 14,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1707),
                             IsDeleted = false,
                             OrderId = 1,
-                            Price = 93m,
-                            Quantity = 1
+                            Price = 83m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 2,
                             BookId = 5,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7318),
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1714),
                             IsDeleted = false,
                             OrderId = 1,
-                            Price = 57m,
-                            Quantity = 3
+                            Price = 55m,
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 3,
+                            BookId = 20,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1715),
+                            IsDeleted = false,
+                            OrderId = 1,
+                            Price = 93m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            Id = 4,
                             BookId = 15,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7319),
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1716),
+                            IsDeleted = false,
+                            OrderId = 1,
+                            Price = 64m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BookId = 15,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1717),
                             IsDeleted = false,
                             OrderId = 1,
                             Price = 81m,
@@ -646,123 +677,103 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         },
                         new
                         {
-                            Id = 4,
-                            BookId = 5,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7320),
-                            IsDeleted = false,
-                            OrderId = 1,
-                            Price = 84m,
-                            Quantity = 3
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BookId = 16,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7321),
-                            IsDeleted = false,
-                            OrderId = 1,
-                            Price = 63m,
-                            Quantity = 1
-                        },
-                        new
-                        {
                             Id = 6,
-                            BookId = 1,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7323),
+                            BookId = 8,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1720),
                             IsDeleted = false,
                             OrderId = 2,
-                            Price = 71m,
-                            Quantity = 3
+                            Price = 57m,
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 7,
-                            BookId = 18,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7324),
+                            BookId = 13,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1721),
                             IsDeleted = false,
                             OrderId = 2,
                             Price = 56m,
-                            Quantity = 1
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 8,
-                            BookId = 11,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7325),
+                            BookId = 9,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1722),
                             IsDeleted = false,
                             OrderId = 2,
-                            Price = 91m,
+                            Price = 72m,
                             Quantity = 1
                         },
                         new
                         {
                             Id = 9,
-                            BookId = 4,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7325),
+                            BookId = 12,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1723),
                             IsDeleted = false,
                             OrderId = 2,
-                            Price = 58m,
-                            Quantity = 3
-                        },
-                        new
-                        {
-                            Id = 10,
-                            BookId = 13,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7327),
-                            IsDeleted = false,
-                            OrderId = 2,
-                            Price = 88m,
+                            Price = 89m,
                             Quantity = 1
                         },
                         new
                         {
+                            Id = 10,
+                            BookId = 10,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1724),
+                            IsDeleted = false,
+                            OrderId = 2,
+                            Price = 94m,
+                            Quantity = 2
+                        },
+                        new
+                        {
                             Id = 11,
-                            BookId = 18,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7328),
+                            BookId = 3,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1725),
                             IsDeleted = false,
                             OrderId = 3,
-                            Price = 67m,
-                            Quantity = 3
+                            Price = 77m,
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 12,
                             BookId = 13,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7329),
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1726),
                             IsDeleted = false,
                             OrderId = 3,
-                            Price = 56m,
+                            Price = 94m,
                             Quantity = 2
                         },
                         new
                         {
                             Id = 13,
-                            BookId = 4,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7329),
+                            BookId = 11,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1727),
                             IsDeleted = false,
                             OrderId = 3,
-                            Price = 76m,
-                            Quantity = 2
+                            Price = 83m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 14,
-                            BookId = 4,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7330),
+                            BookId = 19,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1728),
                             IsDeleted = false,
                             OrderId = 3,
-                            Price = 66m,
-                            Quantity = 2
+                            Price = 62m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 15,
-                            BookId = 2,
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 168, DateTimeKind.Utc).AddTicks(7331),
+                            BookId = 5,
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 813, DateTimeKind.Utc).AddTicks(1729),
                             IsDeleted = false,
                             OrderId = 3,
-                            Price = 95m,
-                            Quantity = 1
+                            Price = 72m,
+                            Quantity = 3
                         });
                 });
 
@@ -799,42 +810,42 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            Bio = "Id culpa nemo nihil adipisci. Aliquid sed eos rerum autem aliquid hic eaque. Quidem natus tempore quia ut. Qui nobis non quisquam aperiam facilis omnis.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 166, DateTimeKind.Utc).AddTicks(5616),
+                            Bio = "Beatae asperiores facere in alias occaecati quam. Laudantium porro cumque ipsum voluptatem autem aut. Minus omnis aliquid laborum.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 810, DateTimeKind.Utc).AddTicks(3186),
                             IsDeleted = false,
-                            Name = "Davis Group"
+                            Name = "Walter - Schoen"
                         },
                         new
                         {
                             Id = 2,
-                            Bio = "Beatae deleniti repudiandae blanditiis cum saepe iure. Labore et rem minima cum quia eum ipsa autem. Autem aliquid non ad. Laboriosam vitae labore perspiciatis quis voluptatem nam et eum.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 166, DateTimeKind.Utc).AddTicks(6487),
+                            Bio = "Magnam veritatis voluptatibus ut aliquid quos dolores. Aperiam neque cupiditate aut et. Magni dolor facere voluptatum explicabo enim qui dolores ipsum.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 810, DateTimeKind.Utc).AddTicks(4024),
                             IsDeleted = false,
-                            Name = "O'Connell, Runte and Beier"
+                            Name = "Toy - Gutkowski"
                         },
                         new
                         {
                             Id = 3,
-                            Bio = "Tempora qui consequuntur in. Veniam est aspernatur quibusdam. In quae itaque suscipit pariatur dolore sint.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 166, DateTimeKind.Utc).AddTicks(6824),
+                            Bio = "Quasi facere laborum non provident sint fugiat natus. Sapiente dignissimos voluptatem quam pariatur. Est minus voluptatem debitis explicabo consequuntur.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 810, DateTimeKind.Utc).AddTicks(4267),
                             IsDeleted = false,
-                            Name = "Braun, DuBuque and Lehner"
+                            Name = "Homenick - Bradtke"
                         },
                         new
                         {
                             Id = 4,
-                            Bio = "Ut et iste ut est et nesciunt. Consequatur laboriosam velit voluptas dolores itaque nam quia eos perspiciatis. Nostrum exercitationem quia accusantium ad est mollitia. Quis ipsam mollitia ea. Alias debitis perferendis iusto et est facere similique accusamus sed.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 166, DateTimeKind.Utc).AddTicks(6987),
+                            Bio = "Ea incidunt asperiores vel cumque est cupiditate. Iste aut et voluptates quis eum aut reiciendis. Quam similique reiciendis. Et nobis dolor qui et magni. Voluptatem animi sunt sed.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 810, DateTimeKind.Utc).AddTicks(4497),
                             IsDeleted = false,
-                            Name = "Kihn - Schiller"
+                            Name = "Mohr, Rowe and Schaden"
                         },
                         new
                         {
                             Id = 5,
-                            Bio = "Sunt porro est sequi accusamus aut ut cumque eveniet. Perferendis totam in iure provident facilis qui nobis. Blanditiis quas numquam ut. Nihil voluptas consequatur porro consequuntur accusamus. Sequi aut quia autem expedita.",
-                            CreatedDate = new DateTime(2024, 10, 16, 11, 22, 45, 166, DateTimeKind.Utc).AddTicks(7168),
+                            Bio = "Aperiam laboriosam consectetur vitae nihil nam dolor. Quibusdam ut qui quibusdam voluptates in accusantium blanditiis eum ratione. Repudiandae quo harum esse ex voluptatem sed quasi. Sint voluptate esse dignissimos dolores non quia. Non nostrum porro in. Optio quia aut.",
+                            CreatedDate = new DateTime(2024, 10, 17, 9, 4, 25, 810, DateTimeKind.Utc).AddTicks(4735),
                             IsDeleted = false,
-                            Name = "Brown and Sons"
+                            Name = "Kunde LLC"
                         });
                 });
 
@@ -952,16 +963,16 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "fd6fc7dc-bda2-438a-9dde-0f7f73b3b506",
+                            ConcurrencyStamp = "497a9e42-e9b8-4e5e-a822-e66c288d24c2",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             Name = "Admin",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHFEGk5lSP7kyKlEldAV6jaydzK+lIKYD5E+f3ceSSywyMTFV2ijWHTD7YDwlDA+Yg==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEPD3CZvtC3tU+IO+QfcZwqj37a7eDD39GMiTQDb8UFphyyTwTR1B3mHXy8ROogAQZQ==",
                             PhoneNumber = "0123456987",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "540237e7-8f09-462f-ae5f-5a928652b092",
+                            SecurityStamp = "546ce559-6643-455b-90e8-c380be3dd6ef",
                             TwoFactorEnabled = false,
                             UserName = "admin"
                         },
@@ -969,16 +980,16 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "f8a31bd1-ff8b-44df-93eb-3153f6e1eb39",
+                            ConcurrencyStamp = "a536b094-3446-48b8-bc4f-c08801dbdcf3",
                             Email = "user@user.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             Name = "Jonh Doe",
                             NormalizedUserName = "USER",
-                            PasswordHash = "AQAAAAIAAYagAAAAEHmDCBnN6QJSXns50B6+zQialmNHiXrwW6w+pEE0567QbELZT+ivcUWh0wAvl0xNrw==",
+                            PasswordHash = "AQAAAAIAAYagAAAAEK2E60c5e/+t+4ZJnojuxYY9BupfArERL4iKBLZ7LMxK/a0F2Vts3LvSsM+SQBAy7g==",
                             PhoneNumber = "0123456789",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "b29bf609-c0a3-4961-a254-95be4aba6e22",
+                            SecurityStamp = "30668007-221f-46d0-8d0d-8fd93bdd5365",
                             TwoFactorEnabled = false,
                             UserName = "user"
                         });
@@ -1212,19 +1223,15 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("DataAccessLayer.Model.Cart", null)
+                    b.HasOne("DataAccessLayer.Model.Cart", "Cart")
                         .WithMany("CartItems")
-                        .HasForeignKey("CartId");
-
-                    b.HasOne("DataAccessLayer.Model.Order", "Order")
-                        .WithMany()
-                        .HasForeignKey("OrderId")
+                        .HasForeignKey("CartId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Book");
 
-                    b.Navigation("Order");
+                    b.Navigation("Cart");
                 });
 
             modelBuilder.Entity("DataAccessLayer.Model.Order", b =>
