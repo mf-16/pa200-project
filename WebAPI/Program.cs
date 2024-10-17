@@ -1,3 +1,5 @@
+using BusinessLayer.Services;
+using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Data;
 using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
@@ -57,12 +59,15 @@ builder.Services.AddDbContext<BookHubDbContext>(options =>
         )
         .UseLazyLoadingProxies()
 );
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder
     .Services.AddIdentity<User, UserRole>()
     .AddEntityFrameworkStores<BookHubDbContext>()
     .AddDefaultTokenProviders();
+builder.Services.AddScoped<IOrderService, OrderService>();
+builder.Services.AddScoped<ICartItemService, CartItemService>();
 
 var app = builder.Build();
 
@@ -72,7 +77,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseHttpsRedirection();
 
 app.UseMiddleware<AuthenticationMiddleware>();

@@ -41,6 +41,19 @@ namespace DataAccessLayer.Data
             // Seed order items
             var orderItems = PrepareOrderItems(orders);
             modelBuilder.Entity<OrderItem>().HasData(orderItems);
+
+            //Seed carts
+            var carts = PrepareCarts();
+            modelBuilder.Entity<Cart>().HasData(carts);
+        }
+
+        private static List<Cart> PrepareCarts()
+        {
+            return new List<Cart>()
+            {
+                new Cart() { Id = 1, UserId = 1 },
+                new Cart() { Id = 2, UserId = 2 },
+            };
         }
 
         private static List<Author> PrepareAuthors()
