@@ -34,13 +34,13 @@ public class CartItemService : ICartItemService
 
     public async Task<ResponseCartItemDto> GetCartItemAsync(int id)
     {
-        var response = _mapper.Map<ResponseCartItemDto>(
-            await _unitOfWork.CartItemRepository.GetByIdAsync(id)
-        );
-        if (response == null)
+        var cartItem = await _unitOfWork.CartItemRepository.GetByIdAsync(id);
+        
+        if (cartItem == null)
         {
             throw new NotFoundException("CartItem", id);
         }
+        var response = _mapper.Map<ResponseCartItemDto>(cartItem);
         return response;
     }
 
