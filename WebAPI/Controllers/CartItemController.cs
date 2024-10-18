@@ -18,23 +18,23 @@ public class CartItemController : ControllerBase
 
     [HttpPost]
     public async Task<ActionResult<ResponseCartItemDto>> AddCartItem(
-        [FromBody] AddCartItemDto addCartItemDto
+        [FromBody] CreateCartItemDto createCartItemDto
     )
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
-        var response = await _cartItemService.AddCartItemAsync(addCartItemDto);
+        var response = await _cartItemService.CreateCartItemAsync(createCartItemDto);
         return Ok(response);
     }
 
-    [HttpPut]
-    public async Task<ActionResult<ResponseCartItemDto>> UpdateCartItem(
+    [HttpPut("{id}")]
+    public async Task<ActionResult<ResponseCartItemDto>> UpdateCartItem(int id, 
         [FromBody] UpdateCartItemDto updateCartItemDto
     )
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
-        var response = await _cartItemService.UpdateCartItemAsync(updateCartItemDto);
+        var response = await _cartItemService.UpdateCartItemAsync(id, updateCartItemDto);
         return Ok(response);
     }
 

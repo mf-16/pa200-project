@@ -18,12 +18,12 @@ public class OrderService : IOrderService
         _mapper = mapper;
     }
 
-    public async Task<ResponseOrderDto> AddOrderAsync(AddOrderDto addOrderDto)
+    public async Task<ResponseOrderDto> CreateOrderAsync(CreateOrderDto createOrderDto)
     {
-        var cart = await _unitOfWork.CartRepository.GetByIdAsync(addOrderDto.CartId);
+        var cart = await _unitOfWork.CartRepository.GetByIdAsync(createOrderDto.CartId);
         if (cart is null)
-            throw new NotFoundException("Cart", addOrderDto.CartId);
-        var order = MapAddOrderDtoToOrder(addOrderDto, cart);
+            throw new NotFoundException("Cart", createOrderDto.CartId);
+        var order = MapAddOrderDtoToOrder(createOrderDto, cart);
         await _unitOfWork.OrderRepository.AddAsync(order);
         _unitOfWork.CartItemRepository.DeleteRange(cart.CartItems);
         await _unitOfWork.CommitAsync();
@@ -43,14 +43,14 @@ public class OrderService : IOrderService
         return _mapper.Map<List<ResponseOrderDto>>(await _unitOfWork.OrderRepository.GetAllAsync());
     }
 
-    private Order MapAddOrderDtoToOrder(AddOrderDto addOrderDto, Cart cart)
+    private Order MapAddOrderDtoToOrder(CreateOrderDto createOrderDto, Cart cart)
     {
         var order = new Order()
         {
-            BillingAddress = addOrderDto.BillingAddress,
-            ShippingAddress = addOrderDto.ShippingAddress,
-            CustomerEmail = addOrderDto.CustomerEmail,
-            CustomerName = addOrderDto.CustomerName,
+            BillingAddress = createOrderDto.BillingAddress,
+            ShippingAddress = createOrderDto.ShippingAddress,
+            CustomerEmail = createOrderDto.CustomerEmail,
+            CustomerName = createOrderDto.CustomerName,
             TotalAmount = cart.CartItems.Sum(i => i.Book.Price * i.Quantity),
             OrderItems = new List<OrderItem>(),
             UserId = cart.UserId,
