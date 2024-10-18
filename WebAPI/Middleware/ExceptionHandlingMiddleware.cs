@@ -22,6 +22,10 @@ public class ExceptionHandlingMiddleware
         {
             await HandleExceptionAsync(context, ex, HttpStatusCode.NotFound);
         }
+        catch (UserOperationException ex)
+        {
+            await HandleExceptionAsync(context, ex, HttpStatusCode.Conflict);
+        }
         catch (Exception ex)
         {
             await HandleExceptionAsync(context, ex, HttpStatusCode.InternalServerError);

@@ -20,11 +20,13 @@ public class OrderController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<ResponseOrderDto>> AddOrder([FromBody] AddOrderDto addOrderDto)
+    public async Task<ActionResult<ResponseOrderDto>> AddOrder(
+        [FromBody] CreateOrderDto createOrderDto
+    )
     {
         if (!ModelState.IsValid)
-            return BadRequest();
-        var response = await _orderService.AddOrderAsync(addOrderDto);
+            return BadRequest(ModelState);
+        var response = await _orderService.CreateOrderAsync(createOrderDto);
         return Ok(response);
     }
 
