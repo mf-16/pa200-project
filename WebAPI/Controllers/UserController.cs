@@ -26,14 +26,16 @@ public class UserController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<ResponseUserDto>> UpdateUser(int id, [FromBody] UpdateUserDto user)
+    public async Task<ActionResult<ResponseUserDto>> UpdateUser(
+        int id,
+        [FromBody] UpdateUserDto user
+    )
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
         return Ok(await _userService.UpdateUserAsync(id, user));
-        
     }
 
     [HttpDelete("{id}")]
@@ -42,17 +44,16 @@ public class UserController : ControllerBase
         await _userService.DeleteUserAsync(id);
         return Ok(new { message = "User successfully deleted" });
     }
+
     [HttpGet("{id}")]
     public async Task<ActionResult<ResponseUserDto>> GetUser(int id)
     {
         return Ok(await _userService.GetUserAsync(id));
     }
-    
-    
+
     [HttpGet]
     public async Task<ActionResult<ResponseUserDto>> GetAllUsers()
     {
         return Ok(await _userService.GetAllUsersAsync());
     }
-    
 }

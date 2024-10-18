@@ -62,7 +62,6 @@ public class UserService : IUserService
         {
             throw new UserOperationException($"Unable to delete user");
         }
-        
     }
 
     public async Task<List<ResponseUserDto>> GetAllUsersAsync()

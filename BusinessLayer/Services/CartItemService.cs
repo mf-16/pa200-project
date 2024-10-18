@@ -55,7 +55,10 @@ public class CartItemService : ICartItemService
         await _unitOfWork.CommitAsync();
     }
 
-    public async Task<ResponseCartItemDto> UpdateCartItemAsync(int id, UpdateCartItemDto updateCartItemDto)
+    public async Task<ResponseCartItemDto> UpdateCartItemAsync(
+        int id,
+        UpdateCartItemDto updateCartItemDto
+    )
     {
         var cartItem = await _unitOfWork.CartItemRepository.GetByIdAsync(id);
 

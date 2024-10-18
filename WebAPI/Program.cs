@@ -62,18 +62,19 @@ builder.Services.AddDbContext<BookHubDbContext>(options =>
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-builder.Services.AddIdentity<User, UserRole>(options =>
-{
-    // Password settings
-    options.Password.RequireDigit = false;               
-    options.Password.RequiredLength = 3;                 
-    options.Password.RequireNonAlphanumeric = false;     
-    options.Password.RequireUppercase = false;           
-    options.Password.RequireLowercase = false;           
-    options.Password.RequiredUniqueChars = 1;            
-})
-.AddEntityFrameworkStores<BookHubDbContext>()
-.AddDefaultTokenProviders();
+builder
+    .Services.AddIdentity<User, UserRole>(options =>
+    {
+        // Password settings
+        options.Password.RequireDigit = false;
+        options.Password.RequiredLength = 3;
+        options.Password.RequireNonAlphanumeric = false;
+        options.Password.RequireUppercase = false;
+        options.Password.RequireLowercase = false;
+        options.Password.RequiredUniqueChars = 1;
+    })
+    .AddEntityFrameworkStores<BookHubDbContext>()
+    .AddDefaultTokenProviders();
 
 builder.Services.AddScoped<IOrderService, OrderService>();
 builder.Services.AddScoped<ICartItemService, CartItemService>();

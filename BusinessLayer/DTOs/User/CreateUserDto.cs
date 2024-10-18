@@ -1,4 +1,5 @@
 namespace BusinessLayer.DTOs.User;
+
 using System.ComponentModel.DataAnnotations;
 
 public class CreateUserDto
@@ -16,7 +17,11 @@ public class CreateUserDto
     public string Email { get; set; }
 
     [Required(ErrorMessage = "Password is required.")]
-    [StringLength(100, MinimumLength = 3, ErrorMessage = "Password must be at least 3 characters long.")]
+    [StringLength(
+        100,
+        MinimumLength = 3,
+        ErrorMessage = "Password must be at least 3 characters long."
+    )]
     public string Password { get; set; }
 
     [Phone(ErrorMessage = "Invalid phone number format.")]

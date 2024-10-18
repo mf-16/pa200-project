@@ -2,7 +2,6 @@ namespace BusinessLayer.DTOs.Order;
 
 public class ResponseOrderDto
 {
-    
     public int Id { get; set; }
     public string CustomerName { get; set; }
 

@@ -28,7 +28,8 @@ public class CartItemController : ControllerBase
     }
 
     [HttpPut("{id}")]
-    public async Task<ActionResult<ResponseCartItemDto>> UpdateCartItem(int id, 
+    public async Task<ActionResult<ResponseCartItemDto>> UpdateCartItem(
+        int id,
         [FromBody] UpdateCartItemDto updateCartItemDto
     )
     {
