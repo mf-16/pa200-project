@@ -36,7 +36,7 @@ public class UserService : IUserService
 
     public async Task<ResponseUserDto> UpdateUserAsync(int id, UpdateUserDto dto)
     {
-        var user = await _userManager.Users.FirstAsync(u => u.Id == id);
+        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
         if (user == null)
         {
             throw new NotFoundException(nameof(User), id);
@@ -52,7 +52,7 @@ public class UserService : IUserService
 
     public async Task DeleteUserAsync(int id)
     {
-        var user = await _userManager.Users.FirstAsync(u => u.Id == id);
+        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
         if (user == null)
         {
             throw new NotFoundException(nameof(User), id);
@@ -73,7 +73,7 @@ public class UserService : IUserService
 
     public async Task<ResponseUserDto> GetUserAsync(int id)
     {
-        var user = await _userManager.Users.FirstAsync(u => u.Id == id);
+        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
         if (user == null)
         {
             throw new NotFoundException(nameof(User), id);
