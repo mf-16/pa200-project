@@ -21,19 +21,17 @@ public static class DataInitializer
 
     public static void Seed(this ModelBuilder modelBuilder)
     {
-
         var users = PrepareUsers(NumberOfUsers);
         var roles = PrepareRoles();
         var userRoles = PrepareUserRoles();
         modelBuilder.Entity<User>().HasData(users);
         modelBuilder.Entity<UserRole>().HasData(roles);
         modelBuilder.Entity<IdentityUserRole<int>>().HasData(userRoles);
-            
+
         // Seed authors and publishers
         var authors = PrepareAuthors(NumberOfAuthors);
         var publishers = PreparePublishers(NumberOfPublishers);
         var books = PrepareBooks(NumberOfBooks);
-            
 
         modelBuilder.Entity<Author>().HasData(authors);
         modelBuilder.Entity<Publisher>().HasData(publishers);
@@ -59,15 +57,26 @@ public static class DataInitializer
         var carts = PrepareCarts();
         modelBuilder.Entity<Cart>().HasData(carts);
     }
-        
+
     private static List<UserRole> PrepareRoles()
     {
         return new List<UserRole>
         {
-            new UserRole { Id = 1, Name = AdminRole, NormalizedName = AdminRole.ToUpper() },
-            new UserRole { Id = 2, Name = UserRole, NormalizedName = UserRole.ToUpper() }
+            new UserRole
+            {
+                Id = 1,
+                Name = AdminRole,
+                NormalizedName = AdminRole.ToUpper(),
+            },
+            new UserRole
+            {
+                Id = 2,
+                Name = UserRole,
+                NormalizedName = UserRole.ToUpper(),
+            },
         };
     }
+
     private static List<User> PrepareUsers(int count)
     {
         var users = new List<User>();
@@ -81,12 +90,12 @@ public static class DataInitializer
             Email = "admin@admin.com",
             EmailConfirmed = true,
             SecurityStamp = Guid.NewGuid().ToString(),
-            PhoneNumber = "123-456-7890"
+            PhoneNumber = "123-456-7890",
         };
         users.Add(adminUser);
 
         var userFaker = new Faker<User>()
-            .RuleFor(u => u.Id, f => f.IndexFaker + 2) 
+            .RuleFor(u => u.Id, f => f.IndexFaker + 2)
             .RuleFor(u => u.UserName, f => f.Internet.UserName())
             .RuleFor(u => u.Name, f => f.Name.FullName())
             .RuleFor(u => u.Email, f => f.Internet.Email())
@@ -94,25 +103,31 @@ public static class DataInitializer
             .RuleFor(u => u.SecurityStamp, f => Guid.NewGuid().ToString())
             .RuleFor(u => u.PhoneNumber, f => f.Phone.PhoneNumber());
 
-        users.AddRange(userFaker.Generate(count - 1)); 
+        users.AddRange(userFaker.Generate(count - 1));
 
         return users;
     }
-        
+
     private static List<IdentityUserRole<int>> PrepareUserRoles()
     {
         var userRoles = new List<IdentityUserRole<int>>
         {
-            new IdentityUserRole<int> { UserId = 1, RoleId = 1 } // Admin user
+            new IdentityUserRole<int>
+            {
+                UserId = 1,
+                RoleId = 1,
+            } // Admin user
+            ,
         };
-        
+
         for (int i = 2; i <= NumberOfUsers; i++)
         {
             userRoles.Add(new IdentityUserRole<int> { UserId = i, RoleId = 2 }); // Regular users
         }
-        
+
         return userRoles;
     }
+
     private static List<Author> PrepareAuthors(int count)
     {
         var authorFaker = new Faker<Author>()
@@ -178,14 +193,13 @@ public static class DataInitializer
             .RuleFor(o => o.CustomerEmail, f => f.Person.Email)
             .RuleFor(o => o.ShippingAddress, f => f.Address.FullAddress())
             .RuleFor(o => o.BillingAddress, f => f.Address.FullAddress())
-            .RuleFor(o => o.TotalAmount, f => 0); 
+            .RuleFor(o => o.TotalAmount, f => 0);
 
         return orderFaker.Generate(count);
     }
 
     private static List<OrderItem> PrepareOrderItems()
     {
-
         var orderItemFaker = new Faker<OrderItem>()
             .RuleFor(oi => oi.Id, f => f.IndexFaker + 1)
             .RuleFor(oi => oi.OrderId, f => f.Random.Number(1, NumberOfOrders))
@@ -193,20 +207,16 @@ public static class DataInitializer
             .RuleFor(oi => oi.Quantity, f => f.Random.Number(1, 3))
             .RuleFor(oi => oi.Price, f => decimal.Parse(f.Commerce.Price(10, 100)));
 
-
         return orderItemFaker.Generate(NumberOfOrderItems);
     }
 
     private static List<Cart> PrepareCarts()
     {
-        var carts = Enumerable.Range(2, NumberOfUsers - 1) 
-            .Select(userId => new Cart
-            {
-                Id = userId, 
-                UserId = userId
-            })
+        var carts = Enumerable
+            .Range(2, NumberOfUsers - 1)
+            .Select(userId => new Cart { Id = userId, UserId = userId })
             .ToList();
-        
+
         return carts;
     }
 }
