@@ -1,5 +1,6 @@
 using System.Net;
 using BusinessLayer.Exceptions;
+using UnauthorizedAccessException = System.UnauthorizedAccessException;
 
 namespace WebAPI.Middleware;
 
@@ -23,6 +24,14 @@ public class ExceptionHandlingMiddleware
             await HandleExceptionAsync(context, ex, HttpStatusCode.NotFound);
         }
         catch (UserOperationException ex)
+        {
+            await HandleExceptionAsync(context, ex, HttpStatusCode.Conflict);
+        }
+        catch (UnauthorizedAccessException ex)
+        {
+            await HandleExceptionAsync(context, ex, HttpStatusCode.Forbidden);
+        }
+        catch (EntityAlreadyExistsException ex)
         {
             await HandleExceptionAsync(context, ex, HttpStatusCode.Conflict);
         }
