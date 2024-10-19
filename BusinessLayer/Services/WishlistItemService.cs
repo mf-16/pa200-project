@@ -7,7 +7,7 @@ using Infrastructure.UnitOfWork;
 
 namespace BusinessLayer.Services;
 
-public class WishlistItemService: IWishlistItemService
+public class WishlistItemService : IWishlistItemService
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -18,7 +18,10 @@ public class WishlistItemService: IWishlistItemService
         _unitOfWork = unitOfWork;
     }
 
-    public async Task<ResponseWishlistItemDto> CreateWishlistItemAsync(int userId, CreateWishlistItemDto createWishlistItemDto)
+    public async Task<ResponseWishlistItemDto> CreateWishlistItemAsync(
+        int userId,
+        CreateWishlistItemDto createWishlistItemDto
+    )
     {
         var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
         if (user == null)
@@ -31,7 +34,9 @@ public class WishlistItemService: IWishlistItemService
             throw new NotFoundException(nameof(Book), createWishlistItemDto.BookId);
         }
 
-        var wishlistItemExists = user.Wishlist.Any(wishlistItem => wishlistItem.BookId == createWishlistItemDto.BookId);
+        var wishlistItemExists = user.Wishlist.Any(wishlistItem =>
+            wishlistItem.BookId == createWishlistItemDto.BookId
+        );
         if (wishlistItemExists)
         {
             throw new EntityAlreadyExistsException(nameof(WishlistItem));
@@ -43,10 +48,8 @@ public class WishlistItemService: IWishlistItemService
         return _mapper.Map<ResponseWishlistItemDto>(wishlistItem);
     }
 
-
     public async Task<List<ResponseWishlistItemDto>> GetAllWishlistItemsAsync(int userId)
     {
-        
         var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
         if (user == null)
         {
@@ -70,7 +73,9 @@ public class WishlistItemService: IWishlistItemService
 
         if (wishlistItem.UserId != userId)
         {
-            throw new UnauthorizedAccessException("This wishlist item does not belong to this user.");
+            throw new UnauthorizedAccessException(
+                "This wishlist item does not belong to this user."
+            );
         }
         user.Wishlist.Remove(wishlistItem);
         await _unitOfWork.CommitAsync();

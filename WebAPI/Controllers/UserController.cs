@@ -12,7 +12,7 @@ public class UserController : ControllerBase
     private readonly IUserService _userService;
     private readonly IWishlistItemService _wishlistItemService;
 
-    public UserController(IUserService userService, IWishlistItemService wishlistItemService) 
+    public UserController(IUserService userService, IWishlistItemService wishlistItemService)
     {
         _userService = userService;
         _wishlistItemService = wishlistItemService;
@@ -59,10 +59,12 @@ public class UserController : ControllerBase
     {
         return Ok(await _wishlistItemService.GetAllWishlistItemsAsync(id));
     }
-    
-    
+
     [HttpPost("{id}/wishlist")]
-    public async Task<ActionResult<ResponseUserDto>> AddBookToWishlist(int id, [FromBody] CreateWishlistItemDto wishlistItemDto)
+    public async Task<ActionResult<ResponseUserDto>> AddBookToWishlist(
+        int id,
+        [FromBody] CreateWishlistItemDto wishlistItemDto
+    )
     {
         if (!ModelState.IsValid)
         {
@@ -77,5 +79,4 @@ public class UserController : ControllerBase
         await _wishlistItemService.DeleteWishlistItemAsync(id, wishlistItemId);
         return Ok(new { message = "Wishlist item successfully deleted" });
     }
-
 }

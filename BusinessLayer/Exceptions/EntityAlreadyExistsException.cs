@@ -2,10 +2,8 @@ namespace BusinessLayer.Exceptions;
 
 public class EntityAlreadyExistsException : Exception
 {
-    
     protected string EntityName { get; }
-    
-    
+
     public EntityAlreadyExistsException(string entityName)
         : base($"{entityName} already exists")
     {

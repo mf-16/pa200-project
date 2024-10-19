@@ -7,5 +7,4 @@ public class ResponseReviewDto
     public string Comment { get; set; }
     public int UserId { get; set; }
     public int BookId { get; set; }
-
 }

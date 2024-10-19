@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers;
 
-
 [ApiController]
 [Route("/api/[controller]")]
 public class ReviewController : ControllerBase
@@ -16,9 +15,10 @@ public class ReviewController : ControllerBase
         _reviewService = reviewService;
     }
 
-
     [HttpPost]
-    public async Task<ActionResult<ResponseReviewDto>> CreateReview([FromBody] CreateReviewDto createReviewDto)
+    public async Task<ActionResult<ResponseReviewDto>> CreateReview(
+        [FromBody] CreateReviewDto createReviewDto
+    )
     {
         if (!ModelState.IsValid)
         {
@@ -26,9 +26,12 @@ public class ReviewController : ControllerBase
         }
         return Ok(await _reviewService.CreateReviewAsync(createReviewDto));
     }
-    
+
     [HttpPut("{id}")]
-    public async Task<ActionResult<ResponseReviewDto>> UpdateReview(int id, [FromBody] UpdateReviewDto updateReviewDto)
+    public async Task<ActionResult<ResponseReviewDto>> UpdateReview(
+        int id,
+        [FromBody] UpdateReviewDto updateReviewDto
+    )
     {
         if (!ModelState.IsValid)
         {
@@ -36,12 +39,13 @@ public class ReviewController : ControllerBase
         }
         return Ok(await _reviewService.UpdateReviewAsync(id, updateReviewDto));
     }
+
     [HttpGet]
     public async Task<ActionResult<ResponseReviewDto>> GetReviews()
     {
         return Ok(await _reviewService.GetAllReviewsAsync());
     }
-    
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteReview(int id)
     {

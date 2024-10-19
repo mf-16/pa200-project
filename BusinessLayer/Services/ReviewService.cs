@@ -7,7 +7,7 @@ using Infrastructure.UnitOfWork;
 
 namespace BusinessLayer.Services;
 
-public class ReviewService: IReviewService
+public class ReviewService : IReviewService
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
@@ -46,7 +46,6 @@ public class ReviewService: IReviewService
         _mapper.Map(reviewDto, review);
         await _unitOfWork.CommitAsync();
         return _mapper.Map<ResponseReviewDto>(review);
-        
     }
 
     public async Task<List<ResponseReviewDto>> GetAllReviewsAsync()
