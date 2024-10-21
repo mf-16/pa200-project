@@ -1,8 +1,8 @@
-﻿using BusinessLayer.DTOs.Book;
+﻿using System.Threading.Tasks;
+using BusinessLayer.DTOs.Book;
 using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
