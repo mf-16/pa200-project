@@ -36,7 +36,8 @@ public class PublishersController : ControllerBase
     [HttpPost]
     public async Task<ActionResult> AddPublisher([FromBody] AddPublisherDto addPublisherDto)
     {
-        if (!ModelState.IsValid) return BadRequest(ModelState);
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
 
         var publisher = await _publisherService.AddPublisherAsync(addPublisherDto);
         return CreatedAtAction(nameof(GetPublisherById), new { id = publisher.Id }, publisher);

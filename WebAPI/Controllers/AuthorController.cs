@@ -36,7 +36,8 @@ namespace WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult> AddAuthor([FromBody] AddAuthorDto addAuthorDto)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             var author = await _authorService.AddAuthorAsync(addAuthorDto);
             return CreatedAtAction(nameof(GetAuthorById), new { id = author.Id }, author);
