@@ -1,11 +1,11 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using AutoMapper;
 using BusinessLayer.DTOs.Publisher;
 using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace BusinessLayer.Services
 {

@@ -4,7 +4,6 @@ using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
-
 namespace WebApi.Controllers
 {
     [Route("api/[controller]")]

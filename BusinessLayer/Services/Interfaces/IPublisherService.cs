@@ -1,6 +1,6 @@
-﻿using BusinessLayer.DTOs.Publisher;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using BusinessLayer.DTOs.Publisher;
 
 namespace BusinessLayer.Services.Interfaces;
 

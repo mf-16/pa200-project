@@ -36,7 +36,8 @@ namespace WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult> AddBook([FromBody] AddBookDto addBookDto)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             var book = await _bookService.AddBookAsync(addBookDto);
             return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, book);

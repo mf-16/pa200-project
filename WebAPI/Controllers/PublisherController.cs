@@ -28,7 +28,8 @@ public class PublishersController : ControllerBase
     public async Task<ActionResult> GetPublisherById(int id)
     {
         var publisher = await _publisherService.GetPublisherByIdAsync(id);
-        if (publisher == null) return NotFound();
+        if (publisher == null)
+            return NotFound();
         return Ok(publisher);
     }
 
