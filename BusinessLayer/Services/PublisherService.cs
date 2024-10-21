@@ -45,8 +45,7 @@ namespace BusinessLayer.Services
             await _unitOfWork.CommitAsync();
         }
 
-        public async Task<ResponsePublisherDto> UpdatePublisherAsync(
-            int id, AddPublisherDto updatePublisherDto)
+        public async Task<ResponsePublisherDto> UpdatePublisherAsync(int id, AddPublisherDto updatePublisherDto)
         {
             var publisher = await _unitOfWork.PublisherRepository.GetByIdAsync(id);
             if (publisher == null)

@@ -44,12 +44,16 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateAuthor(int id, [FromBody] AddAuthorDto updateAuthorDto)
+        public async Task<ActionResult> UpdateAuthor(
+            int id,
+            [FromBody] AddAuthorDto updateAuthorDto)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
             var author = await _authorService.UpdateAuthorAsync(id, updateAuthorDto);
-            if (author == null) return NotFound();
+            if (author == null)
+                return NotFound();
             return Ok(author);
         }
 
