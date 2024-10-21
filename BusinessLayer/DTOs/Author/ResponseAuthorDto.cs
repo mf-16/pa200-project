@@ -1,4 +1,5 @@
 ﻿namespace BusinessLayer.DTOs.Author;
+
 public class ResponseAuthorDto
 {
     public int Id { get; set; }

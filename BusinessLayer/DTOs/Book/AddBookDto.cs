@@ -1,7 +1,8 @@
-﻿using DataAccessLayer.Model;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using DataAccessLayer.Model;
 
 namespace BusinessLayer.DTOs.Book;
+
 public class AddBookDto
 {
     [Required]

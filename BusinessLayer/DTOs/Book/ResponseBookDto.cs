@@ -1,6 +1,7 @@
 ﻿using DataAccessLayer.Model;
 
 namespace BusinessLayer.DTOs.Book;
+
 public class ResponseBookDto
 {
     public int Id { get; set; }
