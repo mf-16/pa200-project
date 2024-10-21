@@ -46,7 +46,8 @@ public class PublishersController : ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult> UpdatePublisher(
         int id,
-        [FromBody] AddPublisherDto updatePublisherDto)
+        [FromBody] AddPublisherDto updatePublisherDto
+    )
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
