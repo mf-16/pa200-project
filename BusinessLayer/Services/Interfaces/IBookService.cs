@@ -13,7 +13,8 @@ public interface IBookService
     Task<IEnumerable<ResponseBookDto>> GetBooksAsync(
         string? name,
         string? description,
-        decimal? price,
+        decimal? minPrice,
+        decimal? maxPrice,
         BookGenre? genre,
         string? publisher
     );

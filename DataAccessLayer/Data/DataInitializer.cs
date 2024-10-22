@@ -91,6 +91,7 @@ namespace DataAccessLayer.Data
                 .RuleFor(b => b.Price, f => decimal.Parse(f.Commerce.Price(10, 100)))
                 .RuleFor(b => b.ImagePath, f => f.Image.PicsumUrl())
                 .RuleFor(b => b.Genre, f => f.PickRandom<BookGenre>())
+                .RuleFor(b => b.Description, f => f.Lorem.Paragraph())
                 .Generate(20);
 
             return books;

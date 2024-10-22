@@ -62,10 +62,11 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("search")]
-        public async Task<ActionResult> GetBooks(
+        public async Task<IActionResult> GetBooks(
             [FromQuery] string? name,
             [FromQuery] string? description,
-            [FromQuery] decimal? price,
+            [FromQuery] decimal? minPrice,
+            [FromQuery] decimal? maxPrice,
             [FromQuery] BookGenre? genre,
             [FromQuery] string? publisher
         )
@@ -73,7 +74,8 @@ namespace WebApi.Controllers
             var books = await _bookService.GetBooksAsync(
                 name,
                 description,
-                price,
+                minPrice,
+                maxPrice,
                 genre,
                 publisher
             );

@@ -77,7 +77,8 @@ public class BookService : IBookService
     public async Task<IEnumerable<ResponseBookDto>> GetBooksAsync(
         string? name,
         string? description,
-        decimal? price,
+        decimal? minPrice,
+        decimal? maxPrice,
         BookGenre? genre,
         string? publisher
     )
@@ -95,9 +96,14 @@ public class BookService : IBookService
             query = query.Where(b => b.Description.Contains(description));
         }
 
-        if (price.HasValue)
+        if (minPrice.HasValue)
         {
-            query = query.Where(b => b.Price == price.Value);
+            query = query.Where(b => b.Price >= minPrice.Value);
+        }
+
+        if (maxPrice.HasValue)
+        {
+            query = query.Where(b => b.Price <= maxPrice.Value);
         }
 
         if (genre.HasValue)
