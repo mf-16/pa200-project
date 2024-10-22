@@ -18,14 +18,14 @@ public class CartItemService : ICartItemService
         _mapper = mapper;
     }
 
-    public async Task<ResponseCartItemDto> AddCartItemAsync(AddCartItemDto addCartItemDto)
+    public async Task<ResponseCartItemDto> CreateCartItemAsync(CreateCartItemDto createCartItemDto)
     {
-        if (await _unitOfWork.BookRepository.GetByIdAsync(addCartItemDto.BookId) == null)
+        if (await _unitOfWork.BookRepository.GetByIdAsync(createCartItemDto.BookId) == null)
         {
-            throw new NotFoundException("Book", addCartItemDto.BookId);
+            throw new NotFoundException("Book", createCartItemDto.BookId);
         }
 
-        var cartItem = _mapper.Map<CartItem>(addCartItemDto);
+        var cartItem = _mapper.Map<CartItem>(createCartItemDto);
         await _unitOfWork.CartItemRepository.AddAsync(cartItem);
         await _unitOfWork.CommitAsync();
         var response = _mapper.Map<ResponseCartItemDto>(cartItem);
@@ -55,15 +55,16 @@ public class CartItemService : ICartItemService
         await _unitOfWork.CommitAsync();
     }
 
-    public async Task<ResponseCartItemDto> UpdateCartItemAsync(UpdateCartItemDto updateCartItemDto)
+    public async Task<ResponseCartItemDto> UpdateCartItemAsync(
+        int id,
+        UpdateCartItemDto updateCartItemDto
+    )
     {
-        var cartItem = await _unitOfWork.CartItemRepository.GetByIdAsync(
-            updateCartItemDto.CartItemId
-        );
+        var cartItem = await _unitOfWork.CartItemRepository.GetByIdAsync(id);
 
         if (cartItem == null)
         {
-            throw new NotFoundException("CartItem", updateCartItemDto.CartItemId);
+            throw new NotFoundException("CartItem", id);
         }
 
         cartItem.Quantity = updateCartItemDto.Quantity;

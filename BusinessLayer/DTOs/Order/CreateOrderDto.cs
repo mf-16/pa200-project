@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BusinessLayer.DTOs.Order;
 
-public class AddOrderDto
+public class CreateOrderDto
 {
     [Required]
     [StringLength(100, ErrorMessage = "Customer name cannot exceed 100 characters.")]

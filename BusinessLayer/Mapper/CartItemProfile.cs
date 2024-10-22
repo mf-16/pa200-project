@@ -8,7 +8,7 @@ public class CartItemProfile : Profile
 {
     public CartItemProfile()
     {
-        CreateMap<AddCartItemDto, CartItem>();
+        CreateMap<CreateCartItemDto, CartItem>();
         CreateMap<CartItem, ResponseCartItemDto>()
             .ForMember(dest => dest.BookTitle, opt => opt.MapFrom(src => src.Book.Title))
             .ForMember(dest => dest.BookPrice, opt => opt.MapFrom(src => src.Book.Price));

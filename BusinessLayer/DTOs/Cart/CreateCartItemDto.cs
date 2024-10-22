@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace BusinessLayer.DTOs.Cart;
 
-public class AddCartItemDto
+public class CreateCartItemDto
 {
     [Required]
     public int CartId { get; set; }
