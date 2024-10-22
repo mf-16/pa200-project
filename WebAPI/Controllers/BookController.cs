@@ -44,14 +44,12 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateBook(int id, [FromBody] AddBookDto updateBookDto)
+        public async Task<ActionResult> UpdateBook(int id, [FromBody] UpdateBookDto updateBookDto)
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var book = await _bookService.UpdateBookAsync(id, updateBookDto);
-            if (book == null)
-                return NotFound();
             return Ok(book);
         }
 

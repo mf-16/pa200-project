@@ -28,8 +28,6 @@ public class PublishersController : ControllerBase
     public async Task<ActionResult> GetPublisherById(int id)
     {
         var publisher = await _publisherService.GetPublisherByIdAsync(id);
-        if (publisher == null)
-            return NotFound();
         return Ok(publisher);
     }
 
@@ -46,15 +44,13 @@ public class PublishersController : ControllerBase
     [HttpPut("{id}")]
     public async Task<ActionResult> UpdatePublisher(
         int id,
-        [FromBody] AddPublisherDto updatePublisherDto
+        [FromBody] UpdatePublisherDto updatePublisherDto
     )
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
 
         var publisher = await _publisherService.UpdatePublisherAsync(id, updatePublisherDto);
-        if (publisher == null)
-            return NotFound();
         return Ok(publisher);
     }
 

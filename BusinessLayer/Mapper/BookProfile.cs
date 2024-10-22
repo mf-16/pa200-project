@@ -10,5 +10,8 @@ public class BookProfile : Profile
     {
         CreateMap<Book, ResponseBookDto>();
         CreateMap<AddBookDto, Book>();
+        CreateMap<Book, ResponseBookDto>()
+           .ForMember(dest => dest.PublisherName, opt => opt.MapFrom(src => src.Publisher.Name));
+
     }
 }

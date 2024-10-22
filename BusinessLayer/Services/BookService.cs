@@ -4,6 +4,7 @@ using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusinessLayer.Services;
 
@@ -50,7 +51,7 @@ public class BookService : IBookService
         await _unitOfWork.CommitAsync();
     }
 
-    public async Task<ResponseBookDto> UpdateBookAsync(int id, AddBookDto updateBookDto)
+    public async Task<ResponseBookDto> UpdateBookAsync(int id, UpdateBookDto updateBookDto)
     {
         var book = await _unitOfWork.BookRepository.GetByIdAsync(id);
 
@@ -71,5 +72,39 @@ public class BookService : IBookService
         var books = await _unitOfWork.BookRepository.GetAllAsync();
         var response = _mapper.Map<IEnumerable<ResponseBookDto>>(books);
         return response;
+    }
+
+    public async Task<IEnumerable<ResponseBookDto>> GetBooksAsync(string? name, string? description, decimal? price, BookGenre? genre, string? publisher)
+    {
+        var books = await _unitOfWork.BookRepository.GetAllAsync();
+        var query = books.AsQueryable();
+
+        if (!string.IsNullOrEmpty(name))
+        {
+            query = query.Where(b => b.Title.Contains(name));
+        }
+
+        if (!string.IsNullOrEmpty(description))
+        {
+            query = query.Where(b => b.Description.Contains(description));
+        }
+
+        if (price.HasValue)
+        {
+            query = query.Where(b => b.Price == price.Value);
+        }
+
+        if (genre.HasValue)
+        {
+            query = query.Where(b => b.Genre == genre.Value);
+        }
+
+        if (!string.IsNullOrEmpty(publisher))
+        {
+            query = query.Where(b => b.Publisher.Name.Contains(publisher));
+        }
+
+        var filteredBooks = query.ToList();
+        return _mapper.Map<IEnumerable<ResponseBookDto>>(filteredBooks);
     }
 }

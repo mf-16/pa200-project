@@ -28,8 +28,6 @@ namespace WebApi.Controllers
         public async Task<ActionResult> GetAuthorById(int id)
         {
             var author = await _authorService.GetAuthorByIdAsync(id);
-            if (author == null)
-                return NotFound();
             return Ok(author);
         }
 
@@ -46,15 +44,13 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public async Task<ActionResult> UpdateAuthor(
             int id,
-            [FromBody] AddAuthorDto updateAuthorDto
+            [FromBody] UpdateAuthorDto updateAuthorDto
         )
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var author = await _authorService.UpdateAuthorAsync(id, updateAuthorDto);
-            if (author == null)
-                return NotFound();
             return Ok(author);
         }
 

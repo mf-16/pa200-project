@@ -50,7 +50,7 @@ public class AuthorService : IAuthorService
         await _unitOfWork.CommitAsync();
     }
 
-    public async Task<ResponseAuthorDto> UpdateAuthorAsync(int id, AddAuthorDto updateAuthorDto)
+    public async Task<ResponseAuthorDto> UpdateAuthorAsync(int id, UpdateAuthorDto updateAuthorDto)
     {
         var author = await _unitOfWork.AuthorRepository.GetByIdAsync(id);
 
