@@ -2,6 +2,7 @@
 using BusinessLayer.DTOs.Book;
 using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
+using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -58,6 +59,25 @@ namespace WebApi.Controllers
         {
             await _bookService.DeleteBookAsync(id);
             return Ok(new { message = "Book successfully deleted" });
+        }
+
+        [HttpGet("search")]
+        public async Task<ActionResult> GetBooks(
+            [FromQuery] string? name,
+            [FromQuery] string? description,
+            [FromQuery] decimal? price,
+            [FromQuery] BookGenre? genre,
+            [FromQuery] string? publisher
+        )
+        {
+            var books = await _bookService.GetBooksAsync(
+                name,
+                description,
+                price,
+                genre,
+                publisher
+            );
+            return Ok(books);
         }
     }
 }

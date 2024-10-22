@@ -10,5 +10,11 @@ public interface IBookService
     Task<ResponseBookDto> AddBookAsync(AddBookDto addBookDto);
     Task<ResponseBookDto> UpdateBookAsync(int id, UpdateBookDto updateBookDto);
     Task DeleteBookAsync(int id);
-    Task<IEnumerable<ResponseBookDto>> GetBooksAsync(string? name, string? description, decimal? price, BookGenre? genre, string? publisher);
+    Task<IEnumerable<ResponseBookDto>> GetBooksAsync(
+        string? name,
+        string? description,
+        decimal? price,
+        BookGenre? genre,
+        string? publisher
+    );
 }

@@ -74,7 +74,13 @@ public class BookService : IBookService
         return response;
     }
 
-    public async Task<IEnumerable<ResponseBookDto>> GetBooksAsync(string? name, string? description, decimal? price, BookGenre? genre, string? publisher)
+    public async Task<IEnumerable<ResponseBookDto>> GetBooksAsync(
+        string? name,
+        string? description,
+        decimal? price,
+        BookGenre? genre,
+        string? publisher
+    )
     {
         var books = await _unitOfWork.BookRepository.GetAllAsync();
         var query = books.AsQueryable();
