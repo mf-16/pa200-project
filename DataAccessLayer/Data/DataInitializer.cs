@@ -157,6 +157,7 @@ public static class DataInitializer
             .RuleFor(b => b.PublisherId, f => f.Random.Number(1, NumberOfPublishers))
             .RuleFor(b => b.Price, f => decimal.Parse(f.Commerce.Price(10, 100)))
             .RuleFor(b => b.ImagePath, f => f.Image.PicsumUrl())
+            .RuleFor(b => b.Description, f => f.Lorem.Paragraph())
             .RuleFor(b => b.Genre, f => f.PickRandom<BookGenre>());
 
         return bookFaker.Generate(count);
