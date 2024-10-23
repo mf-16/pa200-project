@@ -7,15 +7,21 @@ namespace WebAPI.Controllers;
 
 [ApiController]
 [Route("/api/[controller]")]
-public class UserController : ControllerBase
+public class UsersController : ControllerBase
 {
     private readonly IUserService _userService;
     private readonly IWishlistItemService _wishlistItemService;
 
-    public UserController(IUserService userService, IWishlistItemService wishlistItemService)
+    public UsersController(IUserService userService, IWishlistItemService wishlistItemService)
     {
         _userService = userService;
         _wishlistItemService = wishlistItemService;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAllUsers()
+    {
+        return Ok(await _userService.GetAllUsersAsync());
     }
 
     [HttpPost]

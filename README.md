@@ -4,6 +4,8 @@
 
 - [Assignment](#assignment)
 - [Milestone 1](#milestone-1)
+- [Run instructions](#run-instructions)
+- [Diagrams](#diagrams)
 
 ## Assignment
 
@@ -32,3 +34,12 @@ Moreover, it is requested that the code be made available for retrieval after th
 - [ ] **Commit Changes**: All changes should be committed to separate branches and later merged in a merge request. At least one approval from a team member is REQUIRED. The team member that approves the changes in the merge request is also responsible for them (a requirement starting in the 2nd milestone).
 - [ ] **Merge Requests**: All of the Merge Requests for Milestone 1 should be merged into a branch called **Milestone 1**. After completing the milestone, make a merge request from **Milestone 1** to **master** (this way, reviewers will be able to see all the changes in one place). The Milestone 1 can be merged ONLY AFTER TEACHER APPROVES IT!
 
+## Run Instructions
+
+Run instructions [here](./docs/RUN_INSTRUCTIONS.md)
+
+## Diagrams
+
+Use Case Diagram [here](./docs/diagrams/use-case.png)
+
+ER Diagram [here](./docs/diagrams/erd.png)

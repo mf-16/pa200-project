@@ -6,11 +6,11 @@ namespace WebAPI.Controllers;
 
 [ApiController]
 [Route("/api/[controller]")]
-public class ReviewController : ControllerBase
+public class ReviewsController : ControllerBase
 {
     private readonly IReviewService _reviewService;
 
-    public ReviewController(IReviewService reviewService)
+    public ReviewsController(IReviewService reviewService)
     {
         _reviewService = reviewService;
     }
