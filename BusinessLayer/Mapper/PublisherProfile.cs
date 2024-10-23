@@ -9,6 +9,7 @@ public class PublisherProfile : Profile
     public PublisherProfile()
     {
         CreateMap<Publisher, ResponsePublisherDto>();
+        CreateMap<UpdatePublisherDto, Publisher>();
         CreateMap<AddPublisherDto, Publisher>();
     }
 }
