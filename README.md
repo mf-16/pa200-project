@@ -15,24 +15,24 @@ Moreover, it is requested that the code be made available for retrieval after th
 
 ## Milestone 1
 
-- [ ] **Create a Use-Case Diagram** and Data Model for the application.
-- [ ] **Create a REST Web API** that can fetch products based on:
+- [x] **Create a Use-Case Diagram** and Data Model for the application.
+- [x] **Create a REST Web API** that can fetch products based on:
     - Name
     - Description
     - Price
     - Category
     - Manufacturer
-- [ ] **Setup the Database** and introduce a Data Access Layer (DAL) to your project.
-- [ ] **Seed the Database** with some realistic data; avoid placeholders like 'AAAA' or 'test'.
-- [ ] **Make a GitLab Repository** and set the visibility as Internal (NOT PRIVATE!).
-- [ ] **Divide the Work** between Team Lead and Team Members.
-- [ ] **Create a README** and write basic information about how to run the application and what it consists of.
-- [ ] **Create Documentation [Technical Overview]**, which can be a part of the README, including diagrams and information about the application.
-- [ ] **Equal Contribution**: Each team member in a group must contribute as equally as possible. Each member should create a database entity, seed the created entity, and create CRUD operations (Web API Endpoints) related to their entity.
-- [ ] **Create an Authentication Middleware** (a simple middleware using a hard-coded access token).
-- [ ] **Create a Logging Middleware** that logs all incoming requests.
-- [ ] **Commit Changes**: All changes should be committed to separate branches and later merged in a merge request. At least one approval from a team member is REQUIRED. The team member that approves the changes in the merge request is also responsible for them (a requirement starting in the 2nd milestone).
-- [ ] **Merge Requests**: All of the Merge Requests for Milestone 1 should be merged into a branch called **Milestone 1**. After completing the milestone, make a merge request from **Milestone 1** to **master** (this way, reviewers will be able to see all the changes in one place). The Milestone 1 can be merged ONLY AFTER TEACHER APPROVES IT!
+- [x] **Setup the Database** and introduce a Data Access Layer (DAL) to your project.
+- [x] **Seed the Database** with some realistic data; avoid placeholders like 'AAAA' or 'test'.
+- [x] **Make a GitLab Repository** and set the visibility as Internal (NOT PRIVATE!).
+- [x] **Divide the Work** between Team Lead and Team Members.
+- [x] **Create a README** and write basic information about how to run the application and what it consists of.
+- [x] **Create Documentation [Technical Overview]**, which can be a part of the README, including diagrams and information about the application.
+- [x] **Equal Contribution**: Each team member in a group must contribute as equally as possible. Each member should create a database entity, seed the created entity, and create CRUD operations (Web API Endpoints) related to their entity.
+- [x] **Create an Authentication Middleware** (a simple middleware using a hard-coded access token).
+- [x] **Create a Logging Middleware** that logs all incoming requests.
+- [x] **Commit Changes**: All changes should be committed to separate branches and later merged in a merge request. At least one approval from a team member is REQUIRED. The team member that approves the changes in the merge request is also responsible for them (a requirement starting in the 2nd milestone).
+- [x] **Merge Requests**: All of the Merge Requests for Milestone 1 should be merged into a branch called **Milestone 1**. After completing the milestone, make a merge request from **Milestone 1** to **master** (this way, reviewers will be able to see all the changes in one place). The Milestone 1 can be merged ONLY AFTER TEACHER APPROVES IT!
 
 ## Run Instructions
 

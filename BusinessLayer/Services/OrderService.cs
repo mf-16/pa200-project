@@ -22,9 +22,12 @@ public class OrderService : IOrderService
     {
         var cart = await _unitOfWork.CartRepository.GetByIdAsync(createOrderDto.CartId);
         if (cart is null)
+        {
             throw new NotFoundException("Cart", createOrderDto.CartId);
-        var order = MapAddOrderDtoToOrder(createOrderDto, cart);
-        await _unitOfWork.OrderRepository.AddAsync(order);
+        }
+        //var order = MapAddOrderDtoToOrder(createOrderDto, cart);
+        var order = _mapper.Map<(CreateOrderDto, Cart), Order>((createOrderDto, cart));
+        _unitOfWork.OrderRepository.Add(order);
         _unitOfWork.CartItemRepository.DeleteRange(cart.CartItems);
         await _unitOfWork.CommitAsync();
         return _mapper.Map<ResponseOrderDto>(order);
@@ -34,7 +37,9 @@ public class OrderService : IOrderService
     {
         var order = await _unitOfWork.OrderRepository.GetByIdAsync(id);
         if (order is null)
+        {
             throw new NotFoundException("Order", id);
+        }
         return _mapper.Map<ResponseOrderDto>(order);
     }
 

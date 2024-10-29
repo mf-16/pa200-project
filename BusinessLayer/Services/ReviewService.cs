@@ -31,7 +31,7 @@ public class ReviewService : IReviewService
             throw new NotFoundException(nameof(Book), reviewDto.BookId);
         }
         var review = _mapper.Map<Review>(reviewDto);
-        await _unitOfWork.ReviewRepository.AddAsync(review);
+        _unitOfWork.ReviewRepository.Add(review);
         await _unitOfWork.CommitAsync();
         return _mapper.Map<ResponseReviewDto>(review);
     }

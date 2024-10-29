@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
+using DataAccessLayer.Enums;
 
 namespace DataAccessLayer.Model
 {

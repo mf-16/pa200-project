@@ -21,7 +21,7 @@ public class AuthorService : IAuthorService
     public async Task<ResponseAuthorDto> AddAuthorAsync(AddAuthorDto addAuthorDto)
     {
         var author = _mapper.Map<Author>(addAuthorDto);
-        await _unitOfWork.AuthorRepository.AddAsync(author);
+        _unitOfWork.AuthorRepository.Add(author);
         await _unitOfWork.CommitAsync();
         var response = _mapper.Map<ResponseAuthorDto>(author);
         return response;

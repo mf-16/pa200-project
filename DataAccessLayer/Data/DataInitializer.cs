@@ -1,4 +1,5 @@
 using Bogus;
+using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

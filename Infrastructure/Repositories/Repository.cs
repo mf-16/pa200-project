@@ -13,9 +13,9 @@ public class Repository<T> : IRepository<T>
         _entities = context.Set<T>();
     }
 
-    public async Task AddAsync(T entity)
+    public void Add(T entity)
     {
-        await _entities.AddAsync(entity);
+        _entities.Add(entity);
     }
 
     public void Delete(T entity)
