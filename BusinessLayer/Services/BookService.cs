@@ -2,6 +2,7 @@
 using BusinessLayer.DTOs.Book;
 using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
+using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
@@ -22,7 +23,7 @@ public class BookService : IBookService
     public async Task<ResponseBookDto> AddBookAsync(AddBookDto addBookDto)
     {
         var book = _mapper.Map<Book>(addBookDto);
-        await _unitOfWork.BookRepository.AddAsync(book);
+        _unitOfWork.BookRepository.Add(book);
         await _unitOfWork.CommitAsync();
         var response = _mapper.Map<ResponseBookDto>(book);
         return response;

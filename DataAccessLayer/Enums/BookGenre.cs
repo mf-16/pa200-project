@@ -1,4 +1,4 @@
-namespace DataAccessLayer.Model;
+namespace DataAccessLayer.Enums;
 
 public enum BookGenre
 {

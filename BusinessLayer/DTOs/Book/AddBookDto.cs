@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
 
 namespace BusinessLayer.DTOs.Book;

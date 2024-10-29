@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.DTOs.Book;
+using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
 
 namespace BusinessLayer.Services.Interfaces;

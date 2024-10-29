@@ -23,7 +23,7 @@ namespace BusinessLayer.Services
         public async Task<ResponsePublisherDto> AddPublisherAsync(AddPublisherDto addPublisherDto)
         {
             var publisher = _mapper.Map<Publisher>(addPublisherDto);
-            await _unitOfWork.PublisherRepository.AddAsync(publisher);
+            _unitOfWork.PublisherRepository.Add(publisher);
             await _unitOfWork.CommitAsync();
             return _mapper.Map<ResponsePublisherDto>(publisher);
         }

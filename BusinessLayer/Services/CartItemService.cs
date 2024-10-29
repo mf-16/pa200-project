@@ -26,7 +26,7 @@ public class CartItemService : ICartItemService
         }
 
         var cartItem = _mapper.Map<CartItem>(createCartItemDto);
-        await _unitOfWork.CartItemRepository.AddAsync(cartItem);
+        _unitOfWork.CartItemRepository.Add(cartItem);
         await _unitOfWork.CommitAsync();
         var response = _mapper.Map<ResponseCartItemDto>(cartItem);
         return response;
