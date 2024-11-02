@@ -69,7 +69,7 @@ namespace WebApi.Controllers
                 MinPrice = request.MinPrice,
                 MaxPrice = request.MaxPrice,
                 Genre = request.Genre,
-                Publisher = request.Publisher
+                Publisher = request.Publisher,
             };
 
             var books = await _bookService.GetFilteredBooksAsync(filter);
