@@ -75,46 +75,44 @@ public class BookService : IBookService
         return response;
     }
 
-    public async Task<IEnumerable<ResponseBookDto>> GetBooksAsync(
-        string? name,
-        string? description,
-        decimal? minPrice,
-        decimal? maxPrice,
-        BookGenre? genre,
-        string? publisher
-    )
+    public async Task<IEnumerable<ResponseBookDto>> GetFilteredBooksAsync(BookFilterDto filter)
+    {
+        return await GetBooksAsync(filter);
+    }
+
+    private async Task<IEnumerable<ResponseBookDto>> GetBooksAsync(BookFilterDto filter)
     {
         var books = await _unitOfWork.BookRepository.GetAllAsync();
         var query = books.AsQueryable();
 
-        if (!string.IsNullOrEmpty(name))
+        if (!string.IsNullOrEmpty(filter.Name))
         {
-            query = query.Where(b => b.Title.Contains(name));
+            query = query.Where(b => b.Title.Contains(filter.Name));
         }
 
-        if (!string.IsNullOrEmpty(description))
+        if (!string.IsNullOrEmpty(filter.Description))
         {
-            query = query.Where(b => b.Description.Contains(description));
+            query = query.Where(b => b.Description.Contains(filter.Description));
         }
 
-        if (minPrice.HasValue)
+        if (filter.MinPrice.HasValue)
         {
-            query = query.Where(b => b.Price >= minPrice.Value);
+            query = query.Where(b => b.Price >= filter.MinPrice.Value);
         }
 
-        if (maxPrice.HasValue)
+        if (filter.MaxPrice.HasValue)
         {
-            query = query.Where(b => b.Price <= maxPrice.Value);
+            query = query.Where(b => b.Price <= filter.MaxPrice.Value);
         }
 
-        if (genre.HasValue)
+        if (filter.Genre.HasValue)
         {
-            query = query.Where(b => b.Genre == genre.Value);
+            query = query.Where(b => b.Genre == filter.Genre.Value);
         }
 
-        if (!string.IsNullOrEmpty(publisher))
+        if (!string.IsNullOrEmpty(filter.Publisher))
         {
-            query = query.Where(b => b.Publisher.Name.Contains(publisher));
+            query = query.Where(b => b.Publisher.Name.Contains(filter.Publisher));
         }
 
         var filteredBooks = query.ToList();

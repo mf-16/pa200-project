@@ -60,23 +60,19 @@ namespace WebApi.Controllers
         }
 
         [HttpGet("search")]
-        public async Task<IActionResult> GetBooks(
-            [FromQuery] string? name,
-            [FromQuery] string? description,
-            [FromQuery] decimal? minPrice,
-            [FromQuery] decimal? maxPrice,
-            [FromQuery] BookGenre? genre,
-            [FromQuery] string? publisher
-        )
+        public async Task<IActionResult> GetBooks([FromQuery] BookFilterDto request)
         {
-            var books = await _bookService.GetBooksAsync(
-                name,
-                description,
-                minPrice,
-                maxPrice,
-                genre,
-                publisher
-            );
+            var filter = new BookFilterDto
+            {
+                Name = request.Name,
+                Description = request.Description,
+                MinPrice = request.MinPrice,
+                MaxPrice = request.MaxPrice,
+                Genre = request.Genre,
+                Publisher = request.Publisher
+            };
+
+            var books = await _bookService.GetFilteredBooksAsync(filter);
             return Ok(books);
         }
     }
