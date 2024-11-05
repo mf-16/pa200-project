@@ -1,0 +1,31 @@
+@startuml
+
+left to right direction
+
+actor User as U
+actor RegisteredUser as R
+actor Administrator as A
+
+U <|-- R
+R <|-- A
+
+rectangle "BookHub System" {
+    
+    U -- (Search Books)
+    U -- (Create Account)
+    U -- (Make a Purchase)
+
+    R -- (Login)
+    R -- (Add to Wishlist)
+    R -- (Submit Review)
+    R -- (View Order History)
+    R -- (Manage Account)
+
+    A -- (Manage Books)
+    A -- (Manage Users)
+    (Update Book Details) ..> (Manage Books) : extends
+    (Update Price) ..> (Manage Books) : extends
+    (Filter Books) ..> (Search Books) : extends
+}
+
+@enduml
