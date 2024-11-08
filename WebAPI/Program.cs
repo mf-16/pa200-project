@@ -2,7 +2,6 @@ using BusinessLayer.Services;
 using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Data;
 using DataAccessLayer.Model;
-using Infrastructure.Repositories;
 using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -13,7 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddXmlDataContractSerializerFormatters();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
