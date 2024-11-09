@@ -25,7 +25,7 @@ public class OrderService : IOrderService
         {
             throw new NotFoundException("Cart", createOrderDto.CartId);
         }
-        //var order = MapAddOrderDtoToOrder(createOrderDto, cart);
+        
         var order = _mapper.Map<(CreateOrderDto, Cart), Order>((createOrderDto, cart));
         _unitOfWork.OrderRepository.Add(order);
         _unitOfWork.CartItemRepository.DeleteRange(cart.CartItems);
@@ -48,30 +48,4 @@ public class OrderService : IOrderService
         return _mapper.Map<List<ResponseOrderDto>>(await _unitOfWork.OrderRepository.GetAllAsync());
     }
 
-    private Order MapAddOrderDtoToOrder(CreateOrderDto createOrderDto, Cart cart)
-    {
-        var order = new Order()
-        {
-            BillingAddress = createOrderDto.BillingAddress,
-            ShippingAddress = createOrderDto.ShippingAddress,
-            CustomerEmail = createOrderDto.CustomerEmail,
-            CustomerName = createOrderDto.CustomerName,
-            TotalAmount = cart.CartItems.Sum(i => i.Book.Price * i.Quantity),
-            OrderItems = new List<OrderItem>(),
-            UserId = cart.UserId,
-        };
-        foreach (var cartItem in cart.CartItems)
-        {
-            var orderItem = new OrderItem()
-            {
-                BookId = cartItem.BookId,
-                OrderId = order.Id,
-                Price = cartItem.Book.Price,
-                Quantity = cartItem.Quantity,
-            };
-            order.OrderItems.Add(orderItem);
-        }
-
-        return order;
-    }
 }
