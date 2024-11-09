@@ -5,21 +5,20 @@ using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 
 namespace BusinessLayer.Services;
 
 public class UserService : IUserService
 {
-    private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly UserManager<User> _userManager;
+    private readonly IUnitOfWork _unitOfWork;
 
     public UserService(IUnitOfWork unitOfWork, IMapper mapper, UserManager<User> userManager)
     {
-        _unitOfWork = unitOfWork;
         _mapper = mapper;
         _userManager = userManager;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<ResponseUserDto> CreateUserAsync(CreateUserDto dto)
@@ -36,7 +35,7 @@ public class UserService : IUserService
 
     public async Task<ResponseUserDto> UpdateUserAsync(int id, UpdateUserDto dto)
     {
-        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(id);
         if (user == null)
         {
             throw new NotFoundException(nameof(User), id);
@@ -52,7 +51,7 @@ public class UserService : IUserService
 
     public async Task DeleteUserAsync(int id)
     {
-        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(id);
         if (user == null)
         {
             throw new NotFoundException(nameof(User), id);
@@ -66,13 +65,13 @@ public class UserService : IUserService
 
     public async Task<List<ResponseUserDto>> GetAllUsersAsync()
     {
-        var users = await _userManager.Users.ToListAsync();
+        var users = await _unitOfWork.UserRepository.GetAllAsync();
         return _mapper.Map<List<ResponseUserDto>>(users);
     }
 
     public async Task<ResponseUserDto> GetUserAsync(int id)
     {
-        var user = await _userManager.Users.FirstOrDefaultAsync(u => u.Id == id);
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(id);
         if (user == null)
         {
             throw new NotFoundException(nameof(User), id);
