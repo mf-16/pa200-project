@@ -7,6 +7,7 @@
   },
 
   "ConnectionStrings": {
+    "MongoDb": "mongodb://logs:27017/production",
     "DefaultConnection": "Host=localhost;Database=production;Username=user;Password=password;Port=5432"
   }
 }
