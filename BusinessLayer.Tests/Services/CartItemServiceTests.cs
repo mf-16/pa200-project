@@ -14,16 +14,15 @@ namespace BusinessLayer.Tests.Services;
 
 public class CartItemServiceTests
 {
-    
-    private readonly IUnitOfWork  _unitOfWork;
+    private readonly IUnitOfWork _unitOfWork;
     private readonly ICartItemService _cartItemService;
 
     public CartItemServiceTests()
     {
         var configuration = new MapperConfiguration(cfg =>
-                    {
-                        cfg.AddProfile(new CartItemProfile()); 
-                    });
+        {
+            cfg.AddProfile(new CartItemProfile());
+        });
         var mockMapper = configuration.CreateMapper();
         _unitOfWork = Substitute.For<IUnitOfWork>();
         _cartItemService = new CartItemService(_unitOfWork, mockMapper);
@@ -39,27 +38,30 @@ public class CartItemServiceTests
             CartId = 1,
             Quantity = 5,
         };
-        
+
         _unitOfWork.BookRepository.GetByIdAsync(Arg.Any<int>()).Returns(new Book());
-        
+
         // Act
         var result = await _cartItemService.CreateCartItemAsync(cartItemDto);
-        
+
         // Assert
         await _unitOfWork.BookRepository.Received(1).GetByIdAsync(cartItemDto.BookId);
-        
-        _unitOfWork.CartItemRepository.Received(1).Add(Arg.Is<CartItem>(ci =>
-                ci.BookId == cartItemDto.BookId &&
-                ci.CartId == cartItemDto.CartId &&
-                ci.Quantity == cartItemDto.Quantity));
-        
+
+        _unitOfWork
+            .CartItemRepository.Received(1)
+            .Add(
+                Arg.Is<CartItem>(ci =>
+                    ci.BookId == cartItemDto.BookId
+                    && ci.CartId == cartItemDto.CartId
+                    && ci.Quantity == cartItemDto.Quantity
+                )
+            );
+
         await _unitOfWork.Received(1).CommitAsync();
-        
+
         Assert.Equal(cartItemDto.Quantity, result.Quantity);
     }
-    
-    
-    
+
     [Fact]
     public async Task CreateCartItemAsync_ShouldThrowException_WhenBookNotFound()
     {
@@ -70,33 +72,31 @@ public class CartItemServiceTests
             CartId = 1,
             Quantity = 5,
         };
-            
-        _unitOfWork.BookRepository.GetByIdAsync(Arg.Any<int>()).Returns((Book?) null);
-            
+
+        _unitOfWork.BookRepository.GetByIdAsync(Arg.Any<int>()).Returns((Book?)null);
+
         // Act
         // Assert
-        await Assert.ThrowsAsync<NotFoundException>(async () => await _cartItemService.CreateCartItemAsync(cartItemDto));
-
+        await Assert.ThrowsAsync<NotFoundException>(
+            async () => await _cartItemService.CreateCartItemAsync(cartItemDto)
+        );
     }
-    
+
     [Fact]
     public async Task UpdateCartItemAsync_ShouldUpdateCartItemQuantity()
     {
         // Arrange
         int cartItemId = 1;
-        var updateCartItemDto = new UpdateCartItemDto
-        {
-            Quantity = 10
-        };
-    
+        var updateCartItemDto = new UpdateCartItemDto { Quantity = 10 };
+
         var existingCartItem = new CartItem
         {
             Id = cartItemId,
             BookId = 1,
             CartId = 1,
-            Quantity = 5
+            Quantity = 5,
         };
-    
+
         _unitOfWork.CartItemRepository.GetByIdAsync(cartItemId).Returns(existingCartItem);
 
         // Act
@@ -107,34 +107,35 @@ public class CartItemServiceTests
 
         Assert.Equal(updateCartItemDto.Quantity, existingCartItem.Quantity);
 
-        _unitOfWork.CartItemRepository.Received(1).Update(Arg.Is<CartItem>(ci =>
-            ci.Id == cartItemId &&
-            ci.Quantity == updateCartItemDto.Quantity
-        ));
+        _unitOfWork
+            .CartItemRepository.Received(1)
+            .Update(
+                Arg.Is<CartItem>(ci =>
+                    ci.Id == cartItemId && ci.Quantity == updateCartItemDto.Quantity
+                )
+            );
 
         await _unitOfWork.Received(1).CommitAsync();
 
         Assert.Equal(updateCartItemDto.Quantity, result.Quantity);
     }
-    
-     [Fact]
-        public async Task UpdateCartItemAsync_ShouldThrowException_WhenBookNotFound()
-        {
-            var cartItemId = 1;
-            // Arrange
-            var cartItemDto = new UpdateCartItemDto()
-            {
-                Quantity = 5,
-            };
-                
-            _unitOfWork.BookRepository.GetByIdAsync(Arg.Any<int>()).Returns((Book?) null);
-                
-            // Act
-            // Assert
-            await Assert.ThrowsAsync<NotFoundException>(async () => await _cartItemService.UpdateCartItemAsync(cartItemId, cartItemDto));
-    
-        }
-    
+
+    [Fact]
+    public async Task UpdateCartItemAsync_ShouldThrowException_WhenBookNotFound()
+    {
+        var cartItemId = 1;
+        // Arrange
+        var cartItemDto = new UpdateCartItemDto() { Quantity = 5 };
+
+        _unitOfWork.BookRepository.GetByIdAsync(Arg.Any<int>()).Returns((Book?)null);
+
+        // Act
+        // Assert
+        await Assert.ThrowsAsync<NotFoundException>(
+            async () => await _cartItemService.UpdateCartItemAsync(cartItemId, cartItemDto)
+        );
+    }
+
     [Fact]
     public async Task DeleteCartItemAsync_ShouldDeleteCartItem()
     {
@@ -145,32 +146,33 @@ public class CartItemServiceTests
             Id = cartItemId,
             BookId = 1,
             CartId = 1,
-            Quantity = 5
+            Quantity = 5,
         };
-    
+
         _unitOfWork.CartItemRepository.GetByIdAsync(cartItemId).Returns(existingCartItem);
-    
+
         // Act
         await _cartItemService.DeleteCartItemAsync(cartItemId);
-    
+
         // Assert
         await _unitOfWork.CartItemRepository.Received(1).GetByIdAsync(cartItemId);
-        _unitOfWork.CartItemRepository.Received(1).Delete(Arg.Is<CartItem>(ci => ci.Id == cartItemId));
+        _unitOfWork
+            .CartItemRepository.Received(1)
+            .Delete(Arg.Is<CartItem>(ci => ci.Id == cartItemId));
         await _unitOfWork.Received(1).CommitAsync();
     }
 
     [Fact]
     public async Task DeleteCartItemAsync_ShouldThrowException_WhenCartItemNotFound()
     {
-
         var cartItemId = 1;
         _unitOfWork.CartItemRepository.GetByIdAsync(Arg.Any<int>()).Returns((CartItem?)null);
 
         // Act
         // Assert
-        await Assert.ThrowsAsync<NotFoundException>(async () =>
-            await _cartItemService.DeleteCartItemAsync(cartItemId));
-
+        await Assert.ThrowsAsync<NotFoundException>(
+            async () => await _cartItemService.DeleteCartItemAsync(cartItemId)
+        );
     }
 
     [Fact]
@@ -183,7 +185,7 @@ public class CartItemServiceTests
             Id = cartItemId,
             BookId = 1,
             CartId = 1,
-            Quantity = 5
+            Quantity = 5,
         };
 
         _unitOfWork.CartItemRepository.GetByIdAsync(cartItemId).Returns(existingCartItem);
@@ -196,30 +198,40 @@ public class CartItemServiceTests
         Assert.Equal(existingCartItem.Id, result.Id);
         Assert.Equal(existingCartItem.Quantity, result.Quantity);
     }
-    
+
     [Fact]
     public async Task GetCartItemAsync_ShouldThrowException_WhenCartItemNotFound()
     {
-    
         var cartItemId = 1;
         _unitOfWork.CartItemRepository.GetByIdAsync(Arg.Any<int>()).Returns((CartItem?)null);
-    
+
         // Act
         // Assert
-        await Assert.ThrowsAsync<NotFoundException>(async () =>
-            await _cartItemService.GetCartItemAsync(cartItemId));
-    
+        await Assert.ThrowsAsync<NotFoundException>(
+            async () => await _cartItemService.GetCartItemAsync(cartItemId)
+        );
     }
-    
-    
+
     [Fact]
     public async Task GetAllCartItemsAsync_ShouldReturnAllCartItems()
     {
         // Arrange
         var cartItems = new List<CartItem>
         {
-            new CartItem { Id = 1, BookId = 1, CartId = 1, Quantity = 5 },
-            new CartItem { Id = 2, BookId = 2, CartId = 1, Quantity = 3 }
+            new CartItem
+            {
+                Id = 1,
+                BookId = 1,
+                CartId = 1,
+                Quantity = 5,
+            },
+            new CartItem
+            {
+                Id = 2,
+                BookId = 2,
+                CartId = 1,
+                Quantity = 3,
+            },
         };
 
         _unitOfWork.CartItemRepository.GetAllAsync().Returns(cartItems);
