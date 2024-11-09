@@ -7,7 +7,9 @@ public class Order : BaseEntity
     public decimal TotalAmount { get; set; }
     public string CustomerName { get; set; }
     public string CustomerEmail { get; set; }
-    public string ShippingAddress { get; set; }
-    public string BillingAddress { get; set; }
+    public int ShippingAddressId { get; set; }
+    public virtual Address ShippingAddress { get; set; }
+    public int BillingAddressId { get; set; }
+    public virtual Address BillingAddress { get; set; }
     public virtual ICollection<OrderItem> OrderItems { get; set; }
 }
