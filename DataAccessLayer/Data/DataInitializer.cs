@@ -50,7 +50,7 @@ public static class DataInitializer
         // Seed addresses
         var addresses = PrepareAddresses(NumberOfAddresses);
         modelBuilder.Entity<Address>().HasData(addresses);
-        
+
         // Seed orders
         var orders = PrepareOrders(NumberOfOrders);
         modelBuilder.Entity<Order>().HasData(orders);
@@ -193,16 +193,16 @@ public static class DataInitializer
 
     private static List<Address> PrepareAddresses(int count)
     {
-    var addressFaker = new Faker<Address>()
-        .RuleFor(a => a.Id, f => f.IndexFaker + 1)
-        .RuleFor(a => a.Street, f => f.Address.StreetAddress())
-        .RuleFor(a => a.City, f => f.Address.City())
-        .RuleFor(a => a.State, f => f.Address.State())
-        .RuleFor(a => a.ZipCode, f => f.Address.ZipCode())
-        .RuleFor(a => a.Country, f => f.Address.Country());
+        var addressFaker = new Faker<Address>()
+            .RuleFor(a => a.Id, f => f.IndexFaker + 1)
+            .RuleFor(a => a.Street, f => f.Address.StreetAddress())
+            .RuleFor(a => a.City, f => f.Address.City())
+            .RuleFor(a => a.State, f => f.Address.State())
+            .RuleFor(a => a.ZipCode, f => f.Address.ZipCode())
+            .RuleFor(a => a.Country, f => f.Address.Country());
 
-    return addressFaker.Generate(count);
-}
+        return addressFaker.Generate(count);
+    }
 
     private static List<Order> PrepareOrders(int count)
     {

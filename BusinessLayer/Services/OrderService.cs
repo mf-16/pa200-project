@@ -25,7 +25,7 @@ public class OrderService : IOrderService
         {
             throw new NotFoundException("Cart", createOrderDto.CartId);
         }
-        
+
         var order = _mapper.Map<(CreateOrderDto, Cart), Order>((createOrderDto, cart));
         _unitOfWork.OrderRepository.Add(order);
         _unitOfWork.CartItemRepository.DeleteRange(cart.CartItems);
@@ -47,5 +47,4 @@ public class OrderService : IOrderService
     {
         return _mapper.Map<List<ResponseOrderDto>>(await _unitOfWork.OrderRepository.GetAllAsync());
     }
-
 }
