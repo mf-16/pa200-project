@@ -5,7 +5,7 @@ namespace DataAccessLayer.Model
 {
     public class Book : BaseEntity
     {
-        public required string Title { get; set; }
+        public string Title { get; set; }
         public int AuthorId { get; set; }
 
         [ForeignKey("AuthorId")]
