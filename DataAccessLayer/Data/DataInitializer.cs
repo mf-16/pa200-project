@@ -17,6 +17,7 @@ public static class DataInitializer
     private const int NumberOfWishlistItems = 30;
     private const int NumberOfOrders = 15;
     private const int NumberOfOrderItems = 50;
+    private const int NumberOfAddresses = 15;
     private const string UserRole = "User";
     private const string AdminRole = "Admin";
 
@@ -46,6 +47,10 @@ public static class DataInitializer
         var wishlists = PrepareWishlistItems(NumberOfWishlistItems);
         modelBuilder.Entity<WishlistItem>().HasData(wishlists);
 
+        // Seed addresses
+        var addresses = PrepareAddresses(NumberOfAddresses);
+        modelBuilder.Entity<Address>().HasData(addresses);
+        
         // Seed orders
         var orders = PrepareOrders(NumberOfOrders);
         modelBuilder.Entity<Order>().HasData(orders);
@@ -186,6 +191,19 @@ public static class DataInitializer
         return wishlistFaker.Generate(count);
     }
 
+    private static List<Address> PrepareAddresses(int count)
+    {
+    var addressFaker = new Faker<Address>()
+        .RuleFor(a => a.Id, f => f.IndexFaker + 1)
+        .RuleFor(a => a.Street, f => f.Address.StreetAddress())
+        .RuleFor(a => a.City, f => f.Address.City())
+        .RuleFor(a => a.State, f => f.Address.State())
+        .RuleFor(a => a.ZipCode, f => f.Address.ZipCode())
+        .RuleFor(a => a.Country, f => f.Address.Country());
+
+    return addressFaker.Generate(count);
+}
+
     private static List<Order> PrepareOrders(int count)
     {
         var orderFaker = new Faker<Order>()
@@ -193,8 +211,8 @@ public static class DataInitializer
             .RuleFor(o => o.UserId, f => f.Random.Number(2, NumberOfUsers))
             .RuleFor(o => o.CustomerName, f => f.Person.FullName)
             .RuleFor(o => o.CustomerEmail, f => f.Person.Email)
-            .RuleFor(o => o.ShippingAddress, f => f.Address.FullAddress())
-            .RuleFor(o => o.BillingAddress, f => f.Address.FullAddress())
+            .RuleFor(o => o.ShippingAddressId, f => f.Random.Number(1, NumberOfAddresses))
+            .RuleFor(o => o.BillingAddressId, f => f.Random.Number(1, NumberOfAddresses))
             .RuleFor(o => o.TotalAmount, f => 0);
 
         return orderFaker.Generate(count);
