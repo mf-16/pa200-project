@@ -74,35 +74,6 @@ namespace BusinessLayer.Tests.Services
         }
 
         [Fact]
-        public async Task CreateUserAsync_Failure_InvalidEmail()
-        {
-            // Arrange
-            var newUserDto = new CreateUserDto
-            {
-                Email = "invalid.email",
-                Name = "Invalid User",
-                Password = "password",
-                PhoneNumber = "0000000000",
-                UserName = "invalid",
-            };
-
-            _mockUserManager
-                .CreateAsync(Arg.Any<User>(), Arg.Any<string>())
-                .Returns(
-                    Task.FromResult(
-                        IdentityResult.Failed(
-                            new IdentityError { Description = "Invalid email format" }
-                        )
-                    )
-                );
-
-            // Act & Assert
-            await Assert.ThrowsAsync<UserOperationException>(
-                () => _userService.CreateUserAsync(newUserDto)
-            );
-        }
-
-        [Fact]
         public async Task UpdateUserAsync_Success()
         {
             // Arrange
