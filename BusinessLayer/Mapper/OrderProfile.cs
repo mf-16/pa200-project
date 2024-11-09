@@ -1,4 +1,5 @@
 using AutoMapper;
+using BusinessLayer.DTOs.Address;
 using BusinessLayer.DTOs.Order;
 using DataAccessLayer.Model;
 
@@ -43,7 +44,11 @@ public class OrderProfile : Profile
                     )
             )
             .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.cart.UserId));
+        
         CreateMap<Order, ResponseOrderDto>();
         CreateMap<OrderItem, ResponseOrderItemDto>();
+        
+        CreateMap<AddressDto, Address>();
+        CreateMap<Address, AddressDto>();
     }
 }

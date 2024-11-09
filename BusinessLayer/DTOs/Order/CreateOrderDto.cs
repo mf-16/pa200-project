@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using BusinessLayer.DTOs.Address;
 
 namespace BusinessLayer.DTOs.Order;
 
@@ -14,12 +15,10 @@ public class CreateOrderDto
     public string CustomerEmail { get; set; }
 
     [Required]
-    [StringLength(500, ErrorMessage = "Shipping address cannot exceed 500 characters.")]
-    public string ShippingAddress { get; set; }
+    public AddressDto ShippingAddress { get; set; }
 
     [Required]
-    [StringLength(500, ErrorMessage = "Billing address cannot exceed 500 characters.")]
-    public string BillingAddress { get; set; }
+    public AddressDto BillingAddress { get; set; }
 
     [Required]
     public int CartId { get; set; }
