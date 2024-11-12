@@ -52,7 +52,11 @@ public class BookService : IBookService
         await _unitOfWork.CommitAsync();
     }
 
-    public async Task<ResponseBookDto> UpdateBookAsync(int id, UpdateBookDto updateBookDto)
+    public async Task<ResponseBookDto> UpdateBookAsync(
+        int id,
+        UpdateBookDto updateBookDto,
+        int? userId
+    )
     {
         var book = await _unitOfWork.BookRepository.GetByIdAsync(id);
 
@@ -60,8 +64,14 @@ public class BookService : IBookService
         {
             throw new NotFoundException("Book", id);
         }
-
         _mapper.Map(updateBookDto, book);
+
+        if (userId != null)
+        {
+            book.LastEditorId = userId;
+            book.EditCount += 1;
+        }
+
         _unitOfWork.BookRepository.Update(book);
         await _unitOfWork.CommitAsync();
         var response = _mapper.Map<ResponseBookDto>(book);
