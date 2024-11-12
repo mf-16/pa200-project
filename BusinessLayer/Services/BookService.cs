@@ -68,8 +68,15 @@ public class BookService : IBookService
 
         if (userId != null)
         {
-            book.LastEditorId = userId;
-            book.EditCount += 1;
+            if (await _unitOfWork.UserRepository.GetByIdAsync(userId.Value) != null)
+            {
+                book.LastEditorId = userId;
+                book.EditCount += 1;
+            }
+            else
+            {
+                throw new NotFoundException("User", userId.Value);
+            }
         }
 
         _unitOfWork.BookRepository.Update(book);
