@@ -25,12 +25,18 @@ Run the PostgreSQL database using Docker. You can use the following command to r
 
 ```
 docker run -d \
-  --name my-postgres \
+  --name postgres \
   -e POSTGRES_USER=user \
   -e POSTGRES_PASSWORD=password \
   -e POSTGRES_DB=development \
   -p 5432:5432 \
   postgres:latest
+```
+
+Run the MongoDb (needed for logging HTTP requests):
+
+```
+docker run -p 27017:27017 --name mongodb mongo 
 ```
 
 Open a terminal in the project directory and run the application using the .NET CLI:
