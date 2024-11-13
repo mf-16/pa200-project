@@ -41,10 +41,15 @@ docker run -p 27017:27017 --name mongodb mongo
 
 Open a terminal in the project directory and run the application using the .NET CLI:
 
+API:
 ```
 dotnet run --project ./WebAPI/WebAPI.csproj
 ```
 
+MVC:
+```
+dotnet run --project ./WebMVC/WebMVC.csproj
+```
 
 ## Running application with docker compose
 
@@ -64,9 +69,16 @@ docker compose up
 
 To ensure that the database you created is correctly configured for the application to run, you need to migrate the database using the following command:
 
+API:
+
 ```
 dotnet ef database update --project ./DAL.PostgreSQL.Migrations/DAL.PostgreSQL.Migrations.csproj --startup-project ./WebAPI/WebAPI.csproj -- --environment <YOUR_ENV>
 ```
 
+MVC:
+
+```
+ dotnet ef database update --project ./DAL.PostgreSQL.Migrations/DAL.PostgreSQL.Migrations.csproj --startup-project ./WebMVC/WebMVC.csproj -- --environment Development
+```
 
 
