@@ -1,7 +1,9 @@
 ﻿using BusinessLayer.DTOs.Book;
 using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Enums;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace WebApi.Controllers
 {
@@ -10,10 +12,12 @@ namespace WebApi.Controllers
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public BooksController(IBookService bookService)
+        public BooksController(IBookService bookService, IWebHostEnvironment webHostEnvironment)
         {
             _bookService = bookService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
@@ -33,20 +37,49 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddBook([FromBody] AddBookDto addBookDto)
+        public async Task<IActionResult> AddBookAsync(
+            [FromForm] AddBookDto addBookDto,
+            IFormFile image
+        )
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            if (image != null)
+            {
+                var imagePath = Path.Combine(
+                    _webHostEnvironment.WebRootPath,
+                    "images",
+                    image.FileName
+                );
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await image.CopyToAsync(stream);
+                }
+                addBookDto.ImagePath = Path.Combine("images", image.FileName);
+            }
 
             var book = await _bookService.AddBookAsync(addBookDto);
             return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, book);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult> UpdateBook(int id, [FromBody] UpdateBookDto updateBookDto)
+        public async Task<IActionResult> UpdateBookAsync(
+            int id,
+            [FromForm] UpdateBookDto updateBookDto,
+            IFormFile image
+        )
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            if (image != null)
+            {
+                var imagePath = Path.Combine(
+                    _webHostEnvironment.WebRootPath,
+                    "images",
+                    image.FileName
+                );
+                using (var stream = new FileStream(imagePath, FileMode.Create))
+                {
+                    await image.CopyToAsync(stream);
+                }
+                updateBookDto.ImagePath = Path.Combine("images", image.FileName);
+            }
 
             var book = await _bookService.UpdateBookAsync(id, updateBookDto);
             return Ok(book);

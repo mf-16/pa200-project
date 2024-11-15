@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
+using Microsoft.AspNetCore.Http;
 
 namespace BusinessLayer.DTOs.Book;
 
