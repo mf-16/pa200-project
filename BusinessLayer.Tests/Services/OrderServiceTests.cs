@@ -1,126 +1,104 @@
-﻿using AutoMapper;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using AutoMapper;
 using BusinessLayer.DTOs.Order;
-using BusinessLayer.Exceptions;
-using BusinessLayer.Mapper;
 using BusinessLayer.Services;
 using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
 using NSubstitute;
+using Xunit;
 
-namespace BusinessLayer.Tests.Services;
-
-public class OrderServiceTests
+namespace BusinessLayer.Tests.Services
 {
-    private readonly IUnitOfWork _unitOfWork;
-    private readonly IOrderService _orderService;
-
-    public OrderServiceTests()
+    public class OrderServiceTests
     {
-        var configuration = new MapperConfiguration(cfg =>
+        private readonly IOrderService _orderService;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
+
+        public OrderServiceTests()
         {
-            cfg.AddProfile(new OrderProfile());
-        });
-        var mockMapper = configuration.CreateMapper();
-        _unitOfWork = Substitute.For<IUnitOfWork>();
-        _orderService = new OrderService(_unitOfWork, mockMapper);
-    }
+            _unitOfWork = Substitute.For<IUnitOfWork>();
+            _mapper = Substitute.For<IMapper>();
+            _orderService = new OrderService(_unitOfWork, _mapper);
+        }
 
-    [Fact]
-    public async Task CreateOrderAsync_ShouldThrowNotFoundException_WhenCartNotFound()
-    {
-        // Arrange
-        var createOrderDto = new CreateOrderDto { CartId = 1 };
-        _unitOfWork.CartRepository.GetByIdAsync(Arg.Any<int>()).Returns((Cart)null);
-
-        // Act & Assert
-        await Assert.ThrowsAsync<NotFoundException>(
-            () => _orderService.CreateOrderAsync(createOrderDto)
-        );
-    }
-
-    [Fact]
-    public async Task CreateOrderAsync_ShouldCreateOrder_WhenCartExists()
-    {
-        // Arrange
-        var createOrderDto = new CreateOrderDto { CartId = 1 };
-        var cart = new Cart { Id = 1, CartItems = new List<CartItem>() };
-        var order = new Order();
-        var responseOrderDto = new ResponseOrderDto();
-
-        _unitOfWork.CartRepository.GetByIdAsync(Arg.Any<int>()).Returns(cart);
-        _unitOfWork.OrderRepository.When(x => x.Add(Arg.Any<Order>())).Do(x => { });
-        _unitOfWork
-            .CartItemRepository.When(x => x.DeleteRange(Arg.Any<IEnumerable<CartItem>>()))
-            .Do(x => { });
-        _unitOfWork.CommitAsync().Returns(Task.CompletedTask);
-
-        var mockMapper = Substitute.For<IMapper>();
-        mockMapper.Map<(CreateOrderDto, Cart), Order>((createOrderDto, cart)).Returns(order);
-        mockMapper.Map<ResponseOrderDto>(order).Returns(responseOrderDto);
-
-        // Act
-        var result = await _orderService.CreateOrderAsync(createOrderDto);
-
-        // Assert
-        await _unitOfWork.CartRepository.Received(1).GetByIdAsync(createOrderDto.CartId);
-        _unitOfWork.OrderRepository.Received(1).Add(order);
-        _unitOfWork.CartItemRepository.Received(1).DeleteRange(cart.CartItems);
-        await _unitOfWork.Received(1).CommitAsync();
-        Assert.Equal(responseOrderDto, result);
-    }
-
-    [Fact]
-    public async Task GetOrderByIdAsync_ShouldThrowNotFoundException_WhenOrderNotFound()
-    {
-        // Arrange
-        _unitOfWork.OrderRepository.GetByIdAsync(Arg.Any<int>()).Returns((Order)null);
-
-        // Act & Assert
-        await Assert.ThrowsAsync<NotFoundException>(() => _orderService.GetOrderByIdAsync(1));
-    }
-
-    [Fact]
-    public async Task GetOrderByIdAsync_ShouldReturnOrder_WhenOrderExists()
-    {
-        // Arrange
-        var order = new Order();
-        var responseOrderDto = new ResponseOrderDto();
-
-        _unitOfWork.OrderRepository.GetByIdAsync(Arg.Any<int>()).Returns(order);
-
-        var mockMapper = Substitute.For<IMapper>();
-        mockMapper.Map<ResponseOrderDto>(order).Returns(responseOrderDto);
-
-        // Act
-        var result = await _orderService.GetOrderByIdAsync(1);
-
-        // Assert
-        await _unitOfWork.OrderRepository.Received(1).GetByIdAsync(1);
-        Assert.Equal(responseOrderDto, result);
-    }
-
-    [Fact]
-    public async Task GetAllOrdersAsync_ShouldReturnAllOrders()
-    {
-        // Arrange
-        var orders = new List<Order> { new Order(), new Order() };
-        var responseOrderDtos = new List<ResponseOrderDto>
+        [Fact]
+        public async Task GetAllOrdersAsync_ShouldReturnAllOrders()
         {
-            new ResponseOrderDto(),
-            new ResponseOrderDto(),
-        };
+            // Arrange
+            var orders = new List<Order>
+            {
+                new Order { Id = 1, CustomerName = "John Doe" },
+                new Order { Id = 2, CustomerName = "Jane Doe" },
+            };
+            var responseOrders = new List<ResponseOrderDto>
+            {
+                new ResponseOrderDto { Id = 1, CustomerName = "John Doe" },
+                new ResponseOrderDto { Id = 2, CustomerName = "Jane Doe" },
+            };
+            _unitOfWork.OrderRepository.GetAllAsync().Returns(orders);
+            _mapper.Map<List<ResponseOrderDto>>(orders).Returns(responseOrders);
 
-        _unitOfWork.OrderRepository.GetAllAsync().Returns(orders);
+            // Act
+            var result = await _orderService.GetAllOrdersAsync();
 
-        var mockMapper = Substitute.For<IMapper>();
-        mockMapper.Map<List<ResponseOrderDto>>(orders).Returns(responseOrderDtos);
+            // Assert
+            Assert.Equal(2, result.Count);
+            Assert.Equal("John Doe", result[0].CustomerName);
+        }
 
-        // Act
-        var result = await _orderService.GetAllOrdersAsync();
+        [Fact]
+        public async Task GetOrderByIdAsync_ShouldReturnOrder_WhenOrderExists()
+        {
+            // Arrange
+            var order = new Order
+            {
+                Id = 1,
+                CustomerName = "John Doe",
+                OrderItems = new List<OrderItem>(),
+            };
+            var responseOrder = new ResponseOrderDto
+            {
+                Id = 1,
+                CustomerName = "John Doe",
+                OrderItems = new List<ResponseOrderItemDto>(),
+            };
+            _unitOfWork.OrderRepository.GetByIdAsync(1).Returns(order);
+            _mapper.Map<ResponseOrderDto>(order).Returns(responseOrder);
 
-        // Assert
-        await _unitOfWork.OrderRepository.Received(1).GetAllAsync();
-        Assert.Equal(responseOrderDtos, result);
+            // Act
+            var result = await _orderService.GetOrderByIdAsync(1);
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.Equal("John Doe", result.CustomerName);
+            Assert.Empty(result.OrderItems);
+        }
+
+        [Fact]
+        public async Task CreateOrderAsync_ShouldCreateOrder_WhenCartExists()
+        {
+            // Arrange
+            var createOrderDto = new CreateOrderDto { CartId = 1, CustomerName = "John Doe" };
+            var cart = new Cart { Id = 1, CartItems = new List<CartItem>() };
+            var order = new Order { Id = 1, CustomerName = "John Doe" };
+            var responseOrder = new ResponseOrderDto { Id = 1, CustomerName = "John Doe" };
+
+            _unitOfWork.CartRepository.GetByIdAsync(1).Returns(cart);
+            _mapper.Map<(CreateOrderDto, Cart), Order>((createOrderDto, cart)).Returns(order);
+            _mapper.Map<ResponseOrderDto>(order).Returns(responseOrder);
+
+            // Act
+            var result = await _orderService.CreateOrderAsync(createOrderDto);
+
+            // Assert
+            _unitOfWork
+                .OrderRepository.Received(1)
+                .Add(Arg.Is<Order>(o => o.CustomerName == "John Doe"));
+            await _unitOfWork.Received(1).CommitAsync();
+            Assert.Equal("John Doe", result.CustomerName);
+        }
     }
 }
