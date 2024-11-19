@@ -10,7 +10,7 @@ public class BookProfile : Profile
     {
         CreateMap<Book, ResponseBookDto>();
         CreateMap<UpdateBookDto, Book>();
-        CreateMap<AddBookDto, Book>().ForMember(dest => dest.ImagePath, opt => opt.Ignore());
+        CreateMap<AddBookDto, Book>();
         CreateMap<Book, ResponseBookDto>()
             .ForMember(dest => dest.PublisherName, opt => opt.MapFrom(src => src.Publisher.Name));
     }

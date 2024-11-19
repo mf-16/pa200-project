@@ -59,10 +59,8 @@ public class OrderServiceTests
         mockMapper.Map<(CreateOrderDto, Cart), Order>((createOrderDto, cart)).Returns(order);
         mockMapper.Map<ResponseOrderDto>(order).Returns(responseOrderDto);
 
-        var orderService = new OrderService(_unitOfWork, mockMapper);
-
         // Act
-        var result = await orderService.CreateOrderAsync(createOrderDto);
+        var result = await _orderService.CreateOrderAsync(createOrderDto);
 
         // Assert
         await _unitOfWork.CartRepository.Received(1).GetByIdAsync(createOrderDto.CartId);
@@ -94,10 +92,8 @@ public class OrderServiceTests
         var mockMapper = Substitute.For<IMapper>();
         mockMapper.Map<ResponseOrderDto>(order).Returns(responseOrderDto);
 
-        var orderService = new OrderService(_unitOfWork, mockMapper);
-
         // Act
-        var result = await orderService.GetOrderByIdAsync(1);
+        var result = await _orderService.GetOrderByIdAsync(1);
 
         // Assert
         await _unitOfWork.OrderRepository.Received(1).GetByIdAsync(1);
@@ -120,10 +116,8 @@ public class OrderServiceTests
         var mockMapper = Substitute.For<IMapper>();
         mockMapper.Map<List<ResponseOrderDto>>(orders).Returns(responseOrderDtos);
 
-        var orderService = new OrderService(_unitOfWork, mockMapper);
-
         // Act
-        var result = await orderService.GetAllOrdersAsync();
+        var result = await _orderService.GetAllOrdersAsync();
 
         // Assert
         await _unitOfWork.OrderRepository.Received(1).GetAllAsync();

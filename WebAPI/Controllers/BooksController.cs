@@ -12,12 +12,9 @@ namespace WebApi.Controllers
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
-        private readonly IWebHostEnvironment _webHostEnvironment;
-
-        public BooksController(IBookService bookService, IWebHostEnvironment webHostEnvironment)
+        public BooksController(IBookService bookService)
         {
             _bookService = bookService;
-            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
@@ -37,52 +34,25 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> AddBookAsync(
-            [FromForm] AddBookDto addBookDto,
-            IFormFile image
-        )
+        public async Task<IActionResult> AddBook([FromForm] AddBookDto addBookDto, IFormFile image)
         {
-            if (image != null)
-            {
-                var imagePath = Path.Combine(
-                    _webHostEnvironment.WebRootPath,
-                    "images",
-                    image.FileName
-                );
-                using (var stream = new FileStream(imagePath, FileMode.Create))
-                {
-                    await image.CopyToAsync(stream);
-                }
-                addBookDto.ImagePath = Path.Combine("images", image.FileName);
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            var book = await _bookService.AddBookAsync(addBookDto);
+            var book = await _bookService.AddBookAsync(addBookDto, image);
             return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, book);
+
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateBookAsync(
-            int id,
-            [FromForm] UpdateBookDto updateBookDto,
-            IFormFile image
-        )
+        public async Task<IActionResult> UpdateBook(int id, [FromForm] UpdateBookDto updateBookDto, IFormFile image)
         {
-            if (image != null)
-            {
-                var imagePath = Path.Combine(
-                    _webHostEnvironment.WebRootPath,
-                    "images",
-                    image.FileName
-                );
-                using (var stream = new FileStream(imagePath, FileMode.Create))
-                {
-                    await image.CopyToAsync(stream);
-                }
-                updateBookDto.ImagePath = Path.Combine("images", image.FileName);
-            }
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
-            var book = await _bookService.UpdateBookAsync(id, updateBookDto);
+            var book = await _bookService.UpdateBookAsync(id, updateBookDto, image);
             return Ok(book);
+
         }
 
         [HttpDelete("{id}")]
