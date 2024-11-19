@@ -12,6 +12,7 @@ namespace WebApi.Controllers
     public class BooksController : ControllerBase
     {
         private readonly IBookService _bookService;
+
         public BooksController(IBookService bookService)
         {
             _bookService = bookService;
@@ -41,18 +42,20 @@ namespace WebApi.Controllers
 
             var book = await _bookService.AddBookAsync(addBookDto, image);
             return CreatedAtAction(nameof(GetBookById), new { id = book.Id }, book);
-
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateBook(int id, [FromForm] UpdateBookDto updateBookDto, IFormFile image)
+        public async Task<IActionResult> UpdateBook(
+            int id,
+            [FromForm] UpdateBookDto updateBookDto,
+            IFormFile image
+        )
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
             var book = await _bookService.UpdateBookAsync(id, updateBookDto, image);
             return Ok(book);
-
         }
 
         [HttpDelete("{id}")]

@@ -64,7 +64,11 @@ public class BookService : IBookService
         await _unitOfWork.CommitAsync();
     }
 
-    public async Task<ResponseBookDto> UpdateBookAsync(int id, UpdateBookDto updateBookDto, IFormFile image)
+    public async Task<ResponseBookDto> UpdateBookAsync(
+        int id,
+        UpdateBookDto updateBookDto,
+        IFormFile image
+    )
     {
         var book = await _unitOfWork.BookRepository.GetByIdAsync(id);
 
