@@ -39,3 +39,5 @@ msbuild.wrn
 .env
 WebAPI/appsettings.Development.json
 WebAPI/appsettings.Production.json
+
+WebMVC/appsettings.Development.json

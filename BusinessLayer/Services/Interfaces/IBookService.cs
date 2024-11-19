@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.DTOs.Book;
+using BusinessLayer.DTOs.User;
 using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Http;

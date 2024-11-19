@@ -76,7 +76,6 @@ public class BookService : IBookService
         {
             throw new NotFoundException("Book", id);
         }
-
         _mapper.Map(updateBookDto, book);
 
         if (image != null)

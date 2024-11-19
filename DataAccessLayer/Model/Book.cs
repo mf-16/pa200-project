@@ -18,5 +18,12 @@ namespace DataAccessLayer.Model
         public string ImagePath { get; set; }
         public string Description { get; set; }
         public BookGenre Genre { get; set; }
+
+        public int? LastEditorId { get; set; }
+
+        [ForeignKey("LastEditorId")]
+        public virtual User LastEditor { get; set; }
+
+        public int EditCount { get; set; }
     }
 }
