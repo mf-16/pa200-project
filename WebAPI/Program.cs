@@ -109,7 +109,7 @@ app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
 app.UseMiddleware<LoggingMiddleware>();
 app.UseMiddleware<AuthenticationMiddleware>();
-
+app.UseStaticFiles();
 app.UseAuthorization();
 
 app.MapControllers();
