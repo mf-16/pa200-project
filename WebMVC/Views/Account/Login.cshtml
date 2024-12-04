@@ -13,10 +13,6 @@
         <input asp-for="Password" type="password" />
         <span asp-validation-for="Password"></span>
     </div>
-    <div>
-        <input asp-for="RememberMe" type="checkbox" />
-        <label asp-for="RememberMe"></label>
-    </div>
     <button type="submit">Login</button>
     @Html.ValidationSummary(false, "", new { @class = "text-danger" })
 </form>

@@ -1,5 +1,6 @@
-using DataAccessLayer.Model;
-using Microsoft.AspNetCore.Identity;
+using AutoMapper;
+using BusinessLayer.DTOs.Auth;
+using BusinessLayer.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using WebMVC.Models;
 
@@ -7,13 +8,12 @@ namespace WebMVC.Controllers;
 
 public class AccountController : Controller
 {
-    private readonly UserManager<User> _userManager;
-    private readonly SignInManager<User> _signInManager;
-
-    public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+    private readonly IAuthService _authService;
+    private readonly IMapper _mapper;
+    public AccountController(IAuthService authService, IMapper mapper)
     {
-        _userManager = userManager;
-        _signInManager = signInManager;
+        _authService = authService;
+        _mapper = mapper;
     }
 
     public IActionResult Register()
@@ -24,30 +24,22 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel model)
     {
-        if (ModelState.IsValid)
+        
+        if (!ModelState.IsValid)
         {
-            var user = new User()
-            {
-                UserName = model.Email,
-                Email = model.Email,
-                Name = model.FirstName + " " + model.LastName,
-            };
-            var result = await _userManager.CreateAsync(user, model.Password);
+            return View(model);
+        }
 
-            if (result.Succeeded)
-            {
-                await _signInManager.SignInAsync(user, isPersistent: false);
-                // return RedirectToAction("Login", "Account");
-                return RedirectToAction(
-                    nameof(Login),
-                    nameof(AccountController).Replace("Controller", "")
-                );
-            }
+        var registerDto = _mapper.Map<RegisterViewModel, RegisterDTO>(model);
+        var result = await _authService.RegisterAsync(registerDto);
+        if (result.Succeeded)
+        {
+            return RedirectToAction(nameof(Login), nameof(AccountController).Replace("Controller", ""));
+        }
 
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
-            }
+        foreach (var error in result.Errors)
+        {
+            ModelState.AddModelError(string.Empty, error.Description);
         }
 
         return View(model);
@@ -61,34 +53,29 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
-        if (ModelState.IsValid)
+        if (!ModelState.IsValid)
         {
-            var result = await _signInManager.PasswordSignInAsync(
-                model.Email,
-                model.Password,
-                model.RememberMe,
-                lockoutOnFailure: false
-            );
-
-            if (result.Succeeded)
-            {
-                // return RedirectToAction("LoginSuccess", "Account");
-                return RedirectToAction(
-                    nameof(LoginSuccess),
-                    nameof(AccountController).Replace("Controller", "")
-                );
-            }
-
-            ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+            return View(model);
         }
+        var loginDto = _mapper.Map<LoginViewModel, LoginDTO>(model);
+        var result = await _authService.LoginAsync(loginDto);
+        if (result.Succeeded)
+        {
+            return RedirectToAction(
+                nameof(LoginSuccess),
+                nameof(AccountController).Replace("Controller", "")
+            );
+            
+        }
+        
+        ModelState.AddModelError(string.Empty, "Invalid login attempt.");
 
         return View(model);
     }
 
     public async Task<IActionResult> Logout()
     {
-        await _signInManager.SignOutAsync();
-        // return RedirectToAction("Index", "Home");
+        await _authService.LogoutAsync();
         return RedirectToAction(
             nameof(HomeController.Index),
             nameof(HomeController).Replace("Controller", "")
