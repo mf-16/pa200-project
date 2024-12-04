@@ -13,16 +13,11 @@
     <ItemGroup>
       <PackageReference Include="AutoMapper" Version="13.0.1" />
       <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.17" />
+      <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="8.0.11" />
     </ItemGroup>
 
     <ItemGroup>
       <Folder Include="Images\" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Reference Include="Microsoft.AspNetCore.Identity">
-        <HintPath>..\..\..\..\..\..\..\usr\lib64\dotnet\shared\Microsoft.AspNetCore.App\8.0.10\Microsoft.AspNetCore.Identity.dll</HintPath>
-      </Reference>
     </ItemGroup>
 
 </Project>

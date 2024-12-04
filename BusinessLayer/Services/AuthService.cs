@@ -1,7 +1,5 @@
 using AutoMapper;
 using BusinessLayer.DTOs.Auth;
-using BusinessLayer.DTOs.User;
-using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Identity;
