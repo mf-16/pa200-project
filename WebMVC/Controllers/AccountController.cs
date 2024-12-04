@@ -10,6 +10,7 @@ public class AccountController : Controller
 {
     private readonly IAuthService _authService;
     private readonly IMapper _mapper;
+
     public AccountController(IAuthService authService, IMapper mapper)
     {
         _authService = authService;
@@ -24,7 +25,6 @@ public class AccountController : Controller
     [HttpPost]
     public async Task<IActionResult> Register(RegisterViewModel model)
     {
-        
         if (!ModelState.IsValid)
         {
             return View(model);
@@ -34,7 +34,10 @@ public class AccountController : Controller
         var result = await _authService.RegisterAsync(registerDto);
         if (result.Succeeded)
         {
-            return RedirectToAction(nameof(Login), nameof(AccountController).Replace("Controller", ""));
+            return RedirectToAction(
+                nameof(Login),
+                nameof(AccountController).Replace("Controller", "")
+            );
         }
 
         foreach (var error in result.Errors)
@@ -65,9 +68,8 @@ public class AccountController : Controller
                 nameof(LoginSuccess),
                 nameof(AccountController).Replace("Controller", "")
             );
-            
         }
-        
+
         ModelState.AddModelError(string.Empty, "Invalid login attempt.");
 
         return View(model);

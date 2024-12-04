@@ -28,7 +28,6 @@ builder
     // This adds the default token providers used to generate tokens for account confirmation, password resets, etc.
     .AddDefaultTokenProviders();
 
-
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddScoped<IAuthService, AuthService>();
 
