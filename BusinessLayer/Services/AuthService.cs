@@ -31,8 +31,7 @@ public class AuthService : IAuthService
 
     public async Task<SignInResult> LoginAsync(LoginDTO loginDto)
     {
-        var user = _mapper.Map<LoginDTO, User>(loginDto);
-        return await _signInManager.PasswordSignInAsync(user, loginDto.Password, false, false);
+        return await _signInManager.PasswordSignInAsync(loginDto.Email, loginDto.Password, false, false);
     }
 
     public async Task LogoutAsync()

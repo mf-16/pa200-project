@@ -12,7 +12,7 @@ public class UserProfile : Profile
         CreateMap<RegisterViewModel, RegisterDTO>()
             .ForMember(dest => dest.Name,
                 opt => opt.MapFrom(src => $"{src.FirstName} {src.LastName}"))
-            .ForMember(dest => dest.UserName, opt=> opt.MapFrom(src => $"{src.FirstName}_{src.LastName}"));
+            .ForMember(dest => dest.UserName, opt=> opt.MapFrom(src => $"{src.Email}"));
         CreateMap<LoginViewModel, LoginDTO>();
     }
 }
