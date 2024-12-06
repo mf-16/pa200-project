@@ -9,4 +9,6 @@ public interface IRepository<T>
     void Update(T entity);
     Task<T?> GetByIdAsync(int id);
     Task<IEnumerable<T>> GetAllAsync();
+
+    IQueryable<T> GetQueryable();
 }

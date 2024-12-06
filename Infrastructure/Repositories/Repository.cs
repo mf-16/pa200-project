@@ -42,4 +42,9 @@ public class Repository<T> : IRepository<T>
     {
         return await _entities.ToListAsync();
     }
+
+    public IQueryable<T> GetQueryable()
+    {
+        return _entities;
+    }
 }
