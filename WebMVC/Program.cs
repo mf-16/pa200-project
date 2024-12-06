@@ -1,3 +1,5 @@
+using BusinessLayer.Services;
+using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Data;
 using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Identity;
@@ -26,6 +28,9 @@ builder
     // This adds the default token providers used to generate tokens for account confirmation, password resets, etc.
     .AddDefaultTokenProviders();
 
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+builder.Services.AddScoped<IAuthService, AuthService>();
+
 // Configure Identity options for password policies
 builder.Services.Configure<IdentityOptions>(options =>
 {
@@ -36,6 +41,9 @@ builder.Services.Configure<IdentityOptions>(options =>
     options.Password.RequireUppercase = false;
     options.Password.RequiredLength = 1;
     options.Password.RequiredUniqueChars = 1;
+    options.User.RequireUniqueEmail = true;
+    options.SignIn.RequireConfirmedEmail = false;
+    options.Lockout.AllowedForNewUsers = false;
 });
 
 // Configure the application cookie settings.
