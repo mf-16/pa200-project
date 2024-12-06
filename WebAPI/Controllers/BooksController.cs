@@ -47,6 +47,7 @@ namespace WebApi.Controllers
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateBook(
             int id,
+            int? userId,
             [FromForm] UpdateBookDto updateBookDto,
             IFormFile image
         )
@@ -54,7 +55,7 @@ namespace WebApi.Controllers
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var book = await _bookService.UpdateBookAsync(id, updateBookDto, image);
+            var book = await _bookService.UpdateBookAsync(id, updateBookDto, image, userId);
             return Ok(book);
         }
 
