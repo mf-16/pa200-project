@@ -5,7 +5,7 @@ namespace DataAccessLayer.Model
 {
     public class Book : BaseEntity
     {
-        public required string Title { get; set; }
+        public string Title { get; set; }
         public int AuthorId { get; set; }
 
         [ForeignKey("AuthorId")]
@@ -18,5 +18,12 @@ namespace DataAccessLayer.Model
         public string ImagePath { get; set; }
         public string Description { get; set; }
         public BookGenre Genre { get; set; }
+
+        public int? LastEditorId { get; set; }
+
+        [ForeignKey("LastEditorId")]
+        public virtual User LastEditor { get; set; }
+
+        public int EditCount { get; set; }
     }
 }

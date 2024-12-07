@@ -8,7 +8,6 @@ services:
       - "5000:8080"
     depends_on:
       - db
-
   db:
     image: postgres:latest
     environment:
@@ -19,6 +18,12 @@ services:
       - "${DB_PORT}:${DB_PORT}"
     volumes:
       - db-data:/var/lib/postgresql/data
-
+  logs:
+    image: mongo:latest
+    ports:
+      - "${LOGS_PORT}:${LOGS_PORT}"
+    volumes:
+      - logs-data:/data/db
 volumes:
   db-data:
+  logs-data:

@@ -5,7 +5,9 @@ using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
+using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessLayer.Services;
 
@@ -20,9 +22,20 @@ public class BookService : IBookService
         _mapper = mapper;
     }
 
-    public async Task<ResponseBookDto> AddBookAsync(AddBookDto addBookDto)
+    public async Task<ResponseBookDto> AddBookAsync(AddBookDto addBookDto, IFormFile image)
     {
         var book = _mapper.Map<Book>(addBookDto);
+
+        if (image != null)
+        {
+            var imagePath = Path.Combine("images", image.FileName);
+            Directory.CreateDirectory("images");
+            using (var stream = new FileStream(imagePath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+            book.ImagePath = imagePath;
+        }
         _unitOfWork.BookRepository.Add(book);
         await _unitOfWork.CommitAsync();
         var response = _mapper.Map<ResponseBookDto>(book);
@@ -52,7 +65,12 @@ public class BookService : IBookService
         await _unitOfWork.CommitAsync();
     }
 
-    public async Task<ResponseBookDto> UpdateBookAsync(int id, UpdateBookDto updateBookDto)
+    public async Task<ResponseBookDto> UpdateBookAsync(
+        int id,
+        UpdateBookDto updateBookDto,
+        IFormFile image,
+        int? userId
+    )
     {
         var book = await _unitOfWork.BookRepository.GetByIdAsync(id);
 
@@ -60,8 +78,30 @@ public class BookService : IBookService
         {
             throw new NotFoundException("Book", id);
         }
-
         _mapper.Map(updateBookDto, book);
+        if (userId != null)
+        {
+            if (await _unitOfWork.UserRepository.GetByIdAsync(userId.Value) != null)
+            {
+                book.LastEditorId = userId;
+                book.EditCount += 1;
+            }
+            else
+            {
+                throw new NotFoundException("User", userId.Value);
+            }
+        }
+        if (image != null)
+        {
+            var imagePath = Path.Combine("images", image.FileName);
+            Directory.CreateDirectory("images");
+            using (var stream = new FileStream(imagePath, FileMode.Create))
+            {
+                await image.CopyToAsync(stream);
+            }
+            book.ImagePath = imagePath;
+        }
+
         _unitOfWork.BookRepository.Update(book);
         await _unitOfWork.CommitAsync();
         var response = _mapper.Map<ResponseBookDto>(book);
@@ -82,8 +122,7 @@ public class BookService : IBookService
 
     private async Task<IEnumerable<ResponseBookDto>> GetBooksAsync(BookFilterDto filter)
     {
-        var books = await _unitOfWork.BookRepository.GetAllAsync();
-        var query = books.AsQueryable();
+        var query = _unitOfWork.BookRepository.GetQueryable();
 
         if (!string.IsNullOrEmpty(filter.Name))
         {
