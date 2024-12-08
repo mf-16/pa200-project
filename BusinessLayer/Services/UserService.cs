@@ -78,16 +78,4 @@ public class UserService : IUserService
         }
         return _mapper.Map<ResponseUserDto>(user);
     }
-
-    public async Task<IdentityResult> ResetPasswordAsync(int id, string newPassword)
-    {
-        var user = await _unitOfWork.UserRepository.GetByIdAsync(id);
-        if (user == null)
-        {
-            throw new NotFoundException(nameof(User), id);
-        }
-
-        var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-        return await _userManager.ResetPasswordAsync(user, token, newPassword);
-    }
 }
