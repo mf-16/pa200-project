@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Http;
 
@@ -13,5 +12,5 @@ public class AddBookDto
     public int PublisherId { get; set; }
     public decimal Price { get; set; }
     public string Description { get; set; }
-    public BookGenre Genre { get; set; }
+    public int GenreId { get; set; }
 }

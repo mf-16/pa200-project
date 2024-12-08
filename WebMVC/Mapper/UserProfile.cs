@@ -1,6 +1,6 @@
 using AutoMapper;
 using BusinessLayer.DTOs.Auth;
-using WebMVC.Models;
+using WebMVC.Models.Account;
 
 namespace WebMVC.Mapper;
 

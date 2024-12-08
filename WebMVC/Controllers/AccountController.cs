@@ -3,6 +3,7 @@ using BusinessLayer.DTOs.Auth;
 using BusinessLayer.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using WebMVC.Models;
+using WebMVC.Models.Account;
 
 namespace WebMVC.Controllers;
 
