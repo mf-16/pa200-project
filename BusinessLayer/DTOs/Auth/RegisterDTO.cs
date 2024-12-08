@@ -23,5 +23,4 @@ public class RegisterDTO
         ErrorMessage = "Password must be at least 3 characters long."
     )]
     public string Password { get; set; }
-    public bool IsAdmin { get; set; }
 }
