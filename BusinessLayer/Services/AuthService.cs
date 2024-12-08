@@ -16,7 +16,9 @@ public class AuthService : IAuthService
     public AuthService(
         UserManager<User> userManager,
         SignInManager<User> signInManager,
-        IMapper mapper, RoleManager<UserRole> roleManager)
+        IMapper mapper,
+        RoleManager<UserRole> roleManager
+    )
     {
         _userManager = userManager;
         _signInManager = signInManager;
@@ -28,8 +30,8 @@ public class AuthService : IAuthService
     {
         var user = _mapper.Map<RegisterDTO, User>(registerDto);
 
-        var result =  await _userManager.CreateAsync(user, registerDto.Password);
-        
+        var result = await _userManager.CreateAsync(user, registerDto.Password);
+
         if (result.Succeeded)
         {
             if (registerDto.IsAdmin)
@@ -37,10 +39,7 @@ public class AuthService : IAuthService
                 var adminRoleExists = await _roleManager.RoleExistsAsync("Admin");
                 if (!adminRoleExists)
                 {
-                    await _roleManager.CreateAsync(new UserRole()
-                    {
-                        Name = "Admin",
-                    });
+                    await _roleManager.CreateAsync(new UserRole() { Name = "Admin" });
                 }
 
                 await _userManager.AddToRoleAsync(user, "Admin");
@@ -50,10 +49,7 @@ public class AuthService : IAuthService
                 var userRoleExists = await _roleManager.RoleExistsAsync("User");
                 if (!userRoleExists)
                 {
-                    await _roleManager.CreateAsync(new UserRole()
-                    {
-                        Name = "User",
-                    });
+                    await _roleManager.CreateAsync(new UserRole() { Name = "User" });
                 }
 
                 await _userManager.AddToRoleAsync(user, "User");

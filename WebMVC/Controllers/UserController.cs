@@ -5,11 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using WebMVC.Models.User;
 
 namespace WebMVC.Controllers;
+
 [Route("users")]
 [Authorize(Roles = "Admin")]
 public class UserController : Controller
 {
-    
     private readonly IUserService _userService;
     private readonly IMapper _mapper;
 
@@ -23,9 +23,8 @@ public class UserController : Controller
     {
         var users = await _userService.GetAllUsersAsync();
         var mappedUsers = _mapper.Map<List<UserViewModel>>(users);
-        
+
         return View(mappedUsers);
-        
     }
 
     [HttpPost]
