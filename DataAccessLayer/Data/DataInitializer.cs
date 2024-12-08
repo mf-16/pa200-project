@@ -1,5 +1,4 @@
 using Bogus;
-using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -20,6 +19,7 @@ public static class DataInitializer
     private const int NumberOfAddresses = 15;
     private const string UserRole = "User";
     private const string AdminRole = "Admin";
+    private const int NumberOfGenres = 6;
 
     public static void Seed(this ModelBuilder modelBuilder)
     {
@@ -30,13 +30,15 @@ public static class DataInitializer
         modelBuilder.Entity<UserRole>().HasData(roles);
         modelBuilder.Entity<IdentityUserRole<int>>().HasData(userRoles);
 
-        // Seed authors and publishers
+        // Seed authors and publishers and genres
         var authors = PrepareAuthors(NumberOfAuthors);
         var publishers = PreparePublishers(NumberOfPublishers);
+        var genres = PrepareBookGenres(NumberOfGenres);
         var books = PrepareBooks(NumberOfBooks);
 
         modelBuilder.Entity<Author>().HasData(authors);
         modelBuilder.Entity<Publisher>().HasData(publishers);
+        modelBuilder.Entity<BookGenre>().HasData(genres);
         modelBuilder.Entity<Book>().HasData(books);
 
         // Seed reviews
@@ -154,6 +156,15 @@ public static class DataInitializer
         return publisherFaker.Generate(count);
     }
 
+    private static List<BookGenre> PrepareBookGenres(int count)
+    {
+        var bookFaker = new Faker<BookGenre>()
+            .RuleFor(b => b.Id, f => f.IndexFaker + 1)
+            .RuleFor(b => b.Name, f => f.Lorem.Sentence(3));
+
+        return bookFaker.Generate(count);
+    }
+
     private static List<Book> PrepareBooks(int count)
     {
         var bookFaker = new Faker<Book>()
@@ -164,7 +175,7 @@ public static class DataInitializer
             .RuleFor(b => b.Price, f => decimal.Parse(f.Commerce.Price(10, 100)))
             .RuleFor(b => b.ImagePath, f => f.Image.PicsumUrl())
             .RuleFor(b => b.Description, f => f.Lorem.Paragraph())
-            .RuleFor(b => b.Genre, f => f.PickRandom<BookGenre>());
+            .RuleFor(b => b.PrimaryGenreId, f => f.Random.Number(1, NumberOfGenres));
 
         return bookFaker.Generate(count);
     }

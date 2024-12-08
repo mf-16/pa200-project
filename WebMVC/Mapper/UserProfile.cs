@@ -3,6 +3,7 @@ using BusinessLayer.DTOs.Auth;
 using BusinessLayer.DTOs.User;
 using WebMVC.Models;
 using WebMVC.Models.User;
+using WebMVC.Models.Account;
 
 namespace WebMVC.Mapper;
 
