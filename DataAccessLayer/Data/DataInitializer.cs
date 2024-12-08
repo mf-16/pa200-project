@@ -90,8 +90,8 @@ public static class DataInitializer
         var adminUser = new User
         {
             Id = 1,
-            UserName = "admin",
-            NormalizedUserName = "ADMIN",
+            UserName = "fake_admin",
+            NormalizedUserName = "FAKE_ADMIN",
             Name = "Admin User",
             Email = "admin@admin.com",
             EmailConfirmed = true,

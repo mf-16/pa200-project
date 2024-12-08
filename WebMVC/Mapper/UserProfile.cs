@@ -1,6 +1,8 @@
 using AutoMapper;
 using BusinessLayer.DTOs.Auth;
+using BusinessLayer.DTOs.User;
 using WebMVC.Models;
+using WebMVC.Models.User;
 
 namespace WebMVC.Mapper;
 
@@ -15,5 +17,6 @@ public class UserProfile : Profile
             )
             .ForMember(dest => dest.UserName, opt => opt.MapFrom(src => $"{src.Email}"));
         CreateMap<LoginViewModel, LoginDTO>();
+        CreateMap<ResponseUserDto, UserViewModel>();
     }
 }
