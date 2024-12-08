@@ -1,13 +1,12 @@
 ﻿using AutoMapper;
+using BusinessLayer.DTOs;
 using BusinessLayer.DTOs.Book;
 using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
-using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using static System.Net.Mime.MediaTypeNames;
 
 namespace BusinessLayer.Services;
 
@@ -115,23 +114,17 @@ public class BookService : IBookService
         return response;
     }
 
-    public async Task<IEnumerable<ResponseBookDto>> GetFilteredBooksAsync(BookFilterDto filter)
-    {
-        return await GetBooksAsync(filter);
-    }
-
-    private async Task<IEnumerable<ResponseBookDto>> GetBooksAsync(BookFilterDto filter)
+    public async Task<PaginatedDto<ResponseBookDto>> GetFilteredBooksAsync(
+        BookFilterDto filter,
+        int page = 1,
+        int pageSize = 6
+    )
     {
         var query = _unitOfWork.BookRepository.GetQueryable();
 
         if (!string.IsNullOrEmpty(filter.Name))
         {
             query = query.Where(b => b.Title.Contains(filter.Name));
-        }
-
-        if (!string.IsNullOrEmpty(filter.Description))
-        {
-            query = query.Where(b => b.Description.Contains(filter.Description));
         }
 
         if (filter.MinPrice.HasValue)
@@ -144,17 +137,23 @@ public class BookService : IBookService
             query = query.Where(b => b.Price <= filter.MaxPrice.Value);
         }
 
-        if (filter.Genre.HasValue)
+        if (filter.GenreId.HasValue)
         {
-            query = query.Where(b => b.Genre == filter.Genre.Value);
+            query = query.Where(b => b.PrimaryGenreId == filter.GenreId);
         }
 
         if (!string.IsNullOrEmpty(filter.Publisher))
         {
             query = query.Where(b => b.Publisher.Name.Contains(filter.Publisher));
         }
-
-        var filteredBooks = query.ToList();
-        return _mapper.Map<IEnumerable<ResponseBookDto>>(filteredBooks);
+        var count = query.Count();
+        var filteredBooks = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
+        var bookDtos = _mapper.Map<IEnumerable<ResponseBookDto>>(filteredBooks);
+        return new PaginatedDto<ResponseBookDto>()
+        {
+            Items = bookDtos,
+            CurrentPage = page,
+            TotalPages = (int)Math.Ceiling((double)count / pageSize),
+        };
     }
 }

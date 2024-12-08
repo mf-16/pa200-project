@@ -1,8 +1,6 @@
-﻿using DataAccessLayer.Model;
+namespace WebMVC.Models;
 
-namespace BusinessLayer.DTOs.Book;
-
-public class BookFilterDto
+public class BookFilterViewModel
 {
     public string? Name { get; set; }
     public decimal? MinPrice { get; set; }

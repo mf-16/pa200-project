@@ -1,6 +1,6 @@
 ﻿using BusinessLayer.DTOs.Book;
 using BusinessLayer.Services.Interfaces;
-using DataAccessLayer.Enums;
+using DataAccessLayer;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using static System.Net.Mime.MediaTypeNames;
@@ -69,17 +69,7 @@ namespace WebApi.Controllers
         [HttpGet("search")]
         public async Task<IActionResult> GetBooks([FromQuery] BookFilterDto request)
         {
-            var filter = new BookFilterDto
-            {
-                Name = request.Name,
-                Description = request.Description,
-                MinPrice = request.MinPrice,
-                MaxPrice = request.MaxPrice,
-                Genre = request.Genre,
-                Publisher = request.Publisher,
-            };
-
-            var books = await _bookService.GetFilteredBooksAsync(filter);
+            var books = await _bookService.GetFilteredBooksAsync(request);
             return Ok(books);
         }
     }
