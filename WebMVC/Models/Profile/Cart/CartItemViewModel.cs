@@ -1,11 +1,10 @@
 using BusinessLayer.DTOs.Book;
 
-namespace BusinessLayer.DTOs.Cart;
+namespace WebMVC.Models.Profile.Cart;
 
-public class ResponseCartItemDto
+public class CartItemViewModel
 {
     public int Id { get; set; }
-    public int UserId { get; set; }
     public ResponseBookDto Book { get; set; }
     public int Quantity { get; set; }
 }

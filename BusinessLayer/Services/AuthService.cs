@@ -29,6 +29,7 @@ public class AuthService : IAuthService
     public async Task<IdentityResult> RegisterAsync(RegisterDTO registerDto)
     {
         var user = _mapper.Map<RegisterDTO, User>(registerDto);
+        user.Cart = new Cart();
 
         var result = await _userManager.CreateAsync(user, registerDto.Password);
 

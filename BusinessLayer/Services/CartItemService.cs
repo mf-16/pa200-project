@@ -4,6 +4,7 @@ using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
+using Microsoft.EntityFrameworkCore;
 
 namespace BusinessLayer.Services;
 
@@ -80,5 +81,16 @@ public class CartItemService : ICartItemService
             await _unitOfWork.CartItemRepository.GetAllAsync()
         );
         return response;
+    }
+
+    public async Task<List<ResponseCartItemDto>> GetAllCartItemsByUserAsync(int userId)
+    {
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+        if (user == null)
+        {
+            throw new NotFoundException("User", userId);
+        }
+        return _mapper.Map<List<ResponseCartItemDto>>(user.Cart.CartItems);
+
     }
 }

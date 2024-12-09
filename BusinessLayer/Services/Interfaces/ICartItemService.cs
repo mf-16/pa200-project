@@ -9,4 +9,6 @@ public interface ICartItemService
     Task DeleteCartItemAsync(int id);
     Task<ResponseCartItemDto> UpdateCartItemAsync(int id, UpdateCartItemDto updateCartItemDto);
     Task<List<ResponseCartItemDto>> GetAllCartItemsAsync();
+
+    Task<List<ResponseCartItemDto>> GetAllCartItemsByUserAsync(int userId);
 }
