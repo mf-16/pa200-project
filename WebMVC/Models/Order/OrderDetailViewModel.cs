@@ -4,7 +4,6 @@ namespace WebMVC.Models.Order;
 
 public class OrderDetailViewModel
 {
-    
     public int Id { get; set; }
     public string CustomerName { get; set; }
 

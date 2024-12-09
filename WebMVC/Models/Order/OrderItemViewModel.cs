@@ -2,7 +2,6 @@ namespace WebMVC.Models.Order;
 
 public class OrderItemViewModel
 {
-    
     public int Id { get; set; }
     public decimal BookPrice { get; set; }
     public string BookTitle { get; set; }

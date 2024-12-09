@@ -8,7 +8,6 @@ public class WishlistProfile : Profile
 {
     public WishlistProfile()
     {
-        CreateMap<ResponseWishlistItemDto, WishlistItemViewModel >();
+        CreateMap<ResponseWishlistItemDto, WishlistItemViewModel>();
     }
-    
 }

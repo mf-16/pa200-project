@@ -15,13 +15,17 @@ public class ProfileController : Controller
     private readonly IOrderService _orderService;
     private readonly IMapper _mapper;
 
-    public ProfileController(IWishlistItemService wishlistItemService, IMapper mapper, IOrderService orderService)
+    public ProfileController(
+        IWishlistItemService wishlistItemService,
+        IMapper mapper,
+        IOrderService orderService
+    )
     {
         _wishlistItemService = wishlistItemService;
         _mapper = mapper;
         _orderService = orderService;
     }
-    
+
     [Route("wishlist")]
     public async Task<IActionResult> Wishlist()
     {
@@ -35,11 +39,11 @@ public class ProfileController : Controller
 
         return View();
     }
+
     [HttpPost]
     [Route("delete-from-wishlist")]
     public async Task<IActionResult> DeleteFromWishlist(int id)
     {
-        
         var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
         if (int.TryParse(userIdClaim, out int userId))
         {
@@ -47,7 +51,7 @@ public class ProfileController : Controller
         }
         return RedirectToAction(nameof(Wishlist));
     }
-    
+
     [Route("orders")]
     public async Task<IActionResult> Orders()
     {
@@ -69,5 +73,4 @@ public class ProfileController : Controller
         var mappedOrder = _mapper.Map<OrderDetailViewModel>(order);
         return View(mappedOrder);
     }
-    
 }
