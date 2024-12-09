@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.DTOs.Author;
 using BusinessLayer.DTOs.Genre;
 using BusinessLayer.DTOs.Publisher;
+using BusinessLayer.DTOs.Review;
 using DataAccessLayer.Model;
 
 namespace BusinessLayer.DTOs.Book;
@@ -14,5 +15,6 @@ public class ResponseBookDto
     public decimal Price { get; set; }
     public string ImagePath { get; set; }
     public GenreDto PrimaryGenre { get; set; }
+    public IEnumerable<ResponseReviewDto> Reviews { get; set; }
     public string Description { get; set; }
 }

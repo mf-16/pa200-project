@@ -30,7 +30,15 @@ public class BookController : Controller
         var paginatedViewModel = _mapper.Map<PaginatedViewModel<BookViewModel>>(books);
 
         return View(
-            new BookFilterCompositeViewModel() { Pagination = paginatedViewModel, Filters = filter }
+            new BookCompositeViewModel() { Pagination = paginatedViewModel, Filters = filter }
         );
+    }
+
+    [Route("detail/{id}")]
+    public async Task<IActionResult> Detail(int id)
+    {
+        var bookDto = await _bookService.GetBookByIdAsync(id);
+        var bookDetailViewModel = _mapper.Map<BookDetailViewModel>(bookDto);
+        return View(bookDetailViewModel);
     }
 }
