@@ -1,6 +1,8 @@
 using AutoMapper;
 using BusinessLayer.DTOs.Auth;
+using BusinessLayer.DTOs.User;
 using WebMVC.Models.Account;
+using WebMVC.Models.User;
 
 namespace WebMVC.Mapper;
 
@@ -8,6 +10,7 @@ public class UserProfile : Profile
 {
     public UserProfile()
     {
+        CreateMap<ResponseUserDto, UserViewModel>().ReverseMap();
         CreateMap<RegisterViewModel, RegisterDTO>()
             .ForMember(
                 dest => dest.Name,

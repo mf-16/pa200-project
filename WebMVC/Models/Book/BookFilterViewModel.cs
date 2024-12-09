@@ -1,4 +1,4 @@
-namespace WebMVC.Models;
+namespace WebMVC.Models.Book;
 
 public class BookFilterViewModel
 {
