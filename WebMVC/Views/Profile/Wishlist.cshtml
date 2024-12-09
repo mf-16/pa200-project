@@ -1,0 +1,33 @@
+@model ICollection<WebMVC.Models.Profile.WishlistItemViewModel>
+
+<h2>Your Wishlist</h2>
+<div>
+    @if (Model.Any())
+    {
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="@item.Book.ImagePath" class="card-img-top" alt="@item.Book.Title">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Book.Title</h5>
+                                <p class="card-text">Author: @item.Book.Author.Name</p>
+                                <p class="card-text">Price: $@item.Book.Price</p>
+                                <p class="card-text">Genre: @item.Book.PrimaryGenre.Name</p>
+                                <p class="card-text">Publisher: @item.Book.Publisher.Name</p>
+                                <a href="@Url.Action("Detail", "Book",  new { id = item.Book.Id })" class="btn btn-primary">View Details</a>
+                                <form action="@Url.Action("DeleteFromWishlist", "Profile", new { id = item.Id })" method="post" style="display:inline;">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+    }
+    else
+    {
+        <p>No items in your wishlist yet.</p>
+    }
+</div>

@@ -92,8 +92,7 @@ public static class DataInitializer
         var adminUser = new User
         {
             Id = 1,
-            UserName = "fake_admin",
-            NormalizedUserName = "FAKE_ADMIN",
+            UserName = "admin@admin.com",
             Name = "Admin User",
             Email = "admin@admin.com",
             EmailConfirmed = true,
@@ -104,9 +103,9 @@ public static class DataInitializer
 
         var userFaker = new Faker<User>()
             .RuleFor(u => u.Id, f => f.IndexFaker + 2)
-            .RuleFor(u => u.UserName, f => f.Internet.UserName())
-            .RuleFor(u => u.Name, f => f.Name.FullName())
             .RuleFor(u => u.Email, f => f.Internet.Email())
+            .RuleFor(u => u.UserName, (f, u) => u.Email)
+            .RuleFor(u => u.Name, f => f.Name.FullName())
             .RuleFor(u => u.EmailConfirmed, true)
             .RuleFor(u => u.SecurityStamp, f => Guid.NewGuid().ToString())
             .RuleFor(u => u.PhoneNumber, f => f.Phone.PhoneNumber());
