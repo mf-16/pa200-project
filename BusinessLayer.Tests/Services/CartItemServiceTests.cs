@@ -35,14 +35,17 @@ public class CartItemServiceTests
         var cartItemDto = new CreateCartItemDto()
         {
             BookId = 1,
-            CartId = 1,
             Quantity = 5,
         };
+        
+        var mockCart = new Cart { Id = 1, UserId = 1 }; 
+        var mockUser = new User { Id = 1, Cart = mockCart };
 
         _unitOfWork.BookRepository.GetByIdAsync(Arg.Any<int>()).Returns(new Book());
+        _unitOfWork.UserRepository.GetByIdAsync(Arg.Any<int>()).Returns(mockUser);
 
         // Act
-        var result = await _cartItemService.CreateCartItemAsync(cartItemDto);
+        var result = await _cartItemService.CreateCartItemAsync(mockUser.Id, cartItemDto);
 
         // Assert
         await _unitOfWork.BookRepository.Received(1).GetByIdAsync(cartItemDto.BookId);
@@ -52,7 +55,7 @@ public class CartItemServiceTests
             .Add(
                 Arg.Is<CartItem>(ci =>
                     ci.BookId == cartItemDto.BookId
-                    && ci.CartId == cartItemDto.CartId
+                    && ci.CartId == mockCart.Id
                     && ci.Quantity == cartItemDto.Quantity
                 )
             );
@@ -69,16 +72,19 @@ public class CartItemServiceTests
         var cartItemDto = new CreateCartItemDto()
         {
             BookId = 1,
-            CartId = 1,
             Quantity = 5,
         };
 
+        _unitOfWork.UserRepository.GetByIdAsync(Arg.Any<int>()).Returns(new User()
+        {
+            Id = 1,
+        });
         _unitOfWork.BookRepository.GetByIdAsync(Arg.Any<int>()).Returns((Book?)null);
 
         // Act
         // Assert
         await Assert.ThrowsAsync<NotFoundException>(
-            async () => await _cartItemService.CreateCartItemAsync(cartItemDto)
+            async () => await _cartItemService.CreateCartItemAsync(1, cartItemDto)
         );
     }
 

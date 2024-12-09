@@ -2,6 +2,7 @@
 using BusinessLayer.DTOs.Genre;
 using BusinessLayer.DTOs.Publisher;
 using BusinessLayer.DTOs.Review;
+using BusinessLayer.DTOs.WishlistItem;
 using DataAccessLayer.Model;
 
 namespace BusinessLayer.DTOs.Book;
@@ -17,4 +18,5 @@ public class ResponseBookDto
     public GenreDto PrimaryGenre { get; set; }
     public IEnumerable<ResponseReviewDto> Reviews { get; set; }
     public string Description { get; set; }
+    public ResponseWishlistItemDto WishlistItem{ get; set; }
 }

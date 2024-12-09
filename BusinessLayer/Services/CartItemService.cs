@@ -4,6 +4,7 @@ using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 namespace BusinessLayer.Services;
@@ -19,14 +20,20 @@ public class CartItemService : ICartItemService
         _mapper = mapper;
     }
 
-    public async Task<ResponseCartItemDto> CreateCartItemAsync(CreateCartItemDto createCartItemDto)
+    public async Task<ResponseCartItemDto> CreateCartItemAsync(int userId, CreateCartItemDto createCartItemDto)
     {
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+        if (user == null)
+        {
+            throw new NotFoundException("User", userId);
+        }
         if (await _unitOfWork.BookRepository.GetByIdAsync(createCartItemDto.BookId) == null)
         {
             throw new NotFoundException("Book", createCartItemDto.BookId);
         }
 
         var cartItem = _mapper.Map<CartItem>(createCartItemDto);
+        cartItem.CartId = user.Cart.Id; 
         _unitOfWork.CartItemRepository.Add(cartItem);
         await _unitOfWork.CommitAsync();
         var response = _mapper.Map<ResponseCartItemDto>(cartItem);

@@ -80,4 +80,16 @@ public class WishlistItemService : IWishlistItemService
         user.Wishlist.Remove(wishlistItem);
         await _unitOfWork.CommitAsync();
     }
+
+    public async Task<bool> IsWishlistedAsync(int userId, int bookId)
+    {
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+
+        if (user == null)
+        {
+            throw new NotFoundException(nameof(User), userId);
+        }
+        return user.Wishlist.Any(w => w.BookId == bookId);
+
+    }
 }

@@ -31,5 +31,6 @@ namespace DataAccessLayer.Model
 
         public int EditCount { get; set; }
         public virtual ICollection<Review> Reviews { get; set; }
+        
     }
 }
