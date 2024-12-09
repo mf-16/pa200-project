@@ -2,6 +2,7 @@
 using BusinessLayer.DTOs.Genre;
 using BusinessLayer.DTOs.Publisher;
 using BusinessLayer.DTOs.Review;
+using BusinessLayer.DTOs.WishlistItem;
 using DataAccessLayer.Model;
 
 namespace BusinessLayer.DTOs.Book;
