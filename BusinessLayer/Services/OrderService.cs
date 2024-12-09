@@ -47,4 +47,14 @@ public class OrderService : IOrderService
     {
         return _mapper.Map<List<ResponseOrderDto>>(await _unitOfWork.OrderRepository.GetAllAsync());
     }
+
+    public async Task<List<ResponseOrderDto>> GetAllOrdersByUserIdAsync(int userId)
+    {
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+        if (user == null)
+        {
+            throw new NotFoundException("User", userId);
+        }
+        return _mapper.Map<List<ResponseOrderDto>>(user.Orders);
+    }
 }
