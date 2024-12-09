@@ -16,4 +16,6 @@ public class BookDetailViewModel
     public string Description { get; set; }
     public IEnumerable<ReviewViewModel> Reviews { get; set; }
     public GenreViewModel PrimaryGenre { get; set; }
+
+    public bool IsWishlisted { get; set; }
 }

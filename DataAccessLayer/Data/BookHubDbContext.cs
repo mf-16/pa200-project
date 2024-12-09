@@ -27,4 +27,9 @@ public class BookHubDbContext : IdentityDbContext<User, UserRole, int>
         modelBuilder.Seed();
         base.OnModelCreating(modelBuilder);
     }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        optionsBuilder.EnableSensitiveDataLogging();
+    }
 }

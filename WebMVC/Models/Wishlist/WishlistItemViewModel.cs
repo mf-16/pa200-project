@@ -1,6 +1,6 @@
 using WebMVC.Models.Book;
 
-namespace WebMVC.Models.Profile;
+namespace WebMVC.Models.Wishlist;
 
 public class WishlistItemViewModel
 {
