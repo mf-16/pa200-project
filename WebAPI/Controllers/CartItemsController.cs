@@ -17,7 +17,8 @@ public class CartItemsController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<ResponseCartItemDto>> AddCartItem(int userId,
+    public async Task<ActionResult<ResponseCartItemDto>> AddCartItem(
+        int userId,
         [FromBody] CreateCartItemDto createCartItemDto
     )
     {

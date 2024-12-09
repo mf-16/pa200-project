@@ -11,5 +11,4 @@ public class WishlistProfile : Profile
         CreateMap<CreateWishlistItemViewModel, CreateWishlistItemDto>().ReverseMap();
         CreateMap<ResponseWishlistItemDto, WishlistItemViewModel>().ReverseMap();
     }
-    
 }

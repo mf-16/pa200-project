@@ -20,7 +20,12 @@ public class BookController : Controller
     private readonly ICartItemService _cartItemService;
     private readonly IWishlistItemService _wishlistItemService;
 
-    public BookController(IBookService bookService, IMapper mapper, ICartItemService cartItemService, IWishlistItemService wishlistItemService)
+    public BookController(
+        IBookService bookService,
+        IMapper mapper,
+        ICartItemService cartItemService,
+        IWishlistItemService wishlistItemService
+    )
     {
         _bookService = bookService;
         _mapper = mapper;
@@ -52,12 +57,15 @@ public class BookController : Controller
 
         if (int.TryParse(userIdClaim, out int userId))
         {
-            bookDetailViewModel.IsWishlisted = await _wishlistItemService.IsWishlistedAsync(userId, bookDto.Id);
+            bookDetailViewModel.IsWishlisted = await _wishlistItemService.IsWishlistedAsync(
+                userId,
+                bookDto.Id
+            );
         }
 
         return View(bookDetailViewModel);
     }
-    
+
     [HttpPost]
     [Route("add-to-cart")]
     public async Task<IActionResult> AddToCart(CreateCartItemViewModel cartItem)
@@ -78,7 +86,6 @@ public class BookController : Controller
     [Route("add-to-wishlist")]
     public async Task<IActionResult> AddToWishlist(CreateWishlistItemViewModel wishlist)
     {
-        
         var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
         if (int.TryParse(userIdClaim, out int userId))
@@ -87,6 +94,6 @@ public class BookController : Controller
             await _wishlistItemService.CreateWishlistItemAsync(userId, wishlistDto);
             TempData["Success"] = "Book added to the wishlist successfully!";
         }
-        return RedirectToAction( nameof(Detail), "Book", new { Id = wishlist.BookId });
+        return RedirectToAction(nameof(Detail), "Book", new { Id = wishlist.BookId });
     }
 }

@@ -8,12 +8,14 @@ using WebMVC.Models.Cart;
 using WebMVC.Models.Profile.Cart;
 
 namespace WebMVC.Controllers;
+
 [Authorize]
 [Route("profile")]
 public class ProfileController : Controller
 {
     private readonly ICartItemService _cartItemService;
     private readonly IMapper _mapper;
+
     public ProfileController(ICartItemService cartItemService, IMapper mapper)
     {
         _cartItemService = cartItemService;
@@ -23,7 +25,6 @@ public class ProfileController : Controller
     [Route("cart")]
     public async Task<IActionResult> Cart()
     {
-        
         var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
 
         if (int.TryParse(userIdClaim, out int userId))
@@ -32,9 +33,8 @@ public class ProfileController : Controller
             var cartViewModel = _mapper.Map<CartViewModel>(cartItems);
             return View(cartViewModel);
         }
-        
-        return View();
 
+        return View();
     }
 
     [HttpPost]
@@ -44,7 +44,6 @@ public class ProfileController : Controller
         var updateCartItemDto = _mapper.Map<UpdateCartItemDto>(cartItem);
         await _cartItemService.UpdateCartItemAsync(id, updateCartItemDto);
         return RedirectToAction(nameof(Cart), "Profile");
-        
     }
 
     [HttpPost]

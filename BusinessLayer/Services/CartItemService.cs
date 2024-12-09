@@ -20,7 +20,10 @@ public class CartItemService : ICartItemService
         _mapper = mapper;
     }
 
-    public async Task<ResponseCartItemDto> CreateCartItemAsync(int userId, CreateCartItemDto createCartItemDto)
+    public async Task<ResponseCartItemDto> CreateCartItemAsync(
+        int userId,
+        CreateCartItemDto createCartItemDto
+    )
     {
         var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
         if (user == null)
@@ -33,7 +36,7 @@ public class CartItemService : ICartItemService
         }
 
         var cartItem = _mapper.Map<CartItem>(createCartItemDto);
-        cartItem.CartId = user.Cart.Id; 
+        cartItem.CartId = user.Cart.Id;
         _unitOfWork.CartItemRepository.Add(cartItem);
         await _unitOfWork.CommitAsync();
         var response = _mapper.Map<ResponseCartItemDto>(cartItem);
@@ -98,6 +101,5 @@ public class CartItemService : ICartItemService
             throw new NotFoundException("User", userId);
         }
         return _mapper.Map<List<ResponseCartItemDto>>(user.Cart.CartItems);
-
     }
 }

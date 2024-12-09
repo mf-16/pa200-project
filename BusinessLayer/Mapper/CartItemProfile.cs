@@ -11,6 +11,5 @@ public class CartItemProfile : Profile
         CreateMap<CreateCartItemDto, CartItem>();
         CreateMap<CartItem, ResponseCartItemDto>();
         CreateMap<UpdateCartItemDto, CartItem>();
-
     }
 }

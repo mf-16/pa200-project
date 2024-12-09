@@ -12,7 +12,5 @@ public class ProfileProfile : Profile
 
         CreateMap<List<ResponseCartItemDto>, CartViewModel>()
             .ForMember(dest => dest.CartItems, opt => opt.MapFrom(src => src));
-
     }
-    
 }

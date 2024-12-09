@@ -32,13 +32,9 @@ public class CartItemServiceTests
     public async Task CreateCartItemAsync_ShouldCreateNewOrder()
     {
         // Arrange
-        var cartItemDto = new CreateCartItemDto()
-        {
-            BookId = 1,
-            Quantity = 5,
-        };
-        
-        var mockCart = new Cart { Id = 1, UserId = 1 }; 
+        var cartItemDto = new CreateCartItemDto() { BookId = 1, Quantity = 5 };
+
+        var mockCart = new Cart { Id = 1, UserId = 1 };
         var mockUser = new User { Id = 1, Cart = mockCart };
 
         _unitOfWork.BookRepository.GetByIdAsync(Arg.Any<int>()).Returns(new Book());
@@ -69,16 +65,9 @@ public class CartItemServiceTests
     public async Task CreateCartItemAsync_ShouldThrowException_WhenBookNotFound()
     {
         // Arrange
-        var cartItemDto = new CreateCartItemDto()
-        {
-            BookId = 1,
-            Quantity = 5,
-        };
+        var cartItemDto = new CreateCartItemDto() { BookId = 1, Quantity = 5 };
 
-        _unitOfWork.UserRepository.GetByIdAsync(Arg.Any<int>()).Returns(new User()
-        {
-            Id = 1,
-        });
+        _unitOfWork.UserRepository.GetByIdAsync(Arg.Any<int>()).Returns(new User() { Id = 1 });
         _unitOfWork.BookRepository.GetByIdAsync(Arg.Any<int>()).Returns((Book?)null);
 
         // Act

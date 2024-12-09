@@ -90,6 +90,5 @@ public class WishlistItemService : IWishlistItemService
             throw new NotFoundException(nameof(User), userId);
         }
         return user.Wishlist.Any(w => w.BookId == bookId);
-
     }
 }
