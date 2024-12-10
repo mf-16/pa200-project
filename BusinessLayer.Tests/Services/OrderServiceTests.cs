@@ -81,17 +81,18 @@ namespace BusinessLayer.Tests.Services
         public async Task CreateOrderAsync_ShouldCreateOrder_WhenCartExists()
         {
             // Arrange
-            var createOrderDto = new CreateOrderDto { CartId = 1, CustomerName = "John Doe" };
+            var createOrderDto = new CreateOrderDto { CustomerName = "John Doe" };
             var cart = new Cart { Id = 1, CartItems = new List<CartItem>() };
+            var user = new User { Id = 1, Cart = cart };
             var order = new Order { Id = 1, CustomerName = "John Doe" };
             var responseOrder = new ResponseOrderDto { Id = 1, CustomerName = "John Doe" };
 
-            _unitOfWork.CartRepository.GetByIdAsync(1).Returns(cart);
+            _unitOfWork.UserRepository.GetByIdAsync(1).Returns(user);
             _mapper.Map<(CreateOrderDto, Cart), Order>((createOrderDto, cart)).Returns(order);
             _mapper.Map<ResponseOrderDto>(order).Returns(responseOrder);
 
             // Act
-            var result = await _orderService.CreateOrderAsync(createOrderDto);
+            var result = await _orderService.CreateOrderAsync(user.Id, createOrderDto);
 
             // Assert
             _unitOfWork

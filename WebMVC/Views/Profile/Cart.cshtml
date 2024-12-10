@@ -6,11 +6,12 @@
     @if (Model.CartItems.Any())
     {
         
-        
         <div class="mb-3">
+            
             <div class="d-flex justify-content-end mb-2">
-                <button class="btn btn-primary">Order</button>
+                <a asp-action="Create" asp-controller="Order" class="btn btn-primary">Order</a>
             </div>
+
             <div class="text-end">
                 <h4 class="mb-0">Total: $@Model.CartItems.Sum(i => i.Quantity * i.Book.Price)</h4>
             </div>
