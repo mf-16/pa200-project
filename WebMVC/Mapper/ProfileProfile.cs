@@ -1,6 +1,6 @@
 using AutoMapper;
 using BusinessLayer.DTOs.Cart;
-using WebMVC.Models.Profile.Cart;
+using WebMVC.Models.Cart;
 
 namespace WebMVC.Mapper;
 

@@ -1,5 +1,3 @@
-using WebMVC.Models.Book;
-
 namespace WebMVC.Models.Cart;
 
 public class CreateCartItemViewModel

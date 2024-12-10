@@ -1,6 +1,6 @@
 using BusinessLayer.DTOs.Book;
 
-namespace WebMVC.Models.Profile.Cart;
+namespace WebMVC.Models.Cart;
 
 public class CartItemViewModel
 {

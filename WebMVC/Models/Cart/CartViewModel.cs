@@ -1,4 +1,4 @@
-namespace WebMVC.Models.Profile.Cart;
+namespace WebMVC.Models.Cart;
 
 public class CartViewModel
 {
