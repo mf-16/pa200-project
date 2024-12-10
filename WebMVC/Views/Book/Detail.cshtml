@@ -59,7 +59,9 @@
                     {
                         <div class="list-group-item mb-2">
                             <h5>@review.User.UserName</h5>
-                            <p>@review.Comment</p>
+                            <p class="text-wrap" style="word-wrap: break-word; overflow-wrap: break-word;">
+                                @review.Comment
+                            </p>
                             <small class="text-muted">Rating: @review.Stars/5</small>
                         </div>
                     }
@@ -69,6 +71,12 @@
                     <p>No reviews yet. Be the first to review this book!</p>
                 }
             </div>
+            @if (User.Identity != null && User.Identity.IsAuthenticated)
+            {
+            <a asp-action="AddReview" asp-route-bookId="@Model.Id" class="btn btn-outline-primary mt-3">
+                Add Review
+            </a>
+            }
         </div>
     </div>
 </div>
