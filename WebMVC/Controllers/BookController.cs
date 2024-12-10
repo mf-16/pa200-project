@@ -28,7 +28,9 @@ public class BookController : Controller
         IBookService bookService,
         IMapper mapper,
         ICartItemService cartItemService,
-        IWishlistItemService wishlistItemService, IReviewService reviewService)
+        IWishlistItemService wishlistItemService,
+        IReviewService reviewService
+    )
     {
         _bookService = bookService;
         _mapper = mapper;
@@ -86,7 +88,7 @@ public class BookController : Controller
 
         return RedirectToAction(nameof(Detail), "Book", new { Id = cartItem.BookId });
     }
-    
+
     [Authorize]
     [HttpPost]
     [Route("add-to-wishlist")]
@@ -102,22 +104,22 @@ public class BookController : Controller
         }
         return RedirectToAction(nameof(Detail), "Book", new { Id = wishlist.BookId });
     }
-    
+
     [Authorize]
     [Route("{bookId}/add-review")]
     public IActionResult AddReview(int bookId)
     {
-        var createReviewViewModel = new CreateReviewViewModel()
-        {
-            BookId = bookId,
-        };
+        var createReviewViewModel = new CreateReviewViewModel() { BookId = bookId };
         return View(createReviewViewModel);
     }
-    
+
     [Authorize]
     [HttpPost]
     [Route("{bookId}/add-review")]
-    public async Task<IActionResult> AddReview(int bookId, CreateReviewViewModel createReviewViewModel)
+    public async Task<IActionResult> AddReview(
+        int bookId,
+        CreateReviewViewModel createReviewViewModel
+    )
     {
         if (!ModelState.IsValid)
         {
