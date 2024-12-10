@@ -9,5 +9,6 @@ public class ReviewProfile : Profile
     public ReviewProfile()
     {
         CreateMap<ResponseReviewDto, ReviewViewModel>().ReverseMap();
+        CreateMap<CreateReviewViewModel, CreateReviewDto>();
     }
 }
