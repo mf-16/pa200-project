@@ -18,17 +18,17 @@ public class OrderService : IOrderService
         _mapper = mapper;
     }
 
-    public async Task<ResponseOrderDto> CreateOrderAsync(CreateOrderDto createOrderDto)
+    public async Task<ResponseOrderDto> CreateOrderAsync(int userId, CreateOrderDto createOrderDto)
     {
-        var cart = await _unitOfWork.CartRepository.GetByIdAsync(createOrderDto.CartId);
-        if (cart is null)
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+        if (user is null)
         {
-            throw new NotFoundException("Cart", createOrderDto.CartId);
+            throw new NotFoundException("User", userId);
         }
 
-        var order = _mapper.Map<(CreateOrderDto, Cart), Order>((createOrderDto, cart));
+        var order = _mapper.Map<(CreateOrderDto, Cart), Order>((createOrderDto, user.Cart));
         _unitOfWork.OrderRepository.Add(order);
-        _unitOfWork.CartItemRepository.DeleteRange(cart.CartItems);
+        _unitOfWork.CartItemRepository.DeleteRange(user.Cart.CartItems);
         await _unitOfWork.CommitAsync();
         return _mapper.Map<ResponseOrderDto>(order);
     }

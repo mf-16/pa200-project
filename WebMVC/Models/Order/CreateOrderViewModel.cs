@@ -1,9 +1,9 @@
 using System.ComponentModel.DataAnnotations;
-using BusinessLayer.DTOs.Address;
+using WebMVC.Models.Address;
 
-namespace BusinessLayer.DTOs.Order;
+namespace WebMVC.Models.Order;
 
-public class CreateOrderDto
+public class CreateOrderViewModel
 {
     [Required]
     [StringLength(100, ErrorMessage = "Customer name cannot exceed 100 characters.")]
@@ -14,9 +14,7 @@ public class CreateOrderDto
     [StringLength(255, ErrorMessage = "Customer email cannot exceed 255 characters.")]
     public string CustomerEmail { get; set; }
 
-    [Required]
-    public AddressDto ShippingAddress { get; set; }
+    public CreateAddressViewModel ShippingAddress { get; set; }
 
-    [Required]
-    public AddressDto BillingAddress { get; set; }
+    public CreateAddressViewModel BillingAddress { get; set; }
 }

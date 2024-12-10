@@ -3,6 +3,12 @@
 <h2>Your Orders</h2>
 
 <div class="container">
+    @if (TempData["Success"] != null)
+    {
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+    }
     <div class="row">
         @if (Model.Any())
         {
@@ -15,7 +21,7 @@
                             <p class="card-text">
                                 <strong>Total Amount:</strong> @order.TotalAmount.ToString("C")
                             </p>
-                            <a href="@Url.Action("OrderDetail", "Profile", new { id = order.Id })" 
+                            <a href="@Url.Action("OrderDetail", "Profile", new { id = order.Id })"
                                class="btn btn-primary btn-sm mt-3">View Details</a>
                         </div>
                     </div>
