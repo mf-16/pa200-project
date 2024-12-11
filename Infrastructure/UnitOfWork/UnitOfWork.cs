@@ -10,6 +10,7 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<Book> BookRepository { get; }
     public IRepository<User> UserRepository { get; }
     public IRepository<Author> AuthorRepository { get; }
+    public IRepository<BookGenre> GenreRepository { get; }
     public IRepository<Publisher> PublisherRepository { get; }
     public IRepository<Order> OrderRepository { get; }
     public IRepository<OrderItem> OrderItemRepository { get; }
@@ -21,6 +22,7 @@ public class UnitOfWork : IUnitOfWork
     public UnitOfWork(BookHubDbContext context)
     {
         _context = context;
+        GenreRepository = new Repository<BookGenre>(_context);
         BookRepository = new Repository<Book>(_context);
         UserRepository = new Repository<User>(_context);
         AuthorRepository = new Repository<Author>(_context);

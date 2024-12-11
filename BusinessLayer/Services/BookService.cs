@@ -21,7 +21,7 @@ public class BookService : IBookService
         _mapper = mapper;
     }
 
-    public async Task<ResponseBookDto> AddBookAsync(AddBookDto addBookDto, IFormFile image)
+    public async Task<ResponseBookDto> AddBookAsync(AddBookDto addBookDto, IFormFile? image = null)
     {
         var book = _mapper.Map<Book>(addBookDto);
 
@@ -34,6 +34,10 @@ public class BookService : IBookService
                 await image.CopyToAsync(stream);
             }
             book.ImagePath = imagePath;
+        }
+        else
+        {
+            book.ImagePath = "/images/default.jpg";
         }
         _unitOfWork.BookRepository.Add(book);
         await _unitOfWork.CommitAsync();
@@ -67,8 +71,8 @@ public class BookService : IBookService
     public async Task<ResponseBookDto> UpdateBookAsync(
         int id,
         UpdateBookDto updateBookDto,
-        IFormFile image,
-        int? userId
+        IFormFile? image = null,
+        int? userId = null
     )
     {
         var book = await _unitOfWork.BookRepository.GetByIdAsync(id);
@@ -115,7 +119,7 @@ public class BookService : IBookService
     }
 
     public async Task<PaginatedDto<ResponseBookDto>> GetFilteredBooksAsync(
-        BookFilterDto filter,
+        BookFilterDto? filter,
         int page = 1,
         int pageSize = 6
     )
