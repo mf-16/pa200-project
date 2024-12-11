@@ -16,7 +16,9 @@
     }
     <div class="row">
         <div class="col-md-4">
-            <img src="@Model.ImagePath" alt="@Model.Title" class="img-fluid rounded shadow mb-3"/>
+            <div class="overflow-hidden rounded shadow mb-3" style="height: 500px; width: 100%;">
+                <img src="@Model.ImagePath" class="img-fluid w-100 h-100 object-fit-cover" alt=""/>
+            </div>
             <h2 class="mt-3">@Model.Title</h2>
             <p><strong>Author:</strong> @Model.Author.Name</p>
             <p><strong>Publisher:</strong> @Model.Publisher.Name</p>
@@ -28,27 +30,25 @@
         <div class="col-md-8">
             @if (User.Identity != null && User.Identity.IsAuthenticated)
             {
-                
-                    <div class="d-flex justify-content-between">
-                        <form asp-action="AddToCart" method="post" class="d-flex align-items-center">
-                            <input type="hidden" name="BookId" value="@Model.Id" />
-                            <label for="quantity" class="me-2 mb-0">Quantity:</label>
-                            <input type="number" id="quantity" name="Quantity" value="1" min="1" class="form-control me-2" style="width: 80px;" />
-                            <button type="submit" class="btn btn-primary">Add to Cart</button>
-                        </form>
-                        @if (Model.IsWishlisted)
-                        {
+                <div class="d-flex justify-content-between">
+                    <form asp-action="AddToCart" method="post" class="d-flex align-items-center">
+                        <input type="hidden" name="BookId" value="@Model.Id" />
+                        <label for="quantity" class="me-2 mb-0">Quantity:</label>
+                        <input type="number" id="quantity" name="Quantity" value="1" min="1" class="form-control me-2" style="width: 80px;" />
+                        <button type="submit" class="btn btn-primary">Add to Cart</button>
+                    </form>
+                    @if (Model.IsWishlisted)
+                    {
                         <button class="btn btn-secondary" disabled>Already in Wishlist</button>
-                        }
-                        else
-                        {
+                    }
+                    else
+                    {
                         <form asp-action="AddToWishlist" method="post">
                             <input type="hidden" name="BookId" value="@Model.Id" />
                             <button class="btn btn-secondary">Add to Wishlist</button>
                         </form>
-                        }
-                    </div>
-
+                    }
+                </div>
             }
 
             <h3 class="mt-4">Reviews</h3>
@@ -58,11 +58,21 @@
                     foreach (var review in Model.Reviews)
                     {
                         <div class="list-group-item mb-2">
-                            <h5>@review.User.UserName</h5>
-                            <p class="text-wrap" style="word-wrap: break-word; overflow-wrap: break-word;">
-                                @review.Comment
-                            </p>
-                            <small class="text-muted">Rating: @review.Stars/5</small>
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h5>@review.User.UserName</h5>
+                                    <p class="text-wrap" style="word-wrap: break-word; overflow-wrap: break-word;">
+                                        @review.Comment
+                                    </p>
+                                    <small class="text-muted">Rating: @review.Stars/5</small>
+                                </div>
+                                @if (User.IsInRole("Admin"))
+                                {
+                                    <form asp-action="DeleteReview" asp-route-bookId="@Model.Id" asp-route-reviewId="@review.Id" method="post" class="ms-3">
+                                        <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this review?');">Delete</button>
+                                    </form>
+                                }
+                            </div>
                         </div>
                     }
                 }
@@ -73,10 +83,11 @@
             </div>
             @if (User.Identity != null && User.Identity.IsAuthenticated)
             {
-            <a asp-action="AddReview" asp-route-bookId="@Model.Id" class="btn btn-outline-primary mt-3">
-                Add Review
-            </a>
+                <a asp-action="AddReview" asp-route-bookId="@Model.Id" class="btn btn-outline-primary mt-3">
+                    Add Review
+                </a>
             }
         </div>
     </div>
 </div>
+

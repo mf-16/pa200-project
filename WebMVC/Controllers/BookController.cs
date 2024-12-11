@@ -8,8 +8,11 @@ using BusinessLayer.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebMVC.Models;
+using WebMVC.Models.Author;
 using WebMVC.Models.Book;
 using WebMVC.Models.Cart;
+using WebMVC.Models.Genre;
+using WebMVC.Models.Publisher;
 using WebMVC.Models.Review;
 using WebMVC.Models.Wishlist;
 
@@ -23,13 +26,19 @@ public class BookController : Controller
     private readonly ICartItemService _cartItemService;
     private readonly IWishlistItemService _wishlistItemService;
     private readonly IReviewService _reviewService;
+    private readonly IAuthorService _authorService;
+    private readonly IPublisherService _publisherService;
+    private readonly IGenreService _genreService;
 
     public BookController(
         IBookService bookService,
         IMapper mapper,
         ICartItemService cartItemService,
         IWishlistItemService wishlistItemService,
-        IReviewService reviewService
+        IReviewService reviewService,
+        IAuthorService authorService,
+        IPublisherService publisherService,
+        IGenreService genreService
     )
     {
         _bookService = bookService;
@@ -37,20 +46,47 @@ public class BookController : Controller
         _cartItemService = cartItemService;
         _wishlistItemService = wishlistItemService;
         _reviewService = reviewService;
+        _authorService = authorService;
+        _publisherService = publisherService;
+        _genreService = genreService;
     }
 
+    [HttpGet]
     public async Task<IActionResult> Index(
-        BookFilterViewModel filter,
+        BookFilterViewModel filters,
         int page = 1,
         int pageSize = 6
     )
     {
-        var filterDto = _mapper.Map<BookFilterDto>(filter);
+        var filterDto = _mapper.Map<BookFilterDto>(filters);
         var books = await _bookService.GetFilteredBooksAsync(filterDto, page, pageSize);
+        var genreDtos = await _genreService.GetAllGenresAsync();
+        var genres = _mapper.Map<IEnumerable<GenreViewModel>>(genreDtos);
         var paginatedViewModel = _mapper.Map<PaginatedViewModel<BookViewModel>>(books);
 
         return View(
-            new BookCompositeViewModel() { Pagination = paginatedViewModel, Filters = filter }
+            new BookCompositeViewModel()
+            {
+                Pagination = paginatedViewModel,
+                Filters = filters,
+                Genres = genres,
+            }
+        );
+    }
+
+    [HttpPost]
+    public IActionResult Index(BookCompositeViewModel compositeViewModel)
+    {
+        return RedirectToAction(
+            nameof(Index),
+            new BookFilterViewModel()
+            {
+                Name = compositeViewModel.Filters.Name,
+                MinPrice = compositeViewModel.Filters.MinPrice,
+                MaxPrice = compositeViewModel.Filters.MaxPrice,
+                GenreId = compositeViewModel.Filters.GenreId,
+                Publisher = compositeViewModel.Filters.Publisher,
+            }
         );
     }
 
@@ -125,7 +161,7 @@ public class BookController : Controller
         {
             return View(createReviewViewModel);
         }
-        var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (int.TryParse(userIdClaim, out int userId))
         {
             createReviewViewModel.UserId = userId;
@@ -134,5 +170,99 @@ public class BookController : Controller
             TempData["Success"] = "Review added to the book successfully!";
         }
         return RedirectToAction(nameof(Detail), "Book", new { Id = createReviewViewModel.BookId });
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpPost]
+    [Route("{bookId}/delete-review/{reviewId}")]
+    public async Task<IActionResult> DeleteReview(int bookId, int reviewId)
+    {
+        await _reviewService.DeleteReviewAsync(reviewId);
+        TempData["Success"] = "Review deleted successfully!";
+        return RedirectToAction(nameof(Detail), "Book", new { Id = bookId });
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpPost]
+    [Route("{id}/delete")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        await _bookService.DeleteBookAsync(id);
+        TempData["Success"] = "Book has been deleted successfully!";
+        return RedirectToAction(nameof(Index));
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpGet]
+    [Route("{id}/edit")]
+    public async Task<IActionResult> Edit(int id)
+    {
+        var bookDto = await _bookService.GetBookByIdAsync(id);
+        var book = _mapper.Map<BookViewModel>(bookDto);
+        var authorDtos = await _authorService.GetAllAuthorsAsync();
+        var publisherDtos = await _publisherService.GetAllPublishersAsync();
+        var genreDtos = await _genreService.GetAllGenresAsync();
+        var authors = _mapper.Map<IEnumerable<AuthorViewModel>>(authorDtos);
+        var genres = _mapper.Map<IEnumerable<GenreViewModel>>(genreDtos);
+        var publishers = _mapper.Map<IEnumerable<PublisherViewModel>>(publisherDtos);
+        return View(
+            new EditBookCompositeViewModel()
+            {
+                Items = new BookDropDownListItems()
+                {
+                    Authors = authors,
+                    Publishers = publishers,
+                    Genres = genres,
+                },
+                Book = _mapper.Map<EditBookViewModel>(book),
+            }
+        );
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpPost]
+    [Route("{id}/edit")]
+    public async Task<IActionResult> Edit(int id, EditBookCompositeViewModel compositeViewModel)
+    {
+        var updateBookDto = _mapper.Map<UpdateBookDto>(compositeViewModel.Book);
+        await _bookService.UpdateBookAsync(id, updateBookDto);
+        TempData["Success"] = "Book has been updated successfully!";
+        return RedirectToAction(nameof(Index));
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpGet]
+    [Route("create")]
+    public async Task<IActionResult> Create()
+    {
+        var authorDtos = await _authorService.GetAllAuthorsAsync();
+        var publisherDtos = await _publisherService.GetAllPublishersAsync();
+        var genreDtos = await _genreService.GetAllGenresAsync();
+        var authors = _mapper.Map<IEnumerable<AuthorViewModel>>(authorDtos);
+        var genres = _mapper.Map<IEnumerable<GenreViewModel>>(genreDtos);
+        var publishers = _mapper.Map<IEnumerable<PublisherViewModel>>(publisherDtos);
+        return View(
+            new CreateBookCompositeViewModel()
+            {
+                Items = new BookDropDownListItems()
+                {
+                    Authors = authors,
+                    Publishers = publishers,
+                    Genres = genres,
+                },
+                Book = new CreateBookViewModel(),
+            }
+        );
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpPost]
+    [Route("create")]
+    public async Task<IActionResult> Create(CreateBookCompositeViewModel compositeViewModel)
+    {
+        var addBookDto = _mapper.Map<AddBookDto>(compositeViewModel.Book);
+        await _bookService.AddBookAsync(addBookDto);
+        TempData["Success"] = "Book has been created successfully!";
+        return RedirectToAction(nameof(Index));
     }
 }
