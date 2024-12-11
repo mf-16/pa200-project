@@ -14,4 +14,6 @@ public class OrderDetailViewModel
     public AddressViewModel BillingAddress { get; set; }
     public decimal TotalAmount { get; set; }
     public ICollection<OrderItemViewModel> OrderItems { get; set; }
+    
+    public OrderStateViewModel OrderState { get; set; }
 }
