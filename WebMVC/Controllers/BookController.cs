@@ -35,7 +35,11 @@ public class BookController : Controller
         IMapper mapper,
         ICartItemService cartItemService,
         IWishlistItemService wishlistItemService,
-        IReviewService reviewService, IAuthorService authorService, IPublisherService publisherService, IGenreService genreService)
+        IReviewService reviewService,
+        IAuthorService authorService,
+        IPublisherService publisherService,
+        IGenreService genreService
+    )
     {
         _bookService = bookService;
         _mapper = mapper;
@@ -46,7 +50,7 @@ public class BookController : Controller
         _publisherService = publisherService;
         _genreService = genreService;
     }
-    
+
     [HttpGet]
     public async Task<IActionResult> Index(
         BookFilterViewModel filters,
@@ -54,7 +58,6 @@ public class BookController : Controller
         int pageSize = 6
     )
     {
-        
         var filterDto = _mapper.Map<BookFilterDto>(filters);
         var books = await _bookService.GetFilteredBooksAsync(filterDto, page, pageSize);
         var genreDtos = await _genreService.GetAllGenresAsync();
@@ -62,25 +65,30 @@ public class BookController : Controller
         var paginatedViewModel = _mapper.Map<PaginatedViewModel<BookViewModel>>(books);
 
         return View(
-            new BookCompositeViewModel() { Pagination = paginatedViewModel, Filters = filters, Genres = genres}
+            new BookCompositeViewModel()
+            {
+                Pagination = paginatedViewModel,
+                Filters = filters,
+                Genres = genres,
+            }
         );
     }
 
-
     [HttpPost]
-    public IActionResult Index(
-        BookCompositeViewModel compositeViewModel
-    )
+    public IActionResult Index(BookCompositeViewModel compositeViewModel)
     {
-        return RedirectToAction(nameof(Index), new BookFilterViewModel(){
+        return RedirectToAction(
+            nameof(Index),
+            new BookFilterViewModel()
+            {
                 Name = compositeViewModel.Filters.Name,
                 MinPrice = compositeViewModel.Filters.MinPrice,
                 MaxPrice = compositeViewModel.Filters.MaxPrice,
                 GenreId = compositeViewModel.Filters.GenreId,
-                Publisher = compositeViewModel.Filters.Publisher
-            });
+                Publisher = compositeViewModel.Filters.Publisher,
+            }
+        );
     }
-
 
     [Route("detail/{id}")]
     public async Task<IActionResult> Detail(int id)
@@ -140,7 +148,7 @@ public class BookController : Controller
         var createReviewViewModel = new CreateReviewViewModel() { BookId = bookId };
         return View(createReviewViewModel);
     }
-    
+
     [Authorize]
     [HttpPost]
     [Route("{bookId}/add-review")]
@@ -173,8 +181,6 @@ public class BookController : Controller
         TempData["Success"] = "Review deleted successfully!";
         return RedirectToAction(nameof(Detail), "Book", new { Id = bookId });
     }
-    
-    
 
     [Authorize(Roles = "Admin")]
     [HttpPost]
@@ -199,18 +205,20 @@ public class BookController : Controller
         var authors = _mapper.Map<IEnumerable<AuthorViewModel>>(authorDtos);
         var genres = _mapper.Map<IEnumerable<GenreViewModel>>(genreDtos);
         var publishers = _mapper.Map<IEnumerable<PublisherViewModel>>(publisherDtos);
-        return View(new EditBookCompositeViewModel()
-        {
-            Items = new BookDropDownListItems()
+        return View(
+            new EditBookCompositeViewModel()
             {
-                Authors = authors,
-                Publishers = publishers,
-                Genres = genres
-            },
-            Book = _mapper.Map<EditBookViewModel>(book)
-            
-        });
+                Items = new BookDropDownListItems()
+                {
+                    Authors = authors,
+                    Publishers = publishers,
+                    Genres = genres,
+                },
+                Book = _mapper.Map<EditBookViewModel>(book),
+            }
+        );
     }
+
     [Authorize(Roles = "Admin")]
     [HttpPost]
     [Route("{id}/edit")]
@@ -221,8 +229,7 @@ public class BookController : Controller
         TempData["Success"] = "Book has been updated successfully!";
         return RedirectToAction(nameof(Index));
     }
-    
-    
+
     [Authorize(Roles = "Admin")]
     [HttpGet]
     [Route("create")]
@@ -243,10 +250,11 @@ public class BookController : Controller
                     Publishers = publishers,
                     Genres = genres,
                 },
-                Book = new CreateBookViewModel()
+                Book = new CreateBookViewModel(),
             }
         );
     }
+
     [Authorize(Roles = "Admin")]
     [HttpPost]
     [Route("create")]
@@ -257,8 +265,4 @@ public class BookController : Controller
         TempData["Success"] = "Book has been created successfully!";
         return RedirectToAction(nameof(Index));
     }
-    
-    
-    
-    
 }

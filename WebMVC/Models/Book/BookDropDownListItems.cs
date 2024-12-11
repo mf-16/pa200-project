@@ -8,7 +8,6 @@ public class BookDropDownListItems
 {
     public IEnumerable<AuthorViewModel> Authors { get; set; }
     public IEnumerable<PublisherViewModel> Publishers { get; set; }
-    
+
     public IEnumerable<GenreViewModel> Genres { get; set; }
-    
 }

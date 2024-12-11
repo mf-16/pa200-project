@@ -21,7 +21,6 @@ public static class DataInitializer
     private const string AdminRole = "Admin";
     private const int NumberOfGenres = 7;
 
-
     public static void Seed(this ModelBuilder modelBuilder)
     {
         var users = PrepareUsers(NumberOfUsers);
@@ -157,18 +156,18 @@ public static class DataInitializer
     }
 
     private static List<BookGenre> PrepareBookGenres()
-{
-    return new List<BookGenre>()
     {
-        new BookGenre() { Id = 1, Name = "Fantasy" },
-        new BookGenre() { Id = 2, Name = "Horror" },
-        new BookGenre() { Id = 3, Name = "Science Fiction" },
-        new BookGenre() { Id = 4, Name = "Mystery" },
-        new BookGenre() { Id = 5, Name = "Romance" },
-        new BookGenre() { Id = 6, Name = "Thriller" },
-        new BookGenre() { Id = 7, Name = "Historical Fiction" }
-    };
-}
+        return new List<BookGenre>()
+        {
+            new BookGenre() { Id = 1, Name = "Fantasy" },
+            new BookGenre() { Id = 2, Name = "Horror" },
+            new BookGenre() { Id = 3, Name = "Science Fiction" },
+            new BookGenre() { Id = 4, Name = "Mystery" },
+            new BookGenre() { Id = 5, Name = "Romance" },
+            new BookGenre() { Id = 6, Name = "Thriller" },
+            new BookGenre() { Id = 7, Name = "Historical Fiction" },
+        };
+    }
 
     private static List<Book> PrepareBooks(int count)
     {
@@ -184,11 +183,12 @@ public static class DataInitializer
 
         return bookFaker.Generate(count);
     }
+
     private static string GetRandomImagePath(Faker faker)
-        {
-            var random = faker.Random.Int(1, 10);
-            return $"/images/cover-{random}.jpg";
-        }
+    {
+        var random = faker.Random.Int(1, 10);
+        return $"/images/cover-{random}.jpg";
+    }
 
     private static List<Review> PrepareReviews(int count)
     {

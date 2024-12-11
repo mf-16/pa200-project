@@ -1,5 +1,4 @@
-﻿
-namespace BusinessLayer.DTOs.Book;
+﻿namespace BusinessLayer.DTOs.Book;
 
 public class UpdateBookDto
 {
