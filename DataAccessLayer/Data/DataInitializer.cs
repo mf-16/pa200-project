@@ -19,7 +19,8 @@ public static class DataInitializer
     private const int NumberOfAddresses = 15;
     private const string UserRole = "User";
     private const string AdminRole = "Admin";
-    private const int NumberOfGenres = 6;
+    private const int NumberOfGenres = 7;
+
 
     public static void Seed(this ModelBuilder modelBuilder)
     {
@@ -33,7 +34,7 @@ public static class DataInitializer
         // Seed authors and publishers and genres
         var authors = PrepareAuthors(NumberOfAuthors);
         var publishers = PreparePublishers(NumberOfPublishers);
-        var genres = PrepareBookGenres(NumberOfGenres);
+        var genres = PrepareBookGenres();
         var books = PrepareBooks(NumberOfBooks);
 
         modelBuilder.Entity<Author>().HasData(authors);
@@ -155,14 +156,19 @@ public static class DataInitializer
         return publisherFaker.Generate(count);
     }
 
-    private static List<BookGenre> PrepareBookGenres(int count)
+    private static List<BookGenre> PrepareBookGenres()
+{
+    return new List<BookGenre>()
     {
-        var bookFaker = new Faker<BookGenre>()
-            .RuleFor(b => b.Id, f => f.IndexFaker + 1)
-            .RuleFor(b => b.Name, f => f.Lorem.Sentence(3));
-
-        return bookFaker.Generate(count);
-    }
+        new BookGenre() { Id = 1, Name = "Fantasy" },
+        new BookGenre() { Id = 2, Name = "Horror" },
+        new BookGenre() { Id = 3, Name = "Science Fiction" },
+        new BookGenre() { Id = 4, Name = "Mystery" },
+        new BookGenre() { Id = 5, Name = "Romance" },
+        new BookGenre() { Id = 6, Name = "Thriller" },
+        new BookGenre() { Id = 7, Name = "Historical Fiction" }
+    };
+}
 
     private static List<Book> PrepareBooks(int count)
     {
@@ -172,12 +178,17 @@ public static class DataInitializer
             .RuleFor(b => b.AuthorId, f => f.Random.Number(1, NumberOfAuthors))
             .RuleFor(b => b.PublisherId, f => f.Random.Number(1, NumberOfPublishers))
             .RuleFor(b => b.Price, f => decimal.Parse(f.Commerce.Price(10, 100)))
-            .RuleFor(b => b.ImagePath, f => f.Image.PicsumUrl())
+            .RuleFor(b => b.ImagePath, GetRandomImagePath)
             .RuleFor(b => b.Description, f => f.Lorem.Paragraph())
             .RuleFor(b => b.PrimaryGenreId, f => f.Random.Number(1, NumberOfGenres));
 
         return bookFaker.Generate(count);
     }
+    private static string GetRandomImagePath(Faker faker)
+        {
+            var random = faker.Random.Int(1, 10);
+            return $"/images/cover-{random}.jpg";
+        }
 
     private static List<Review> PrepareReviews(int count)
     {

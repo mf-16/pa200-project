@@ -9,7 +9,9 @@
                 {
                     <div class="col-md-4 mb-4">
                         <div class="card h-100">
-                            <img src="@item.Book.ImagePath" class="card-img-top" alt="@item.Book.Title">
+                            <div class="overflow-hidden" style="height: 450px;">
+                                <img src="@item.Book.ImagePath" class="card-img-top img-fluid w-100" alt="Book cover">
+                            </div>
                             <div class="card-body">
                                 <h5 class="card-title">@item.Book.Title</h5>
                                 <p class="card-text">Author: @item.Book.Author.Name</p>

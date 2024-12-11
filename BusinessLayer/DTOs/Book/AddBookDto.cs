@@ -8,9 +8,14 @@ public class AddBookDto
 {
     [Required]
     public string Title { get; set; }
+    [Required]
     public int AuthorId { get; set; }
+    [Required]
     public int PublisherId { get; set; }
+    [Required]
     public decimal Price { get; set; }
+    [Required]
     public string Description { get; set; }
-    public int GenreId { get; set; }
+    [Required]
+    public int PrimaryGenreId { get; set; }
 }

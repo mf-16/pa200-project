@@ -16,5 +16,8 @@ public class BookProfile : Profile
         CreateMap<PaginatedDto<ResponseBookDto>, PaginatedViewModel<BookViewModel>>();
         CreateMap<BookDetailViewModel, ResponseBookDto>().ReverseMap();
         CreateMap<BookFilterDto, BookFilterViewModel>().ReverseMap();
+        CreateMap<UpdateBookDto, EditBookViewModel>().ReverseMap();
+        CreateMap<AddBookDto, CreateBookViewModel>().ReverseMap();
+        CreateMap<BookViewModel, EditBookViewModel>().ReverseMap();
     }
 }

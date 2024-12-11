@@ -1,0 +1,73 @@
+@model WebMVC.Models.Book.EditBookCompositeViewModel
+
+<div class="container mt-5">
+    <h2>Edit Book</h2>
+    <form method="post" asp-action="Edit" asp-route-id="@Model.Book.Id">
+        <div class="mb-3">
+            <label class="form-label" asp-for="Book.Title">Title</label>
+            <input type="text" class="form-control" asp-for="Book.Title" />
+            <span class="text-danger" asp-validation-for="Book.Title"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="Book.AuthorId">Author</label>
+            <select class="form-control" asp-for="Book.AuthorId">
+                <option value="">-- Select Author --</option>
+                @foreach (var author in Model.Items.Authors)
+                {
+                    <!option value="@author.Id" @(author.Id == Model.Book.AuthorId ? "selected" : "")>
+                        @author.Name
+                    </!option>
+                }
+            </select>
+            <span class="text-danger" asp-validation-for="Book.AuthorId"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="Book.PublisherId">Publisher</label>
+            <select class="form-control" asp-for="Book.PublisherId">
+                <option value="">-- Select Publisher --</option>
+                @foreach (var publisher in Model.Items.Publishers)
+                {
+                    <!option value="@publisher.Id" @(publisher.Id == Model.Book.PublisherId ? "selected" : "")>
+                        @publisher.Name
+                    </!option>
+                }
+            </select>
+            <span class="text-danger" asp-validation-for="Book.PublisherId"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="Book.Price">Price</label>
+            <input type="number" class="form-control" asp-for="Book.Price" step="0.01" />
+            <span class="text-danger" asp-validation-for="Book.Price"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="Book.PrimaryGenreId">Genre</label>
+            <select class="form-control" asp-for="Book.PrimaryGenreId">
+                <option value="">-- Select Genre --</option>
+                @foreach (var genre in Model.Items.Genres)
+                {
+                    <!option value="@genre.Id" @(genre.Id == Model.Book.PrimaryGenreId ? "selected" : "")>
+                        @genre.Name
+                    </!option>
+                }
+            </select>
+            <span class="text-danger" asp-validation-for="Book.PrimaryGenreId"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" asp-for="Book.Description">Description</label>
+            <textarea class="form-control" asp-for="Book.Description"></textarea>
+            <span class="text-danger" asp-validation-for="Book.Description"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
