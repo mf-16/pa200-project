@@ -22,16 +22,14 @@ public class OrderController : Controller
         _orderService = orderService;
         _mapper = mapper;
     }
+
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Index()
     {
         var orders = await _orderService.GetAllOrdersAsync();
         var mappedOrders = _mapper.Map<List<OrderViewModel>>(orders);
-        
-        return View(new OrderCompositeViewModel()
-        {
-            Orders = mappedOrders
-        });
+
+        return View(new OrderCompositeViewModel() { Orders = mappedOrders });
     }
 
     [HttpGet]
@@ -64,6 +62,7 @@ public class OrderController : Controller
         TempData["Error"] = "An error occurred while creating the order.";
         return View(order);
     }
+
     [Route("detail/{id:int}")]
     public async Task<IActionResult> OrderDetail(int id)
     {
@@ -71,7 +70,6 @@ public class OrderController : Controller
         var mappedOrder = _mapper.Map<OrderDetailViewModel>(order);
         return View(mappedOrder);
     }
-    
 
     [Authorize(Roles = "Admin")]
     [HttpPost]
@@ -94,4 +92,3 @@ public class OrderController : Controller
         return RedirectToAction(nameof(Index));
     }
 }
-
