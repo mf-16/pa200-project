@@ -50,5 +50,6 @@ public class OrderProfile : Profile
 
         CreateMap<AddressDto, Address>();
         CreateMap<Address, AddressDto>();
+        CreateMap<OrderStateDto, OrderState>();
     }
 }
