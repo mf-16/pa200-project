@@ -41,7 +41,10 @@ public class BookController : Controller
         IReviewService reviewService,
         IAuthorService authorService,
         IPublisherService publisherService,
-        IGenreService genreService, IMemoryCache memoryCache, ILogger<BookController> logger)
+        IGenreService genreService,
+        IMemoryCache memoryCache,
+        ILogger<BookController> logger
+    )
     {
         _bookService = bookService;
         _mapper = mapper;
@@ -104,10 +107,11 @@ public class BookController : Controller
             _logger.LogInformation($"Cache miss for {cacheKey} at {DateTime.Now}");
             var bookDto = await _bookService.GetBookByIdAsync(id);
             bookDetailViewModel = _mapper.Map<BookDetailViewModel>(bookDto);
-            
+
             _memoryCache.Set(cacheKey, bookDetailViewModel, TimeSpan.FromMinutes(10));
         }
-        else{
+        else
+        {
             _logger.LogInformation($"Cache hit for {cacheKey} at {DateTime.Now}");
         }
         var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -151,9 +155,9 @@ public class BookController : Controller
         {
             var wishlistDto = _mapper.Map<CreateWishlistItemDto>(wishlist);
             await _wishlistItemService.CreateWishlistItemAsync(userId, wishlistDto);
-            
+
             _memoryCache.Remove($"BookDetail_{wishlist.BookId}");
-            
+
             TempData["Success"] = "Book added to the wishlist successfully!";
         }
         return RedirectToAction(nameof(Detail), "Book", new { Id = wishlist.BookId });
@@ -185,9 +189,9 @@ public class BookController : Controller
             createReviewViewModel.UserId = userId;
             var createReviewDto = _mapper.Map<CreateReviewDto>(createReviewViewModel);
             await _reviewService.CreateReviewAsync(createReviewDto);
-            
+
             _memoryCache.Remove($"BookDetail_{bookId}");
-            
+
             TempData["Success"] = "Review added to the book successfully!";
         }
         return RedirectToAction(nameof(Detail), "Book", new { Id = createReviewViewModel.BookId });
@@ -199,9 +203,9 @@ public class BookController : Controller
     public async Task<IActionResult> DeleteReview(int bookId, int reviewId)
     {
         await _reviewService.DeleteReviewAsync(reviewId);
-        
+
         _memoryCache.Remove($"BookDetail_{bookId}");
-        
+
         TempData["Success"] = "Review deleted successfully!";
         return RedirectToAction(nameof(Detail), "Book", new { Id = bookId });
     }
@@ -212,9 +216,9 @@ public class BookController : Controller
     public async Task<IActionResult> Delete(int id)
     {
         await _bookService.DeleteBookAsync(id);
-        
+
         _memoryCache.Remove($"BookDetail_{id}");
-        
+
         TempData["Success"] = "Book has been deleted successfully!";
         return RedirectToAction(nameof(Index));
     }
@@ -253,9 +257,9 @@ public class BookController : Controller
     {
         var updateBookDto = _mapper.Map<UpdateBookDto>(compositeViewModel.Book);
         await _bookService.UpdateBookAsync(id, updateBookDto, compositeViewModel.Image);
-        
+
         _memoryCache.Remove($"BookDetail_{id}");
-        
+
         TempData["Success"] = "Book has been updated successfully!";
         return RedirectToAction(nameof(Index));
     }

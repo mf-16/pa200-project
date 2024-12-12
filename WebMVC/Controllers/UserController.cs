@@ -16,7 +16,12 @@ public class UserController : Controller
     private readonly IMemoryCache _memoryCache;
     private readonly ILogger<UserController> _logger;
 
-    public UserController(IUserService userService, IMapper mapper, IMemoryCache memoryCache, ILogger<UserController> logger)
+    public UserController(
+        IUserService userService,
+        IMapper mapper,
+        IMemoryCache memoryCache,
+        ILogger<UserController> logger
+    )
     {
         _userService = userService;
         _mapper = mapper;
@@ -46,7 +51,7 @@ public class UserController : Controller
     public async Task<IActionResult> ResetPassword(int userId, string newPassword)
     {
         var result = await _userService.ResetPasswordAsync(userId, newPassword);
-        
+
         _memoryCache.Remove("Users");
 
         if (result.Succeeded)

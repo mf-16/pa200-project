@@ -18,7 +18,12 @@ public class OrderController : Controller
     private readonly IMemoryCache _memoryCache;
     private readonly ILogger<OrderController> _logger;
 
-    public OrderController(IOrderService orderService, IMapper mapper, IMemoryCache memoryCache, ILogger<OrderController> logger)
+    public OrderController(
+        IOrderService orderService,
+        IMapper mapper,
+        IMemoryCache memoryCache,
+        ILogger<OrderController> logger
+    )
     {
         _orderService = orderService;
         _mapper = mapper;
@@ -36,7 +41,7 @@ public class OrderController : Controller
             _logger.LogInformation($"Cache miss for {cacheKey} at {DateTime.Now}");
             var ordersDto = await _orderService.GetAllOrdersAsync();
             orders = _mapper.Map<List<OrderViewModel>>(ordersDto);
-            
+
             _memoryCache.Set(cacheKey, orders, TimeSpan.FromMinutes(10));
         }
         else
@@ -70,9 +75,9 @@ public class OrderController : Controller
             var createOrderDto = _mapper.Map<CreateOrderDto>(order);
             var orderDto = await _orderService.CreateOrderAsync(userId, createOrderDto);
             var orderViewModel = _mapper.Map<OrderDetailViewModel>(orderDto);
-            
+
             _memoryCache.Remove("Orders");
-            
+
             TempData["Success"] = "Order created successfully!";
             return RedirectToAction("Orders", "Profile", new { id = orderViewModel.Id });
         }
@@ -87,7 +92,6 @@ public class OrderController : Controller
         var cacheKey = $"OrderDetail_{id}";
         if (!_memoryCache.TryGetValue(cacheKey, out OrderDetailViewModel? order))
         {
-            
             _logger.LogInformation($"Cache miss for {cacheKey} at {DateTime.Now}");
             var orderDto = await _orderService.GetOrderByIdAsync(id);
             order = _mapper.Map<OrderDetailViewModel>(orderDto);
@@ -107,10 +111,10 @@ public class OrderController : Controller
     {
         var orderStateDto = _mapper.Map<OrderStateDto>(editOrderViewModel.OrderState);
         var order = await _orderService.UpdateOrderAsync(id, orderStateDto);
-        
+
         _memoryCache.Remove($"Orders");
         _memoryCache.Remove($"OrderDetail_{id}");
-        
+
         TempData["Success"] = "Order updated successfully!";
         return RedirectToAction(nameof(Index));
     }
@@ -121,10 +125,10 @@ public class OrderController : Controller
     public async Task<IActionResult> Delete(int id)
     {
         await _orderService.DeleteOrderAsync(id);
-        
+
         _memoryCache.Remove($"Orders");
         _memoryCache.Remove($"OrderDetail_{id}");
-        
+
         TempData["Success"] = "Order deleted successfully!";
         return RedirectToAction(nameof(Index));
     }

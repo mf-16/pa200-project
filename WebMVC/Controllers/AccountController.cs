@@ -39,7 +39,7 @@ public class AccountController : Controller
         if (result.Succeeded)
         {
             _memoryCache.Remove("Users");
-            
+
             return RedirectToAction(
                 nameof(Login),
                 nameof(AccountController).Replace("Controller", "")
