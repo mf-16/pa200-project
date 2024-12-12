@@ -7,6 +7,7 @@ using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace BusinessLayer.Services;
 
@@ -14,36 +15,32 @@ public class BookService : IBookService
 {
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
+    private readonly IConfiguration _config;
 
-    public BookService(IUnitOfWork unitOfWork, IMapper mapper)
+    public BookService(IUnitOfWork unitOfWork, IMapper mapper, IConfiguration config)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+        _config = config;
     }
 
     public async Task<ResponseBookDto> AddBookAsync(AddBookDto addBookDto, IFormFile? image = null)
     {
         var book = _mapper.Map<Book>(addBookDto);
-
+        var fileName = "default.jpg";
         if (image != null)
         {
-            var imagePath = Path.Combine("images", image.FileName);
-            Directory.CreateDirectory("images");
-            using (var stream = new FileStream(imagePath, FileMode.Create))
-            {
-                await image.CopyToAsync(stream);
-            }
-            book.ImagePath = imagePath;
+            fileName = await UploadBookImageAsync(image);
         }
-        else
-        {
-            book.ImagePath = "/images/default.jpg";
-        }
+        
+        book.ImagePath = Path.Combine(Path.DirectorySeparatorChar.ToString(), "images", fileName);
+
         _unitOfWork.BookRepository.Add(book);
         await _unitOfWork.CommitAsync();
-        var response = _mapper.Map<ResponseBookDto>(book);
-        return response;
+
+        return _mapper.Map<ResponseBookDto>(book);
     }
+
 
     public async Task<ResponseBookDto> GetBookByIdAsync(int id)
     {
@@ -94,15 +91,11 @@ public class BookService : IBookService
                 throw new NotFoundException("User", userId.Value);
             }
         }
+
         if (image != null)
         {
-            var imagePath = Path.Combine("images", image.FileName);
-            Directory.CreateDirectory("images");
-            using (var stream = new FileStream(imagePath, FileMode.Create))
-            {
-                await image.CopyToAsync(stream);
-            }
-            book.ImagePath = imagePath;
+            var fileName = await UploadBookImageAsync(image);
+            book.ImagePath = Path.Combine(Path.DirectorySeparatorChar.ToString(), "images", fileName);
         }
 
         _unitOfWork.BookRepository.Update(book);
@@ -159,5 +152,23 @@ public class BookService : IBookService
             CurrentPage = page,
             TotalPages = (int)Math.Ceiling((double)count / pageSize),
         };
+    }
+
+    private async Task<string> UploadBookImageAsync(IFormFile image)
+    {
+        var imageStoragePath = _config["ImageStoragePath"];
+        if (string.IsNullOrEmpty(imageStoragePath))
+            throw new InvalidOperationException("Image storage path is not configured.");
+        
+        var fileName = $"{Guid.NewGuid()}_{Path.GetFileName(image.FileName)}";
+        var fullImagePath = Path.Combine(imageStoragePath, fileName);
+        
+        Directory.CreateDirectory(imageStoragePath);
+        using (var stream = new FileStream(fullImagePath, FileMode.Create))
+        {
+            await image.CopyToAsync(stream);
+        }
+        return fileName;
+        
     }
 }
