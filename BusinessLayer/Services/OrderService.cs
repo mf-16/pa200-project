@@ -48,6 +48,31 @@ public class OrderService : IOrderService
         return _mapper.Map<List<ResponseOrderDto>>(await _unitOfWork.OrderRepository.GetAllAsync());
     }
 
+    public async Task<ResponseOrderDto> UpdateOrderAsync(int id, OrderStateDto newStateDto)
+    {
+        var order = await _unitOfWork.OrderRepository.GetByIdAsync(id);
+        if (order is null)
+        {
+            throw new NotFoundException("Order", id);
+        }
+        var newState = _mapper.Map<OrderState>(newStateDto);
+        order.OrderState = newState;
+        await _unitOfWork.CommitAsync();
+        return _mapper.Map<ResponseOrderDto>(order);
+    }
+
+    public async Task DeleteOrderAsync(int id)
+    {
+        var order = await _unitOfWork.OrderRepository.GetByIdAsync(id);
+        if (order is null)
+        {
+            throw new NotFoundException("Order", id);
+        }
+        _unitOfWork.OrderRepository.Delete(order);
+
+        await _unitOfWork.CommitAsync();
+    }
+
     public async Task<List<ResponseOrderDto>> GetAllOrdersByUserIdAsync(int userId)
     {
         var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);

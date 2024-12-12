@@ -87,14 +87,6 @@ public class ProfileController : Controller
         return View();
     }
 
-    [Route("order-detail/{id:int}")]
-    public async Task<IActionResult> OrderDetail(int id)
-    {
-        var order = await _orderService.GetOrderByIdAsync(id);
-        var mappedOrder = _mapper.Map<OrderDetailViewModel>(order);
-        return View(mappedOrder);
-    }
-
     [Route("update-cart-item")]
     public async Task<IActionResult> UpdateCartItemDto(int id, UpdateCartItemViewModel cartItem)
     {

@@ -1,11 +1,8 @@
 @model List<WebMVC.Models.User.UserViewModel>
 
-@{
-ViewData["Title"] = "User Management";
-}
+<h2>User Management</h2>
 
 <div class="container mt-4">
-    <h1 class="text-center mb-4">User Management</h1>
 
     @if (TempData["Success"] != null)
     {
