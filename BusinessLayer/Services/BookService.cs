@@ -32,7 +32,7 @@ public class BookService : IBookService
         {
             fileName = await UploadBookImageAsync(image);
         }
-        
+
         book.ImagePath = Path.Combine(Path.DirectorySeparatorChar.ToString(), "images", fileName);
 
         _unitOfWork.BookRepository.Add(book);
@@ -40,7 +40,6 @@ public class BookService : IBookService
 
         return _mapper.Map<ResponseBookDto>(book);
     }
-
 
     public async Task<ResponseBookDto> GetBookByIdAsync(int id)
     {
@@ -95,7 +94,11 @@ public class BookService : IBookService
         if (image != null)
         {
             var fileName = await UploadBookImageAsync(image);
-            book.ImagePath = Path.Combine(Path.DirectorySeparatorChar.ToString(), "images", fileName);
+            book.ImagePath = Path.Combine(
+                Path.DirectorySeparatorChar.ToString(),
+                "images",
+                fileName
+            );
         }
 
         _unitOfWork.BookRepository.Update(book);
@@ -159,16 +162,15 @@ public class BookService : IBookService
         var imageStoragePath = _config["ImageStoragePath"];
         if (string.IsNullOrEmpty(imageStoragePath))
             throw new InvalidOperationException("Image storage path is not configured.");
-        
+
         var fileName = $"{Guid.NewGuid()}_{Path.GetFileName(image.FileName)}";
         var fullImagePath = Path.Combine(imageStoragePath, fileName);
-        
+
         Directory.CreateDirectory(imageStoragePath);
         using (var stream = new FileStream(fullImagePath, FileMode.Create))
         {
             await image.CopyToAsync(stream);
         }
         return fileName;
-        
     }
 }
