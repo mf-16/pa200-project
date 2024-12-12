@@ -2,10 +2,9 @@ using System.Security.Claims;
 using AutoMapper;
 using BusinessLayer.DTOs.Order;
 using BusinessLayer.Services.Interfaces;
-using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.Extensions.Caching.Memory;
 using WebMVC.Models.Order;
 
 namespace WebMVC.Controllers;
@@ -16,20 +15,36 @@ public class OrderController : Controller
 {
     private readonly IOrderService _orderService;
     private readonly IMapper _mapper;
+    private readonly IMemoryCache _memoryCache;
+    private readonly ILogger<OrderController> _logger;
 
-    public OrderController(IOrderService orderService, IMapper mapper)
+    public OrderController(IOrderService orderService, IMapper mapper, IMemoryCache memoryCache, ILogger<OrderController> logger)
     {
         _orderService = orderService;
         _mapper = mapper;
+        _memoryCache = memoryCache;
+        _logger = logger;
     }
 
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Index()
     {
-        var orders = await _orderService.GetAllOrdersAsync();
-        var mappedOrders = _mapper.Map<List<OrderViewModel>>(orders);
+        var cacheKey = "Orders";
 
-        return View(new OrderCompositeViewModel() { Orders = mappedOrders });
+        if (!_memoryCache.TryGetValue(cacheKey, out List<OrderViewModel>? orders))
+        {
+            _logger.LogCritical($"Cache miss for {cacheKey} at {DateTime.Now}");
+            var ordersDto = await _orderService.GetAllOrdersAsync();
+            orders = _mapper.Map<List<OrderViewModel>>(ordersDto);
+            
+            _memoryCache.Set(cacheKey, orders, TimeSpan.FromMinutes(10));
+        }
+        else
+        {
+            _logger.LogCritical($"Cache hit for {cacheKey} at {DateTime.Now}");
+        }
+
+        return View(new OrderCompositeViewModel() { Orders = orders! });
     }
 
     [HttpGet]
@@ -55,6 +70,9 @@ public class OrderController : Controller
             var createOrderDto = _mapper.Map<CreateOrderDto>(order);
             var orderDto = await _orderService.CreateOrderAsync(userId, createOrderDto);
             var orderViewModel = _mapper.Map<OrderDetailViewModel>(orderDto);
+            
+            _memoryCache.Remove("Orders");
+            
             TempData["Success"] = "Order created successfully!";
             return RedirectToAction("Orders", "Profile", new { id = orderViewModel.Id });
         }
@@ -66,9 +84,20 @@ public class OrderController : Controller
     [Route("detail/{id:int}")]
     public async Task<IActionResult> OrderDetail(int id)
     {
-        var order = await _orderService.GetOrderByIdAsync(id);
-        var mappedOrder = _mapper.Map<OrderDetailViewModel>(order);
-        return View(mappedOrder);
+        var cacheKey = $"OrderDetail_{id}";
+        if (!_memoryCache.TryGetValue(cacheKey, out OrderDetailViewModel? order))
+        {
+            
+            _logger.LogCritical($"Cache miss for {cacheKey} at {DateTime.Now}");
+            var orderDto = await _orderService.GetOrderByIdAsync(id);
+            order = _mapper.Map<OrderDetailViewModel>(orderDto);
+            _memoryCache.Set(cacheKey, order, TimeSpan.FromMinutes(10));
+        }
+        else
+        {
+            _logger.LogCritical($"Cache hit for {cacheKey} at {DateTime.Now}");
+        }
+        return View(order);
     }
 
     [Authorize(Roles = "Admin")]
@@ -78,6 +107,10 @@ public class OrderController : Controller
     {
         var orderStateDto = _mapper.Map<OrderStateDto>(editOrderViewModel.OrderState);
         var order = await _orderService.UpdateOrderAsync(id, orderStateDto);
+        
+        _memoryCache.Remove($"Orders");
+        _memoryCache.Remove($"OrderDetail_{id}");
+        
         TempData["Success"] = "Order updated successfully!";
         return RedirectToAction(nameof(Index));
     }
@@ -88,6 +121,10 @@ public class OrderController : Controller
     public async Task<IActionResult> Delete(int id)
     {
         await _orderService.DeleteOrderAsync(id);
+        
+        _memoryCache.Remove($"Orders");
+        _memoryCache.Remove($"OrderDetail_{id}");
+        
         TempData["Success"] = "Order deleted successfully!";
         return RedirectToAction(nameof(Index));
     }
