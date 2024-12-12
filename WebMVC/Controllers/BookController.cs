@@ -225,7 +225,7 @@ public class BookController : Controller
     public async Task<IActionResult> Edit(int id, EditBookCompositeViewModel compositeViewModel)
     {
         var updateBookDto = _mapper.Map<UpdateBookDto>(compositeViewModel.Book);
-        await _bookService.UpdateBookAsync(id, updateBookDto);
+        await _bookService.UpdateBookAsync(id, updateBookDto, compositeViewModel.Image);
         TempData["Success"] = "Book has been updated successfully!";
         return RedirectToAction(nameof(Index));
     }
@@ -261,7 +261,7 @@ public class BookController : Controller
     public async Task<IActionResult> Create(CreateBookCompositeViewModel compositeViewModel)
     {
         var addBookDto = _mapper.Map<AddBookDto>(compositeViewModel.Book);
-        await _bookService.AddBookAsync(addBookDto);
+        await _bookService.AddBookAsync(addBookDto, compositeViewModel.Image);
         TempData["Success"] = "Book has been created successfully!";
         return RedirectToAction(nameof(Index));
     }
