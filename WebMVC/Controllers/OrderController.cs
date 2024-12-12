@@ -2,14 +2,16 @@ using System.Security.Claims;
 using AutoMapper;
 using BusinessLayer.DTOs.Order;
 using BusinessLayer.Services.Interfaces;
+using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using WebMVC.Models.Order;
 
 namespace WebMVC.Controllers;
 
 [Authorize]
-[Route("order")]
+[Route("orders")]
 public class OrderController : Controller
 {
     private readonly IOrderService _orderService;
@@ -19,6 +21,15 @@ public class OrderController : Controller
     {
         _orderService = orderService;
         _mapper = mapper;
+    }
+
+    [Authorize(Roles = "Admin")]
+    public async Task<IActionResult> Index()
+    {
+        var orders = await _orderService.GetAllOrdersAsync();
+        var mappedOrders = _mapper.Map<List<OrderViewModel>>(orders);
+
+        return View(new OrderCompositeViewModel() { Orders = mappedOrders });
     }
 
     [HttpGet]
@@ -50,5 +61,34 @@ public class OrderController : Controller
 
         TempData["Error"] = "An error occurred while creating the order.";
         return View(order);
+    }
+
+    [Route("detail/{id:int}")]
+    public async Task<IActionResult> OrderDetail(int id)
+    {
+        var order = await _orderService.GetOrderByIdAsync(id);
+        var mappedOrder = _mapper.Map<OrderDetailViewModel>(order);
+        return View(mappedOrder);
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpPost]
+    [Route("edit/{id:int}")]
+    public async Task<IActionResult> Edit(int id, EditOrderViewModel editOrderViewModel)
+    {
+        var orderStateDto = _mapper.Map<OrderStateDto>(editOrderViewModel.OrderState);
+        var order = await _orderService.UpdateOrderAsync(id, orderStateDto);
+        TempData["Success"] = "Order updated successfully!";
+        return RedirectToAction(nameof(Index));
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpPost]
+    [Route("delete/{id:int}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        await _orderService.DeleteOrderAsync(id);
+        TempData["Success"] = "Order deleted successfully!";
+        return RedirectToAction(nameof(Index));
     }
 }

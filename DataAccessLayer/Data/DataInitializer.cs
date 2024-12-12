@@ -234,7 +234,8 @@ public static class DataInitializer
             .RuleFor(o => o.CustomerEmail, f => f.Person.Email)
             .RuleFor(o => o.ShippingAddressId, f => f.Random.Number(1, NumberOfAddresses))
             .RuleFor(o => o.BillingAddressId, f => f.Random.Number(1, NumberOfAddresses))
-            .RuleFor(o => o.TotalAmount, f => 0);
+            .RuleFor(o => o.TotalAmount, f => 0)
+            .RuleFor(o => o.OrderState, f => f.PickRandom<OrderState>());
 
         return orderFaker.Generate(count);
     }
