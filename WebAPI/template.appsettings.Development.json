@@ -8,6 +8,5 @@
   "ConnectionStrings": {
     "MongoDb": "mongodb://logs:27017/development",
     "DefaultConnection": "Host=localhost;Database=development;Username=user;Password=password;Port=5432"
-  },
-  "ImageStoragePath": "/path/to/images"
+  }
 }

@@ -2,7 +2,7 @@
 
 <div class="container mt-5">
     <h2>Create Book</h2>
-    <form method="post" asp-action="Create" enctype="multipart/form-data">
+    <form method="post" asp-action="Create">
         <div class="mb-3">
             <label class="form-label" asp-for="Book.Title">Title</label>
             <input type="text" class="form-control" asp-for="Book.Title" />
@@ -49,6 +49,7 @@
             <span class="text-danger" asp-validation-for="Book.Description"></span>
         </div>
 
+        <!-- Genre Dropdown -->
         <div class="mb-3">
             <label class="form-label" asp-for="Book.PrimaryGenreId">Genre</label>
             <select class="form-control" asp-for="Book.PrimaryGenreId">
@@ -63,12 +64,6 @@
             <span class="text-danger" asp-validation-for="Book.PrimaryGenreId"></span>
         </div>
 
-
-        <div class="mb-3">
-            <label class="form-label" asp-for="Image">Image</label>
-            <input type="file" class="form-control" asp-for="Image" accept="image/*" />
-            <span class="text-danger" asp-validation-for="Image"></span>
-        </div>
         <button type="submit" class="btn btn-success">Create Book</button>
     </form>
 </div>
