@@ -2,6 +2,7 @@ using AutoMapper;
 using BusinessLayer.DTOs.Auth;
 using BusinessLayer.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using WebMVC.Models;
 using WebMVC.Models.Account;
 
@@ -11,11 +12,13 @@ public class AccountController : Controller
 {
     private readonly IAuthService _authService;
     private readonly IMapper _mapper;
+    private readonly IMemoryCache _memoryCache;
 
-    public AccountController(IAuthService authService, IMapper mapper)
+    public AccountController(IAuthService authService, IMapper mapper, IMemoryCache memoryCache)
     {
         _authService = authService;
         _mapper = mapper;
+        _memoryCache = memoryCache;
     }
 
     public IActionResult Register()
@@ -35,6 +38,8 @@ public class AccountController : Controller
         var result = await _authService.RegisterAsync(registerDto);
         if (result.Succeeded)
         {
+            _memoryCache.Remove("Users");
+            
             return RedirectToAction(
                 nameof(Login),
                 nameof(AccountController).Replace("Controller", "")
