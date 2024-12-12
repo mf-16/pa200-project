@@ -6,6 +6,7 @@ using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
+using Middleware;
 using Serilog;
 using Serilog.Filters;
 using WebAPI.Middleware;
@@ -107,7 +108,7 @@ if (app.Environment.IsDevelopment())
 }
 app.UseHttpsRedirection();
 app.UseMiddleware<ExceptionHandlingMiddleware>();
-app.UseMiddleware<LoggingMiddleware>();
+app.UseMiddleware<LoggingMiddleware>("api");
 app.UseMiddleware<AuthenticationMiddleware>();
 app.UseStaticFiles();
 app.UseAuthorization();

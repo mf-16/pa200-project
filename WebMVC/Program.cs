@@ -5,6 +5,7 @@ using DataAccessLayer.Model;
 using Infrastructure.UnitOfWork;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -76,6 +77,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseMiddleware<LoggingMiddleware>("mvc");
 app.UseStaticFiles();
 
 app.UseRouting();
