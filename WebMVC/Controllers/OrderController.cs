@@ -33,7 +33,7 @@ public class OrderController : Controller
 
         if (!_memoryCache.TryGetValue(cacheKey, out List<OrderViewModel>? orders))
         {
-            _logger.LogCritical($"Cache miss for {cacheKey} at {DateTime.Now}");
+            _logger.LogInformation($"Cache miss for {cacheKey} at {DateTime.Now}");
             var ordersDto = await _orderService.GetAllOrdersAsync();
             orders = _mapper.Map<List<OrderViewModel>>(ordersDto);
             
@@ -41,7 +41,7 @@ public class OrderController : Controller
         }
         else
         {
-            _logger.LogCritical($"Cache hit for {cacheKey} at {DateTime.Now}");
+            _logger.LogInformation($"Cache hit for {cacheKey} at {DateTime.Now}");
         }
 
         return View(new OrderCompositeViewModel() { Orders = orders! });
@@ -88,14 +88,14 @@ public class OrderController : Controller
         if (!_memoryCache.TryGetValue(cacheKey, out OrderDetailViewModel? order))
         {
             
-            _logger.LogCritical($"Cache miss for {cacheKey} at {DateTime.Now}");
+            _logger.LogInformation($"Cache miss for {cacheKey} at {DateTime.Now}");
             var orderDto = await _orderService.GetOrderByIdAsync(id);
             order = _mapper.Map<OrderDetailViewModel>(orderDto);
             _memoryCache.Set(cacheKey, order, TimeSpan.FromMinutes(10));
         }
         else
         {
-            _logger.LogCritical($"Cache hit for {cacheKey} at {DateTime.Now}");
+            _logger.LogInformation($"Cache hit for {cacheKey} at {DateTime.Now}");
         }
         return View(order);
     }
