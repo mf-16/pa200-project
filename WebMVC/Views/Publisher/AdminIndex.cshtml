@@ -1,0 +1,31 @@
+﻿@model IEnumerable<WebMVC.Models.Publisher.PublisherViewModel>
+
+<h2>Manage Publishers</h2>
+
+<a asp-action="Create" class="btn btn-success">Create New</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Bio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var publisher in Model)
+
+        {
+            <tr>
+                <td>@publisher.Name</td>
+                <td>@publisher.Bio</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@publisher.Id" class="btn btn-warning">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@publisher.Id" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
