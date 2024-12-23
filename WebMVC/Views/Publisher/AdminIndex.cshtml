@@ -2,7 +2,7 @@
 
 <h2>Manage Publishers</h2>
 
-<a asp-action="Create" class="btn btn-success">Create New</a>
+<a asp-action="Create" asp-controller="Publisher" class="btn btn-success">Create New</a>
 
 <table class="table">
     <thead>
@@ -20,8 +20,8 @@
                 <td>@publisher.Name</td>
                 <td>@publisher.Bio</td>
                 <td>
-                    <a asp-action="Edit" asp-route-id="@publisher.Id" class="btn btn-warning">Edit</a>
-                    <form asp-action="Delete" asp-route-id="@publisher.Id" method="post" style="display:inline;">
+                    <a asp-action="Edit" asp-controller="Publisher" asp-route-id="@publisher.Id" class="btn btn-warning">Edit</a>
+                    <form asp-action="Delete" asp-controller="Publisher" asp-route-id="@publisher.Id" method="post" style="display:inline;">
                         <button type="submit" class="btn btn-danger">Delete</button>
                     </form>
                 </td>

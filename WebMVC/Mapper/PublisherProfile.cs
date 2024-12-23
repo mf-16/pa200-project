@@ -13,5 +13,6 @@ public class PublisherProfile : Profile
         CreateMap<CreatePublisherViewModel, AddPublisherDto>();
         CreateMap<EditPublisherViewModel, UpdatePublisherDto>();
         CreateMap<Publisher, EditPublisherViewModel>();
+        CreateMap<ResponsePublisherDto, PublisherViewModel>();
     }
 }
