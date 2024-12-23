@@ -72,7 +72,7 @@ public class PublisherController : Controller
         try
         {
             var publisher = await _publisherService.GetPublisherByIdAsync(id);
-            var model = _mapper.Map<EditPublisherViewModel>(publisher);
+            var model = _mapper.Map<UpdatePublisherViewModel>(publisher);
             return View(model);
         }
         catch (Exception ex)
@@ -84,7 +84,7 @@ public class PublisherController : Controller
 
     [Authorize(Roles = "Admin")]
     [HttpPost("edit/{id}")]
-    public async Task<IActionResult> Edit(int id, EditPublisherViewModel model)
+    public async Task<IActionResult> Edit(int id, UpdatePublisherViewModel model)
     {
         if (ModelState.IsValid)
         {
