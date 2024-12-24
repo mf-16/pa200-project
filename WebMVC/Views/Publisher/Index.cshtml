@@ -1,14 +1,9 @@
 ﻿@model IEnumerable<WebMVC.Models.Publisher.PublisherViewModel>
 @using Microsoft.AspNetCore.Authorization
-@inject IAuthorizationService AuthorizationService
 
 <h2>Publishers</h2>
 
-@{
-    var isAdmin = (await AuthorizationService.AuthorizeAsync(User, "Admin")).Succeeded;
-}
-
-@if (isAdmin)
+@if (User.IsInRole("Admin"))
 {
     <a asp-action="Create" class="btn btn-success">Create New</a>
 }
@@ -29,7 +24,7 @@
                 <td>@publisher.Bio</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@publisher.Id" class="btn btn-info">Details</a>
-                    @if (isAdmin)
+                    @if (User.IsInRole("Admin"))
                     {
                         <a asp-action="Edit" asp-route-id="@publisher.Id" class="btn btn-warning">Edit</a>
                         <form asp-action="Delete" asp-route-id="@publisher.Id" method="post" style="display:inline;">
@@ -41,3 +36,4 @@
         }
     </tbody>
 </table>
+

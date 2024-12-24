@@ -7,6 +7,7 @@ using WebMVC.Models.Publisher;
 
 namespace WebMVC.Controllers;
 
+[Authorize]
 [Route("publishers")]
 public class PublisherController : Controller
 {
@@ -31,17 +32,9 @@ public class PublisherController : Controller
     [HttpGet("{id}")]
     public async Task<IActionResult> Details(int id)
     {
-        try
-        {
-            var publisher = await _publisherService.GetPublisherByIdAsync(id);
-            var mappedPublisher = _mapper.Map<PublisherViewModel>(publisher);
-            return View(mappedPublisher);
-        }
-        catch (Exception ex)
-        {
-            // Log the exception (ex) if necessary
-            return NotFound();
-        }
+        var publisher = await _publisherService.GetPublisherByIdAsync(id);
+        var mappedPublisher = _mapper.Map<PublisherViewModel>(publisher);
+        return View(mappedPublisher);
     }
 
     [Authorize(Roles = "Admin")]
@@ -59,6 +52,7 @@ public class PublisherController : Controller
         {
             var dto = _mapper.Map<AddPublisherDto>(model);
             await _publisherService.AddPublisherAsync(dto);
+            TempData["Success"] = "Publisher created successfully!";
             return RedirectToAction("Index");
         }
 
@@ -69,17 +63,9 @@ public class PublisherController : Controller
     [HttpGet("edit/{id}")]
     public async Task<IActionResult> Edit(int id)
     {
-        try
-        {
-            var publisher = await _publisherService.GetPublisherByIdAsync(id);
-            var model = _mapper.Map<UpdatePublisherViewModel>(publisher);
-            return View(model);
-        }
-        catch (Exception ex)
-        {
-            // Log the exception (ex) if necessary
-            return NotFound();
-        }
+        var publisher = await _publisherService.GetPublisherByIdAsync(id);
+        var model = _mapper.Map<UpdatePublisherViewModel>(publisher);
+        return View(model);
     }
 
     [Authorize(Roles = "Admin")]
@@ -90,6 +76,7 @@ public class PublisherController : Controller
         {
             var dto = _mapper.Map<UpdatePublisherDto>(model);
             await _publisherService.UpdatePublisherAsync(id, dto);
+            TempData["Success"] = "Publisher updated successfully!";
             return RedirectToAction("Index");
         }
 
@@ -101,6 +88,7 @@ public class PublisherController : Controller
     public async Task<IActionResult> Delete(int id)
     {
         await _publisherService.DeletePublisherAsync(id);
+        TempData["Success"] = "Publisher deleted successfully!";
         return RedirectToAction("Index");
     }
 }
