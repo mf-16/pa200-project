@@ -9,6 +9,11 @@ public class PublisherProfile : Profile
 {
     public PublisherProfile()
     {
+        CreateMap<Publisher, PublisherViewModel>();
+        CreateMap<CreatePublisherViewModel, AddPublisherDto>();
+        CreateMap<UpdatePublisherViewModel, UpdatePublisherDto>();
+        CreateMap<Publisher, UpdatePublisherViewModel>();
         CreateMap<ResponsePublisherDto, PublisherViewModel>();
+        CreateMap<ResponsePublisherDto, UpdatePublisherViewModel>();
     }
 }

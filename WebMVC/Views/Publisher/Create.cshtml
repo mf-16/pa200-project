@@ -1,0 +1,18 @@
+﻿@model WebMVC.Models.Publisher.CreatePublisherViewModel
+
+<h2>Create Publisher</h2>
+
+<form asp-action="Create" asp-controller="Publisher" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Bio" class="control-label"></label>
+        <textarea asp-for="Bio" class="form-control"></textarea>
+        <span asp-validation-for="Bio" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+    <a asp-action="Index" asp-controller="Publisher" class="btn btn-secondary">Cancel</a>
+</form>
