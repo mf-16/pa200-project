@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebMVC.Models.Author.AuthorViewModel>
+@using Microsoft.AspNetCore.Authorization
+
+<h2>Authors</h2>
+
+@if (User.IsInRole("Admin"))
+{
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Bio</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var author in Model)
+        {
+            <tr>
+                <td>@author.Name</td>
+                <td>@author.Bio</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@author.Id" class="btn btn-info">Details</a>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <a asp-action="Edit" asp-route-id="@author.Id" class="btn btn-warning">Edit</a>
+                        <form asp-action="Delete" asp-route-id="@author.Id" method="post" style="display:inline;">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,8 +1,13 @@
-namespace WebMVC.Models.Author;
+using System.Collections.Generic;
+using WebMVC.Models.Book;
 
-public class AuthorViewModel
+namespace WebMVC.Models.Author
 {
-    public int Id { get; set; }
-    public string Name { get; set; }
-    public string Bio { get; set; }
+    public class AuthorViewModel
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Bio { get; set; }
+        public List<BookViewModel> Books { get; set; }
+    }
 }
