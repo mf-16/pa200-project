@@ -96,10 +96,20 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">@book.Title</h5>
-                                <p class="card-text">Author: @book.Author.Name</p>
+                                <p class="card-text">
+                                    Author:
+                                    <a asp-action="Details" asp-controller="Author" asp-route-id="@book.Author.Id">
+                                        @book.Author.Name
+                                    </a>
+                                </p>
                                 <p class="card-text">Price: $@book.Price</p>
                                 <p class="card-text">Genre: @book.PrimaryGenre.Name</p>
-                                <p class="card-text">Publisher: @book.Publisher.Name</p>
+                               <p class="card-text">
+                                   Publisher: 
+                                   <a asp-action="Details" asp-controller="Publisher" asp-route-id="@book.Publisher.Id">
+                                       @book.Publisher.Name
+                                   </a>
+                               </p>
                                 <a asp-action="Detail" asp-route-id="@book.Id" class="btn btn-primary">View Details</a>
 
                                 @if (User.IsInRole("Admin"))

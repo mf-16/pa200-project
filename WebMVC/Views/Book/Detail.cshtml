@@ -20,11 +20,19 @@
                 <img src="@Model.ImagePath" class="img-fluid w-100 h-100 object-fit-cover" alt=""/>
             </div>
             <h2 class="mt-3">@Model.Title</h2>
-            <p><strong>Author:</strong> @Model.Author.Name</p>
-            <p><strong>Publisher:</strong> @Model.Publisher.Name</p>
+            <p><strong>Author:</strong> 
+                <a asp-action="Details" asp-controller="Author" asp-route-id="@Model.Author.Id">
+                    @Model.Author.Name
+                </a>
+            </p>
+            <p><strong>Publisher:</strong> 
+                <a asp-action="Details" asp-controller="Publisher" asp-route-id="@Model.Publisher.Id">
+                    @Model.Publisher.Name
+                </a>
+            </p>
             <p><strong>Genre:</strong> @Model.PrimaryGenre.Name</p>
             <p><strong>Price:</strong> $@Model.Price</p>
-            <p>@Model.Description</p>
+            <p><strong>Description:</strong> @Model.Description</p>
         </div>
 
         <div class="col-md-8">

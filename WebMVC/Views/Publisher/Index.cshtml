@@ -1,7 +1,20 @@
 ﻿@model IEnumerable<WebMVC.Models.Publisher.PublisherViewModel>
-@using Microsoft.AspNetCore.Authorization
 
 <h2>Publishers</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
 
 @if (User.IsInRole("Admin"))
 {
