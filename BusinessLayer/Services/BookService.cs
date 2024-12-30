@@ -142,10 +142,15 @@ public class BookService : IBookService
             query = query.Where(b => b.PrimaryGenreId == filter.GenreId);
         }
 
-        if (!string.IsNullOrEmpty(filter.Publisher))
+        if (filter.PublisherId.HasValue)
         {
-            query = query.Where(b => b.Publisher.Name.Contains(filter.Publisher));
+            query = query.Where(b => b.Publisher.Id == filter.PublisherId);
         }
+        if (filter.AuthorId.HasValue)
+        {
+            query = query.Where(b => b.Author.Id == filter.AuthorId);
+        }
+
         var count = query.Count();
         var filteredBooks = await query.Skip((page - 1) * pageSize).Take(pageSize).ToListAsync();
         var bookDtos = _mapper.Map<IEnumerable<ResponseBookDto>>(filteredBooks);

@@ -32,6 +32,7 @@ public class BookController : Controller
     private readonly IGenreService _genreService;
     private readonly IMemoryCache _memoryCache;
     private readonly ILogger<BookController> _logger;
+    private const String IndexCacheKey = "Index";
 
     public BookController(
         IBookService bookService,
@@ -65,20 +66,53 @@ public class BookController : Controller
         int pageSize = 6
     )
     {
-        var filterDto = _mapper.Map<BookFilterDto>(filters);
-        var books = await _bookService.GetFilteredBooksAsync(filterDto, page, pageSize);
-        var genreDtos = await _genreService.GetAllGenresAsync();
-        var genres = _mapper.Map<IEnumerable<GenreViewModel>>(genreDtos);
-        var paginatedViewModel = _mapper.Map<PaginatedViewModel<BookViewModel>>(books);
+        var cacheKey =
+            $"Index_{filters.Name}_{filters.MinPrice}_{filters.MaxPrice}_{filters.GenreId}_{filters.PublisherId}_{filters.AuthorId}_{page}_{pageSize}";
 
-        return View(
-            new BookCompositeViewModel()
+        if (!_memoryCache.TryGetValue(cacheKey, out BookCompositeViewModel? cachedViewModel))
+        {
+            _logger.LogInformation($"Cache miss for {cacheKey} at {DateTime.Now}");
+            var filterDto = _mapper.Map<BookFilterDto>(filters);
+            var books = await _bookService.GetFilteredBooksAsync(filterDto, page, pageSize);
+            var genreDtos = await _genreService.GetAllGenresAsync();
+            var genres = _mapper.Map<IEnumerable<GenreViewModel>>(genreDtos);
+            var publisherDtos = await _publisherService.GetAllPublishersAsync();
+            var publishers = _mapper.Map<IEnumerable<PublisherViewModel>>(publisherDtos);
+            var authorDtos = await _authorService.GetAllAuthorsAsync();
+            var authors = _mapper.Map<IEnumerable<AuthorViewModel>>(authorDtos);
+            var paginatedViewModel = _mapper.Map<PaginatedViewModel<BookViewModel>>(books);
+
+            cachedViewModel = new BookCompositeViewModel()
             {
                 Pagination = paginatedViewModel,
                 Filters = filters,
                 Genres = genres,
+                Publishers = publishers,
+                Authors = authors,
+            };
+
+            _memoryCache.Set(
+                cacheKey,
+                cachedViewModel,
+                new MemoryCacheEntryOptions { SlidingExpiration = TimeSpan.FromSeconds(30) }
+            );
+
+            if (_memoryCache.TryGetValue(IndexCacheKey, out HashSet<string>? cacheKeys))
+            {
+                cacheKeys?.Add(cacheKey);
             }
-        );
+            else
+            {
+                cacheKeys = new HashSet<string> { cacheKey };
+                _memoryCache.Set(IndexCacheKey, cacheKeys);
+            }
+        }
+        else
+        {
+            _logger.LogInformation($"Cache hit for {cacheKey} at {DateTime.Now}");
+        }
+
+        return View(cachedViewModel);
     }
 
     [HttpPost]
@@ -92,7 +126,8 @@ public class BookController : Controller
                 MinPrice = compositeViewModel.Filters.MinPrice,
                 MaxPrice = compositeViewModel.Filters.MaxPrice,
                 GenreId = compositeViewModel.Filters.GenreId,
-                Publisher = compositeViewModel.Filters.Publisher,
+                PublisherId = compositeViewModel.Filters.PublisherId,
+                AuthorId = compositeViewModel.Filters.AuthorId,
             }
         );
     }
@@ -218,7 +253,7 @@ public class BookController : Controller
         await _bookService.DeleteBookAsync(id);
 
         _memoryCache.Remove($"BookDetail_{id}");
-
+        InvalidateIndexCache();
         TempData["Success"] = "Book has been deleted successfully!";
         return RedirectToAction(nameof(Index));
     }
@@ -259,6 +294,7 @@ public class BookController : Controller
         await _bookService.UpdateBookAsync(id, updateBookDto, compositeViewModel.Image);
 
         _memoryCache.Remove($"BookDetail_{id}");
+        InvalidateIndexCache();
 
         TempData["Success"] = "Book has been updated successfully!";
         return RedirectToAction(nameof(Index));
@@ -296,7 +332,24 @@ public class BookController : Controller
     {
         var addBookDto = _mapper.Map<AddBookDto>(compositeViewModel.Book);
         await _bookService.AddBookAsync(addBookDto, compositeViewModel.Image);
+        InvalidateIndexCache();
         TempData["Success"] = "Book has been created successfully!";
         return RedirectToAction(nameof(Index));
+    }
+
+    private void InvalidateIndexCache()
+    {
+        if (_memoryCache.TryGetValue(IndexCacheKey, out HashSet<string>? cacheKeys))
+        {
+            if (cacheKeys != null)
+            {
+                foreach (var key in cacheKeys)
+                {
+                    _memoryCache.Remove(key);
+                }
+            }
+
+            _memoryCache.Remove(IndexCacheKey);
+        }
     }
 }
