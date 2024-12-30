@@ -14,10 +14,20 @@
                             </div>
                             <div class="card-body">
                                 <h5 class="card-title">@item.Book.Title</h5>
-                                <p class="card-text">Author: @item.Book.Author.Name</p>
+                                <p class="card-text">
+                                    Author:
+                                    <a asp-action="Details" asp-controller="Author" asp-route-id="@item.Book.Author.Id">
+                                        @item.Book.Author.Name
+                                    </a>
+                                </p>
                                 <p class="card-text">Price: $@item.Book.Price</p>
                                 <p class="card-text">Genre: @item.Book.PrimaryGenre.Name</p>
-                                <p class="card-text">Publisher: @item.Book.Publisher.Name</p>
+                               <p class="card-text">
+                                   Publisher: 
+                                   <a asp-action="Details" asp-controller="Publisher" asp-route-id="@item.Book.Publisher.Id">
+                                       @item.Book.Publisher.Name
+                                   </a>
+                               </p>
                                 <a href="@Url.Action("Detail", "Book",  new { id = item.Book.Id })" class="btn btn-primary">View Details</a>
                                 <form action="@Url.Action("DeleteFromWishlist", "Profile", new { id = item.Id })" method="post" style="display:inline;">
                                     <button type="submit" class="btn btn-danger">Delete</button>
