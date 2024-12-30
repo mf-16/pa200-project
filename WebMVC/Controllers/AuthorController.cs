@@ -7,7 +7,6 @@ using WebMVC.Models.Author;
 
 namespace WebMVC.Controllers;
 
-[Authorize]
 [Route("authors")]
 public class AuthorController : Controller
 {

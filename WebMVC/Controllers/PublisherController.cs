@@ -7,7 +7,6 @@ using WebMVC.Models.Publisher;
 
 namespace WebMVC.Controllers;
 
-[Authorize]
 [Route("publishers")]
 public class PublisherController : Controller
 {
