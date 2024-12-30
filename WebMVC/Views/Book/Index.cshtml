@@ -39,22 +39,48 @@
                     <label class="form-label" asp-for="Filters.MaxPrice">Max Price</label>
                     <input type="number" class="form-control" asp-for="Filters.MaxPrice" />
                 </div>
+                
                 <div class="mb-3">
-                    <label class="form-label" asp-for="Filters.Publisher">Publisher</label>
-                    <input type="text" class="form-control" asp-for="Filters.Publisher" />
+                    <label class="form-label" asp-for="Filters.PublisherId">Publisher</label>
+                    <select class="form-control" asp-for="Filters.PublisherId">
+                        <option value="">-- Select Publisher --</option>
+                        @foreach (var publisher in Model.Publishers)
+                        {
+                            <!option value="@publisher.Id" @(publisher.Id == Model.Filters.PublisherId ? "selected" : "")>
+                                @publisher.Name
+                            </!option>
+                        }
+                    </select>
                 </div>
+
+                <div class="mb-3">
+                    <label class="form-label" asp-for="Filters.AuthorId">Author</label>
+                    <select class="form-control" asp-for="Filters.AuthorId">
+                        <option value="">-- Select Author --</option>
+                        @foreach (var author in Model.Authors)
+                        {
+                        <!option value="@author.Id" @(author.Id == Model.Filters.AuthorId ? "selected" : "")>
+                            @author.Name
+                        </!option>
+                        }
+                    </select>
+                </div>
+
                 <div class="mb-3">
                     <label class="form-label" asp-for="Filters.GenreId">Genre</label>
                     <select class="form-control" asp-for="Filters.GenreId">
                         <option value="">-- Select Genre --</option>
                         @foreach (var genre in Model.Genres)
                         {
-                            <!option value="@genre.Id" @(Model.Filters != null && genre.Id == Model.Filters.GenreId ? "selected" : "")>
+                            <!option value="@genre.Id" @(genre.Id == Model.Filters.GenreId ? "selected" : "")>
                                 @genre.Name
                             </!option>
                         }
                     </select>
                 </div>
+
+
+
                 <button type="submit" class="btn btn-primary">Apply Filters</button>
             </form>
         </div>

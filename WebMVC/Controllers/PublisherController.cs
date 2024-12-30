@@ -3,6 +3,7 @@ using BusinessLayer.DTOs.Publisher;
 using BusinessLayer.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using WebMVC.Models.Publisher;
 
 namespace WebMVC.Controllers;
@@ -13,18 +14,43 @@ public class PublisherController : Controller
 {
     private readonly IPublisherService _publisherService;
     private readonly IMapper _mapper;
+    private readonly IMemoryCache _memoryCache;
+    private readonly ILogger<PublisherController> _logger;
 
-    public PublisherController(IPublisherService publisherService, IMapper mapper)
+    public PublisherController(
+        IPublisherService publisherService,
+        IMapper mapper,
+        IMemoryCache memoryCache,
+        ILogger<PublisherController> logger
+    )
     {
         _publisherService = publisherService;
         _mapper = mapper;
+        _memoryCache = memoryCache;
+        _logger = logger;
     }
 
     [HttpGet]
     public async Task<IActionResult> Index()
     {
-        var publishers = await _publisherService.GetAllPublishersAsync();
-        var mappedPublishers = _mapper.Map<List<PublisherViewModel>>(publishers);
+        var cacheKey = "Publishers";
+
+        if (!_memoryCache.TryGetValue(cacheKey, out List<PublisherViewModel>? mappedPublishers))
+        {
+            _logger.LogInformation($"Cache miss for {cacheKey} at {DateTime.Now}");
+            var publishers = await _publisherService.GetAllPublishersAsync();
+            mappedPublishers = _mapper.Map<List<PublisherViewModel>>(publishers);
+
+            _memoryCache.Set(
+                cacheKey,
+                mappedPublishers,
+                new MemoryCacheEntryOptions { SlidingExpiration = TimeSpan.FromSeconds(30) }
+            );
+        }
+        else
+        {
+            _logger.LogInformation($"Cache hit for {cacheKey} at {DateTime.Now}");
+        }
 
         return View(mappedPublishers);
     }
@@ -76,6 +102,7 @@ public class PublisherController : Controller
         {
             var dto = _mapper.Map<UpdatePublisherDto>(model);
             await _publisherService.UpdatePublisherAsync(id, dto);
+            _memoryCache.Remove("Publishers");
             TempData["Success"] = "Publisher updated successfully!";
             return RedirectToAction("Index");
         }
@@ -88,6 +115,7 @@ public class PublisherController : Controller
     public async Task<IActionResult> Delete(int id)
     {
         await _publisherService.DeletePublisherAsync(id);
+        _memoryCache.Remove("Publishers");
         TempData["Success"] = "Publisher deleted successfully!";
         return RedirectToAction("Index");
     }
