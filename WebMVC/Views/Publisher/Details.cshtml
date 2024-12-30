@@ -29,6 +29,7 @@
             <tr>
                 <th>Title</th>
                 <th>Description</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -37,6 +38,9 @@
                 <tr>
                     <td>@book.Title</td>
                     <td>@book.Description</td>
+                    <td>
+                        <a asp-action="Detail" asp-controller="Book" asp-route-id="@book.Id" class="btn btn-primary">View Details</a>
+                    </td>
                 </tr>
             }
         </tbody>
