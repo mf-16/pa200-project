@@ -2,7 +2,27 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="hero text-center bg-light py-5">
+    <div class="container">
+        <h1 class="display-4">Welcome to Book Shop</h1>
+        <p class="lead">Discover your next great read with us.</p>
+        <a asp-action="Index" asp-controller="Book" class="btn btn-primary btn-lg">Start Exploring</a>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row text-center">
+        <div class="col-md-4">
+            <h2>Our Promise</h2>
+            <p>At Book Shop, we are committed to providing a carefully curated collection of books that cater to every reader's unique tastes. Whether you're an avid reader or just discovering the joy of books, our promise is to deliver only the best.</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Fast Shipping</h2>
+            <p>We know that when you order a book, you're eager to start reading. That's why we guarantee fast and reliable shipping. Your book will be on its way to you in no time, so you can dive into your next adventure.</p>
+        </div>
+        <div class="col-md-4">
+            <h2>Exclusive Deals</h2>
+            <p>We offer exclusive deals and discounts throughout the year. Be the first to know about our special offers by signing up for our newsletter, and enjoy discounts on your favorite titles every time you shop with us.</p>
+        </div>
+    </div>
 </div>
