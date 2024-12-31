@@ -28,10 +28,7 @@ public class BookHubDbContext : IdentityDbContext<User, UserRole, int>
     {
         modelBuilder.Seed();
         base.OnModelCreating(modelBuilder);
-        modelBuilder.Entity<GiftCard>()
-            .HasIndex(g => g.Name)
-            .IsUnique();
-        
+        modelBuilder.Entity<GiftCard>().HasIndex(g => g.Name).IsUnique();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

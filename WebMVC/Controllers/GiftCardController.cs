@@ -41,7 +41,10 @@ public class GiftCardController : Controller
     {
         if (model.ValidTo <= model.ValidFrom)
         {
-            ModelState.AddModelError("ValidTo", "Valid To date must be later than Valid From date.");
+            ModelState.AddModelError(
+                "ValidTo",
+                "Valid To date must be later than Valid From date."
+            );
         }
         if (ModelState.IsValid)
         {
@@ -53,7 +56,7 @@ public class GiftCardController : Controller
 
         return View(model);
     }
-    
+
     [HttpGet("detail/{id}")]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Detail(int id)
@@ -62,5 +65,4 @@ public class GiftCardController : Controller
         var mappedGiftCard = _mapper.Map<GiftCardViewModel>(giftCard);
         return View(mappedGiftCard);
     }
-    
 }
