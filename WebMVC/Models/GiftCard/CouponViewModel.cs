@@ -3,6 +3,7 @@ namespace WebMVC.Models.GiftCard;
 public class CouponViewModel
 {
     public int Id { get; set; }
+    public decimal Amount { get; set; }
     public string Code { get; set; }
 
     public int GiftCardId { get; set; }

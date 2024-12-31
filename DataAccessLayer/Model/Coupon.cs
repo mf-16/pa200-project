@@ -15,4 +15,9 @@ public class Coupon : BaseEntity
 
     [ForeignKey("OrderId")]
     public virtual Order? Order { get; set; }
+
+    public int? CartId { get; set; }
+
+    [ForeignKey("CartId")]
+    public virtual Cart? Cart { get; set; }
 }

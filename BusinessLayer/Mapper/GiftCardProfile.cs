@@ -11,6 +11,7 @@ public class GiftCardProfile : Profile
         CreateMap<CreateGiftCardDto, GiftCard>()
             .ForMember(dest => dest.Coupons, opt => opt.Ignore());
         CreateMap<GiftCard, ResponseGiftCardDto>();
-        CreateMap<Coupon, ResponseCouponDto>();
+        CreateMap<Coupon, ResponseCouponDto>()
+            .ForMember(dest => dest.Amount, src => src.MapFrom(c => c.GiftCard.PriceReduction));
     }
 }

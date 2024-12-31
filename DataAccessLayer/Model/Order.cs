@@ -12,5 +12,7 @@ public class Order : BaseEntity
     public int BillingAddressId { get; set; }
     public virtual Address BillingAddress { get; set; }
     public virtual ICollection<OrderItem> OrderItems { get; set; }
+
+    public virtual ICollection<Coupon> Coupons { get; set; }
     public OrderState OrderState { get; set; }
 }
