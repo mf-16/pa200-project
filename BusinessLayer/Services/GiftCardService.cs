@@ -21,11 +21,12 @@ public class GiftCardService : IGiftCardService
     public async Task<ResponseGiftCardDto> CreateGiftCardAsync(CreateGiftCardDto createGiftCardDto)
     {
         var giftCard = _mapper.Map<GiftCard>(createGiftCardDto);
-        var coupons = Enumerable.Range(0, createGiftCardDto.NumberOfCoupons)
+        var coupons = Enumerable
+            .Range(0, createGiftCardDto.NumberOfCoupons)
             .Select(i => new Coupon
             {
                 Code = $"{createGiftCardDto.Name}_{i}",
-                GiftCardId = giftCard.Id
+                GiftCardId = giftCard.Id,
             })
             .ToList();
         giftCard.Coupons = coupons;

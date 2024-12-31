@@ -18,7 +18,7 @@ public class GiftCardController : Controller
         _mapper = mapper;
         _giftCardService = giftCardService;
     }
-    
+
     [HttpGet]
     [Authorize(Roles = "Admin")]
     public async Task<IActionResult> Index()
@@ -27,9 +27,9 @@ public class GiftCardController : Controller
         var mappedGiftCards = _mapper.Map<List<GiftCardViewModel>>(giftCards);
         return View(mappedGiftCards);
     }
+
     [HttpGet("create")]
     [Authorize(Roles = "Admin")]
-    
     public IActionResult Create()
     {
         return View();
@@ -49,5 +49,4 @@ public class GiftCardController : Controller
 
         return View(model);
     }
-    
 }
