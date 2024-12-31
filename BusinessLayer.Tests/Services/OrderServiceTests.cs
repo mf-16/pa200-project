@@ -72,7 +72,7 @@ namespace BusinessLayer.Tests.Services
             Assert.NotNull(result);
             Assert.Equal("John Doe", result.CustomerName);
             Assert.Empty(result.OrderItems);
-        }   
+        }
         /*
         [Fact]
         public async Task CreateOrderAsync_ShouldCreateOrder_WhenCartExists()
