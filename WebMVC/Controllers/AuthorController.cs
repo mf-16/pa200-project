@@ -77,6 +77,14 @@ public class AuthorController : Controller
         return View(model);
     }
 
+    [HttpGet("{id}")]
+    public async Task<IActionResult> Details(int id)
+    {
+        var author = await _authorService.GetAuthorByIdAsync(id);
+        var mappedAuthor = _mapper.Map<AuthorViewModel>(author);
+        return View(mappedAuthor);
+    }
+
     [Authorize(Roles = "Admin")]
     [HttpGet("edit/{id}")]
     public async Task<IActionResult> Edit(int id)
