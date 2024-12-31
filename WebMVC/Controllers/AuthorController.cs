@@ -76,8 +76,7 @@ public class AuthorController : Controller
 
         return View(model);
     }
-    
-    
+
     [HttpGet("{id}")]
     public async Task<IActionResult> Details(int id)
     {
