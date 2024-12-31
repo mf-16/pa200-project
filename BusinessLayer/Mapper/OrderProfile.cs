@@ -26,6 +26,7 @@ public class OrderProfile : Profile
                 dest => dest.CustomerName,
                 opt => opt.MapFrom(src => src.createOrderDto.CustomerName)
             )
+            .ForMember(dest => dest.Coupons, opt => opt.MapFrom(src => src.cart.Coupons))
             .ForMember(
                 dest => dest.TotalAmount,
                 opt =>

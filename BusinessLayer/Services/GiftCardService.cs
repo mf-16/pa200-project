@@ -65,7 +65,7 @@ public class GiftCardService : IGiftCardService
         var coupon = _unitOfWork
             .CouponRepository.GetQueryable()
             .FirstOrDefault(c => c.Code == couponCode);
-        if (coupon == null || coupon.CartId != null || coupon.GiftCard.ValidTo < DateTime.Now)
+        if (coupon == null || coupon.CartId != null || coupon.OrderId != null || coupon.GiftCard.ValidTo < DateTime.Now)
         {
             return null;
         }
