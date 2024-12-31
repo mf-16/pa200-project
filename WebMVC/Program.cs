@@ -44,6 +44,7 @@ builder.Services.AddScoped<IBookService, BookService>();
 builder.Services.AddScoped<IAuthorService, AuthorService>();
 builder.Services.AddScoped<IPublisherService, PublisherService>();
 
+
 // Configure Identity options for password policies
 builder.Services.Configure<IdentityOptions>(options =>
 {
