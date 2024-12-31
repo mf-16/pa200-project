@@ -29,6 +29,7 @@ public class OrderService : IOrderService
         var order = _mapper.Map<(CreateOrderDto, Cart), Order>((createOrderDto, user.Cart));
         _unitOfWork.OrderRepository.Add(order);
         _unitOfWork.CartItemRepository.DeleteRange(user.Cart.CartItems);
+        _unitOfWork.CouponRepository.DeleteRange(user.Cart.Coupons);
         await _unitOfWork.CommitAsync();
         return _mapper.Map<ResponseOrderDto>(order);
     }

@@ -2,6 +2,8 @@ namespace BusinessLayer.DTOs.GiftCard;
 
 public class ResponseCouponDto
 {
+    public int Id { get; set; }
+    public decimal Amount { get; set; }
     public string Code { get; set; }
 
     public int GiftCardId { get; set; }

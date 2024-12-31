@@ -28,7 +28,14 @@ public class OrderProfile : Profile
             )
             .ForMember(
                 dest => dest.TotalAmount,
-                opt => opt.MapFrom(src => src.cart.CartItems.Sum(i => i.Book.Price * i.Quantity))
+                opt =>
+                    opt.MapFrom(src =>
+                        Math.Max(
+                            0,
+                            src.cart.CartItems.Sum(i => i.Book.Price * i.Quantity)
+                                - src.cart.Coupons.Sum(c => c.GiftCard.PriceReduction)
+                        )
+                    )
             )
             .ForMember(
                 dest => dest.OrderItems,
@@ -43,6 +50,7 @@ public class OrderProfile : Profile
                             .ToList()
                     )
             )
+            .ForMember(dest => dest.Coupons, opt => opt.MapFrom(src => src.cart.Coupons))
             .ForMember(dest => dest.UserId, opt => opt.MapFrom(src => src.cart.UserId));
 
         CreateMap<Order, ResponseOrderDto>();

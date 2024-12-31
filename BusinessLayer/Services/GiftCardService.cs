@@ -53,4 +53,52 @@ public class GiftCardService : IGiftCardService
         var response = _mapper.Map<List<ResponseGiftCardDto>>(giftCards);
         return response;
     }
+
+    public async Task<ResponseCouponDto?> ApplyCouponAsync(int userId, string couponCode)
+    {
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+        if (user is null)
+        {
+            throw new NotFoundException("User", userId);
+        }
+
+        var coupon = _unitOfWork
+            .CouponRepository.GetQueryable()
+            .FirstOrDefault(c => c.Code == couponCode);
+        if (coupon == null || coupon.CartId != null || coupon.GiftCard.ValidTo < DateTime.Now)
+        {
+            return null;
+        }
+
+        user.Cart.Coupons.Add(coupon);
+        await _unitOfWork.CommitAsync();
+        return _mapper.Map<ResponseCouponDto>(coupon);
+    }
+
+    public async Task<List<ResponseCouponDto>> GetAllCouponsByUserAsync(int userId)
+    {
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+        if (user == null)
+        {
+            throw new NotFoundException("User", userId);
+        }
+        return _mapper.Map<List<ResponseCouponDto>>(user.Cart.Coupons);
+    }
+
+    public async Task RemoveCouponAsync(int userId, int couponId)
+    {
+        var user = await _unitOfWork.UserRepository.GetByIdAsync(userId);
+        if (user is null)
+        {
+            throw new NotFoundException("User", userId);
+        }
+
+        var coupon = user.Cart.Coupons.FirstOrDefault(c => c.Id == couponId);
+        if (coupon == null)
+        {
+            throw new NotFoundException("Coupon", couponId);
+        }
+        user.Cart.Coupons.Remove(coupon);
+        await _unitOfWork.CommitAsync();
+    }
 }
