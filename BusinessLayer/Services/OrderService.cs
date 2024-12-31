@@ -30,7 +30,7 @@ public class OrderService : IOrderService
         _unitOfWork.OrderRepository.Add(order);
         _unitOfWork.CartItemRepository.DeleteRange(user.Cart.CartItems);
         user.Cart.Coupons.Clear();
-        
+
         await _unitOfWork.CommitAsync();
         return _mapper.Map<ResponseOrderDto>(order);
     }
