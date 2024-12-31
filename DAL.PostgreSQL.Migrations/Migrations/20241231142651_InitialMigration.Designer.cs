@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DAL.PostgreSQL.Migrations.Migrations
 {
     [DbContext(typeof(BookHubDbContext))]
-    [Migration("20241231102112_InitialMigration")]
+    [Migration("20241231142651_InitialMigration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -73,167 +73,167 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            City = "Lylaside",
-                            Country = "Pitcairn Islands",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 316, DateTimeKind.Utc).AddTicks(8734),
+                            City = "East Sabrynaberg",
+                            Country = "Russian Federation",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 614, DateTimeKind.Utc).AddTicks(8309),
                             IsDeleted = false,
-                            State = "Delaware",
-                            Street = "573 Reilly Fort",
-                            ZipCode = "49227"
+                            State = "North Dakota",
+                            Street = "552 Cronin Terrace",
+                            ZipCode = "77651-7231"
                         },
                         new
                         {
                             Id = 2,
-                            City = "Lake Monserratchester",
-                            Country = "Guadeloupe",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 316, DateTimeKind.Utc).AddTicks(9380),
+                            City = "New Veldabury",
+                            Country = "Swaziland",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 614, DateTimeKind.Utc).AddTicks(8954),
                             IsDeleted = false,
-                            State = "Delaware",
-                            Street = "118 Cindy Circles",
-                            ZipCode = "10359"
+                            State = "Hawaii",
+                            Street = "230 Wintheiser Field",
+                            ZipCode = "25088-2285"
                         },
                         new
                         {
                             Id = 3,
-                            City = "Yesseniabury",
-                            Country = "Jordan",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 316, DateTimeKind.Utc).AddTicks(9559),
+                            City = "Dejamouth",
+                            Country = "Cocos (Keeling) Islands",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 614, DateTimeKind.Utc).AddTicks(9106),
                             IsDeleted = false,
-                            State = "Pennsylvania",
-                            Street = "9347 Stacy Dam",
-                            ZipCode = "08927"
+                            State = "Wisconsin",
+                            Street = "400 Janae Gardens",
+                            ZipCode = "13432"
                         },
                         new
                         {
                             Id = 4,
-                            City = "Lake Rae",
-                            Country = "Myanmar",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 316, DateTimeKind.Utc).AddTicks(9703),
+                            City = "Jenkinstown",
+                            Country = "Guinea",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 614, DateTimeKind.Utc).AddTicks(9276),
                             IsDeleted = false,
-                            State = "South Carolina",
-                            Street = "48713 Kertzmann Junctions",
-                            ZipCode = "82126"
+                            State = "Nebraska",
+                            Street = "204 Laverne Dale",
+                            ZipCode = "60631"
                         },
                         new
                         {
                             Id = 5,
-                            City = "Port Lenore",
-                            Country = "Aruba",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 316, DateTimeKind.Utc).AddTicks(9851),
+                            City = "Vicentachester",
+                            Country = "Turkey",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 614, DateTimeKind.Utc).AddTicks(9418),
                             IsDeleted = false,
-                            State = "Pennsylvania",
-                            Street = "225 Predovic Motorway",
-                            ZipCode = "57087"
+                            State = "Michigan",
+                            Street = "5002 Jocelyn Spurs",
+                            ZipCode = "45589"
                         },
                         new
                         {
                             Id = 6,
-                            City = "West Jerrod",
-                            Country = "Ethiopia",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 316, DateTimeKind.Utc).AddTicks(9991),
+                            City = "Opheliafurt",
+                            Country = "Syrian Arab Republic",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 614, DateTimeKind.Utc).AddTicks(9546),
                             IsDeleted = false,
-                            State = "North Dakota",
-                            Street = "3836 Morar Street",
-                            ZipCode = "35400-2307"
+                            State = "Massachusetts",
+                            Street = "509 Barton Shoal",
+                            ZipCode = "80916"
                         },
                         new
                         {
                             Id = 7,
-                            City = "West Wilfridfort",
-                            Country = "Zambia",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 317, DateTimeKind.Utc).AddTicks(143),
+                            City = "Port Jeramie",
+                            Country = "Maldives",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 614, DateTimeKind.Utc).AddTicks(9646),
                             IsDeleted = false,
-                            State = "North Dakota",
-                            Street = "50919 Dietrich Point",
-                            ZipCode = "13721"
+                            State = "Wyoming",
+                            Street = "50059 Bayer Walk",
+                            ZipCode = "69471-4285"
                         },
                         new
                         {
                             Id = 8,
-                            City = "Madisentown",
-                            Country = "Peru",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 317, DateTimeKind.Utc).AddTicks(287),
+                            City = "Predovicmouth",
+                            Country = "Qatar",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 614, DateTimeKind.Utc).AddTicks(9774),
                             IsDeleted = false,
-                            State = "Pennsylvania",
-                            Street = "6982 Johanna Throughway",
-                            ZipCode = "63055-9443"
+                            State = "Hawaii",
+                            Street = "65472 Predovic Square",
+                            ZipCode = "78724"
                         },
                         new
                         {
                             Id = 9,
-                            City = "Dachview",
-                            Country = "Afghanistan",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 317, DateTimeKind.Utc).AddTicks(427),
+                            City = "North Hortensebury",
+                            Country = "Barbados",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 614, DateTimeKind.Utc).AddTicks(9893),
                             IsDeleted = false,
-                            State = "Delaware",
-                            Street = "876 Wolff Court",
-                            ZipCode = "26442"
+                            State = "Washington",
+                            Street = "41303 Albertha Club",
+                            ZipCode = "34373-2161"
                         },
                         new
                         {
                             Id = 10,
-                            City = "West Brennan",
-                            Country = "Mali",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 317, DateTimeKind.Utc).AddTicks(557),
+                            City = "North Alaina",
+                            Country = "Greece",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 615, DateTimeKind.Utc).AddTicks(27),
                             IsDeleted = false,
-                            State = "Massachusetts",
-                            Street = "74751 Dorthy Rest",
-                            ZipCode = "56869-7537"
+                            State = "Kentucky",
+                            Street = "855 McClure Course",
+                            ZipCode = "80747-8066"
                         },
                         new
                         {
                             Id = 11,
-                            City = "Carolineborough",
-                            Country = "Indonesia",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 317, DateTimeKind.Utc).AddTicks(697),
+                            City = "Nicolasview",
+                            Country = "Bosnia and Herzegovina",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 615, DateTimeKind.Utc).AddTicks(154),
                             IsDeleted = false,
-                            State = "Indiana",
-                            Street = "08696 Marquardt Groves",
-                            ZipCode = "82408"
+                            State = "Delaware",
+                            Street = "45178 Brandy Union",
+                            ZipCode = "58762"
                         },
                         new
                         {
                             Id = 12,
-                            City = "New Mortimer",
-                            Country = "Ghana",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 317, DateTimeKind.Utc).AddTicks(839),
+                            City = "Gaylordhaven",
+                            Country = "Nigeria",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 615, DateTimeKind.Utc).AddTicks(295),
                             IsDeleted = false,
-                            State = "Illinois",
-                            Street = "5964 Conn Plains",
-                            ZipCode = "60565"
+                            State = "Indiana",
+                            Street = "623 Gus Islands",
+                            ZipCode = "55766-5127"
                         },
                         new
                         {
                             Id = 13,
-                            City = "Wildermanstad",
-                            Country = "Taiwan",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 317, DateTimeKind.Utc).AddTicks(971),
+                            City = "Lake Rosemarie",
+                            Country = "Pitcairn Islands",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 615, DateTimeKind.Utc).AddTicks(421),
                             IsDeleted = false,
-                            State = "Tennessee",
-                            Street = "7137 Gaylord Creek",
-                            ZipCode = "52697"
+                            State = "Missouri",
+                            Street = "8375 Brakus Estate",
+                            ZipCode = "27945-9397"
                         },
                         new
                         {
                             Id = 14,
-                            City = "South Rudymouth",
-                            Country = "Myanmar",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 317, DateTimeKind.Utc).AddTicks(1140),
+                            City = "Lake Kieran",
+                            Country = "Bangladesh",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 615, DateTimeKind.Utc).AddTicks(566),
                             IsDeleted = false,
-                            State = "Ohio",
-                            Street = "2949 Tracey Stream",
-                            ZipCode = "22073"
+                            State = "North Carolina",
+                            Street = "1170 Citlalli Point",
+                            ZipCode = "77345"
                         },
                         new
                         {
                             Id = 15,
-                            City = "New Rowan",
-                            Country = "Saint Vincent and the Grenadines",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 317, DateTimeKind.Utc).AddTicks(1311),
+                            City = "Anissamouth",
+                            Country = "United States Minor Outlying Islands",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 615, DateTimeKind.Utc).AddTicks(689),
                             IsDeleted = false,
-                            State = "Arizona",
-                            Street = "21642 Volkman Hills",
-                            ZipCode = "28988-7958"
+                            State = "Vermont",
+                            Street = "811 Smith Stravenue",
+                            ZipCode = "12763"
                         });
                 });
 
@@ -270,82 +270,82 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            Bio = "Et pariatur possimus ut. Mollitia nihil tenetur totam labore aut et iure illo. Et in optio nam voluptas.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 308, DateTimeKind.Utc).AddTicks(1735),
+                            Bio = "Tempore aliquam ratione quibusdam consequatur corporis est eveniet cum. Sunt eligendi animi minus necessitatibus modi deserunt distinctio distinctio. Doloremque delectus fugit reprehenderit nulla explicabo ut atque. Doloribus dolorem vel autem necessitatibus tenetur omnis eveniet. Ipsam accusamus quos aut dolor natus soluta odio.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 606, DateTimeKind.Utc).AddTicks(8535),
                             IsDeleted = false,
-                            Name = "Jonathan Murray"
+                            Name = "Aracely O'Hara"
                         },
                         new
                         {
                             Id = 2,
-                            Bio = "Ipsam deleniti officiis asperiores ad. Hic ut aut quasi recusandae dolorum ipsa molestiae laboriosam et. Numquam sint ea deleniti est voluptatem at voluptates aut. Et minima autem voluptatem sequi animi quo quae. Voluptas distinctio qui repellendus.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 308, DateTimeKind.Utc).AddTicks(2174),
+                            Bio = "Quod nesciunt impedit earum doloremque voluptatem. Repudiandae voluptatem odit. Autem deleniti omnis qui adipisci eligendi. Adipisci quidem voluptatem ut ad eligendi dolore. Error ducimus error nihil est aliquid ex doloremque enim.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 606, DateTimeKind.Utc).AddTicks(9358),
                             IsDeleted = false,
-                            Name = "Jeramie Bruen"
+                            Name = "Betty Zulauf"
                         },
                         new
                         {
                             Id = 3,
-                            Bio = "Explicabo molestiae sapiente temporibus. Non quis quia quia ducimus exercitationem consequatur atque unde. Nemo dolores et reprehenderit non et inventore voluptas.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 308, DateTimeKind.Utc).AddTicks(2334),
+                            Bio = "Facere dolor voluptatem aliquid nisi quia quis. Eos animi recusandae ipsam ad deleniti et possimus non. Voluptatem ipsa a recusandae. Tempora quia non. Debitis voluptatem unde est odio. Aut maiores et vero et.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 606, DateTimeKind.Utc).AddTicks(9656),
                             IsDeleted = false,
-                            Name = "Kayley Roberts"
+                            Name = "Emil Howell"
                         },
                         new
                         {
                             Id = 4,
-                            Bio = "Praesentium consequatur odit praesentium necessitatibus dicta molestiae. Ut vel dolorum dolorum consequatur repudiandae et minus ratione aut. Consectetur voluptatem rerum sit perspiciatis quia vitae ut vel.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 308, DateTimeKind.Utc).AddTicks(2460),
+                            Bio = "Reprehenderit sint impedit et et reiciendis ea debitis et. Praesentium facilis iure dolore sit suscipit magnam. Dolor corporis dolores et sed adipisci aliquam ullam nemo sed. Quia accusamus adipisci aliquid. Possimus qui aut sint et sit vel dolorum qui doloribus.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 606, DateTimeKind.Utc).AddTicks(9901),
                             IsDeleted = false,
-                            Name = "Valerie Heathcote"
+                            Name = "Rogers Kuhn"
                         },
                         new
                         {
                             Id = 5,
-                            Bio = "Consequuntur qui omnis. Minus animi fugiat. Ullam aspernatur veritatis aut neque ipsum dignissimos dolores sint. Ut facilis placeat.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 308, DateTimeKind.Utc).AddTicks(2621),
+                            Bio = "Autem maxime itaque voluptatem. Aliquid quam sequi occaecati dignissimos magni eveniet. Aut id praesentium. Reiciendis et atque sapiente temporibus ut a doloribus. Aliquam mollitia laborum deserunt aut ut.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 607, DateTimeKind.Utc).AddTicks(223),
                             IsDeleted = false,
-                            Name = "Alycia Rosenbaum"
+                            Name = "Alanis Buckridge"
                         },
                         new
                         {
                             Id = 6,
-                            Bio = "Eaque cupiditate qui voluptatem quis aut illum delectus cupiditate. Sed temporibus sint. Numquam voluptate quidem id illum dolorum ut sed dicta totam. Inventore provident ad. Ea voluptas autem iste. Fuga eaque suscipit.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 308, DateTimeKind.Utc).AddTicks(2731),
+                            Bio = "Id sunt aut mollitia suscipit nemo asperiores. Ipsam et sed doloribus iusto ab ipsa voluptates maiores. Est qui vel molestiae. At nobis magnam quis quas reiciendis asperiores itaque. Aspernatur eum quia vitae deleniti qui.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 607, DateTimeKind.Utc).AddTicks(420),
                             IsDeleted = false,
-                            Name = "Christopher Abernathy"
+                            Name = "Brayan Metz"
                         },
                         new
                         {
                             Id = 7,
-                            Bio = "Minus iste autem. At sapiente nisi. Nemo aspernatur qui fugiat nihil doloremque recusandae quia. Voluptates pariatur ut. Eos consequatur eos ut aut voluptate non.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 308, DateTimeKind.Utc).AddTicks(2851),
+                            Bio = "Commodi cumque dolores. Aspernatur a natus est doloremque occaecati mollitia mollitia ipsum pariatur. Exercitationem quae nisi unde sequi natus dignissimos atque voluptas. Quos eligendi dolor qui veritatis ipsum minus hic at.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 607, DateTimeKind.Utc).AddTicks(667),
                             IsDeleted = false,
-                            Name = "Samantha Swaniawski"
+                            Name = "Richard Thiel"
                         },
                         new
                         {
                             Id = 8,
-                            Bio = "Facilis molestiae adipisci porro neque cupiditate omnis. Doloremque ut delectus quis ut quasi quisquam repellendus ea. Temporibus nobis est delectus. Aut unde ut perspiciatis possimus nihil eum praesentium. Dolore eligendi mollitia iure molestiae et dolor.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 308, DateTimeKind.Utc).AddTicks(2952),
+                            Bio = "Ad necessitatibus voluptas libero tempora. Voluptas et sequi. Et quis voluptate debitis ut dolores a.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 607, DateTimeKind.Utc).AddTicks(996),
                             IsDeleted = false,
-                            Name = "Lonie Ortiz"
+                            Name = "Janiya Bruen"
                         },
                         new
                         {
                             Id = 9,
-                            Bio = "Et blanditiis ullam dolorum iure voluptates. Et quaerat distinctio repellendus. Quos iusto autem consequuntur. Repudiandae iusto numquam repudiandae asperiores voluptate tenetur rerum amet eum. Iste porro nisi. Praesentium eveniet ut accusamus delectus veniam quas sint.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 308, DateTimeKind.Utc).AddTicks(3128),
+                            Bio = "Eos ex natus officia et nihil. Laborum accusamus molestiae beatae velit ea eos in aspernatur rerum. Doloribus non est excepturi qui.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 607, DateTimeKind.Utc).AddTicks(1115),
                             IsDeleted = false,
-                            Name = "Amina Cummings"
+                            Name = "Enrique Keeling"
                         },
                         new
                         {
                             Id = 10,
-                            Bio = "Dolores consequuntur est sequi repudiandae optio laborum officia quia quo. Assumenda totam ipsam deleniti neque eveniet. Cum est non atque voluptatum. Similique quae commodi necessitatibus optio in voluptate dolorem ut.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 308, DateTimeKind.Utc).AddTicks(3247),
+                            Bio = "Aliquam doloribus quis maiores et. Unde qui voluptatum. In aliquid dolor consequatur velit. Animi deleniti beatae rerum et magni atque perferendis voluptatem hic.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 607, DateTimeKind.Utc).AddTicks(1258),
                             IsDeleted = false,
-                            Name = "Orie Weber"
+                            Name = "Lizeth McDermott"
                         });
                 });
 
@@ -412,282 +412,282 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            AuthorId = 1,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 311, DateTimeKind.Utc).AddTicks(6201),
-                            Description = "Omnis reprehenderit eius doloribus unde inventore. Sint maxime nihil quam molestias. Et doloribus fuga similique. Sunt ullam neque.",
+                            AuthorId = 7,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(2331),
+                            Description = "Et dicta tempora voluptatem. Omnis architecto nesciunt ut nihil culpa ratione. Quos in corporis quos dolorum cupiditate nobis facilis maxime. Velit consequatur mollitia corporis.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-7.jpg",
+                            ImagePath = "/images/cover-5.jpg",
                             IsDeleted = false,
-                            Price = 27.14m,
+                            Price = 70.63m,
                             PrimaryGenreId = 4,
                             PublisherId = 1,
-                            Title = "Nulla est enim."
+                            Title = "Qui possimus aut."
                         },
                         new
                         {
                             Id = 2,
-                            AuthorId = 10,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 311, DateTimeKind.Utc).AddTicks(8297),
-                            Description = "Non velit nam libero fugiat ut incidunt inventore quos. Debitis earum provident nesciunt velit. Veritatis qui nemo id provident perspiciatis vitae earum.",
+                            AuthorId = 3,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(4146),
+                            Description = "Rem et nulla dolorem maxime et laboriosam inventore odio minus. Necessitatibus id iure voluptas ex pariatur et et quo. Soluta voluptatum dignissimos quos nostrum reprehenderit.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-5.jpg",
+                            ImagePath = "/images/cover-1.jpg",
                             IsDeleted = false,
-                            Price = 39.84m,
-                            PrimaryGenreId = 1,
-                            PublisherId = 1,
-                            Title = "Fuga adipisci voluptatem."
+                            Price = 26.11m,
+                            PrimaryGenreId = 2,
+                            PublisherId = 4,
+                            Title = "Facilis veniam aut."
                         },
                         new
                         {
                             Id = 3,
-                            AuthorId = 1,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 311, DateTimeKind.Utc).AddTicks(8449),
-                            Description = "Corrupti qui porro laboriosam et optio ad aspernatur ea. Libero totam aliquam eos quia nam esse sed excepturi quaerat. Quibusdam ut quibusdam maxime quam cupiditate ut officia.",
+                            AuthorId = 10,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(4274),
+                            Description = "Repellendus natus ut dolorem cumque ipsum. Omnis ut ipsam et dolorem. Facere fuga ipsa et id. Ratione eum assumenda doloribus aut enim cumque. Quo atque repellat ipsum sit dolorem est.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-1.jpg",
+                            ImagePath = "/images/cover-8.jpg",
                             IsDeleted = false,
-                            Price = 87.21m,
+                            Price = 39.76m,
                             PrimaryGenreId = 3,
-                            PublisherId = 3,
-                            Title = "Eum voluptatem nemo."
+                            PublisherId = 5,
+                            Title = "Cumque debitis doloribus."
                         },
                         new
                         {
                             Id = 4,
-                            AuthorId = 8,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 311, DateTimeKind.Utc).AddTicks(8623),
-                            Description = "Ratione ab ipsum placeat doloribus. Ut unde voluptates. Libero sint et.",
+                            AuthorId = 10,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(4389),
+                            Description = "Debitis nobis assumenda corrupti delectus eaque dolor tenetur saepe. Doloribus vel velit veniam doloremque est dolores sit sit nulla. Qui qui nostrum.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-10.jpg",
+                            ImagePath = "/images/cover-4.jpg",
                             IsDeleted = false,
-                            Price = 23.29m,
-                            PrimaryGenreId = 6,
+                            Price = 87.58m,
+                            PrimaryGenreId = 1,
                             PublisherId = 1,
-                            Title = "Repellat occaecati aspernatur."
+                            Title = "Quasi temporibus minus."
                         },
                         new
                         {
                             Id = 5,
-                            AuthorId = 9,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 311, DateTimeKind.Utc).AddTicks(8715),
-                            Description = "Aut ratione quidem eveniet. Nihil voluptas cupiditate vitae nemo facere. Dolor culpa illo aut voluptas autem et eos. Dicta incidunt sunt ut enim veritatis. Omnis doloremque voluptas rem provident dicta repellat praesentium magnam odio. Et dicta vitae illo dicta laborum reiciendis.",
+                            AuthorId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(4533),
+                            Description = "Sit et et voluptatem qui quia aut est. Nobis qui temporibus. Perferendis aspernatur aut suscipit qui porro. Quas recusandae officiis beatae nobis ducimus. Id voluptatibus pariatur sequi nulla alias dignissimos debitis qui.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-4.jpg",
+                            ImagePath = "/images/cover-1.jpg",
                             IsDeleted = false,
-                            Price = 14.72m,
+                            Price = 19.96m,
                             PrimaryGenreId = 2,
                             PublisherId = 4,
-                            Title = "Rerum et excepturi."
+                            Title = "Veniam facere qui."
                         },
                         new
                         {
                             Id = 6,
-                            AuthorId = 1,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 311, DateTimeKind.Utc).AddTicks(8989),
-                            Description = "Accusantium accusamus in architecto. Enim eos sint nobis at beatae impedit. Nesciunt et sit corporis temporibus nam accusamus ipsum ullam. Ducimus magnam est sunt. Et qui architecto accusamus voluptatem maiores dolorem architecto perspiciatis. Aut voluptate rerum quidem voluptates quasi facere adipisci hic aut.",
+                            AuthorId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(4635),
+                            Description = "Veritatis voluptatem eligendi. Animi itaque omnis corporis placeat. Ipsa omnis ipsam sit vel laboriosam.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-7.jpg",
+                            ImagePath = "/images/cover-10.jpg",
                             IsDeleted = false,
-                            Price = 27.79m,
-                            PrimaryGenreId = 3,
-                            PublisherId = 4,
-                            Title = "Praesentium laudantium officia."
+                            Price = 96.76m,
+                            PrimaryGenreId = 5,
+                            PublisherId = 1,
+                            Title = "Voluptatem ex sed."
                         },
                         new
                         {
                             Id = 7,
-                            AuthorId = 2,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 311, DateTimeKind.Utc).AddTicks(9245),
-                            Description = "Sint est animi repellendus ipsum mollitia voluptatem. Cumque nostrum consequuntur vero quidem facilis dolorem omnis dolor. In consequuntur earum esse odio eum ut sit et. Laboriosam quod eum at. Qui ea doloribus iusto voluptas.",
+                            AuthorId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(4782),
+                            Description = "Impedit nihil neque ipsa voluptate temporibus explicabo. Impedit impedit accusantium placeat. Non neque sed et voluptas velit fugiat impedit laudantium quia. Fugiat et voluptates.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-5.jpg",
+                            ImagePath = "/images/cover-3.jpg",
                             IsDeleted = false,
-                            Price = 95.51m,
-                            PrimaryGenreId = 7,
+                            Price = 43.32m,
+                            PrimaryGenreId = 6,
                             PublisherId = 5,
-                            Title = "Deleniti nostrum a."
+                            Title = "Suscipit quidem voluptatem."
                         },
                         new
                         {
                             Id = 8,
                             AuthorId = 6,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 311, DateTimeKind.Utc).AddTicks(9466),
-                            Description = "Ut ad quis occaecati et quos. Culpa voluptatem voluptas atque sit. Dignissimos debitis a nam non earum quis libero est optio. Quaerat sunt veritatis quis repellat voluptas. Doloribus cupiditate excepturi nam. Alias accusamus dignissimos et.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(4866),
+                            Description = "Nesciunt esse tempore aliquam. Ab voluptates non ratione labore tempora nostrum nesciunt molestias voluptas. Rem voluptatibus minima asperiores voluptates veniam odio aspernatur ex nesciunt. Dicta quidem distinctio error quaerat sint. Minus consequatur voluptatem deserunt aperiam sequi.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-1.jpg",
+                            ImagePath = "/images/cover-8.jpg",
                             IsDeleted = false,
-                            Price = 49.86m,
-                            PrimaryGenreId = 2,
-                            PublisherId = 4,
-                            Title = "Autem quae et."
+                            Price = 87.09m,
+                            PrimaryGenreId = 3,
+                            PublisherId = 2,
+                            Title = "Odit dignissimos esse."
                         },
                         new
                         {
                             Id = 9,
-                            AuthorId = 1,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 311, DateTimeKind.Utc).AddTicks(9675),
-                            Description = "Sequi vel delectus beatae. Expedita deserunt quos quos aspernatur. Similique fuga culpa sit eum illo. Expedita qui accusantium dolores. Maiores harum doloribus aliquam maiores ratione in expedita sint.",
+                            AuthorId = 5,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(5003),
+                            Description = "Dolorum veritatis vero. Velit sit autem ad eos corrupti. Voluptas voluptatum eum non. Praesentium ut quos eligendi rerum accusantium voluptatem dicta et harum. Aut fugit voluptatibus qui animi id est mollitia.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-6.jpg",
+                            ImagePath = "/images/cover-3.jpg",
                             IsDeleted = false,
-                            Price = 20.92m,
-                            PrimaryGenreId = 6,
-                            PublisherId = 5,
-                            Title = "Culpa id illum."
+                            Price = 58.71m,
+                            PrimaryGenreId = 5,
+                            PublisherId = 1,
+                            Title = "Perferendis debitis culpa."
                         },
                         new
                         {
                             Id = 10,
-                            AuthorId = 3,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 311, DateTimeKind.Utc).AddTicks(9833),
-                            Description = "Aspernatur sit aspernatur rem est cumque porro omnis. Fuga autem aut deserunt velit sint reprehenderit soluta cumque. Velit et quis sit quia est corrupti in quibusdam. Itaque quis corporis quasi. Quisquam sunt autem recusandae maxime. Dolorem harum quasi.",
+                            AuthorId = 5,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(5122),
+                            Description = "Ipsum vitae natus voluptatem incidunt alias dicta possimus atque. Nesciunt quae magni quis hic asperiores blanditiis sint. Distinctio enim molestiae aperiam omnis nam asperiores omnis vitae. Sunt molestiae dolore expedita. Et quia consectetur in velit eos possimus officiis omnis. Laborum qui voluptatem aspernatur.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-3.jpg",
+                            ImagePath = "/images/cover-5.jpg",
                             IsDeleted = false,
-                            Price = 83.95m,
-                            PrimaryGenreId = 1,
-                            PublisherId = 3,
-                            Title = "Nisi accusamus blanditiis."
+                            Price = 58.55m,
+                            PrimaryGenreId = 7,
+                            PublisherId = 1,
+                            Title = "Eveniet repellat soluta."
                         },
                         new
                         {
                             Id = 11,
-                            AuthorId = 5,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 312, DateTimeKind.Utc).AddTicks(9),
-                            Description = "Aut iste error impedit tenetur non deserunt est velit. At vitae cum est. Quasi et eos. Maxime quisquam eligendi consectetur quo ab. Autem debitis consectetur cumque adipisci voluptas aperiam accusamus nulla. Alias sit itaque quia quibusdam quaerat iure quo.",
+                            AuthorId = 10,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(5265),
+                            Description = "Non saepe voluptas debitis fugiat eveniet occaecati non. Beatae deserunt eum ea sapiente mollitia quod et. Ut deserunt nesciunt aut.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-1.jpg",
+                            ImagePath = "/images/cover-3.jpg",
                             IsDeleted = false,
-                            Price = 54.02m,
-                            PrimaryGenreId = 3,
-                            PublisherId = 4,
-                            Title = "Qui in suscipit."
+                            Price = 74.97m,
+                            PrimaryGenreId = 1,
+                            PublisherId = 2,
+                            Title = "Error voluptatem dolores."
                         },
                         new
                         {
                             Id = 12,
-                            AuthorId = 5,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 312, DateTimeKind.Utc).AddTicks(205),
-                            Description = "Illo magnam dicta et esse amet necessitatibus aut alias. Officiis ex rem cum optio quia vel est. Officia nisi aliquid provident accusamus recusandae vel incidunt dicta. Ut suscipit cumque veritatis deserunt non ullam sint hic. Est saepe nesciunt molestiae est qui mollitia perspiciatis. Quis quo aliquam quas molestias aut magnam quisquam nesciunt.",
+                            AuthorId = 8,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(5332),
+                            Description = "Id eos quia sequi nulla quis tenetur ea. Totam qui ut expedita. Quisquam et inventore eveniet temporibus nobis officia velit. Consequuntur molestiae excepturi. Voluptas ut impedit porro nesciunt reiciendis.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-2.jpg",
+                            ImagePath = "/images/cover-10.jpg",
                             IsDeleted = false,
-                            Price = 50.08m,
-                            PrimaryGenreId = 3,
-                            PublisherId = 2,
-                            Title = "Molestiae iste totam."
+                            Price = 52.56m,
+                            PrimaryGenreId = 1,
+                            PublisherId = 3,
+                            Title = "Repellendus molestias hic."
                         },
                         new
                         {
                             Id = 13,
-                            AuthorId = 10,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 312, DateTimeKind.Utc).AddTicks(426),
-                            Description = "Voluptas veniam odio dolorem. Eius soluta aut fuga temporibus. Doloremque quis et aut. Quos nihil enim quis nemo tempora aut et qui et. Fugiat sint sit possimus quia et mollitia doloribus rerum.",
+                            AuthorId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(5443),
+                            Description = "Quia sunt eos quo nam suscipit eos. Aut ab et amet. Voluptatem illum dignissimos. Omnis aut est ut autem et culpa eos explicabo. Ipsum qui id et porro quos non nisi molestiae eos.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-7.jpg",
+                            ImagePath = "/images/cover-10.jpg",
                             IsDeleted = false,
-                            Price = 89.33m,
-                            PrimaryGenreId = 4,
+                            Price = 88.85m,
+                            PrimaryGenreId = 5,
                             PublisherId = 4,
-                            Title = "Architecto quod qui."
+                            Title = "Nesciunt vitae odio."
                         },
                         new
                         {
                             Id = 14,
-                            AuthorId = 7,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 312, DateTimeKind.Utc).AddTicks(540),
-                            Description = "Accusamus sunt numquam et possimus nihil deserunt est. Minima ea quo nemo dignissimos praesentium. Sed suscipit et ea exercitationem vero nemo ipsa. Dolorem non veritatis ratione occaecati non omnis quas quisquam voluptates. Non excepturi id cupiditate sunt. Magni nesciunt perspiciatis.",
+                            AuthorId = 1,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(5535),
+                            Description = "Consectetur voluptas perspiciatis et ipsum nemo commodi aspernatur quis. Optio et non ratione laudantium. Et et qui iure magni consequatur et laboriosam. Aspernatur quaerat aut rerum. Esse voluptatem dolorum.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-1.jpg",
+                            ImagePath = "/images/cover-4.jpg",
                             IsDeleted = false,
-                            Price = 12.94m,
-                            PrimaryGenreId = 3,
-                            PublisherId = 4,
-                            Title = "Exercitationem esse molestiae."
+                            Price = 71.20m,
+                            PrimaryGenreId = 2,
+                            PublisherId = 5,
+                            Title = "Nihil totam autem."
                         },
                         new
                         {
                             Id = 15,
-                            AuthorId = 1,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 312, DateTimeKind.Utc).AddTicks(719),
-                            Description = "Neque amet odit dolorem ut aut. Labore perspiciatis occaecati in est rerum ex. Quia sint et. Consequatur eaque ea non voluptatem dolores rerum dolores qui. Dolorem vel animi occaecati magnam sit fuga quisquam. Et iste possimus.",
+                            AuthorId = 4,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(5653),
+                            Description = "Fugit expedita fuga non a autem. Asperiores iusto ipsum aliquid ex quis expedita sunt hic. Porro illo sint voluptatem vero quia dignissimos.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-4.jpg",
+                            ImagePath = "/images/cover-3.jpg",
                             IsDeleted = false,
-                            Price = 13.03m,
-                            PrimaryGenreId = 1,
-                            PublisherId = 5,
-                            Title = "Et animi molestiae."
+                            Price = 95.78m,
+                            PrimaryGenreId = 7,
+                            PublisherId = 3,
+                            Title = "Iure placeat rerum."
                         },
                         new
                         {
                             Id = 16,
-                            AuthorId = 2,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 312, DateTimeKind.Utc).AddTicks(862),
-                            Description = "Eligendi expedita odit quis recusandae doloribus est quia voluptatem rerum. Optio fugit incidunt qui. Ex rerum quasi consequatur quod facere.",
+                            AuthorId = 3,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(5734),
+                            Description = "Blanditiis voluptatum eos. Provident voluptatem deleniti nisi distinctio. Labore ut et quod expedita sit et magnam dolorem. Qui perspiciatis ducimus perferendis atque dolorem et dolor quis. Illo odio cum cupiditate. Quam fugiat et adipisci architecto quo sunt mollitia.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-5.jpg",
+                            ImagePath = "/images/cover-4.jpg",
                             IsDeleted = false,
-                            Price = 13.90m,
-                            PrimaryGenreId = 7,
-                            PublisherId = 5,
-                            Title = "Autem ut commodi."
+                            Price = 50.08m,
+                            PrimaryGenreId = 2,
+                            PublisherId = 3,
+                            Title = "Est quo tempore."
                         },
                         new
                         {
                             Id = 17,
-                            AuthorId = 5,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 312, DateTimeKind.Utc).AddTicks(938),
-                            Description = "Odit placeat beatae occaecati. Quis delectus et laboriosam et sint. Esse quia nihil dolorem. Velit sequi ut minima aspernatur.",
+                            AuthorId = 1,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(5838),
+                            Description = "Quia et voluptatem. Voluptatum veritatis consequuntur voluptas reprehenderit sit et molestiae deserunt dolor. Suscipit saepe eos illum ea perferendis velit consequatur.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-8.jpg",
+                            ImagePath = "/images/cover-2.jpg",
                             IsDeleted = false,
-                            Price = 84.82m,
-                            PrimaryGenreId = 7,
-                            PublisherId = 4,
-                            Title = "Delectus nemo asperiores."
+                            Price = 67.91m,
+                            PrimaryGenreId = 3,
+                            PublisherId = 5,
+                            Title = "Dolores et libero."
                         },
                         new
                         {
                             Id = 18,
-                            AuthorId = 10,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 312, DateTimeKind.Utc).AddTicks(1050),
-                            Description = "Qui architecto explicabo illum est aut voluptas. Cumque perferendis atque. Incidunt sit at ducimus quidem quos delectus aperiam. Sapiente maxime ipsa perferendis facilis est repudiandae. Quaerat natus ea ut a. Deleniti eos asperiores.",
+                            AuthorId = 7,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(5962),
+                            Description = "Ab dicta est est ex consequuntur. Aut soluta aspernatur ipsum odio explicabo sed doloribus neque ut. Earum sequi itaque vero provident ipsam repudiandae ut. Eum hic blanditiis eum voluptas. At qui recusandae tenetur voluptatum rerum facilis earum aut.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-5.jpg",
+                            ImagePath = "/images/cover-4.jpg",
                             IsDeleted = false,
-                            Price = 42.26m,
-                            PrimaryGenreId = 3,
-                            PublisherId = 3,
-                            Title = "Quia sed quis."
+                            Price = 48.29m,
+                            PrimaryGenreId = 6,
+                            PublisherId = 4,
+                            Title = "Velit et ut."
                         },
                         new
                         {
                             Id = 19,
-                            AuthorId = 10,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 312, DateTimeKind.Utc).AddTicks(1188),
-                            Description = "Vel odio repellendus tempora recusandae velit. Ut voluptas eum soluta qui. Ut ducimus eius omnis sed mollitia optio. Ut consequatur rerum est amet minus aut necessitatibus.",
+                            AuthorId = 4,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(6100),
+                            Description = "Quis aut doloribus porro voluptatem tenetur quia qui. Maiores quidem eos ullam cum laborum omnis blanditiis distinctio. Esse maiores tempora voluptatem. Provident molestiae occaecati esse.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-10.jpg",
+                            ImagePath = "/images/cover-2.jpg",
                             IsDeleted = false,
-                            Price = 16.60m,
-                            PrimaryGenreId = 1,
-                            PublisherId = 5,
-                            Title = "Explicabo dolore ut."
+                            Price = 62.77m,
+                            PrimaryGenreId = 2,
+                            PublisherId = 3,
+                            Title = "Dolorem quis consectetur."
                         },
                         new
                         {
                             Id = 20,
-                            AuthorId = 10,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 312, DateTimeKind.Utc).AddTicks(1277),
-                            Description = "Ea aut quo sit. Consequatur qui non et ex et delectus nostrum. Impedit dolores aut. Molestiae et ipsa aperiam. Corrupti hic nostrum dolore in itaque inventore quia ut dolores.",
+                            AuthorId = 5,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 610, DateTimeKind.Utc).AddTicks(6175),
+                            Description = "Ad quod distinctio quisquam id porro ut dicta. Et repudiandae expedita magnam nulla saepe odit. Id dolorem ut voluptatem quia a enim repudiandae et dolor. Voluptates qui commodi et voluptatum est unde dolorem. Consequatur ipsum sit aperiam ex ut accusantium. Est cumque consequatur iste libero.",
                             EditCount = 0,
-                            ImagePath = "/images/cover-3.jpg",
+                            ImagePath = "/images/cover-4.jpg",
                             IsDeleted = false,
-                            Price = 97.32m,
+                            Price = 64.40m,
                             PrimaryGenreId = 1,
-                            PublisherId = 2,
-                            Title = "Pariatur delectus consequatur."
+                            PublisherId = 1,
+                            Title = "Nihil a optio."
                         });
                 });
 
@@ -799,63 +799,63 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 2,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7919),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(2056),
                             IsDeleted = false,
                             UserId = 2
                         },
                         new
                         {
                             Id = 3,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7922),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(2058),
                             IsDeleted = false,
                             UserId = 3
                         },
                         new
                         {
                             Id = 4,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7922),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(2058),
                             IsDeleted = false,
                             UserId = 4
                         },
                         new
                         {
                             Id = 5,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7922),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(2058),
                             IsDeleted = false,
                             UserId = 5
                         },
                         new
                         {
                             Id = 6,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7923),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(2059),
                             IsDeleted = false,
                             UserId = 6
                         },
                         new
                         {
                             Id = 7,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7923),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(2059),
                             IsDeleted = false,
                             UserId = 7
                         },
                         new
                         {
                             Id = 8,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7923),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(2059),
                             IsDeleted = false,
                             UserId = 8
                         },
                         new
                         {
                             Id = 9,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7923),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(2059),
                             IsDeleted = false,
                             UserId = 9
                         },
                         new
                         {
                             Id = 10,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7924),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(2060),
                             IsDeleted = false,
                             UserId = 10
                         });
@@ -964,6 +964,9 @@ namespace DAL.PostgreSQL.Migrations.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Name")
+                        .IsUnique();
+
                     b.ToTable("GiftCards");
                 });
 
@@ -1021,197 +1024,197 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            BillingAddressId = 11,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 318, DateTimeKind.Utc).AddTicks(5899),
-                            CustomerEmail = "Audrey_Kessler@gmail.com",
-                            CustomerName = "Audrey Kessler",
-                            IsDeleted = false,
-                            OrderState = 1,
-                            ShippingAddressId = 13,
-                            TotalAmount = 0m,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BillingAddressId = 6,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 318, DateTimeKind.Utc).AddTicks(9645),
-                            CustomerEmail = "Vanessa6@hotmail.com",
-                            CustomerName = "Vanessa Vandervort",
-                            IsDeleted = false,
-                            OrderState = 0,
-                            ShippingAddressId = 15,
-                            TotalAmount = 0m,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BillingAddressId = 9,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(984),
-                            CustomerEmail = "Teresa_Torp@gmail.com",
-                            CustomerName = "Teresa Torp",
-                            IsDeleted = false,
-                            OrderState = 1,
-                            ShippingAddressId = 13,
-                            TotalAmount = 0m,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BillingAddressId = 7,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(1859),
-                            CustomerEmail = "Susie_Denesik@hotmail.com",
-                            CustomerName = "Susie Denesik",
-                            IsDeleted = false,
-                            OrderState = 4,
-                            ShippingAddressId = 1,
-                            TotalAmount = 0m,
-                            UserId = 8
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BillingAddressId = 11,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(2665),
-                            CustomerEmail = "Jeffrey_Monahan@hotmail.com",
-                            CustomerName = "Jeffrey Monahan",
-                            IsDeleted = false,
-                            OrderState = 1,
-                            ShippingAddressId = 10,
-                            TotalAmount = 0m,
-                            UserId = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            BillingAddressId = 7,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(3383),
-                            CustomerEmail = "Felix_McGlynn@gmail.com",
-                            CustomerName = "Felix McGlynn",
-                            IsDeleted = false,
-                            OrderState = 1,
-                            ShippingAddressId = 4,
-                            TotalAmount = 0m,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 7,
-                            BillingAddressId = 7,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(4194),
-                            CustomerEmail = "Elmer46@gmail.com",
-                            CustomerName = "Elmer Lindgren",
-                            IsDeleted = false,
-                            OrderState = 4,
-                            ShippingAddressId = 1,
-                            TotalAmount = 0m,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 8,
-                            BillingAddressId = 4,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(4928),
-                            CustomerEmail = "Wanda.Langworth@gmail.com",
-                            CustomerName = "Wanda Langworth",
-                            IsDeleted = false,
-                            OrderState = 2,
-                            ShippingAddressId = 14,
-                            TotalAmount = 0m,
-                            UserId = 10
-                        },
-                        new
-                        {
-                            Id = 9,
-                            BillingAddressId = 3,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(5616),
-                            CustomerEmail = "Margarita64@yahoo.com",
-                            CustomerName = "Margarita Schuppe",
-                            IsDeleted = false,
-                            OrderState = 2,
-                            ShippingAddressId = 5,
-                            TotalAmount = 0m,
-                            UserId = 8
-                        },
-                        new
-                        {
-                            Id = 10,
                             BillingAddressId = 2,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(6396),
-                            CustomerEmail = "Bernice.Schultz7@gmail.com",
-                            CustomerName = "Bernice Schultz",
-                            IsDeleted = false,
-                            OrderState = 2,
-                            ShippingAddressId = 2,
-                            TotalAmount = 0m,
-                            UserId = 5
-                        },
-                        new
-                        {
-                            Id = 11,
-                            BillingAddressId = 10,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(7080),
-                            CustomerEmail = "Darla_Durgan75@hotmail.com",
-                            CustomerName = "Darla Durgan",
-                            IsDeleted = false,
-                            OrderState = 2,
-                            ShippingAddressId = 10,
-                            TotalAmount = 0m,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 12,
-                            BillingAddressId = 2,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(7761),
-                            CustomerEmail = "Gregg.McClure49@gmail.com",
-                            CustomerName = "Gregg McClure",
-                            IsDeleted = false,
-                            OrderState = 5,
-                            ShippingAddressId = 15,
-                            TotalAmount = 0m,
-                            UserId = 6
-                        },
-                        new
-                        {
-                            Id = 13,
-                            BillingAddressId = 2,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(8475),
-                            CustomerEmail = "Sandra58@hotmail.com",
-                            CustomerName = "Sandra Pfeffer",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 616, DateTimeKind.Utc).AddTicks(3744),
+                            CustomerEmail = "Robin37@hotmail.com",
+                            CustomerName = "Robin Collins",
                             IsDeleted = false,
                             OrderState = 1,
-                            ShippingAddressId = 3,
-                            TotalAmount = 0m,
-                            UserId = 7
-                        },
-                        new
-                        {
-                            Id = 14,
-                            BillingAddressId = 11,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(9171),
-                            CustomerEmail = "Stuart_Dickinson@gmail.com",
-                            CustomerName = "Stuart Dickinson",
-                            IsDeleted = false,
-                            OrderState = 3,
                             ShippingAddressId = 7,
                             TotalAmount = 0m,
                             UserId = 3
                         },
                         new
                         {
-                            Id = 15,
-                            BillingAddressId = 10,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 319, DateTimeKind.Utc).AddTicks(9875),
-                            CustomerEmail = "Michael.Kerluke61@gmail.com",
-                            CustomerName = "Michael Kerluke",
+                            Id = 2,
+                            BillingAddressId = 3,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 616, DateTimeKind.Utc).AddTicks(7152),
+                            CustomerEmail = "Calvin_Nader@yahoo.com",
+                            CustomerName = "Calvin Nader",
+                            IsDeleted = false,
+                            OrderState = 4,
+                            ShippingAddressId = 9,
+                            TotalAmount = 0m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BillingAddressId = 5,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 616, DateTimeKind.Utc).AddTicks(8267),
+                            CustomerEmail = "Terri.McClure@yahoo.com",
+                            CustomerName = "Terri McClure",
+                            IsDeleted = false,
+                            OrderState = 0,
+                            ShippingAddressId = 6,
+                            TotalAmount = 0m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BillingAddressId = 15,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 616, DateTimeKind.Utc).AddTicks(8969),
+                            CustomerEmail = "Martin_Hahn@yahoo.com",
+                            CustomerName = "Martin Hahn",
                             IsDeleted = false,
                             OrderState = 1,
+                            ShippingAddressId = 1,
+                            TotalAmount = 0m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BillingAddressId = 15,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 616, DateTimeKind.Utc).AddTicks(9698),
+                            CustomerEmail = "Cecelia.Hilll@yahoo.com",
+                            CustomerName = "Cecelia Hilll",
+                            IsDeleted = false,
+                            OrderState = 0,
+                            ShippingAddressId = 4,
+                            TotalAmount = 0m,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BillingAddressId = 4,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 617, DateTimeKind.Utc).AddTicks(319),
+                            CustomerEmail = "Lyle.Kreiger81@hotmail.com",
+                            CustomerName = "Lyle Kreiger",
+                            IsDeleted = false,
+                            OrderState = 5,
+                            ShippingAddressId = 6,
+                            TotalAmount = 0m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BillingAddressId = 10,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 617, DateTimeKind.Utc).AddTicks(963),
+                            CustomerEmail = "Bryant85@gmail.com",
+                            CustomerName = "Bryant Yundt",
+                            IsDeleted = false,
+                            OrderState = 5,
+                            ShippingAddressId = 10,
+                            TotalAmount = 0m,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BillingAddressId = 11,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 617, DateTimeKind.Utc).AddTicks(1650),
+                            CustomerEmail = "Archie_Kihn90@hotmail.com",
+                            CustomerName = "Archie Kihn",
+                            IsDeleted = false,
+                            OrderState = 1,
+                            ShippingAddressId = 14,
+                            TotalAmount = 0m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BillingAddressId = 2,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 617, DateTimeKind.Utc).AddTicks(2278),
+                            CustomerEmail = "Nicolas_Maggio@yahoo.com",
+                            CustomerName = "Nicolas Maggio",
+                            IsDeleted = false,
+                            OrderState = 4,
+                            ShippingAddressId = 8,
+                            TotalAmount = 0m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BillingAddressId = 13,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 617, DateTimeKind.Utc).AddTicks(2923),
+                            CustomerEmail = "Gary.Donnelly@yahoo.com",
+                            CustomerName = "Gary Donnelly",
+                            IsDeleted = false,
+                            OrderState = 3,
+                            ShippingAddressId = 10,
+                            TotalAmount = 0m,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BillingAddressId = 9,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 617, DateTimeKind.Utc).AddTicks(3595),
+                            CustomerEmail = "Tommie61@hotmail.com",
+                            CustomerName = "Tommie Morissette",
+                            IsDeleted = false,
+                            OrderState = 5,
+                            ShippingAddressId = 8,
+                            TotalAmount = 0m,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BillingAddressId = 1,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 617, DateTimeKind.Utc).AddTicks(4250),
+                            CustomerEmail = "Paul36@yahoo.com",
+                            CustomerName = "Paul Cassin",
+                            IsDeleted = false,
+                            OrderState = 5,
+                            ShippingAddressId = 8,
+                            TotalAmount = 0m,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BillingAddressId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 617, DateTimeKind.Utc).AddTicks(4956),
+                            CustomerEmail = "Deanna10@yahoo.com",
+                            CustomerName = "Deanna Dicki",
+                            IsDeleted = false,
+                            OrderState = 3,
+                            ShippingAddressId = 5,
+                            TotalAmount = 0m,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BillingAddressId = 4,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 617, DateTimeKind.Utc).AddTicks(5601),
+                            CustomerEmail = "Fred78@gmail.com",
+                            CustomerName = "Fred Barton",
+                            IsDeleted = false,
+                            OrderState = 4,
                             ShippingAddressId = 12,
                             TotalAmount = 0m,
                             UserId = 2
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BillingAddressId = 2,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 617, DateTimeKind.Utc).AddTicks(6237),
+                            CustomerEmail = "Anita_Pfannerstill89@hotmail.com",
+                            CustomerName = "Anita Pfannerstill",
+                            IsDeleted = false,
+                            OrderState = 3,
+                            ShippingAddressId = 6,
+                            TotalAmount = 0m,
+                            UserId = 3
                         });
                 });
 
@@ -1256,502 +1259,502 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            BookId = 14,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(5955),
+                            BookId = 2,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(243),
                             IsDeleted = false,
-                            OrderId = 11,
-                            Price = 70.45m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BookId = 17,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7233),
-                            IsDeleted = false,
-                            OrderId = 11,
-                            Price = 46.12m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BookId = 18,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7293),
-                            IsDeleted = false,
-                            OrderId = 3,
-                            Price = 69.26m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BookId = 14,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7307),
-                            IsDeleted = false,
-                            OrderId = 9,
-                            Price = 89.57m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BookId = 5,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7317),
-                            IsDeleted = false,
-                            OrderId = 7,
-                            Price = 65.90m,
+                            OrderId = 4,
+                            Price = 25.61m,
                             Quantity = 2
                         },
                         new
                         {
-                            Id = 6,
-                            BookId = 13,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7325),
+                            Id = 2,
+                            BookId = 1,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1419),
                             IsDeleted = false,
-                            OrderId = 3,
-                            Price = 98.35m,
+                            OrderId = 8,
+                            Price = 31.87m,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BookId = 5,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1467),
+                            IsDeleted = false,
+                            OrderId = 1,
+                            Price = 17.42m,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BookId = 19,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1478),
+                            IsDeleted = false,
+                            OrderId = 10,
+                            Price = 89.18m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            Id = 5,
+                            BookId = 11,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1485),
+                            IsDeleted = false,
+                            OrderId = 15,
+                            Price = 45.05m,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BookId = 16,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1493),
+                            IsDeleted = false,
+                            OrderId = 1,
+                            Price = 63.01m,
                             Quantity = 1
                         },
                         new
                         {
                             Id = 7,
-                            BookId = 8,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7334),
+                            BookId = 17,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1499),
                             IsDeleted = false,
-                            OrderId = 2,
-                            Price = 84.08m,
-                            Quantity = 1
+                            OrderId = 12,
+                            Price = 60.73m,
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 8,
-                            BookId = 13,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7343),
+                            BookId = 1,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1507),
                             IsDeleted = false,
-                            OrderId = 12,
-                            Price = 21.10m,
-                            Quantity = 2
+                            OrderId = 7,
+                            Price = 17.04m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 9,
-                            BookId = 8,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7350),
+                            BookId = 15,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1513),
                             IsDeleted = false,
-                            OrderId = 11,
-                            Price = 73.39m,
-                            Quantity = 2
+                            OrderId = 8,
+                            Price = 52.26m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 10,
-                            BookId = 1,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7358),
+                            BookId = 11,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1520),
                             IsDeleted = false,
-                            OrderId = 6,
-                            Price = 71.79m,
-                            Quantity = 2
-                        },
-                        new
-                        {
-                            Id = 11,
-                            BookId = 6,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7366),
-                            IsDeleted = false,
-                            OrderId = 11,
-                            Price = 57.36m,
+                            OrderId = 2,
+                            Price = 61.87m,
                             Quantity = 1
                         },
                         new
                         {
-                            Id = 12,
+                            Id = 11,
                             BookId = 3,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7373),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1527),
                             IsDeleted = false,
-                            OrderId = 2,
-                            Price = 16.06m,
+                            OrderId = 13,
+                            Price = 56.56m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BookId = 2,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1533),
+                            IsDeleted = false,
+                            OrderId = 1,
+                            Price = 72.63m,
                             Quantity = 2
                         },
                         new
                         {
                             Id = 13,
-                            BookId = 5,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7380),
+                            BookId = 2,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1540),
                             IsDeleted = false,
-                            OrderId = 10,
-                            Price = 17.20m,
-                            Quantity = 2
+                            OrderId = 4,
+                            Price = 71.05m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 14,
-                            BookId = 6,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7438),
+                            BookId = 18,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1546),
                             IsDeleted = false,
                             OrderId = 8,
-                            Price = 59.29m,
-                            Quantity = 1
+                            Price = 44.84m,
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 15,
-                            BookId = 13,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7446),
+                            BookId = 18,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1553),
                             IsDeleted = false,
-                            OrderId = 12,
-                            Price = 38.30m,
-                            Quantity = 1
+                            OrderId = 1,
+                            Price = 38.16m,
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 16,
-                            BookId = 14,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7454),
+                            BookId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1559),
                             IsDeleted = false,
-                            OrderId = 10,
-                            Price = 55.66m,
-                            Quantity = 2
+                            OrderId = 14,
+                            Price = 31.58m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 17,
                             BookId = 4,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7462),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1565),
                             IsDeleted = false,
-                            OrderId = 7,
-                            Price = 78.33m,
+                            OrderId = 8,
+                            Price = 67.38m,
                             Quantity = 1
                         },
                         new
                         {
                             Id = 18,
-                            BookId = 17,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7470),
+                            BookId = 10,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1658),
                             IsDeleted = false,
-                            OrderId = 6,
-                            Price = 99.79m,
+                            OrderId = 11,
+                            Price = 88.56m,
                             Quantity = 1
                         },
                         new
                         {
                             Id = 19,
-                            BookId = 4,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7477),
+                            BookId = 19,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1666),
                             IsDeleted = false,
-                            OrderId = 2,
-                            Price = 29.47m,
-                            Quantity = 2
+                            OrderId = 8,
+                            Price = 69.64m,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 20,
-                            BookId = 7,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7486),
+                            BookId = 16,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1674),
                             IsDeleted = false,
-                            OrderId = 3,
-                            Price = 45.72m,
+                            OrderId = 2,
+                            Price = 79.92m,
                             Quantity = 1
                         },
                         new
                         {
                             Id = 21,
-                            BookId = 15,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7493),
+                            BookId = 16,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1681),
                             IsDeleted = false,
-                            OrderId = 13,
-                            Price = 74.85m,
-                            Quantity = 1
+                            OrderId = 11,
+                            Price = 84.15m,
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 22,
                             BookId = 6,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7501),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1688),
                             IsDeleted = false,
-                            OrderId = 10,
-                            Price = 70.16m,
+                            OrderId = 6,
+                            Price = 13.99m,
                             Quantity = 3
                         },
                         new
                         {
                             Id = 23,
-                            BookId = 12,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7508),
+                            BookId = 5,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1694),
                             IsDeleted = false,
                             OrderId = 10,
-                            Price = 28.83m,
-                            Quantity = 3
+                            Price = 45.32m,
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 24,
-                            BookId = 19,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7516),
+                            BookId = 2,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1702),
                             IsDeleted = false,
-                            OrderId = 14,
-                            Price = 25.04m,
-                            Quantity = 3
+                            OrderId = 13,
+                            Price = 52.16m,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 25,
-                            BookId = 8,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7524),
+                            BookId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1708),
                             IsDeleted = false,
-                            OrderId = 14,
-                            Price = 26.04m,
-                            Quantity = 2
+                            OrderId = 11,
+                            Price = 52.75m,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 26,
-                            BookId = 4,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7531),
+                            BookId = 2,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1715),
                             IsDeleted = false,
-                            OrderId = 8,
-                            Price = 11.03m,
-                            Quantity = 1
+                            OrderId = 7,
+                            Price = 12.62m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 27,
-                            BookId = 12,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7539),
-                            IsDeleted = false,
-                            OrderId = 8,
-                            Price = 30.51m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 28,
-                            BookId = 18,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7547),
-                            IsDeleted = false,
-                            OrderId = 2,
-                            Price = 44.54m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 29,
-                            BookId = 16,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7555),
+                            BookId = 5,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1721),
                             IsDeleted = false,
                             OrderId = 12,
-                            Price = 52.90m,
-                            Quantity = 3
-                        },
-                        new
-                        {
-                            Id = 30,
-                            BookId = 15,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7562),
-                            IsDeleted = false,
-                            OrderId = 2,
-                            Price = 55.92m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 31,
-                            BookId = 17,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7569),
-                            IsDeleted = false,
-                            OrderId = 12,
-                            Price = 37.16m,
-                            Quantity = 1
-                        },
-                        new
-                        {
-                            Id = 32,
-                            BookId = 18,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7577),
-                            IsDeleted = false,
-                            OrderId = 7,
-                            Price = 25.90m,
-                            Quantity = 3
-                        },
-                        new
-                        {
-                            Id = 33,
-                            BookId = 14,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7585),
-                            IsDeleted = false,
-                            OrderId = 7,
-                            Price = 12.20m,
+                            Price = 56.07m,
                             Quantity = 2
                         },
                         new
                         {
-                            Id = 34,
+                            Id = 28,
                             BookId = 15,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7592),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1727),
                             IsDeleted = false,
                             OrderId = 11,
-                            Price = 51.34m,
+                            Price = 26.74m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            Id = 29,
+                            BookId = 1,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1734),
+                            IsDeleted = false,
+                            OrderId = 10,
+                            Price = 97.37m,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 30,
+                            BookId = 8,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1740),
+                            IsDeleted = false,
+                            OrderId = 2,
+                            Price = 88.53m,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            Id = 31,
+                            BookId = 9,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1747),
+                            IsDeleted = false,
+                            OrderId = 9,
+                            Price = 64.86m,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            Id = 32,
+                            BookId = 1,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1753),
+                            IsDeleted = false,
+                            OrderId = 4,
+                            Price = 19.46m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            Id = 33,
+                            BookId = 11,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1759),
+                            IsDeleted = false,
+                            OrderId = 7,
+                            Price = 65.79m,
+                            Quantity = 3
+                        },
+                        new
+                        {
+                            Id = 34,
+                            BookId = 20,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1765),
+                            IsDeleted = false,
+                            OrderId = 10,
+                            Price = 47.94m,
                             Quantity = 1
                         },
                         new
                         {
                             Id = 35,
-                            BookId = 3,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7600),
+                            BookId = 11,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1772),
                             IsDeleted = false,
-                            OrderId = 11,
-                            Price = 27.43m,
-                            Quantity = 2
+                            OrderId = 1,
+                            Price = 58.61m,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 36,
-                            BookId = 11,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7607),
+                            BookId = 17,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1778),
                             IsDeleted = false,
-                            OrderId = 2,
-                            Price = 85.03m,
-                            Quantity = 3
+                            OrderId = 3,
+                            Price = 40.48m,
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 37,
-                            BookId = 12,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7615),
+                            BookId = 5,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1785),
                             IsDeleted = false,
-                            OrderId = 9,
-                            Price = 15.42m,
-                            Quantity = 2
+                            OrderId = 2,
+                            Price = 42.86m,
+                            Quantity = 1
                         },
                         new
                         {
                             Id = 38,
-                            BookId = 8,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7623),
-                            IsDeleted = false,
-                            OrderId = 5,
-                            Price = 83.38m,
-                            Quantity = 2
-                        },
-                        new
-                        {
-                            Id = 39,
-                            BookId = 11,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7631),
+                            BookId = 12,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1791),
                             IsDeleted = false,
                             OrderId = 12,
-                            Price = 48.98m,
+                            Price = 83.11m,
                             Quantity = 3
                         },
                         new
                         {
-                            Id = 40,
-                            BookId = 12,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7638),
+                            Id = 39,
+                            BookId = 17,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1797),
                             IsDeleted = false,
-                            OrderId = 14,
-                            Price = 58.84m,
-                            Quantity = 2
+                            OrderId = 2,
+                            Price = 26.13m,
+                            Quantity = 1
+                        },
+                        new
+                        {
+                            Id = 40,
+                            BookId = 15,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1804),
+                            IsDeleted = false,
+                            OrderId = 15,
+                            Price = 29.12m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 41,
-                            BookId = 13,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7646),
+                            BookId = 10,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1810),
                             IsDeleted = false,
-                            OrderId = 10,
-                            Price = 63.75m,
-                            Quantity = 2
+                            OrderId = 11,
+                            Price = 23.02m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 42,
-                            BookId = 19,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7654),
+                            BookId = 20,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1817),
                             IsDeleted = false,
-                            OrderId = 3,
-                            Price = 24.06m,
+                            OrderId = 14,
+                            Price = 24.79m,
                             Quantity = 2
                         },
                         new
                         {
                             Id = 43,
-                            BookId = 9,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7662),
+                            BookId = 15,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1823),
                             IsDeleted = false,
-                            OrderId = 8,
-                            Price = 70.10m,
+                            OrderId = 4,
+                            Price = 17.18m,
                             Quantity = 3
                         },
                         new
                         {
                             Id = 44,
-                            BookId = 16,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7670),
+                            BookId = 18,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1830),
                             IsDeleted = false,
-                            OrderId = 15,
-                            Price = 58.26m,
-                            Quantity = 1
+                            OrderId = 11,
+                            Price = 76.76m,
+                            Quantity = 3
                         },
                         new
                         {
                             Id = 45,
-                            BookId = 18,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7677),
+                            BookId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1836),
                             IsDeleted = false,
-                            OrderId = 7,
-                            Price = 38.60m,
+                            OrderId = 13,
+                            Price = 57.30m,
                             Quantity = 3
                         },
                         new
                         {
                             Id = 46,
-                            BookId = 9,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7719),
+                            BookId = 13,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1843),
                             IsDeleted = false,
-                            OrderId = 11,
-                            Price = 48.38m,
-                            Quantity = 2
-                        },
-                        new
-                        {
-                            Id = 47,
-                            BookId = 16,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7727),
-                            IsDeleted = false,
-                            OrderId = 14,
-                            Price = 36.25m,
+                            OrderId = 7,
+                            Price = 13.14m,
                             Quantity = 1
                         },
                         new
                         {
-                            Id = 48,
-                            BookId = 17,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7734),
+                            Id = 47,
+                            BookId = 13,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1849),
                             IsDeleted = false,
                             OrderId = 2,
-                            Price = 62.57m,
-                            Quantity = 3
+                            Price = 63.97m,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            Id = 48,
+                            BookId = 3,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1855),
+                            IsDeleted = false,
+                            OrderId = 4,
+                            Price = 45.84m,
+                            Quantity = 2
                         },
                         new
                         {
                             Id = 49,
-                            BookId = 11,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7742),
+                            BookId = 18,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1861),
                             IsDeleted = false,
-                            OrderId = 8,
-                            Price = 64.30m,
+                            OrderId = 2,
+                            Price = 91.43m,
                             Quantity = 2
                         },
                         new
                         {
                             Id = 50,
-                            BookId = 7,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 321, DateTimeKind.Utc).AddTicks(7750),
+                            BookId = 18,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 619, DateTimeKind.Utc).AddTicks(1903),
                             IsDeleted = false,
-                            OrderId = 6,
-                            Price = 77.37m,
-                            Quantity = 3
+                            OrderId = 12,
+                            Price = 28.62m,
+                            Quantity = 2
                         });
                 });
 
@@ -1788,42 +1791,42 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            Bio = "Hic ipsa accusamus fuga corporis minus et minus. Explicabo voluptatibus et. Ea qui amet. Consequatur ea et nemo.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 309, DateTimeKind.Utc).AddTicks(9605),
+                            Bio = "Assumenda maiores asperiores est. Totam repellat porro dolor ipsam. Velit reprehenderit debitis consequatur accusantium alias. Id saepe possimus voluptatibus voluptatem nostrum adipisci ipsam. Alias enim labore eum minima rerum voluptas sunt assumenda.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 608, DateTimeKind.Utc).AddTicks(7260),
                             IsDeleted = false,
-                            Name = "Wilderman, Reichert and O'Connell"
+                            Name = "Conroy, Lesch and Fritsch"
                         },
                         new
                         {
                             Id = 2,
-                            Bio = "Reprehenderit ratione omnis tempore doloremque cumque dicta at facilis. Cumque alias odit et sed amet architecto odit eum dicta. Natus aut et sed perspiciatis modi labore placeat quam fugiat. Dolor iste nulla ratione non iste deserunt aspernatur ab. Facere reprehenderit ad ipsum voluptatum sint provident aut repudiandae. Consequuntur dignissimos eos tempore omnis temporibus aut fugit.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 310, DateTimeKind.Utc).AddTicks(349),
+                            Bio = "Quae eveniet qui aut earum quis laboriosam quo quisquam ipsa. Cum saepe velit animi vel nobis molestiae quaerat. Aliquam reiciendis dolor autem at ducimus cum dolorem et nobis. Sunt officia non deleniti qui aut sed voluptas. Dolore aperiam voluptas expedita deserunt.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 608, DateTimeKind.Utc).AddTicks(7962),
                             IsDeleted = false,
-                            Name = "Schumm and Sons"
+                            Name = "Gerlach LLC"
                         },
                         new
                         {
                             Id = 3,
-                            Bio = "Esse eius fugit earum. Occaecati iure aut dignissimos quaerat sed et commodi et. Tempora saepe quis animi qui et omnis error in. Eum perferendis sit accusantium et harum nesciunt.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 310, DateTimeKind.Utc).AddTicks(743),
+                            Bio = "Aut eum id exercitationem dolorem qui nihil in facilis sit. Cupiditate vel necessitatibus. Commodi quas suscipit magnam repellat tempore. Saepe repellendus nulla soluta consequatur eum nam. Rerum quisquam atque velit. Dolor ab laboriosam perspiciatis.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 608, DateTimeKind.Utc).AddTicks(8249),
                             IsDeleted = false,
-                            Name = "Windler - Zieme"
+                            Name = "Brekke LLC"
                         },
                         new
                         {
                             Id = 4,
-                            Bio = "Aliquid et aut veniam ullam omnis. Rerum voluptas dolores tempora sint consequatur ab laboriosam. Natus ex labore quia repellendus. Id corporis veritatis.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 310, DateTimeKind.Utc).AddTicks(957),
+                            Bio = "Eligendi quo ut delectus quis non est et id. Iste id doloremque explicabo quas et. Eos veritatis consequuntur voluptas quam ea saepe at quo sunt. Quo corporis praesentium. Exercitationem dolorem repellat ea. Voluptatem ut necessitatibus unde id expedita esse suscipit.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 608, DateTimeKind.Utc).AddTicks(8472),
                             IsDeleted = false,
-                            Name = "Zemlak Group"
+                            Name = "Beahan Group"
                         },
                         new
                         {
                             Id = 5,
-                            Bio = "Neque in odit repellendus dicta maiores. Doloremque ad dolor quia sapiente fugit minima aliquid quo. Ullam adipisci odit amet culpa asperiores nostrum. Suscipit qui eum est aut cum officiis iste doloremque. Est enim commodi quia nihil eaque similique laboriosam. A voluptate dolorem perspiciatis.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 310, DateTimeKind.Utc).AddTicks(1138),
+                            Bio = "Ea corporis quibusdam architecto ea dolore. Ab perspiciatis et minus cupiditate dicta voluptatem necessitatibus. Et esse facilis corrupti tenetur consequatur velit. Ipsum cupiditate eos tempora harum velit aperiam quis eaque qui. Vero rem odit autem impedit sed illum numquam culpa unde.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 608, DateTimeKind.Utc).AddTicks(8667),
                             IsDeleted = false,
-                            Name = "Wisozk - Jenkins"
+                            Name = "Kertzmann Group"
                         });
                 });
 
@@ -1869,409 +1872,409 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            BookId = 5,
-                            Comment = "Ipsam dignissimos dolorem et delectus.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(7301),
-                            IsDeleted = false,
-                            Stars = 1,
-                            UserId = 8
-                        },
-                        new
-                        {
-                            Id = 2,
-                            BookId = 1,
-                            Comment = "Rem et id officiis.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(8766),
-                            IsDeleted = false,
-                            Stars = 2,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 3,
-                            BookId = 9,
-                            Comment = "Culpa ducimus nostrum sapiente quisquam adipisci consequuntur.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(8858),
-                            IsDeleted = false,
-                            Stars = 2,
-                            UserId = 6
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BookId = 9,
-                            Comment = "Quaerat debitis omnis voluptatem delectus ut.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(8971),
-                            IsDeleted = false,
-                            Stars = 3,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 5,
                             BookId = 4,
-                            Comment = "Ut ea tempora eos assumenda qui quas dolorem praesentium.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9018),
+                            Comment = "Adipisci sed recusandae fugiat dolor sunt.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 611, DateTimeKind.Utc).AddTicks(9725),
                             IsDeleted = false,
-                            Stars = 3,
-                            UserId = 10
-                        },
-                        new
-                        {
-                            Id = 6,
-                            BookId = 15,
-                            Comment = "Sapiente quis voluptatem.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9077),
-                            IsDeleted = false,
-                            Stars = 2,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 7,
-                            BookId = 16,
-                            Comment = "Quo aliquam omnis quia.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9107),
-                            IsDeleted = false,
-                            Stars = 2,
-                            UserId = 6
-                        },
-                        new
-                        {
-                            Id = 8,
-                            BookId = 19,
-                            Comment = "Assumenda ratione sequi aut.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9131),
-                            IsDeleted = false,
-                            Stars = 1,
-                            UserId = 7
-                        },
-                        new
-                        {
-                            Id = 9,
-                            BookId = 12,
-                            Comment = "Cumque aut aliquid qui error eum aut asperiores sit inventore.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9147),
-                            IsDeleted = false,
-                            Stars = 1,
-                            UserId = 7
-                        },
-                        new
-                        {
-                            Id = 10,
-                            BookId = 3,
-                            Comment = "Ut recusandae impedit sint sunt et odit et consequatur.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9179),
-                            IsDeleted = false,
-                            Stars = 3,
+                            Stars = 5,
                             UserId = 5
                         },
                         new
                         {
-                            Id = 11,
-                            BookId = 14,
-                            Comment = "Et eligendi harum eum quibusdam saepe cumque doloremque.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9212),
+                            Id = 2,
+                            BookId = 10,
+                            Comment = "Ullam porro autem dolor quis sint.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(887),
                             IsDeleted = false,
                             Stars = 2,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 3,
+                            BookId = 13,
+                            Comment = "Aut ipsa perferendis facere ut recusandae quaerat voluptatem id quaerat.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(956),
+                            IsDeleted = false,
+                            Stars = 5,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 4,
+                            BookId = 11,
+                            Comment = "Magni ullam iure enim nisi tenetur et ut.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(986),
+                            IsDeleted = false,
+                            Stars = 4,
                             UserId = 9
                         },
                         new
                         {
-                            Id = 12,
-                            BookId = 3,
-                            Comment = "Reiciendis natus est qui sunt qui rerum qui omnis.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9269),
+                            Id = 5,
+                            BookId = 16,
+                            Comment = "Ab tenetur facilis quo.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1009),
+                            IsDeleted = false,
+                            Stars = 4,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 6,
+                            BookId = 10,
+                            Comment = "Hic voluptatem minus odio voluptatem ut laboriosam alias.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1024),
+                            IsDeleted = false,
+                            Stars = 1,
+                            UserId = 5
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BookId = 17,
+                            Comment = "Pariatur et officiis consequuntur necessitatibus cupiditate autem quia minus.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1088),
                             IsDeleted = false,
                             Stars = 5,
                             UserId = 10
                         },
                         new
                         {
-                            Id = 13,
-                            BookId = 2,
-                            Comment = "Consequatur eos possimus sed dicta odit maiores explicabo ducimus praesentium.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9298),
+                            Id = 8,
+                            BookId = 11,
+                            Comment = "Voluptas fugit odio porro amet fuga et at.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1112),
+                            IsDeleted = false,
+                            Stars = 3,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BookId = 20,
+                            Comment = "Et qui at ipsa.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1132),
                             IsDeleted = false,
                             Stars = 4,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 10,
+                            BookId = 5,
+                            Comment = "Veritatis iste reiciendis fuga voluptatum ut.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1146),
+                            IsDeleted = false,
+                            Stars = 2,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BookId = 17,
+                            Comment = "Eaque eveniet enim amet voluptas fuga quam atque et odio.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1163),
+                            IsDeleted = false,
+                            Stars = 4,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BookId = 15,
+                            Comment = "Dicta nostrum quo aut fuga et laboriosam assumenda ut.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1187),
+                            IsDeleted = false,
+                            Stars = 5,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 13,
+                            BookId = 13,
+                            Comment = "Voluptas molestias rem expedita rerum quia non suscipit quod.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1210),
+                            IsDeleted = false,
+                            Stars = 2,
                             UserId = 6
                         },
                         new
                         {
                             Id = 14,
-                            BookId = 16,
-                            Comment = "Laborum magnam enim quo nulla aperiam et dicta sed voluptatibus.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9327),
-                            IsDeleted = false,
-                            Stars = 3,
-                            UserId = 7
-                        },
-                        new
-                        {
-                            Id = 15,
-                            BookId = 11,
-                            Comment = "Officia quidem officiis molestiae quae.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9358),
-                            IsDeleted = false,
-                            Stars = 4,
-                            UserId = 7
-                        },
-                        new
-                        {
-                            Id = 16,
-                            BookId = 4,
-                            Comment = "Aut doloremque ut ducimus aut non quasi et eaque cumque.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9376),
-                            IsDeleted = false,
-                            Stars = 3,
-                            UserId = 4
-                        },
-                        new
-                        {
-                            Id = 17,
-                            BookId = 17,
-                            Comment = "Aut neque maxime voluptas sint unde et.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9409),
-                            IsDeleted = false,
-                            Stars = 3,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 18,
-                            BookId = 15,
-                            Comment = "Maiores sunt quibusdam ab autem voluptas nulla.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9433),
-                            IsDeleted = false,
-                            Stars = 5,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 19,
-                            BookId = 7,
-                            Comment = "Id maxime qui autem dolore.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9488),
-                            IsDeleted = false,
-                            Stars = 2,
-                            UserId = 10
-                        },
-                        new
-                        {
-                            Id = 20,
-                            BookId = 1,
-                            Comment = "Quis aliquam aspernatur blanditiis dolor voluptas optio et odit.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9509),
-                            IsDeleted = false,
-                            Stars = 1,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 21,
-                            BookId = 5,
-                            Comment = "Nemo voluptates odit cupiditate vel nihil.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9536),
-                            IsDeleted = false,
-                            Stars = 1,
-                            UserId = 8
-                        },
-                        new
-                        {
-                            Id = 22,
-                            BookId = 9,
-                            Comment = "Provident eligendi quo quis aut eligendi voluptas.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9558),
-                            IsDeleted = false,
-                            Stars = 5,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 23,
-                            BookId = 5,
-                            Comment = "Commodi illum ducimus eligendi optio distinctio qui.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9579),
-                            IsDeleted = false,
-                            Stars = 3,
-                            UserId = 5
-                        },
-                        new
-                        {
-                            Id = 24,
-                            BookId = 3,
-                            Comment = "Consequatur incidunt tenetur totam.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9602),
-                            IsDeleted = false,
-                            Stars = 4,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 25,
-                            BookId = 11,
-                            Comment = "Omnis temporibus non corporis cum sit fuga architecto.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9618),
-                            IsDeleted = false,
-                            Stars = 3,
-                            UserId = 7
-                        },
-                        new
-                        {
-                            Id = 26,
-                            BookId = 3,
-                            Comment = "Doloribus ratione eaque.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9642),
-                            IsDeleted = false,
-                            Stars = 3,
-                            UserId = 8
-                        },
-                        new
-                        {
-                            Id = 27,
-                            BookId = 3,
-                            Comment = "Quis veritatis soluta tempora rerum soluta rerum et suscipit.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9658),
-                            IsDeleted = false,
-                            Stars = 2,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 28,
-                            BookId = 7,
-                            Comment = "Eum corrupti aut quia ut perspiciatis dicta deserunt.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9701),
-                            IsDeleted = false,
-                            Stars = 2,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 29,
-                            BookId = 9,
-                            Comment = "Distinctio a et omnis officia culpa error.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9726),
-                            IsDeleted = false,
-                            Stars = 1,
-                            UserId = 7
-                        },
-                        new
-                        {
-                            Id = 30,
-                            BookId = 18,
-                            Comment = "Deleniti quo non vel ea sint tempora.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9749),
-                            IsDeleted = false,
-                            Stars = 3,
-                            UserId = 8
-                        },
-                        new
-                        {
-                            Id = 31,
-                            BookId = 9,
-                            Comment = "Consequatur odio dolor autem optio corporis omnis autem.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9772),
-                            IsDeleted = false,
-                            Stars = 4,
-                            UserId = 7
-                        },
-                        new
-                        {
-                            Id = 32,
                             BookId = 8,
-                            Comment = "Quaerat sapiente ipsum saepe id sed ad non in.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9795),
-                            IsDeleted = false,
-                            Stars = 1,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 33,
-                            BookId = 3,
-                            Comment = "Ab nesciunt perferendis recusandae.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9822),
-                            IsDeleted = false,
-                            Stars = 2,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 34,
-                            BookId = 10,
-                            Comment = "Voluptatibus voluptatem voluptatem qui cupiditate voluptas delectus dolor.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9837),
+                            Comment = "Ipsam ex excepturi facere esse.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1251),
                             IsDeleted = false,
                             Stars = 5,
                             UserId = 6
                         },
                         new
                         {
-                            Id = 35,
-                            BookId = 1,
-                            Comment = "Consequuntur asperiores minus fugit.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9946),
-                            IsDeleted = false,
-                            Stars = 3,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 36,
-                            BookId = 12,
-                            Comment = "Velit accusantium et et.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9963),
-                            IsDeleted = false,
-                            Stars = 5,
-                            UserId = 8
-                        },
-                        new
-                        {
-                            Id = 37,
-                            BookId = 16,
-                            Comment = "Cumque autem consequatur molestias esse.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9979),
+                            Id = 15,
+                            BookId = 4,
+                            Comment = "Magni omnis veritatis veniam magni in suscipit perspiciatis.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1269),
                             IsDeleted = false,
                             Stars = 1,
-                            UserId = 4
+                            UserId = 2
                         },
                         new
                         {
-                            Id = 38,
-                            BookId = 12,
-                            Comment = "Voluptates odit odio enim aut et et sit.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 313, DateTimeKind.Utc).AddTicks(9998),
+                            Id = 16,
+                            BookId = 4,
+                            Comment = "Aut quo excepturi et quos cumque sit dolores molestiae.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1290),
                             IsDeleted = false,
                             Stars = 1,
-                            UserId = 3
+                            UserId = 9
                         },
                         new
                         {
-                            Id = 39,
-                            BookId = 20,
-                            Comment = "Ipsam velit aut voluptas qui repellat rerum atque soluta.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(21),
+                            Id = 17,
+                            BookId = 7,
+                            Comment = "Accusamus officiis eaque quia maxime voluptate modi sit.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1314),
                             IsDeleted = false,
-                            Stars = 3,
-                            UserId = 7
+                            Stars = 4,
+                            UserId = 9
                         },
                         new
                         {
-                            Id = 40,
-                            BookId = 9,
-                            Comment = "Quibusdam dolores autem itaque aut qui.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(47),
+                            Id = 18,
+                            BookId = 13,
+                            Comment = "Expedita est est quibusdam saepe dicta non veritatis.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1334),
                             IsDeleted = false,
                             Stars = 3,
                             UserId = 10
                         },
                         new
                         {
-                            Id = 41,
+                            Id = 19,
+                            BookId = 16,
+                            Comment = "Odit ducimus tenetur enim ipsum aut velit.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1355),
+                            IsDeleted = false,
+                            Stars = 2,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 20,
+                            BookId = 9,
+                            Comment = "Sunt eligendi non qui aut nisi minima ut voluptas.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1374),
+                            IsDeleted = false,
+                            Stars = 5,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 21,
+                            BookId = 1,
+                            Comment = "Facere voluptatem et omnis quod.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1466),
+                            IsDeleted = false,
+                            Stars = 2,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 22,
                             BookId = 12,
-                            Comment = "Delectus vel dignissimos.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(67),
+                            Comment = "Maxime commodi aut facere magnam voluptate vel voluptas nostrum aspernatur.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1486),
+                            IsDeleted = false,
+                            Stars = 4,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 23,
+                            BookId = 14,
+                            Comment = "Dolor quia sequi et eius nihil enim necessitatibus repellat commodi.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1510),
+                            IsDeleted = false,
+                            Stars = 3,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 24,
+                            BookId = 19,
+                            Comment = "Reprehenderit voluptatibus est repellat fugit voluptatem at natus illum.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1535),
+                            IsDeleted = false,
+                            Stars = 4,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 25,
+                            BookId = 14,
+                            Comment = "Doloribus quam quo.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1557),
+                            IsDeleted = false,
+                            Stars = 1,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 26,
+                            BookId = 6,
+                            Comment = "Ex quia fugiat soluta ex.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1570),
+                            IsDeleted = false,
+                            Stars = 1,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 27,
+                            BookId = 2,
+                            Comment = "Non pariatur sit aut repellendus ut ipsum dolorem voluptatem fuga.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1586),
+                            IsDeleted = false,
+                            Stars = 5,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 28,
+                            BookId = 10,
+                            Comment = "Numquam asperiores inventore a molestiae aut eaque error.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1610),
+                            IsDeleted = false,
+                            Stars = 3,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 29,
+                            BookId = 14,
+                            Comment = "Corrupti voluptas rerum omnis sapiente aut et velit.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1672),
+                            IsDeleted = false,
+                            Stars = 4,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 30,
+                            BookId = 8,
+                            Comment = "Et doloribus quidem.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1693),
+                            IsDeleted = false,
+                            Stars = 1,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 31,
+                            BookId = 15,
+                            Comment = "Aut voluptates sit dolor rerum.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1705),
+                            IsDeleted = false,
+                            Stars = 4,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 32,
+                            BookId = 8,
+                            Comment = "Consequatur non deserunt nesciunt rerum assumenda ex vero.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1721),
+                            IsDeleted = false,
+                            Stars = 1,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 33,
+                            BookId = 11,
+                            Comment = "Et sit sint id enim at aperiam suscipit.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1741),
+                            IsDeleted = false,
+                            Stars = 2,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 34,
+                            BookId = 7,
+                            Comment = "Labore laudantium veritatis ipsam aut quibusdam id.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1762),
+                            IsDeleted = false,
+                            Stars = 2,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 35,
+                            BookId = 12,
+                            Comment = "Minus eveniet est tenetur quam quo maxime.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1782),
+                            IsDeleted = false,
+                            Stars = 5,
+                            UserId = 2
+                        },
+                        new
+                        {
+                            Id = 36,
+                            BookId = 14,
+                            Comment = "Neque culpa harum ut sit ut.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1801),
+                            IsDeleted = false,
+                            Stars = 4,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 37,
+                            BookId = 14,
+                            Comment = "Doloremque nostrum vel tempore unde.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1896),
+                            IsDeleted = false,
+                            Stars = 5,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 38,
+                            BookId = 10,
+                            Comment = "Architecto dolor quia.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1913),
+                            IsDeleted = false,
+                            Stars = 2,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 39,
+                            BookId = 5,
+                            Comment = "Ut qui et non.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1926),
+                            IsDeleted = false,
+                            Stars = 1,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 40,
+                            BookId = 11,
+                            Comment = "Explicabo laborum illum eum ut ad maxime deleniti ducimus doloremque.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1940),
+                            IsDeleted = false,
+                            Stars = 5,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 41,
+                            BookId = 3,
+                            Comment = "Animi adipisci ullam.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1964),
                             IsDeleted = false,
                             Stars = 2,
                             UserId = 7
@@ -2279,92 +2282,92 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 42,
-                            BookId = 8,
-                            Comment = "Vel dolores maxime aut.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(80),
+                            BookId = 14,
+                            Comment = "Laudantium eligendi iure fugiat consequatur sed voluptate quia ut.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1977),
                             IsDeleted = false,
-                            Stars = 4,
-                            UserId = 6
+                            Stars = 1,
+                            UserId = 9
                         },
                         new
                         {
                             Id = 43,
-                            BookId = 6,
-                            Comment = "Molestias libero eaque voluptatem.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(136),
+                            BookId = 3,
+                            Comment = "Adipisci eos sit qui.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(1999),
                             IsDeleted = false,
-                            Stars = 1,
-                            UserId = 4
+                            Stars = 2,
+                            UserId = 9
                         },
                         new
                         {
                             Id = 44,
-                            BookId = 11,
-                            Comment = "Aperiam eveniet nam illo nulla autem.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(154),
+                            BookId = 18,
+                            Comment = "Distinctio magni provident expedita temporibus.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(2013),
                             IsDeleted = false,
-                            Stars = 4,
-                            UserId = 6
+                            Stars = 3,
+                            UserId = 10
                         },
                         new
                         {
                             Id = 45,
-                            BookId = 3,
-                            Comment = "Illum ut ab ipsam deserunt necessitatibus sed consequuntur.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(175),
+                            BookId = 19,
+                            Comment = "Sunt ipsa aspernatur et illum iure doloremque aut alias.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(2064),
                             IsDeleted = false,
-                            Stars = 4,
-                            UserId = 3
+                            Stars = 3,
+                            UserId = 6
                         },
                         new
                         {
                             Id = 46,
-                            BookId = 13,
-                            Comment = "Ipsam error voluptatibus.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(202),
+                            BookId = 6,
+                            Comment = "Tenetur quibusdam reprehenderit sapiente ipsum porro eum saepe esse.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(2087),
                             IsDeleted = false,
-                            Stars = 5,
-                            UserId = 4
+                            Stars = 3,
+                            UserId = 2
                         },
                         new
                         {
                             Id = 47,
-                            BookId = 17,
-                            Comment = "Error ea vel dignissimos porro est harum velit.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(214),
+                            BookId = 18,
+                            Comment = "Voluptate explicabo veniam quos a.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(2111),
                             IsDeleted = false,
-                            Stars = 5,
-                            UserId = 5
+                            Stars = 4,
+                            UserId = 8
                         },
                         new
                         {
                             Id = 48,
-                            BookId = 11,
-                            Comment = "Quia laboriosam officiis fugiat animi assumenda suscipit similique placeat dolorem.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(237),
+                            BookId = 13,
+                            Comment = "Aliquam quia autem hic iusto consectetur non necessitatibus.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(2127),
                             IsDeleted = false,
-                            Stars = 3,
-                            UserId = 7
+                            Stars = 2,
+                            UserId = 8
                         },
                         new
                         {
                             Id = 49,
-                            BookId = 1,
-                            Comment = "Debitis enim ea adipisci repellendus voluptate vel aut esse consequatur.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(263),
+                            BookId = 3,
+                            Comment = "Doloribus pariatur soluta eos voluptate iure nulla quibusdam voluptas voluptatem.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(2148),
                             IsDeleted = false,
                             Stars = 1,
-                            UserId = 3
+                            UserId = 8
                         },
                         new
                         {
                             Id = 50,
-                            BookId = 8,
-                            Comment = "Ea natus sit et.",
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 314, DateTimeKind.Utc).AddTicks(290),
+                            BookId = 15,
+                            Comment = "Quos expedita dolores et atque.",
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 612, DateTimeKind.Utc).AddTicks(2172),
                             IsDeleted = false,
                             Stars = 5,
-                            UserId = 9
+                            UserId = 5
                         });
                 });
 
@@ -2443,14 +2446,14 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         {
                             Id = 1,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "b9c3be38-82d1-488e-b809-94116487359b",
+                            ConcurrencyStamp = "adaf94f6-ce98-48eb-8bf9-cffcc4420e14",
                             Email = "admin@admin.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
                             Name = "Admin User",
                             PhoneNumber = "123-456-7890",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "279f6bf1-473a-4bb9-a299-1d42ed17aab3",
+                            SecurityStamp = "5c25938f-e0c2-4811-beac-331eae0d59de",
                             TwoFactorEnabled = false,
                             UserName = "admin@admin.com"
                         },
@@ -2458,136 +2461,136 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         {
                             Id = 2,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e26b9886-3a64-4ae4-9537-62556e874c37",
-                            Email = "Price_Leannon26@hotmail.com",
+                            ConcurrencyStamp = "fc7d6702-fe83-4cc7-b016-bd819c6fdba1",
+                            Email = "Aryanna63@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            Name = "Orion Marks",
-                            PhoneNumber = "(943) 237-3763 x6647",
+                            Name = "Noemy Will",
+                            PhoneNumber = "281.271.8964 x50312",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0962ea58-f8b5-43f1-9c72-76e7dd30f18c",
+                            SecurityStamp = "87c99c2b-33c0-46d4-94ff-cbb7eff0c5bc",
                             TwoFactorEnabled = false,
-                            UserName = "Price_Leannon26@hotmail.com"
+                            UserName = "Aryanna63@gmail.com"
                         },
                         new
                         {
                             Id = 3,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "62549ae6-6e00-4944-a66c-7cff204cec45",
-                            Email = "Amie57@yahoo.com",
+                            ConcurrencyStamp = "7940706a-bf8c-425a-981a-d799050c4e2e",
+                            Email = "Cordelia.Schmeler84@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            Name = "Richie Rice",
-                            PhoneNumber = "637.421.0048",
+                            Name = "Neil Denesik",
+                            PhoneNumber = "(274) 358-6652 x41642",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "de290619-08b5-4d08-9096-ae333b6ab060",
+                            SecurityStamp = "add65ee3-524e-4469-ba4c-87d40e367dd1",
                             TwoFactorEnabled = false,
-                            UserName = "Amie57@yahoo.com"
+                            UserName = "Cordelia.Schmeler84@gmail.com"
                         },
                         new
                         {
                             Id = 4,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "55d7046e-6d76-4275-b0c4-88c3651bdf65",
-                            Email = "Samanta.Bruen61@gmail.com",
+                            ConcurrencyStamp = "8ac89007-8dea-441f-92c8-0561cd5e31cc",
+                            Email = "Millie9@hotmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            Name = "Emmy Wintheiser",
-                            PhoneNumber = "782-255-1625 x539",
+                            Name = "Annalise Gottlieb",
+                            PhoneNumber = "1-986-791-5750",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "0faba5f1-0bd6-4cd8-9b97-1ef714e739b1",
+                            SecurityStamp = "c2ce2e47-3c87-4689-9449-4045616483d5",
                             TwoFactorEnabled = false,
-                            UserName = "Samanta.Bruen61@gmail.com"
+                            UserName = "Millie9@hotmail.com"
                         },
                         new
                         {
                             Id = 5,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "daed7a6b-972e-4b16-9e2c-2e1296ba0cf4",
-                            Email = "Friedrich_Robel@yahoo.com",
+                            ConcurrencyStamp = "31efec93-af72-466b-86e3-f4d19538da53",
+                            Email = "Eleanora_Gibson40@hotmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            Name = "Wanda Ledner",
-                            PhoneNumber = "409-766-6109",
+                            Name = "Tatum Lehner",
+                            PhoneNumber = "1-455-766-6903 x69541",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a75b9401-8e02-48c5-b4d5-d61c05c4bc3c",
+                            SecurityStamp = "8905e375-6bd9-4028-b606-055b543eac23",
                             TwoFactorEnabled = false,
-                            UserName = "Friedrich_Robel@yahoo.com"
+                            UserName = "Eleanora_Gibson40@hotmail.com"
                         },
                         new
                         {
                             Id = 6,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "1b5a1f37-ed0e-4c73-9aa3-16ae5a2e31f2",
-                            Email = "Stephon55@hotmail.com",
+                            ConcurrencyStamp = "3d5079e3-40ab-487a-a5ca-1fc5a1b59df2",
+                            Email = "Randi.Altenwerth@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            Name = "Mina MacGyver",
-                            PhoneNumber = "850-733-1704 x451",
+                            Name = "Molly Lubowitz",
+                            PhoneNumber = "894-256-0018 x351",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "e5f9f044-a69a-4fa4-b555-3bf31fb7dafd",
+                            SecurityStamp = "442c46f2-40e5-40e4-87ee-e4b701d7171f",
                             TwoFactorEnabled = false,
-                            UserName = "Stephon55@hotmail.com"
+                            UserName = "Randi.Altenwerth@gmail.com"
                         },
                         new
                         {
                             Id = 7,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "767c930b-3d73-414c-a31b-d7700cfb1e5a",
-                            Email = "Rylan14@yahoo.com",
+                            ConcurrencyStamp = "f3accbd3-793e-42b0-b983-c7c0905f580d",
+                            Email = "Anika.Kunde48@hotmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            Name = "Golden Lind",
-                            PhoneNumber = "436.963.4479 x9238",
+                            Name = "Rigoberto Cummerata",
+                            PhoneNumber = "902.628.6565",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "5a3d4d19-0812-4c13-a412-d2a1e8b0156c",
+                            SecurityStamp = "02d01b84-a997-446e-94bd-15c06d8b46ad",
                             TwoFactorEnabled = false,
-                            UserName = "Rylan14@yahoo.com"
+                            UserName = "Anika.Kunde48@hotmail.com"
                         },
                         new
                         {
                             Id = 8,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "e9c585f7-ca1b-443e-b1ff-0c66ba8b1699",
-                            Email = "Jacky65@hotmail.com",
+                            ConcurrencyStamp = "510a335a-51ba-4cea-a6aa-fa40069f3c55",
+                            Email = "Zelda_Dibbert33@hotmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            Name = "Jackson Hyatt",
-                            PhoneNumber = "1-601-719-5364",
+                            Name = "Aurelia McDermott",
+                            PhoneNumber = "1-435-796-4079",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "63d42e57-91a4-4aeb-b478-1ededbe525ca",
+                            SecurityStamp = "f75b1b8e-a16e-4c7e-8b77-11e9fd392f23",
                             TwoFactorEnabled = false,
-                            UserName = "Jacky65@hotmail.com"
+                            UserName = "Zelda_Dibbert33@hotmail.com"
                         },
                         new
                         {
                             Id = 9,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "4d4825e9-530f-4624-84ba-db9b120a57f4",
-                            Email = "Janick.Wiegand@gmail.com",
+                            ConcurrencyStamp = "afd0ab1d-8ae7-4475-8ff8-6a8816c351d1",
+                            Email = "Clare.Fisher16@yahoo.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            Name = "Jody Predovic",
-                            PhoneNumber = "(362) 321-7035 x49347",
+                            Name = "River Waelchi",
+                            PhoneNumber = "275.441.4100 x708",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "7fb966f1-c8c8-4547-9233-0b2cd2613fad",
+                            SecurityStamp = "dce4fd55-5d1d-454b-95bd-572411d021f0",
                             TwoFactorEnabled = false,
-                            UserName = "Janick.Wiegand@gmail.com"
+                            UserName = "Clare.Fisher16@yahoo.com"
                         },
                         new
                         {
                             Id = 10,
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "2b28b1c3-b0e1-43b5-9c44-ddf77328b21a",
-                            Email = "Arely.Johnson21@gmail.com",
+                            ConcurrencyStamp = "6b55348a-26a2-487d-b4ac-ba0d08ae0ddf",
+                            Email = "Eileen.Thompson6@gmail.com",
                             EmailConfirmed = true,
                             LockoutEnabled = false,
-                            Name = "Skyla White",
-                            PhoneNumber = "1-632-741-3487",
+                            Name = "Zetta Klein",
+                            PhoneNumber = "(963) 985-0831",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "02ef7adb-1f9f-48a6-aa35-8e705fc19c8f",
+                            SecurityStamp = "53583bfb-5d88-4f07-94ed-f2789057a659",
                             TwoFactorEnabled = false,
-                            UserName = "Arely.Johnson21@gmail.com"
+                            UserName = "Eileen.Thompson6@gmail.com"
                         });
                 });
 
@@ -2669,168 +2672,168 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         new
                         {
                             Id = 1,
-                            BookId = 20,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4337),
+                            BookId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5165),
                             IsDeleted = false,
                             UserId = 8
                         },
                         new
                         {
                             Id = 2,
-                            BookId = 16,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4525),
+                            BookId = 8,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5341),
                             IsDeleted = false,
                             UserId = 3
                         },
                         new
                         {
                             Id = 3,
-                            BookId = 18,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4533),
-                            IsDeleted = false,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 4,
-                            BookId = 12,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4536),
-                            IsDeleted = false,
-                            UserId = 8
-                        },
-                        new
-                        {
-                            Id = 5,
-                            BookId = 1,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4540),
-                            IsDeleted = false,
-                            UserId = 5
-                        },
-                        new
-                        {
-                            Id = 6,
-                            BookId = 6,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4543),
-                            IsDeleted = false,
-                            UserId = 6
-                        },
-                        new
-                        {
-                            Id = 7,
-                            BookId = 7,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4546),
-                            IsDeleted = false,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 8,
-                            BookId = 10,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4549),
-                            IsDeleted = false,
-                            UserId = 7
-                        },
-                        new
-                        {
-                            Id = 9,
-                            BookId = 3,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4552),
+                            BookId = 8,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5347),
                             IsDeleted = false,
                             UserId = 3
                         },
                         new
                         {
-                            Id = 10,
-                            BookId = 19,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4555),
-                            IsDeleted = false,
-                            UserId = 2
-                        },
-                        new
-                        {
-                            Id = 11,
-                            BookId = 1,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4558),
-                            IsDeleted = false,
-                            UserId = 4
-                        },
-                        new
-                        {
-                            Id = 12,
-                            BookId = 14,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4562),
-                            IsDeleted = false,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 13,
+                            Id = 4,
                             BookId = 5,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4565),
-                            IsDeleted = false,
-                            UserId = 5
-                        },
-                        new
-                        {
-                            Id = 14,
-                            BookId = 14,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4568),
-                            IsDeleted = false,
-                            UserId = 9
-                        },
-                        new
-                        {
-                            Id = 15,
-                            BookId = 15,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4570),
-                            IsDeleted = false,
-                            UserId = 5
-                        },
-                        new
-                        {
-                            Id = 16,
-                            BookId = 8,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4573),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5350),
                             IsDeleted = false,
                             UserId = 2
                         },
                         new
                         {
-                            Id = 17,
-                            BookId = 14,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4576),
+                            Id = 5,
+                            BookId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5353),
                             IsDeleted = false,
-                            UserId = 5
+                            UserId = 3
                         },
                         new
                         {
-                            Id = 18,
-                            BookId = 15,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4579),
+                            Id = 6,
+                            BookId = 13,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5356),
+                            IsDeleted = false,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 7,
+                            BookId = 4,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5359),
+                            IsDeleted = false,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 8,
+                            BookId = 5,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5362),
+                            IsDeleted = false,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 9,
+                            BookId = 2,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5365),
                             IsDeleted = false,
                             UserId = 6
                         },
                         new
                         {
-                            Id = 19,
-                            BookId = 20,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4582),
+                            Id = 10,
+                            BookId = 11,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5367),
+                            IsDeleted = false,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 11,
+                            BookId = 1,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5370),
+                            IsDeleted = false,
+                            UserId = 6
+                        },
+                        new
+                        {
+                            Id = 12,
+                            BookId = 3,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5373),
                             IsDeleted = false,
                             UserId = 5
                         },
                         new
                         {
+                            Id = 13,
+                            BookId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5375),
+                            IsDeleted = false,
+                            UserId = 9
+                        },
+                        new
+                        {
+                            Id = 14,
+                            BookId = 20,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5378),
+                            IsDeleted = false,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 15,
+                            BookId = 3,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5381),
+                            IsDeleted = false,
+                            UserId = 3
+                        },
+                        new
+                        {
+                            Id = 16,
+                            BookId = 1,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5384),
+                            IsDeleted = false,
+                            UserId = 10
+                        },
+                        new
+                        {
+                            Id = 17,
+                            BookId = 2,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5387),
+                            IsDeleted = false,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 18,
+                            BookId = 8,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5390),
+                            IsDeleted = false,
+                            UserId = 8
+                        },
+                        new
+                        {
+                            Id = 19,
+                            BookId = 16,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5392),
+                            IsDeleted = false,
+                            UserId = 10
+                        },
+                        new
+                        {
                             Id = 20,
-                            BookId = 13,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4585),
+                            BookId = 3,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5395),
                             IsDeleted = false,
                             UserId = 7
                         },
                         new
                         {
                             Id = 21,
-                            BookId = 12,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4588),
+                            BookId = 14,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5398),
                             IsDeleted = false,
                             UserId = 5
                         },
@@ -2838,73 +2841,73 @@ namespace DAL.PostgreSQL.Migrations.Migrations
                         {
                             Id = 22,
                             BookId = 5,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4591),
-                            IsDeleted = false,
-                            UserId = 3
-                        },
-                        new
-                        {
-                            Id = 23,
-                            BookId = 8,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4594),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5400),
                             IsDeleted = false,
                             UserId = 6
                         },
                         new
                         {
+                            Id = 23,
+                            BookId = 19,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5403),
+                            IsDeleted = false,
+                            UserId = 10
+                        },
+                        new
+                        {
                             Id = 24,
                             BookId = 7,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4597),
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5406),
                             IsDeleted = false,
-                            UserId = 7
+                            UserId = 10
                         },
                         new
                         {
                             Id = 25,
-                            BookId = 5,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4643),
+                            BookId = 13,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5409),
                             IsDeleted = false,
-                            UserId = 7
+                            UserId = 3
                         },
                         new
                         {
                             Id = 26,
-                            BookId = 4,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4646),
+                            BookId = 16,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5411),
                             IsDeleted = false,
-                            UserId = 3
+                            UserId = 2
                         },
                         new
                         {
                             Id = 27,
-                            BookId = 12,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4650),
+                            BookId = 5,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5414),
+                            IsDeleted = false,
+                            UserId = 4
+                        },
+                        new
+                        {
+                            Id = 28,
+                            BookId = 6,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5417),
+                            IsDeleted = false,
+                            UserId = 7
+                        },
+                        new
+                        {
+                            Id = 29,
+                            BookId = 19,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5420),
                             IsDeleted = false,
                             UserId = 3
                         },
                         new
                         {
-                            Id = 28,
-                            BookId = 19,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4653),
-                            IsDeleted = false,
-                            UserId = 8
-                        },
-                        new
-                        {
-                            Id = 29,
-                            BookId = 15,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4656),
-                            IsDeleted = false,
-                            UserId = 7
-                        },
-                        new
-                        {
                             Id = 30,
-                            BookId = 19,
-                            CreatedDate = new DateTime(2024, 12, 31, 10, 21, 12, 315, DateTimeKind.Utc).AddTicks(4659),
+                            BookId = 1,
+                            CreatedDate = new DateTime(2024, 12, 31, 14, 26, 51, 613, DateTimeKind.Utc).AddTicks(5423),
                             IsDeleted = false,
-                            UserId = 7
+                            UserId = 3
                         });
                 });
 

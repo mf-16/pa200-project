@@ -2,6 +2,7 @@ namespace WebMVC.Models.GiftCard;
 
 public class GiftCardViewModel
 {
+    public int Id { get; set; }
     public string Name { get; set; }
     public decimal PriceReduction { get; set; }
     public DateTime ValidFrom { get; set; }

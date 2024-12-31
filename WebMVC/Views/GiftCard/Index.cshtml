@@ -37,7 +37,7 @@
                 <td>@giftCard.ValidFrom.ToString("yyyy-MM-dd")</td>
                 <td>@giftCard.ValidTo.ToString("yyyy-MM-dd")</td>
                 <td>
-                    <a href="@Url.Action("Details", "GiftCard", new { id = giftCard.Name })" class="btn btn-primary btn-sm">Details</a>
+                    <a asp-action="Detail" asp-route-id=@giftCard.Id class="btn btn-primary">Detail</a>
                 </td>
             </tr>
         }
