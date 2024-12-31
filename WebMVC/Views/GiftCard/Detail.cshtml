@@ -1,0 +1,48 @@
+@model WebMVC.Models.GiftCard.GiftCardViewModel
+
+<div class="container">
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5>Gift Card Information</h5>
+        </div>
+        <div class="card-body">
+            <p><strong>Price Reduction:</strong> @Model.PriceReduction.ToString("C")</p>
+            <p><strong>Valid From:</strong> @Model.ValidFrom.ToString("MMMM dd, yyyy")</p>
+            <p><strong>Valid To:</strong> @Model.ValidTo.ToString("MMMM dd, yyyy")</p>
+        </div>
+    </div>
+
+    <h3>Coupons</h3>
+    @if (Model.Coupons.Any())
+    {
+        <div class="row">
+            @foreach (var coupon in Model.Coupons)
+            {
+                <div class="col-md-2"> 
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h5>Coupon Code: @coupon.Code</h5>
+                        </div>
+                        <div class="card-body">
+                            <p>
+                                <strong>Status:</strong>
+                                @if (coupon.OrderId.HasValue)
+                                {
+                                    <span class="badge bg-success">Used in Order ID: @coupon.OrderId</span>
+                                }
+                                else
+                                {
+                                    <span class="badge bg-warning">Not Used</span>
+                                }
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <p>No coupons available for this gift card.</p>
+    }
+</div>

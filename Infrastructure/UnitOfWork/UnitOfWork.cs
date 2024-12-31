@@ -18,6 +18,8 @@ public class UnitOfWork : IUnitOfWork
     public IRepository<Review> ReviewRepository { get; }
     public IRepository<Cart> CartRepository { get; }
     public IRepository<CartItem> CartItemRepository { get; }
+    public IRepository<GiftCard> GiftCardRepository { get; }
+    public IRepository<Coupon> CouponRepository { get; }
 
     public UnitOfWork(BookHubDbContext context)
     {
@@ -33,6 +35,8 @@ public class UnitOfWork : IUnitOfWork
         ReviewRepository = new Repository<Review>(_context);
         CartRepository = new Repository<Cart>(_context);
         CartItemRepository = new Repository<CartItem>(_context);
+        GiftCardRepository = new Repository<GiftCard>(_context);
+        CouponRepository = new Repository<Coupon>(_context);
     }
 
     public async Task CommitAsync()

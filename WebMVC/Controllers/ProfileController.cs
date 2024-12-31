@@ -5,6 +5,7 @@ using BusinessLayer.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using WebMVC.Models.Cart;
+using WebMVC.Models.GiftCard;
 using WebMVC.Models.Order;
 using WebMVC.Models.Wishlist;
 
@@ -16,6 +17,7 @@ public class ProfileController : Controller
 {
     private readonly IWishlistItemService _wishlistItemService;
     private readonly IOrderService _orderService;
+    private readonly IGiftCardService _giftCardService;
     private readonly IMapper _mapper;
     private readonly ICartItemService _cartItemService;
 
@@ -23,19 +25,21 @@ public class ProfileController : Controller
         IWishlistItemService wishlistItemService,
         IMapper mapper,
         IOrderService orderService,
-        ICartItemService cartItemService
+        ICartItemService cartItemService,
+        IGiftCardService giftCardService
     )
     {
         _wishlistItemService = wishlistItemService;
         _mapper = mapper;
         _cartItemService = cartItemService;
+        _giftCardService = giftCardService;
         _orderService = orderService;
     }
 
     [Route("wishlist")]
     public async Task<IActionResult> Wishlist()
     {
-        var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (int.TryParse(userIdClaim, out int userId))
         {
             var wishlistItems = await _wishlistItemService.GetAllWishlistItemsAsync(userId);
@@ -53,9 +57,11 @@ public class ProfileController : Controller
 
         if (int.TryParse(userIdClaim, out int userId))
         {
-            var cartItems = await _cartItemService.GetAllCartItemsByUserAsync(userId);
-            var cartViewModel = _mapper.Map<CartViewModel>(cartItems);
-            return View(cartViewModel);
+            var cartItemDtos = await _cartItemService.GetAllCartItemsByUserAsync(userId);
+            var couponDtos = await _giftCardService.GetAllCouponsByUserAsync(userId);
+            var coupons = _mapper.Map<List<CouponViewModel>>(couponDtos);
+            var cartItems = _mapper.Map<List<CartItemViewModel>>(cartItemDtos);
+            return View(new CartViewModel() { CartItems = cartItems, Coupons = coupons });
         }
 
         return View();
@@ -65,7 +71,7 @@ public class ProfileController : Controller
     [Route("delete-from-wishlist")]
     public async Task<IActionResult> DeleteFromWishlist(int id)
     {
-        var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (int.TryParse(userIdClaim, out int userId))
         {
             await _wishlistItemService.DeleteWishlistItemAsync(userId, id);
@@ -76,7 +82,7 @@ public class ProfileController : Controller
     [Route("orders")]
     public async Task<IActionResult> Orders()
     {
-        var userIdClaim = User.FindFirst(System.Security.Claims.ClaimTypes.NameIdentifier)?.Value;
+        var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
         if (int.TryParse(userIdClaim, out int userId))
         {
             var orders = await _orderService.GetAllOrdersByUserIdAsync(userId);
@@ -101,5 +107,43 @@ public class ProfileController : Controller
     {
         await _cartItemService.DeleteCartItemAsync(id);
         return RedirectToAction(nameof(Cart), "Profile");
+    }
+
+    [HttpPost]
+    [Route("apply-coupon")]
+    public async Task<IActionResult> ApplyCoupon(string couponCode)
+    {
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (int.TryParse(userIdClaim, out int userId))
+        {
+            var couponDto = await _giftCardService.ApplyCouponAsync(userId, couponCode);
+
+            if (couponDto == null)
+            {
+                TempData["Error"] = "Invalid coupon code.";
+            }
+            else
+            {
+                TempData["Success"] = "Coupon applied!";
+            }
+        }
+
+        return RedirectToAction(nameof(Cart));
+    }
+
+    [HttpPost]
+    [Route("remove-coupon/{id:int}")]
+    public async Task<IActionResult> RemoveCoupon(int id)
+    {
+        var userIdClaim = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+        if (int.TryParse(userIdClaim, out int userId))
+        {
+            await _giftCardService.RemoveCouponAsync(userId, id);
+            TempData["Sucess"] = "Coupon removed";
+        }
+
+        return RedirectToAction(nameof(Cart));
     }
 }

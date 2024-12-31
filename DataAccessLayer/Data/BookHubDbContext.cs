@@ -18,6 +18,8 @@ public class BookHubDbContext : IdentityDbContext<User, UserRole, int>
     DbSet<UserRole> UserRoles { get; set; }
     DbSet<WishlistItem> WishlistItems { get; set; }
     DbSet<Address> Addresses { get; set; }
+    DbSet<GiftCard> GiftCards { get; set; }
+    DbSet<Coupon> Coupons { get; set; }
 
     public BookHubDbContext(DbContextOptions options)
         : base(options) { }
@@ -26,6 +28,7 @@ public class BookHubDbContext : IdentityDbContext<User, UserRole, int>
     {
         modelBuilder.Seed();
         base.OnModelCreating(modelBuilder);
+        modelBuilder.Entity<GiftCard>().HasIndex(g => g.Name).IsUnique();
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

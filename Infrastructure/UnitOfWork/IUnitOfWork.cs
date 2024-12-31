@@ -16,5 +16,7 @@ public interface IUnitOfWork
     IRepository<Review> ReviewRepository { get; }
     IRepository<Cart> CartRepository { get; }
     IRepository<CartItem> CartItemRepository { get; }
+    IRepository<GiftCard> GiftCardRepository { get; }
+    IRepository<Coupon> CouponRepository { get; }
     Task CommitAsync();
 }
