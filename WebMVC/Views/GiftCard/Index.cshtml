@@ -1,0 +1,45 @@
+@model List<WebMVC.Models.GiftCard.GiftCardViewModel>
+
+<h2>Gift Card List</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+}
+
+@if (TempData["Error"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+}
+
+<a asp-action="Create" class="btn btn-success">Create New</a>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price Reduction</th>
+            <th>Valid From</th>
+            <th>Valid To</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var giftCard in Model)
+        {
+            <tr>
+                <td>@giftCard.Name</td>
+                <td>@giftCard.PriceReduction.ToString("C")</td>
+                <td>@giftCard.ValidFrom.ToString("yyyy-MM-dd")</td>
+                <td>@giftCard.ValidTo.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a href="@Url.Action("Details", "GiftCard", new { id = giftCard.Name })" class="btn btn-primary btn-sm">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
