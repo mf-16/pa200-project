@@ -3,6 +3,7 @@ using BusinessLayer.DTOs.GiftCard;
 using BusinessLayer.Services.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebMVC.Models.GiftCard;
 
 namespace WebMVC.Controllers;
@@ -49,9 +50,16 @@ public class GiftCardController : Controller
         if (ModelState.IsValid)
         {
             var dto = _mapper.Map<CreateGiftCardDto>(model);
-            await _giftCardService.CreateGiftCardAsync(dto);
-            TempData["Success"] = "Gift card created successfully!";
-            return RedirectToAction("Index");
+            try
+            {
+                await _giftCardService.CreateGiftCardAsync(dto);
+                TempData["Success"] = "Gift card created successfully!";
+                return RedirectToAction("Index");
+            }
+            catch (DbUpdateException ex)
+            {
+                ModelState.AddModelError("", "A gift card with the same name already exists.");
+            }
         }
 
         return View(model);
