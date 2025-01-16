@@ -21,6 +21,7 @@
       <ProjectReference Include="..\DAL.PostgreSQL.Migrations\DAL.PostgreSQL.Migrations.csproj" />
       <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
       <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+      <ProjectReference Include="..\Middleware.Shared\Middleware.Shared.csproj" />
     </ItemGroup>
 
     <ItemGroup>

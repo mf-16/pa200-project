@@ -9,7 +9,7 @@ public class CreateReviewDto
     public int Stars { get; set; }
 
     [Required]
-    [MaxLength(500, ErrorMessage = "Comment cannot exceed 500 characters.")]
+    [MaxLength(200, ErrorMessage = "Comment cannot exceed 200 characters.")]
     public string Comment { get; set; }
 
     [Required]

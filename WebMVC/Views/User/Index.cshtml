@@ -1,0 +1,53 @@
+@model List<WebMVC.Models.User.UserViewModel>
+
+<h2>User Management</h2>
+
+<div class="container mt-4">
+
+    @if (TempData["Success"] != null)
+    {
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+    }
+
+    @if (TempData["Error"] != null)
+    {
+    <div class="alert alert-danger">
+        @TempData["Error"]
+    </div>
+    }
+
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Username</th>
+            <th scope="col">Email</th>
+            <th scope="col">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var user in Model)
+        {
+        <tr>
+            <td>@user.Id</td>
+            <td>@user.Name</td>
+            <td>@user.UserName</td>
+            <td>@user.Email</td>
+            <td>
+                <form asp-action="ResetPassword" asp-controller="User" method="post" class="d-inline">
+                    <input type="hidden" name="userId" value="@user.Id" />
+                    <input type="text" name="newPassword" placeholder="New Password" required />
+                    <button type="submit" class="btn btn-sm btn-primary">Change Password</button>
+                </form>
+            </td>
+        </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+
+

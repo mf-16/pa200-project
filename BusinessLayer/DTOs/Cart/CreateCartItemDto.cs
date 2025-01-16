@@ -5,9 +5,6 @@ namespace BusinessLayer.DTOs.Cart;
 public class CreateCartItemDto
 {
     [Required]
-    public int CartId { get; set; }
-
-    [Required]
     public int BookId { get; set; }
 
     [Required]

@@ -14,4 +14,5 @@ public class ResponseOrderDto
     public AddressDto BillingAddress { get; set; }
     public decimal TotalAmount { get; set; }
     public ICollection<ResponseOrderItemDto> OrderItems { get; set; }
+    public OrderStateDto OrderState { get; set; }
 }

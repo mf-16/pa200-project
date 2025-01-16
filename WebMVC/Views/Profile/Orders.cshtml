@@ -1,0 +1,39 @@
+@model List<WebMVC.Models.Order.OrderViewModel>
+
+<h2>Your Orders</h2>
+
+<div class="container">
+    @if (TempData["Success"] != null)
+    {
+    <div class="alert alert-success">
+        @TempData["Success"]
+    </div>
+    }
+    <div class="row">
+        @if (Model.Any())
+        {
+            @foreach (var order in Model)
+            {
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title">Order ID: <span class="text-muted">@order.Id</span></h5>
+                            <p class="card-text">
+                                <strong>Total Amount:</strong> $@order.TotalAmount
+                            </p>
+                            <p class="card-text">
+                                <strong>State:</strong> @order.OrderState.ToString()
+                            </p>
+                            <a href="@Url.Action("OrderDetail", "Order", new { id = order.Id })"
+                               class="btn btn-primary btn-sm mt-3">View Details</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+        else
+        {
+            <p>You have no orders yet.</p>
+        }
+    </div>
+</div>

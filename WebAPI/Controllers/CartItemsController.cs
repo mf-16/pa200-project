@@ -18,12 +18,13 @@ public class CartItemsController : ControllerBase
 
     [HttpPost]
     public async Task<ActionResult<ResponseCartItemDto>> AddCartItem(
+        int userId,
         [FromBody] CreateCartItemDto createCartItemDto
     )
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
-        var response = await _cartItemService.CreateCartItemAsync(createCartItemDto);
+        var response = await _cartItemService.CreateCartItemAsync(userId, createCartItemDto);
         return Ok(response);
     }
 

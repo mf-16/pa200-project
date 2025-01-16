@@ -1,0 +1,79 @@
+@model WebMVC.Models.Order.OrderDetailViewModel
+
+<h2>Order Details</h2>
+<div class="container mt-4">
+
+    <div class="card mb-4 shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4>Order Summary</h4>
+        </div>
+        <div class="card-body">
+            <p><strong>Order ID:</strong> @Model.Id</p>
+            <p><strong>Order status:</strong> @Model.OrderState.ToString()</p>
+            <p><strong>Customer Name:</strong> @Model.CustomerName</p>
+            <p><strong>Customer Email:</strong> @Model.CustomerEmail</p>
+            <p><strong>Total Amount:</strong> $@Model.TotalAmount</p>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5>Shipping Address</h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-1"><strong>Street:</strong> @Model.ShippingAddress.Street</p>
+                    <p class="mb-1"><strong>City:</strong> @Model.ShippingAddress.City</p>
+                    <p class="mb-1"><strong>State:</strong> @Model.ShippingAddress.State</p>
+                    <p class="mb-1"><strong>ZIP Code:</strong> @Model.ShippingAddress.ZipCode</p>
+                    <p class="mb-1"><strong>Country:</strong> @Model.ShippingAddress.Country</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h5>Billing Address</h5>
+                </div>
+                <div class="card-body">
+                    <p class="mb-1"><strong>Street:</strong> @Model.BillingAddress.Street</p>
+                    <p class="mb-1"><strong>City:</strong> @Model.BillingAddress.City</p>
+                    <p class="mb-1"><strong>State:</strong> @Model.BillingAddress.State</p>
+                    <p class="mb-1"><strong>ZIP Code:</strong> @Model.BillingAddress.ZipCode</p>
+                    <p class="mb-1"><strong>Country:</strong> @Model.BillingAddress.Country</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-header bg-primary text-white">
+            <h4>Order Items</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-striped table-bordered">
+                <thead>
+                <tr>
+                    <th scope="col">Book Title</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price (Each)</th>
+                    <th scope="col">Subtotal</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach (var item in Model.OrderItems)
+                {
+                <tr>
+                    <td>@item.BookTitle</td>
+                    <td>@item.Quantity</td>
+                    <td>$@item.BookPrice</td>
+                    <td>$@((item.Quantity * item.BookPrice))</td>
+                </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

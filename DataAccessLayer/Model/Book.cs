@@ -1,5 +1,5 @@
 using System.ComponentModel.DataAnnotations.Schema;
-using DataAccessLayer.Enums;
+using DataAccessLayer;
 
 namespace DataAccessLayer.Model
 {
@@ -17,7 +17,12 @@ namespace DataAccessLayer.Model
         public decimal Price { get; set; }
         public string ImagePath { get; set; }
         public string Description { get; set; }
-        public BookGenre Genre { get; set; }
+        public int PrimaryGenreId { get; set; }
+
+        [ForeignKey("PrimaryGenreId")]
+        public virtual BookGenre PrimaryGenre { get; set; }
+
+        public virtual ICollection<BookGenreLink> SecondaryGenres { get; set; }
 
         public int? LastEditorId { get; set; }
 
@@ -25,5 +30,6 @@ namespace DataAccessLayer.Model
         public virtual User LastEditor { get; set; }
 
         public int EditCount { get; set; }
+        public virtual ICollection<Review> Reviews { get; set; }
     }
 }

@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using DataAccessLayer.Enums;
 using DataAccessLayer.Model;
 using Microsoft.AspNetCore.Http;
 
@@ -9,9 +8,19 @@ public class AddBookDto
 {
     [Required]
     public string Title { get; set; }
+
+    [Required]
     public int AuthorId { get; set; }
+
+    [Required]
     public int PublisherId { get; set; }
+
+    [Required]
     public decimal Price { get; set; }
+
+    [Required]
     public string Description { get; set; }
-    public BookGenre Genre { get; set; }
+
+    [Required]
+    public int PrimaryGenreId { get; set; }
 }

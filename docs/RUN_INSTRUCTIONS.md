@@ -18,6 +18,8 @@ The application uses the following configuration files:
 - `appsettings.Development.json`: Contains settings for the development environment. This file is not tracked by git, you need to create your own. Template can be found in `template.appsettings.Development.json`
 - `appsettings.Production.json`: Contains settings for the production environment. This file is not tracked by git, you need to create your own. Template can be found in `template.appsettings.Production.json`
 
+Configure the ImageStoragePath for the WebMVC project to point to the wwwroot/images/ directory, using the full absolute path.
+
 
 ## Running the application locally
 

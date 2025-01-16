@@ -19,7 +19,4 @@ public class CreateOrderDto
 
     [Required]
     public AddressDto BillingAddress { get; set; }
-
-    [Required]
-    public int CartId { get; set; }
 }
