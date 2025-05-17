@@ -1,4 +1,6 @@
+using System.Text.Json;
 using AutoMapper;
+using Azure.Messaging.ServiceBus;
 using BusinessLayer.DTOs.Order;
 using BusinessLayer.Exceptions;
 using BusinessLayer.Services.Interfaces;
@@ -11,11 +13,14 @@ public class OrderService : IOrderService
 {
     private IUnitOfWork _unitOfWork;
     private IMapper _mapper;
+    private readonly ServiceBusClient _serviceBusClient;
+    private readonly string _queueName = "email";
 
-    public OrderService(IUnitOfWork unitOfWork, IMapper mapper)
+    public OrderService(IUnitOfWork unitOfWork, IMapper mapper, ServiceBusClient serviceBusClient)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
+        _serviceBusClient = serviceBusClient;
     }
 
     public async Task<ResponseOrderDto> CreateOrderAsync(int userId, CreateOrderDto createOrderDto)
@@ -32,6 +37,16 @@ public class OrderService : IOrderService
         user.Cart.Coupons.Clear();
 
         await _unitOfWork.CommitAsync();
+        var messagePayload = new
+        {
+            Email = order.CustomerEmail,
+            OrderId = order.Id.ToString(),
+            OrderPrice = order.TotalAmount
+        };
+
+        var json = JsonSerializer.Serialize(messagePayload);
+        var sender = _serviceBusClient.CreateSender(_queueName);
+        await sender.SendMessageAsync(new ServiceBusMessage(json));
         return _mapper.Map<ResponseOrderDto>(order);
     }
 

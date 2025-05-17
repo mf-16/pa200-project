@@ -26,9 +26,32 @@ public class BookHubDbContext : IdentityDbContext<User, UserRole, int>
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Seed();
+        // modelBuilder.Seed();
         base.OnModelCreating(modelBuilder);
         modelBuilder.Entity<GiftCard>().HasIndex(g => g.Name).IsUnique();
+        modelBuilder.Entity<Order>()
+                    .HasOne(o => o.ShippingAddress)
+                    .WithMany()
+                    .HasForeignKey(o => o.ShippingAddressId)
+                    .OnDelete(DeleteBehavior.NoAction); 
+        
+                modelBuilder.Entity<Order>()
+                    .HasOne(o => o.BillingAddress)
+                    .WithMany()
+                    .HasForeignKey(o => o.BillingAddressId)
+                    .OnDelete(DeleteBehavior.NoAction);
+        
+                modelBuilder.Entity<BookGenreLink>()
+                    .HasOne(bgl => bgl.Book)
+                    .WithMany(b => b.SecondaryGenres)
+                    .HasForeignKey(bgl => bgl.BookId)
+                    .OnDelete(DeleteBehavior.Restrict);
+        
+                modelBuilder.Entity<BookGenreLink>()
+                    .HasOne(bgl => bgl.Genre)
+                    .WithMany(g => g.SecondaryBooks)
+                    .HasForeignKey(bgl => bgl.GenreId)
+                    .OnDelete(DeleteBehavior.Restrict);
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

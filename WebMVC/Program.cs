@@ -1,3 +1,6 @@
+using Azure.Identity;
+using Azure.Messaging.ServiceBus;
+using Azure.Storage.Blobs;
 using BusinessLayer.Services;
 using BusinessLayer.Services.Interfaces;
 using DataAccessLayer.Data;
@@ -8,15 +11,33 @@ using Microsoft.EntityFrameworkCore;
 using Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
-
+var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 builder.Services.AddDbContext<BookHubDbContext>(options =>
     options
-        .UseNpgsql(
-            builder.Configuration.GetConnectionString("DefaultConnection"),
-            b => b.MigrationsAssembly("DAL.PostgreSQL.Migrations")
+        .UseSqlServer(
+            builder.Configuration.GetConnectionString(connectionString!),
+            b => b.MigrationsAssembly("DAL.SqlServer.Migrations")
         )
         .UseLazyLoadingProxies()
 );
+
+
+builder.Services.AddSingleton(_ =>
+{
+    var accountUrl = Environment.GetEnvironmentVariable("STORAGE_ACCOUNT_URL");
+
+    if (string.IsNullOrEmpty(accountUrl))
+        throw new InvalidOperationException("STORAGE_ACCOUNT_URL environment variable is not set.");
+    return new BlobServiceClient(new Uri(accountUrl), new ManagedIdentityCredential());
+}
+    
+);
+
+builder.Services.AddSingleton(serviceProvider =>
+{
+    var busConnectionString = Environment.GetEnvironmentVariable("SERVICE_BUS_CONNECTION");
+    return new ServiceBusClient(busConnectionString);
+});
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -75,6 +96,12 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<BookHubDbContext>();
+    dbContext.Database.Migrate();
 }
 
 app.UseHttpsRedirection();

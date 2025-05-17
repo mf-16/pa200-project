@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Azure.Storage.Blobs;
 using BusinessLayer.DTOs;
 using BusinessLayer.DTOs.Book;
 using BusinessLayer.Exceptions;
@@ -16,12 +17,14 @@ public class BookService : IBookService
     private readonly IUnitOfWork _unitOfWork;
     private readonly IMapper _mapper;
     private readonly IConfiguration _config;
+    private readonly BlobServiceClient _blobServiceClient;
 
-    public BookService(IUnitOfWork unitOfWork, IMapper mapper, IConfiguration config)
+    public BookService(IUnitOfWork unitOfWork, IMapper mapper, IConfiguration config, BlobServiceClient blobServiceClient)
     {
         _unitOfWork = unitOfWork;
         _mapper = mapper;
         _config = config;
+        _blobServiceClient = blobServiceClient;
     }
 
     public async Task<ResponseBookDto> AddBookAsync(AddBookDto addBookDto, IFormFile? image = null)
@@ -33,7 +36,7 @@ public class BookService : IBookService
             fileName = await UploadBookImageAsync(image);
         }
 
-        book.ImagePath = Path.Combine(Path.DirectorySeparatorChar.ToString(), "images", fileName);
+        book.ImagePath = fileName;
 
         _unitOfWork.BookRepository.Add(book);
         await _unitOfWork.CommitAsync();
@@ -94,11 +97,7 @@ public class BookService : IBookService
         if (image != null)
         {
             var fileName = await UploadBookImageAsync(image);
-            book.ImagePath = Path.Combine(
-                Path.DirectorySeparatorChar.ToString(),
-                "images",
-                fileName
-            );
+            book.ImagePath = fileName;
         }
 
         _unitOfWork.BookRepository.Update(book);
@@ -164,18 +163,14 @@ public class BookService : IBookService
 
     private async Task<string> UploadBookImageAsync(IFormFile image)
     {
-        var imageStoragePath = _config["ImageStoragePath"];
-        if (string.IsNullOrEmpty(imageStoragePath))
-            throw new InvalidOperationException("Image storage path is not configured.");
-
-        var fileName = $"{Guid.NewGuid()}_{Path.GetFileName(image.FileName)}";
-        var fullImagePath = Path.Combine(imageStoragePath, fileName);
-
-        Directory.CreateDirectory(imageStoragePath);
-        using (var stream = new FileStream(fullImagePath, FileMode.Create))
-        {
-            await image.CopyToAsync(stream);
-        }
-        return fileName;
+        var containerClient = _blobServiceClient.GetBlobContainerClient("$web");
+        await containerClient.CreateIfNotExistsAsync();
+        var fileName = $"wwwroot/images/{Guid.NewGuid()}_{Path.GetFileName(image.FileName)}";
+        var blobClient = containerClient.GetBlobClient(fileName);
+        
+        using var stream = image.OpenReadStream();
+        await blobClient.UploadAsync(stream, overwrite: true);
+        
+        return "https://pa200hw2storagemf.z1.web.core.windows.net/" + fileName;
     }
 }
