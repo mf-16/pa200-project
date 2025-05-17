@@ -15,7 +15,7 @@ var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 builder.Services.AddDbContext<BookHubDbContext>(options =>
     options
         .UseSqlServer(
-            builder.Configuration.GetConnectionString(connectionString!),
+            connectionString,
             b => b.MigrationsAssembly("DAL.SqlServer.Migrations")
         )
         .UseLazyLoadingProxies()
